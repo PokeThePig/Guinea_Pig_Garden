@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://bw84xoy2evj21"]
+
+[ext_resource type="Script" path="res://Compost Body.gd" id="1_l4wyb"]
+[ext_resource type="Texture2D" uid="uid://mh8gti6lksba" path="res://Composter.webp" id="1_qoy2m"]
+[ext_resource type="Script" path="res://Poop_count_label.gd" id="2_3pvoq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ga5x0"]
+size = Vector2(614, 1118)
+
+[node name="Poop_Count_UI" type="Node2D"]
+top_level = true
+visibility_layer = 31
+
+[node name="Compost Body" type="CharacterBody2D" parent="." groups=["poop_count"]]
+position = Vector2(-470, 529)
+collision_layer = 8
+script = ExtResource("1_l4wyb")
+
+[node name="Poop_Symbol" type="Sprite2D" parent="Compost Body"]
+position = Vector2(323, -580)
+scale = Vector2(2.92811, 3.47031)
+texture = ExtResource("1_qoy2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Compost Body"]
+position = Vector2(458, -529)
+shape = SubResource("RectangleShape2D_ga5x0")
+
+[node name="Poop_count_label" type="Label" parent="."]
+offset_left = -656.0
+offset_top = -1346.0
+offset_right = 593.0
+offset_bottom = -661.0
+theme_override_font_sizes/font_size = 200
+text = "Poop Count: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("2_3pvoq")

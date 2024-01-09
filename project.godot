@@ -1,0 +1,37 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Guinea Pig Garden"
+run/main_scene="res://Scenes/Main_World.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://icon.svg"
+
+[aseprite_importers]
+
+aseprite_executable_path="B:/SteamLibrary/steamapps/common/Aseprite/Aseprite.exe"
+
+[autoload]
+
+Globals="*res://Globals.gd"
+GuineaPig="*res://Guinea_Pig.gd"
+DroppingPoop="*res://poop_dropping.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/nklbdev.aseprite_importers/plugin.cfg")
+
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_2="poop"
+2d_physics/layer_3="pig"
+2d_physics/layer_4="poop_count"

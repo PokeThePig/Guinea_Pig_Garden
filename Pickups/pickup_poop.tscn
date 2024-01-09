@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlqdk6e2tya0p"]
+
+[ext_resource type="Script" path="res://Pickups/Pickup.gd" id="1_53rvd"]
+[ext_resource type="Texture2D" uid="uid://b6ru5f62s8wxr" path="res://icon.svg" id="2_who5i"]
+[ext_resource type="Script" path="res://Pickups/Timer.gd" id="3_ddjbb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x3qr3"]
+
+[node name="Pickup_Poop" type="CharacterBody2D"]
+script = ExtResource("1_53rvd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_who5i")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x3qr3")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.277
+autostart = true
+script = ExtResource("3_ddjbb")
+pickup_type = null
