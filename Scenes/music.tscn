@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2jqsdm1nvtgs"]
+
+[ext_resource type="Script" path="res://Music.gd" id="1_by1lq"]
+[ext_resource type="AudioStream" uid="uid://dmwsc1x4vo2an" path="res://Songs/Something Wrong with my Dog.wav" id="2_vt4ai"]
+[ext_resource type="AudioStream" uid="uid://bak01jar4pbkq" path="res://Songs/golden_poop_song.mp3" id="3_4onma"]
+[ext_resource type="AudioStream" uid="uid://2aqwc4hht5f" path="res://Songs/A Brave Gobling.wav" id="3_4qj1e"]
+
+[node name="Music" type="Node2D"]
+script = ExtResource("1_by1lq")
+
+[node name="main_song_one" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_vt4ai")
+
+[node name="main_song_two" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_4qj1e")
+
+[node name="gold_poop_song" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_4onma")
+
+[connection signal="finished" from="main_song_one" to="." method="_on_main_song_finished"]
+[connection signal="finished" from="main_song_two" to="." method="_on_main_song_two_finished"]
+[connection signal="finished" from="gold_poop_song" to="." method="_on_gold_poop_song_finished"]

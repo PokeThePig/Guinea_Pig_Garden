@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://bjmeyefd8dff5" path="res://Scenes/Guinea_Pig.tscn" id="2_kuonj"]
 [ext_resource type="Texture2D" uid="uid://8xsa3iana1xa" path="res://Fences.png" id="3_p7wj6"]
 [ext_resource type="Texture2D" uid="uid://bidilxmudrcuw" path="res://Grass.png" id="4_mqthq"]
-[ext_resource type="AudioStream" uid="uid://dmwsc1x4vo2an" path="res://Something Wrong with my Dog.wav" id="5_hwvhr"]
 [ext_resource type="PackedScene" uid="uid://bw84xoy2evj21" path="res://Scenes/Poop_UI.tscn" id="6_8ekna"]
 [ext_resource type="PackedScene" uid="uid://dhidrch210gk8" path="res://Scenes/day_night_cycle.tscn" id="7_fwb2x"]
+[ext_resource type="PackedScene" uid="uid://c2jqsdm1nvtgs" path="res://Scenes/music.tscn" id="7_j366y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4u4wq"]
 texture = ExtResource("3_p7wj6")
@@ -101,11 +101,9 @@ shape = SubResource("SegmentShape2D_3weks")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="TileMap/StaticBody2D"]
 shape = SubResource("SegmentShape2D_yd8mp")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_hwvhr")
-autoplay = true
-
 [node name="Poop_UI" parent="." instance=ExtResource("6_8ekna")]
 position = Vector2(4559, 1787)
 
 [node name="Day_Night_Cycle" parent="." instance=ExtResource("7_fwb2x")]
+
+[node name="Music" parent="." instance=ExtResource("7_j366y")]

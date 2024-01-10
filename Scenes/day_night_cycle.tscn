@@ -9,4 +9,4 @@
 color = Color(0.25098, 0.203922, 0.54902, 1)
 script = ExtResource("1_mud1l")
 gradient = ExtResource("2_raqwj")
-INGAME_SPEED = 5.0
+INGAME_SPEED = 2.0

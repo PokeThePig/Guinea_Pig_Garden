@@ -31,6 +31,10 @@ enabled=PackedStringArray("res://addons/nklbdev.aseprite_importers/plugin.cfg")
 
 [layer_names]
 
+2d_render/layer_1="pig"
+2d_render/layer_2="poop"
+2d_render/layer_3="decor"
+2d_render/layer_4="world"
 2d_physics/layer_1="world"
 2d_physics/layer_2="poop"
 2d_physics/layer_3="pig"
