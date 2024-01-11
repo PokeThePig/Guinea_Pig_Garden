@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmqg2lno2hhe4"
-path="res://.godot/imported/Gold Poop-Sheet.aseprite-f61968e9e20e150c384dcce09b894b8c.ctex"
+uid="uid://8xsa3iana1xa"
+path="res://.godot/imported/Fences.png-deeb0c996d7f515d9c220cb7739b75c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Gold Poop-Sheet.aseprite"
-dest_files=["res://.godot/imported/Gold Poop-Sheet.aseprite-f61968e9e20e150c384dcce09b894b8c.ctex"]
+source_file="res://Sprites/Fences.png"
+dest_files=["res://.godot/imported/Fences.png-deeb0c996d7f515d9c220cb7739b75c8.ctex"]
 
 [params]
 

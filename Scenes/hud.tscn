@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c81hiwf201f5"]
+
+[ext_resource type="Texture2D" uid="uid://bycf3u03uncto" path="res://Sprites/White_box_28x52.png" id="1_62v3e"]
+[ext_resource type="Texture2D" uid="uid://cvqbjdy5pacob" path="res://Sprites/border.png" id="2_yymuo"]
+[ext_resource type="Texture2D" uid="uid://drv2y5jvq8j6p" path="res://Sprites/Shop Icon Upscaled.aseprite" id="3_lh4t6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8kmma"]
+size = Vector2(714, 631.762)
+
+[node name="HUD" type="Node2D"]
+position = Vector2(0, 1)
+scale = Vector2(1, 1.039)
+
+[node name="Shop_Menu_Button" type="CharacterBody2D" parent="."]
+position = Vector2(-2, -3)
+scale = Vector2(1, 1.039)
+
+[node name="White_Button_Background" type="Sprite2D" parent="Shop_Menu_Button"]
+modulate = Color(0.694118, 0.505882, 0.32549, 1)
+position = Vector2(-0.499998, 4.74005)
+scale = Vector2(0.746851, 0.363245)
+texture = ExtResource("1_62v3e")
+
+[node name="Shop_ Button_Frame" type="Sprite2D" parent="Shop_Menu_Button"]
+modulate = Color(0.360784, 0.294118, 0.270588, 1)
+position = Vector2(4.76837e-07, 0.108382)
+scale = Vector2(1.38477, 1.22873)
+texture = ExtResource("2_yymuo")
+
+[node name="Shop_Sprite" type="Sprite2D" parent="Shop_Menu_Button"]
+position = Vector2(2, 1.03472)
+scale = Vector2(1, 1.039)
+texture = ExtResource("3_lh4t6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shop_Menu_Button"]
+visible = false
+position = Vector2(-2, 0.108367)
+shape = SubResource("RectangleShape2D_8kmma")

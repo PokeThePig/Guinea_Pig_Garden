@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wsffe4gnd0ql"
-path="res://.godot/imported/Upscaled Bella.aseprite-00cd29f38140e849cc9cc3c67b3f9089.ctex"
+uid="uid://b8arr1ggdiy0c"
+path="res://.godot/imported/Gold Poop.aseprite-408e48d88fc837c2c41d06177c11e400.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Upscaled Bella.aseprite"
-dest_files=["res://.godot/imported/Upscaled Bella.aseprite-00cd29f38140e849cc9cc3c67b3f9089.ctex"]
+source_file="res://Sprites/Gold Poop.aseprite"
+dest_files=["res://.godot/imported/Gold Poop.aseprite-408e48d88fc837c2c41d06177c11e400.ctex"]
 
 [params]
 

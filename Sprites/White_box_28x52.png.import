@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dktya7jyndhlw"
-path="res://.godot/imported/Fence Side.png-ff320271abe96ef2c848a5f8104a0295.ctex"
+uid="uid://bycf3u03uncto"
+path="res://.godot/imported/White_box_28x52.png-cd483e2cdb01f9ddc17f439600884894.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fence Side.png"
-dest_files=["res://.godot/imported/Fence Side.png-ff320271abe96ef2c848a5f8104a0295.ctex"]
+source_file="res://Sprites/White_box_28x52.png"
+dest_files=["res://.godot/imported/White_box_28x52.png-cd483e2cdb01f9ddc17f439600884894.ctex"]
 
 [params]
 

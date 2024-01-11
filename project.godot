@@ -13,7 +13,7 @@ config_version=5
 config/name="Guinea Pig Garden"
 run/main_scene="res://Scenes/Main_World.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Sprites/icon.svg"
 
 [aseprite_importers]
 
@@ -21,9 +21,9 @@ aseprite_executable_path="B:/SteamLibrary/steamapps/common/Aseprite/Aseprite.exe
 
 [autoload]
 
-Globals="*res://Globals.gd"
-GuineaPig="*res://Guinea_Pig.gd"
-DroppingPoop="*res://poop_dropping.gd"
+Globals="*res://Scripts/Globals.gd"
+GuineaPig="*res://Scripts/Guinea_Pig.gd"
+DroppingPoop="*res://Scripts/poop_dropping.gd"
 
 [editor_plugins]
 

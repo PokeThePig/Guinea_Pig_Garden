@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8arr1ggdiy0c"
-path="res://.godot/imported/Gold Poop.aseprite-d13ca80ccb0f0dc38682f938d917792f.ctex"
+uid="uid://mh8gti6lksba"
+path="res://.godot/imported/Composter.webp-11eea17701e184aaa3df1d3a0bc69959.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Gold Poop.aseprite"
-dest_files=["res://.godot/imported/Gold Poop.aseprite-d13ca80ccb0f0dc38682f938d917792f.ctex"]
+source_file="res://Sprites/Composter.webp"
+dest_files=["res://.godot/imported/Composter.webp-11eea17701e184aaa3df1d3a0bc69959.ctex"]
 
 [params]
 

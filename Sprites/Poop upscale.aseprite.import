@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dobffo3cgjjxt"
-path="res://.godot/imported/Bella Animation.aseprite-83baad56090ef0b3f362d634c1b3787e.ctex"
+uid="uid://lme15b00hisx"
+path="res://.godot/imported/Poop upscale.aseprite-8e7624fccbc82e255722edddca364f53.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Bella Animation.aseprite"
-dest_files=["res://.godot/imported/Bella Animation.aseprite-83baad56090ef0b3f362d634c1b3787e.ctex"]
+source_file="res://Sprites/Poop upscale.aseprite"
+dest_files=["res://.godot/imported/Poop upscale.aseprite-8e7624fccbc82e255722edddca364f53.ctex"]
 
 [params]
 

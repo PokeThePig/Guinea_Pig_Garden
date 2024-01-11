@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bidilxmudrcuw"
-path="res://.godot/imported/Grass.png-ff92a3c9a7a270cd183ab32eca376733.ctex"
+uid="uid://cn03uosvj0477"
+path="res://.godot/imported/Bella Sheet.aseprite-061f023d353454e40eb3845105301498.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Grass.png"
-dest_files=["res://.godot/imported/Grass.png-ff92a3c9a7a270cd183ab32eca376733.ctex"]
+source_file="res://Sprites/Bella Sheet.aseprite"
+dest_files=["res://.godot/imported/Bella Sheet.aseprite-061f023d353454e40eb3845105301498.ctex"]
 
 [params]
 

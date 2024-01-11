@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bjmeyefd8dff5"]
 
-[ext_resource type="Script" path="res://Guinea_Pig.gd" id="1_km6o0"]
-[ext_resource type="Texture2D" uid="uid://cn03uosvj0477" path="res://Bella Sheet.aseprite" id="2_gx61t"]
+[ext_resource type="Script" path="res://Scripts/Guinea_Pig.gd" id="1_km6o0"]
+[ext_resource type="Texture2D" uid="uid://cn03uosvj0477" path="res://Sprites/Bella Sheet.aseprite" id="2_gx61t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p7jxy"]
 size = Vector2(5082.06, 2369.25)
@@ -76,6 +76,7 @@ collision_mask = 2
 script = ExtResource("1_km6o0")
 
 [node name="Pig_Sprite" type="Sprite2D" parent="Guinea_Pig"]
+z_index = 1
 position = Vector2(-20.0001, 72)
 scale = Vector2(1.714, 1.59673)
 texture = ExtResource("2_gx61t")

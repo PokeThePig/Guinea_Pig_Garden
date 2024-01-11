@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://phawwa3id263"]
 
-[ext_resource type="Script" path="res://golden_poop_drop.gd" id="1_ifvie"]
-[ext_resource type="Texture2D" uid="uid://dmqg2lno2hhe4" path="res://Gold Poop-Sheet.aseprite" id="2_5gf01"]
+[ext_resource type="Script" path="res://Scripts/golden_poop_drop.gd" id="1_ifvie"]
+[ext_resource type="Texture2D" uid="uid://dmqg2lno2hhe4" path="res://Sprites/Gold Poop-Sheet.aseprite" id="2_5gf01"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kd54t"]
 radius = 179.226

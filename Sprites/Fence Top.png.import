@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lme15b00hisx"
-path="res://.godot/imported/Poop upscale.aseprite-bd181e6bc998c5bcc038b515be15754a.ctex"
+uid="uid://dkdqpwcpnb046"
+path="res://.godot/imported/Fence Top.png-1622198eb739b2509cfca7bfe6b3b65a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Poop upscale.aseprite"
-dest_files=["res://.godot/imported/Poop upscale.aseprite-bd181e6bc998c5bcc038b515be15754a.ctex"]
+source_file="res://Sprites/Fence Top.png"
+dest_files=["res://.godot/imported/Fence Top.png-1622198eb739b2509cfca7bfe6b3b65a.ctex"]
 
 [params]
 

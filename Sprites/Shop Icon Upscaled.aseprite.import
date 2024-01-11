@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkdqpwcpnb046"
-path="res://.godot/imported/Fence Top.png-75ba9ee8b17fe4079291cf55de5f320d.ctex"
+uid="uid://drv2y5jvq8j6p"
+path="res://.godot/imported/Shop Icon Upscaled.aseprite-04671046ad60acb5ea5101785d5561de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fence Top.png"
-dest_files=["res://.godot/imported/Fence Top.png-75ba9ee8b17fe4079291cf55de5f320d.ctex"]
+source_file="res://Sprites/Shop Icon Upscaled.aseprite"
+dest_files=["res://.godot/imported/Shop Icon Upscaled.aseprite-04671046ad60acb5ea5101785d5561de.ctex"]
 
 [params]
 

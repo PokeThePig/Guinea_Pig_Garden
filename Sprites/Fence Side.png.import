@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mh8gti6lksba"
-path="res://.godot/imported/Composter.webp-61bd921c0f52812cccaad0efef0b2155.ctex"
+uid="uid://dktya7jyndhlw"
+path="res://.godot/imported/Fence Side.png-e87d93859fcbe4321d372d46b681630e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Composter.webp"
-dest_files=["res://.godot/imported/Composter.webp-61bd921c0f52812cccaad0efef0b2155.ctex"]
+source_file="res://Sprites/Fence Side.png"
+dest_files=["res://.godot/imported/Fence Side.png-e87d93859fcbe4321d372d46b681630e.ctex"]
 
 [params]
 

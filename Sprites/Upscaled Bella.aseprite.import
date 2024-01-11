@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cn03uosvj0477"
-path="res://.godot/imported/Bella Sheet.aseprite-0fa911b5abfbd60ba13c27027d9e1cdb.ctex"
+uid="uid://wsffe4gnd0ql"
+path="res://.godot/imported/Upscaled Bella.aseprite-a19f5a5deee9d1a6f3b52cdea5854271.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Bella Sheet.aseprite"
-dest_files=["res://.godot/imported/Bella Sheet.aseprite-0fa911b5abfbd60ba13c27027d9e1cdb.ctex"]
+source_file="res://Sprites/Upscaled Bella.aseprite"
+dest_files=["res://.godot/imported/Upscaled Bella.aseprite-a19f5a5deee9d1a6f3b52cdea5854271.ctex"]
 
 [params]
 
