@@ -8,7 +8,7 @@
 size = Vector2(714, 631.762)
 
 [node name="HUD" type="Node2D"]
-position = Vector2(0, 1)
+position = Vector2(-4, -3)
 scale = Vector2(1, 1.039)
 
 [node name="Shop_Menu_Button" type="CharacterBody2D" parent="."]
@@ -29,7 +29,6 @@ texture = ExtResource("2_yymuo")
 
 [node name="Shop_Sprite" type="Sprite2D" parent="Shop_Menu_Button"]
 position = Vector2(2, 1.03472)
-scale = Vector2(1, 1.039)
 texture = ExtResource("3_lh4t6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shop_Menu_Button"]

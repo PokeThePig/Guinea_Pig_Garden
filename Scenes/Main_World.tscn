@@ -66,11 +66,10 @@ script = ExtResource("1_r38ht")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -6)
-offset = Vector2(64, 64)
 zoom = Vector2(0.09, 0.09)
 
 [node name="Pig" parent="." instance=ExtResource("2_kuonj")]
-position = Vector2(2, 0)
+position = Vector2(-96, -112)
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = 2
@@ -113,4 +112,5 @@ visible = false
 [node name="Music" parent="." instance=ExtResource("7_j366y")]
 
 [node name="HUD" parent="." instance=ExtResource("8_unkip")]
-position = Vector2(5718, -2697)
+position = Vector2(5752, -2544)
+scale = Vector2(1.2, 1.247)
