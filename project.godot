@@ -25,6 +25,10 @@ Globals="*res://Scripts/Globals.gd"
 GuineaPig="*res://Scripts/Guinea_Pig.gd"
 DroppingPoop="*res://Scripts/poop_dropping.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/nklbdev.aseprite_importers/plugin.cfg")
