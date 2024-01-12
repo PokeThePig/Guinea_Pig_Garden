@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://phawwa3id263"]
+[gd_scene load_steps=7 format=3 uid="uid://bhr3gnj1l5l2v"]
 
-[ext_resource type="Script" path="res://Scripts/golden_poop_drop.gd" id="1_ifvie"]
-[ext_resource type="Texture2D" uid="uid://dmqg2lno2hhe4" path="res://Sprites/Gold Poop-Sheet.aseprite" id="2_5gf01"]
+[ext_resource type="Script" path="res://Scenes/diamond_poop_drop.gd" id="1_vp7vq"]
+[ext_resource type="Texture2D" uid="uid://cn82d4844uspq" path="res://Sprites/Diamond Poop-Sheet.aseprite" id="2_ne8n8"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kd54t"]
-radius = 179.226
+[sub_resource type="CircleShape2D" id="CircleShape2D_2qt48"]
+radius = 142.014
 
 [sub_resource type="Animation" id="Animation_0i0ll"]
 length = 0.001
@@ -67,29 +67,26 @@ _data = {
 "poop_sparkle": SubResource("Animation_ph82p")
 }
 
-[node name="GoldenPoopDrop" type="CharacterBody2D" groups=["Persist"]]
+[node name="Diamond_Poop_Drop" type="Node2D"]
+
+[node name="Diamond_Poop" type="CharacterBody2D" parent="."]
 collision_layer = 8
 input_pickable = true
-script = ExtResource("1_ifvie")
+script = ExtResource("1_vp7vq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Diamond_Sprite" type="Sprite2D" parent="Diamond_Poop"]
+position = Vector2(-2.99998, 0)
 scale = Vector2(0.35, 0.35)
-texture = ExtResource("2_5gf01")
+texture = ExtResource("2_ne8n8")
 hframes = 7
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_kd54t")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Diamond_Poop"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_2qt48")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Diamond_Poop"]
 libraries = {
 "": SubResource("AnimationLibrary_kcuwr")
 }
 
-[node name="effect_duration" type="Timer" parent="."]
-wait_time = 10.0
-one_shot = true
-autostart = true
-
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="ready" from="." to="." method="_on_ready"]
-[connection signal="timeout" from="effect_duration" to="." method="_on_effect_duration_timeout"]
+[connection signal="mouse_entered" from="Diamond_Poop" to="Diamond_Poop" method="_on_mouse_entered"]

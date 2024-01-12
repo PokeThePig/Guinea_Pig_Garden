@@ -66,7 +66,7 @@ _data = {
 "walk": SubResource("Animation_2ss7n")
 }
 
-[node name="Pig" type="Node2D" groups=["pig"]]
+[node name="Pig" type="Node2D" groups=["Persist", "pig"]]
 position = Vector2(0, -80)
 
 [node name="Guinea_Pig" type="CharacterBody2D" parent="." groups=["pig"]]

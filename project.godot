@@ -22,8 +22,6 @@ aseprite_executable_path="B:/SteamLibrary/steamapps/common/Aseprite/Aseprite.exe
 [autoload]
 
 Globals="*res://Scripts/Globals.gd"
-GuineaPig="*res://Scripts/Guinea_Pig.gd"
-DroppingPoop="*res://Scripts/poop_dropping.gd"
 
 [display]
 

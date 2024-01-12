@@ -8,8 +8,6 @@ func _process(_delta):
 
 
 func _on_mouse_entered():
-	if mouse_entered:
-		
 		get_parent().add_child(gold_poop_effect.instantiate())
 		
 		Globals.poop_amount += 1
