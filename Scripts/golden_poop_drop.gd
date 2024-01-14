@@ -16,5 +16,5 @@ func _on_mouse_entered():
 	get_parent().add_child(gold_poop_effect.instantiate())
 	Globals.poop_amount += 1
 	Globals.golden_poop_active = true
-	print(Globals.poop_amount)	
+	print(Globals.poop_amount)
 	queue_free()

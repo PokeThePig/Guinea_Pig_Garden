@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Parent_Pig_Node.gd" id="1_24bw0"]
 [ext_resource type="Script" path="res://Scripts/Guinea_Pig.gd" id="1_km6o0"]
-[ext_resource type="Texture2D" uid="uid://cn03uosvj0477" path="res://Sprites/Bella Sheet.aseprite" id="2_gx61t"]
+[ext_resource type="Texture2D" uid="uid://cl0vjnsy8ir1a" path="res://Sprites/Currently Used/Bella Sheet.png" id="3_uv6n8"]
 [ext_resource type="AudioStream" uid="uid://wlpwv33acvjk" path="res://Sounds/Sounds Effects/Pop_one.wav" id="4_g0ybr"]
 [ext_resource type="AudioStream" uid="uid://ckq5qnvii1lti" path="res://Sounds/Sounds Effects/Pop_three.wav" id="6_i0ab3"]
 [ext_resource type="AudioStream" uid="uid://dfbnopbst4cp2" path="res://Sounds/Sounds Effects/Pop_two_new.wav" id="7_177yb"]
@@ -84,7 +84,7 @@ script = ExtResource("1_km6o0")
 z_index = 1
 position = Vector2(-20.0001, 72)
 scale = Vector2(1.714, 1.59673)
-texture = ExtResource("2_gx61t")
+texture = ExtResource("3_uv6n8")
 hframes = 2
 frame = 1
 

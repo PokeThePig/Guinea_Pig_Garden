@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://phawwa3id263"]
 
 [ext_resource type="Script" path="res://Scripts/golden_poop_drop.gd" id="1_gcg5x"]
-[ext_resource type="Texture2D" uid="uid://dmqg2lno2hhe4" path="res://Sprites/Gold Poop-Sheet.aseprite" id="2_6gnay"]
+[ext_resource type="Texture2D" uid="uid://vis65ubgcjss" path="res://Sprites/Currently Used/Gold Poop-Sheet.png" id="2_70oac"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kd54t"]
 radius = 179.226
@@ -74,7 +74,7 @@ script = ExtResource("1_gcg5x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.35, 0.35)
-texture = ExtResource("2_6gnay")
+texture = ExtResource("2_70oac")
 hframes = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

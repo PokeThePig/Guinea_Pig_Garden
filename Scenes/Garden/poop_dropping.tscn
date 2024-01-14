@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cq3t6a587n8yl"]
 
 [ext_resource type="Script" path="res://Scripts/poop_dropping.gd" id="1_7uhof"]
-[ext_resource type="Texture2D" uid="uid://lme15b00hisx" path="res://Sprites/Poop upscale.aseprite" id="2_gjl2v"]
+[ext_resource type="Texture2D" uid="uid://vjm4igbsy0h7" path="res://Sprites/Currently Used/Poop upscale.png" id="2_xfgo8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3e1rc"]
 radius = 164.012
@@ -15,7 +15,7 @@ script = ExtResource("1_7uhof")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visibility_layer = 2
 scale = Vector2(0.35, 0.35)
-texture = ExtResource("2_gjl2v")
+texture = ExtResource("2_xfgo8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 8

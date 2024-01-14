@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bhr3gnj1l5l2v"]
 
 [ext_resource type="Script" path="res://Scripts/diamond_poop_drop.gd" id="1_vp7vq"]
-[ext_resource type="Texture2D" uid="uid://cn82d4844uspq" path="res://Sprites/Diamond Poop-Sheet.aseprite" id="2_ne8n8"]
+[ext_resource type="Texture2D" uid="uid://cvsfgy7iqqmos" path="res://Sprites/Currently Used/Diamond Poop-Sheet.png" id="2_140wq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2qt48"]
 radius = 142.014
@@ -77,7 +77,7 @@ script = ExtResource("1_vp7vq")
 [node name="Diamond_Sprite" type="Sprite2D" parent="Diamond_Poop"]
 position = Vector2(-2.99998, 0)
 scale = Vector2(0.35, 0.35)
-texture = ExtResource("2_ne8n8")
+texture = ExtResource("2_140wq")
 hframes = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Diamond_Poop"]
