@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var gold_poop_effect = load("res://Scenes/golden_poop_effect.tscn")
+@onready var gold_poop_effect = load("res://Scenes/Garden/golden_poop_effect.tscn")
 @onready var poop_animation = $AnimationPlayer
 
 signal effect_start
