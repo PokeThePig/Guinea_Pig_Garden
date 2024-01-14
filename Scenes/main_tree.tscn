@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8an7cmfb0keb"]
 
-[ext_resource type="PackedScene" uid="uid://cj1qi3eed3trw" path="res://Scenes/Main_World.tscn" id="1_qtg4v"]
-[ext_resource type="PackedScene" uid="uid://btb1pslcs8m6q" path="res://Scenes/shop_scene.tscn" id="2_6efl6"]
+[ext_resource type="PackedScene" uid="uid://cj1qi3eed3trw" path="res://Scenes/Garden/Main_World.tscn" id="1_qtg4v"]
+[ext_resource type="PackedScene" uid="uid://btb1pslcs8m6q" path="res://Scenes/Shop/shop_scene.tscn" id="2_6efl6"]
 
 [node name="Main_Tree" type="Node2D"]
 

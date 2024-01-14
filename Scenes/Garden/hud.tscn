@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://c81hiwf201f5"]
+
+[ext_resource type="Script" path="res://Scripts/Shop_button.gd" id="1_p0m00"]
+[ext_resource type="Texture2D" uid="uid://xcj1bjqwa3ph" path="res://Sprites/Shop Button Grey (no text).aseprite" id="2_2x8ok"]
+[ext_resource type="Texture2D" uid="uid://b2bwfse6d2cuu" path="res://Sprites/Shop Button Pressed (no text).aseprite" id="3_q6d83"]
+[ext_resource type="Texture2D" uid="uid://b0uj6gwbcah4" path="res://Sprites/Settings Button V1.aseprite" id="4_tu0ih"]
+[ext_resource type="Texture2D" uid="uid://dbp6rre8dqngn" path="res://Sprites/Settings Button V2 Pressed.aseprite" id="5_7j6lt"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_5elkf"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_stbsh"]
+events = [SubResource("InputEventKey_5elkf")]
+
+[node name="HUD" type="Node2D"]
+position = Vector2(-4, -3)
+scale = Vector2(1, 1.039)
+script = ExtResource("1_p0m00")
+
+[node name="Shop_button" type="Node2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="Shop_Menu_Button" type="TextureButton" parent="Shop_button"]
+offset_left = -564.0
+offset_top = -540.0
+offset_right = 560.0
+offset_bottom = 484.0
+scale = Vector2(1, 1.039)
+texture_normal = ExtResource("2_2x8ok")
+texture_hover = ExtResource("3_q6d83")
+stretch_mode = 0
+
+[node name="Settings_button" type="Node2D" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="Settings_button"]
+offset_left = -310.0
+offset_top = 391.723
+offset_right = 313.0
+offset_bottom = 980.723
+shortcut = SubResource("Shortcut_stbsh")
+texture_normal = ExtResource("4_tu0ih")
+texture_hover = ExtResource("5_7j6lt")
+stretch_mode = 0
+
+[connection signal="pressed" from="Shop_button/Shop_Menu_Button" to="." method="_on_shop_menu_button_pressed"]
+[connection signal="pressed" from="Settings_button/TextureButton" to="." method="_on_texture_button_pressed"]

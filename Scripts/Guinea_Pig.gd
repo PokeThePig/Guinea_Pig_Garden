@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 #Poop drops
-@onready var poop_item = load("res://Scenes/poop_dropping.tscn")
-@onready var golden_poop = load("res://Scenes/golden_poop_drop.tscn")
-@onready var diamond_poop = load("res://Scenes/diamond_poop_drop.tscn")
+@onready var poop_item = load("res://Scenes/Garden/poop_dropping.tscn")
+@onready var golden_poop = load("res://Scenes/Garden/golden_poop_drop.tscn")
+@onready var diamond_poop = load("res://Scenes/Garden/diamond_poop_drop.tscn")
 
 #Guinea Pig Assets
 @onready var pig_sprite = $Pig_Sprite
@@ -54,12 +54,12 @@ func _physics_process(_delta):
 
 func _on_wander_timer_timeout():
 	if Globals.golden_poop_active == false:
-		state = floor(randf_range(0,5))
+		state = randi_range(0,5)
 		Globals.movespeed = randf_range(1, 3)
 		print("Speed: ", Globals.movespeed)
 		movement_change.wait_time = 3.5
 	else:
-		state = floor(randf_range(1,5))
+		state = randi_range(1,5)
 		Globals.movespeed = randf_range(8,10)
 		movement_change.wait_time = 0.25
 
@@ -109,24 +109,35 @@ func _on_poop_spawner_timeout():
 	pass
 
 
-'''Event timer for golden poop'''
-#Needs to be changed
+'''Gold Poop Effect'''
 
-func _on_event_checker_timeout():
-	if Globals.golden_poop_active == true:
-		
-		poop_drop_speed.stop()
-		poop_drop_speed.wait_time = 0.1
-		poop_drop_speed.start()
-		
-		movement_change.stop()
-		movement_change.wait_time = 0.25
-		Globals.movespeed = randf_range(8,10)
-		state = floor(randf_range(1,5))
-		movement_change.start()
-		
-	elif Globals.golden_poop_active == false:
-		poop_drop_speed.wait_time = 2.5
-		movement_change.wait_time = 3.5
-		
-		
+func _start_golden_poop_effect():
+	poop_drop_speed.stop()
+	poop_drop_speed.wait_time = 0.1
+	poop_drop_speed.start()
+	movement_change.stop()
+	movement_change.wait_time = 0.25
+	movement_change.start()
+	
+func _end_golden_poop_effect():
+	poop_drop_speed.wait_time = 2.5
+	movement_change.wait_time = 3.5
+
+
+
+'''Playing pickup sound effects'''
+
+func _on_poop_colleced():
+	sound_effect_randomizer().play()
+	Globals.poop_amount += 1
+	print(Globals.poop_amount)
+	
+func sound_effect_randomizer():
+	var sound_effect_num = floor(randf_range(0,3))
+	print(sound_effect_num)
+	if sound_effect_num == 0:
+		return $pop_one
+	elif sound_effect_num == 1:
+		return $pop_two
+	elif sound_effect_num == 2:
+		return $pop_three

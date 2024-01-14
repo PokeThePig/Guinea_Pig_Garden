@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://2aqwc4hht5f"
+path="res://.godot/imported/A Brave Gobling.wav-820477c4ecc132e1ef7f325b89d10bfd.sample"
+
+[deps]
+
+source_file="res://Sounds/Songs/A Brave Gobling.wav"
+dest_files=["res://.godot/imported/A Brave Gobling.wav-820477c4ecc132e1ef7f325b89d10bfd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

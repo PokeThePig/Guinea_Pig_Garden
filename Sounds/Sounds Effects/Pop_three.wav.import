@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ckq5qnvii1lti"
+path="res://.godot/imported/Pop_three.wav-3e561f13d0f638d386258f310b2d966a.sample"
+
+[deps]
+
+source_file="res://Sounds/Sounds Effects/Pop_three.wav"
+dest_files=["res://.godot/imported/Pop_three.wav-3e561f13d0f638d386258f310b2d966a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

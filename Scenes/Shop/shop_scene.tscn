@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://btb1pslcs8m6q"]
+
+[ext_resource type="Script" path="res://Scripts/shop_scene.gd" id="1_8evvr"]
+[ext_resource type="PackedScene" uid="uid://diwrvhytcahww" path="res://Scenes/Shop/guinea_pig_two_purchase.tscn" id="1_sca5w"]
+[ext_resource type="Script" path="res://Scripts/Shop_poop_count.gd" id="2_gn45u"]
+[ext_resource type="Script" path="res://Scripts/Shop_diamond_count.gd" id="3_vijd3"]
+[ext_resource type="PackedScene" uid="uid://bmfvrbim5mj2j" path="res://Scenes/Shop/diamond_poop_purchase.tscn" id="4_pe6ud"]
+
+[node name="Shop_Scene" type="Node2D"]
+script = ExtResource("1_8evvr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(801, 454)
+
+[node name="Shop_poop_count" type="Label" parent="."]
+offset_left = 650.0
+offset_top = 687.0
+offset_right = 970.0
+offset_bottom = 858.0
+theme_override_font_sizes/font_size = 40
+text = "Poop Count:"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_gn45u")
+
+[node name="Shop_diamond_count" type="Label" parent="."]
+visible = false
+modulate = Color(0, 0.866667, 0.866667, 1)
+offset_left = 597.0
+offset_top = 820.0
+offset_right = 1049.0
+offset_bottom = 1006.0
+theme_override_font_sizes/font_size = 40
+text = "Diamond Poop Count: 0"
+script = ExtResource("3_vijd3")
+
+[node name="Shop_title" type="Label" parent="."]
+offset_top = 45.0
+offset_right = 1602.0
+offset_bottom = 303.0
+theme_override_font_sizes/font_size = 100
+text = "Guinea Gadget Gallery"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back_to_garden" type="Button" parent="."]
+offset_left = 44.0
+offset_top = 823.0
+offset_right = 220.0
+offset_bottom = 871.0
+text = "Garden"
+
+[node name="Guinea_Pig_Two_Purchase" parent="." instance=ExtResource("1_sca5w")]
+position = Vector2(412, 462)
+
+[node name="Diamond_Poop_Purchase" parent="." instance=ExtResource("4_pe6ud")]
+position = Vector2(680, 533)
+
+[connection signal="pressed" from="Back_to_garden" to="." method="_on_back_to_garden_pressed"]
+[connection signal="pressed" from="Back_to_garden" to="." method="_on_button_pressed"]
+[connection signal="diamond_purchased" from="Diamond_Poop_Purchase" to="." method="_on_diamond_poop_purchase_diamond_purchased"]

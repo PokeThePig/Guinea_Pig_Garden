@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://diwrvhytcahww"]
+
+[ext_resource type="Texture2D" uid="uid://ea60x83f2vq7" path="res://Sprites/Pixel_Patrick.aseprite" id="1_pib0k"]
+[ext_resource type="Script" path="res://Scripts/guinea_pig_two_purchase.gd" id="1_pk7ab"]
+
+[node name="Guinea_Pig_Two_Purchase" type="Node2D"]
+position = Vector2(240, 37)
+script = ExtResource("1_pk7ab")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -99.0
+offset_top = 17.0
+offset_right = 84.0
+offset_bottom = 116.0
+text = "Buy Patrick
+10 Poop"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(648, 475)
+disable_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-647, -511)
+scale = Vector2(2, 2)
+texture = ExtResource("1_pib0k")
+
+[node name="pig_two_purchased_label" type="Label" parent="."]
+visible = false
+offset_left = -126.0
+offset_top = -139.0
+offset_right = 113.0
+offset_bottom = -76.0
+text = "SOLD OUT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

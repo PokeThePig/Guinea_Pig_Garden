@@ -1,0 +1,125 @@
+[gd_scene load_steps=11 format=3 uid="uid://bjmeyefd8dff5"]
+
+[ext_resource type="Script" path="res://Scripts/Parent_Pig_Node.gd" id="1_24bw0"]
+[ext_resource type="Script" path="res://Scripts/Guinea_Pig.gd" id="1_km6o0"]
+[ext_resource type="Texture2D" uid="uid://cn03uosvj0477" path="res://Sprites/Bella Sheet.aseprite" id="2_gx61t"]
+[ext_resource type="AudioStream" uid="uid://wlpwv33acvjk" path="res://Sounds/Sounds Effects/Pop_one.wav" id="4_g0ybr"]
+[ext_resource type="AudioStream" uid="uid://ckq5qnvii1lti" path="res://Sounds/Sounds Effects/Pop_three.wav" id="6_i0ab3"]
+[ext_resource type="AudioStream" uid="uid://dfbnopbst4cp2" path="res://Sounds/Sounds Effects/Pop_two_new.wav" id="7_177yb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7jxy"]
+size = Vector2(5082.06, 2369.25)
+
+[sub_resource type="Animation" id="Animation_ko0lf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_2ss7n"]
+resource_name = "walk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_av8tg"]
+_data = {
+"RESET": SubResource("Animation_ko0lf"),
+"walk": SubResource("Animation_2ss7n")
+}
+
+[node name="Pig" type="Node2D"]
+position = Vector2(0, -80)
+script = ExtResource("1_24bw0")
+
+[node name="Guinea_Pig" type="CharacterBody2D" parent="." groups=["Persist"]]
+position = Vector2(30, 10)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_km6o0")
+
+[node name="Pig_Sprite" type="Sprite2D" parent="Guinea_Pig"]
+z_index = 1
+position = Vector2(-20.0001, 72)
+scale = Vector2(1.714, 1.59673)
+texture = ExtResource("2_gx61t")
+hframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guinea_Pig"]
+position = Vector2(-61, 109)
+scale = Vector2(0.210938, 0.199219)
+shape = SubResource("RectangleShape2D_p7jxy")
+
+[node name="Pig_AnimationPlayer" type="AnimationPlayer" parent="Guinea_Pig"]
+root_node = NodePath("../Pig_Sprite")
+libraries = {
+"": SubResource("AnimationLibrary_av8tg")
+}
+
+[node name="poop_spawner" type="Timer" parent="Guinea_Pig"]
+unique_name_in_owner = true
+wait_time = 2.5
+autostart = true
+
+[node name="pop_one" type="AudioStreamPlayer" parent="Guinea_Pig"]
+stream = ExtResource("4_g0ybr")
+volume_db = -15.0
+
+[node name="pop_two" type="AudioStreamPlayer" parent="Guinea_Pig"]
+stream = ExtResource("7_177yb")
+volume_db = -15.0
+
+[node name="pop_three" type="AudioStreamPlayer" parent="Guinea_Pig"]
+stream = ExtResource("6_i0ab3")
+volume_db = -15.0
+
+[node name="wander_timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.5
+autostart = true
+
+[connection signal="timeout" from="Guinea_Pig/poop_spawner" to="Guinea_Pig" method="_on_poop_spawner_timeout"]
+[connection signal="timeout" from="wander_timer" to="Guinea_Pig" method="_on_wander_timer_timeout"]
