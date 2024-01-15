@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjmeyefd8dff5"]
+[gd_scene load_steps=12 format=3 uid="uid://bjmeyefd8dff5"]
 
 [ext_resource type="Script" path="res://Scripts/Parent_Pig_Node.gd" id="1_24bw0"]
 [ext_resource type="Script" path="res://Scripts/Guinea_Pig.gd" id="1_km6o0"]
@@ -15,22 +15,10 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:hframes")
+tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -39,25 +27,16 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_2ss7n"]
 resource_name = "walk"
+
+[sub_resource type="Animation" id="Animation_i4lci"]
+resource_name = "walk_animation"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:hframes")
+tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -67,7 +46,8 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_av8tg"]
 _data = {
 "RESET": SubResource("Animation_ko0lf"),
-"walk": SubResource("Animation_2ss7n")
+"walk": SubResource("Animation_2ss7n"),
+"walk_animation": SubResource("Animation_i4lci")
 }
 
 [node name="Pig" type="Node2D"]
@@ -81,7 +61,7 @@ collision_mask = 2
 script = ExtResource("1_km6o0")
 
 [node name="Pig_Sprite" type="Sprite2D" parent="Guinea_Pig"]
-z_index = 1
+z_index = 2
 position = Vector2(-20.0001, 72)
 scale = Vector2(1.714, 1.59673)
 texture = ExtResource("3_uv6n8")

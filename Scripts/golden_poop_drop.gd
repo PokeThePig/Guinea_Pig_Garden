@@ -9,7 +9,7 @@ func _ready():
 	effect_start.connect(get_parent().get_node("Guinea_Pig")._start_golden_poop_effect.bind());
 
 func _process(_delta):
-	poop_animation.play("poop_sparkle")
+	poop_animation.play("gold_poop_sparkle")
 
 func _on_mouse_entered():
 	effect_start.emit()

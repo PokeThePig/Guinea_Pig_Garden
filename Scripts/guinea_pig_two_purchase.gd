@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var guinea_pig_assets = load("res://Scenes/Guinea_Pig.tscn")
+@onready var guinea_pig_assets = load("res://Scenes/Garden/Guinea_Pig.tscn")
 
 signal pig_two_purchased
 

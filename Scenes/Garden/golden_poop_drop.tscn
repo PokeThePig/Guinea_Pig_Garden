@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://phawwa3id263"]
+[gd_scene load_steps=8 format=3 uid="uid://phawwa3id263"]
 
 [ext_resource type="Script" path="res://Scripts/golden_poop_drop.gd" id="1_gcg5x"]
 [ext_resource type="Texture2D" uid="uid://vis65ubgcjss" path="res://Sprites/Currently Used/Gold Poop-Sheet.png" id="2_70oac"]
@@ -20,22 +20,13 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Diamond_Sprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
 [sub_resource type="Animation" id="Animation_ph82p"]
 resource_name = "poop_sparkle"
 length = 0.7
+
+[sub_resource type="Animation" id="Animation_nfga3"]
+resource_name = "gold_poop_sparkle"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -46,28 +37,18 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 5, 3, 4, 5, 6]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Diamond_Sprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kcuwr"]
 _data = {
 "RESET": SubResource("Animation_0i0ll"),
+"gold_poop_sparkle": SubResource("Animation_nfga3"),
 "poop_sparkle": SubResource("Animation_ph82p")
 }
 
 [node name="GoldenPoopDrop" type="CharacterBody2D" groups=["Persist"]]
+z_index = 1
 collision_layer = 8
 input_pickable = true
 script = ExtResource("1_gcg5x")

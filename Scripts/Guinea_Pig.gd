@@ -32,19 +32,19 @@ func _physics_process(_delta):
 	elif state == 1:
 		velocity.x = 100 * Globals.movespeed
 		pig_sprite.flip_h = true
-		pig_animation.play("walk")
+		pig_animation.play("walk_animation")
 		face_left = false
 	elif state == 2:
 		velocity.x = -100 * Globals.movespeed
 		pig_sprite.flip_h = false
-		pig_animation.play("walk")
+		pig_animation.play("walk_animation")
 		face_left = true
 	elif state == 3:
 		velocity.y = 100 * Globals.movespeed
-		pig_animation.play("walk")
+		pig_animation.play("walk_animation")
 	elif state == 4:
 		velocity.y = -100 * Globals.movespeed
-		pig_animation.play("walk")
+		pig_animation.play("walk_animation")
 	
 	move_and_slide()
 	
