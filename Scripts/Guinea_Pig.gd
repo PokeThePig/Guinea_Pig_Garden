@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var poop_item = load("res://Scenes/Garden/poop_dropping.tscn")
 @onready var golden_poop = load("res://Scenes/Garden/golden_poop_drop.tscn")
 @onready var diamond_poop = load("res://Scenes/Garden/diamond_poop_drop.tscn")
+@onready var giant_poop = load("res://Scenes/Garden/giant_poop_drop.tscn")
 
 #Guinea Pig Assets
 @onready var pig_sprite = $Pig_Sprite
@@ -16,13 +17,18 @@ var movespeed = randf_range(1, 3)
 var state = 0
 var face_left = true
 
+var pig_position = null
+
 #0 no movement, 1 move right, 2 move left, 3 move up, 4 move down
+
+func _ready():
+	poop_drop_speed.wait_time = 5 * Globals.poop_speed_multiplier
 
 '''Movement of Guinea Pigs'''
 
 func _physics_process(_delta):
 	
-	Globals.pig_position = position
+	pig_position = position
 
 #Randomized movement
 
@@ -68,11 +74,16 @@ func _on_wander_timer_timeout():
 
 
 func _on_poop_spawner_timeout():
-	print("DROPPED!")
+	
+	if Globals.double_poop_purchased == true:
+		var double_poop_check = randi_range(1, Globals.double_poop_chance)
+		if double_poop_check == Globals.double_poop_chance:
+			_on_poop_spawner_timeout()
 		
 #Odds for rare poop drops
 	var diamond_poop_check = randi() % 5000 + 1
 	var golden_poop_check = randi() % 100 + 1
+	var giant_poop_check = randi() % 5 + 1
 	
 	var current_dropped_poop = null
 	
@@ -91,6 +102,19 @@ func _on_poop_spawner_timeout():
 		current_dropped_poop = dropped_gold_poop
 		
 		Globals.golden_poop_dropped = true
+	
+	elif (giant_poop_check == 5) and (Globals.giant_poop_purchased == true): 
+		var dropped_giant_poop = giant_poop.instantiate()
+		get_parent().add_child(dropped_giant_poop)
+		
+		if face_left == true:
+			dropped_giant_poop.global_position.x = randf_range(pig_position.x + 2000, pig_position.x + 2000)
+			dropped_giant_poop.global_position.y = randf_range(pig_position.y - 500, pig_position.y - 500)
+		else:
+			dropped_giant_poop.global_position.x = randf_range(pig_position.x, pig_position.x)
+			dropped_giant_poop.global_position.y = randf_range(pig_position.y - 500, pig_position.y - 500)
+			
+			current_dropped_poop = null
 
 #Regular poop drop
 	else:
@@ -100,12 +124,12 @@ func _on_poop_spawner_timeout():
 		current_dropped_poop = dropped_poop
 		
 	#Setting poop spawn point
-	if face_left == true:
-		current_dropped_poop.global_position.x = randf_range(Globals.pig_position.x + 400, Globals.pig_position.x + 450)
-		current_dropped_poop.global_position.y = randf_range(Globals.pig_position.y + 200, Globals.pig_position.y + 250)
-	else:
-		current_dropped_poop.global_position.x = randf_range(Globals.pig_position.x - 450, Globals.pig_position.x - 550)
-		current_dropped_poop.global_position.y = randf_range(Globals.pig_position.y + 250, Globals.pig_position.y + 350)
+	if (face_left == true) and (current_dropped_poop != null):
+		current_dropped_poop.global_position.x = randf_range(pig_position.x + 400, pig_position.x + 450)
+		current_dropped_poop.global_position.y = randf_range(pig_position.y + 200, pig_position.y + 250)
+	elif (current_dropped_poop != null):
+		current_dropped_poop.global_position.x = randf_range(pig_position.x - 450, pig_position.x - 550)
+		current_dropped_poop.global_position.y = randf_range(pig_position.y + 250, pig_position.y + 350)
 	pass
 
 
@@ -113,17 +137,15 @@ func _on_poop_spawner_timeout():
 
 func _start_golden_poop_effect():
 	poop_drop_speed.stop()
-	poop_drop_speed.wait_time = 0.1
+	poop_drop_speed.wait_time = .1 * Globals.poop_speed_multiplier
 	poop_drop_speed.start()
 	movement_change.stop()
 	movement_change.wait_time = 0.25
 	movement_change.start()
 	
 func _end_golden_poop_effect():
-	poop_drop_speed.wait_time = 2.5
+	poop_drop_speed.wait_time = 5 * Globals.poop_speed_multiplier
 	movement_change.wait_time = 3.5
-
-
 
 '''Playing pickup sound effects'''
 
@@ -134,10 +156,14 @@ func _on_poop_colleced():
 	
 func sound_effect_randomizer():
 	var sound_effect_num = floor(randf_range(0,3))
-	print(sound_effect_num)
 	if sound_effect_num == 0:
 		return $pop_one
 	elif sound_effect_num == 1:
 		return $pop_two
 	elif sound_effect_num == 2:
 		return $pop_three
+
+
+'''Updating Poop Speed'''
+func _update_poop_speed():
+	poop_drop_speed.wait_time = 5 * Globals.poop_speed_multiplier

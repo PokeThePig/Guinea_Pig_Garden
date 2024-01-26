@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://cj1qi3eed3trw"]
+[gd_scene load_steps=20 format=3 uid="uid://cj1qi3eed3trw"]
 
 [ext_resource type="Script" path="res://Scripts/Main_World.gd" id="1_pllxo"]
 [ext_resource type="PackedScene" uid="uid://bjmeyefd8dff5" path="res://Scenes/Garden/Guinea_Pig.tscn" id="2_8vgd5"]
+[ext_resource type="Script" path="res://Scripts/garden_camera.gd" id="2_itv3v"]
 [ext_resource type="Texture2D" uid="uid://8xsa3iana1xa" path="res://Sprites/Fences.png" id="3_p7wj6"]
 [ext_resource type="Texture2D" uid="uid://d2aybab7f0wnv" path="res://Sprites/Currently Used/Grass mono-Sheet darker-export.png" id="5_fu61i"]
 [ext_resource type="Texture2D" uid="uid://df184mx0tas58" path="res://Sprites/Currently Used/Grass variety-Sheet.png" id="5_m5gx4"]
@@ -100,9 +101,10 @@ b = Vector2(-1068.4, 561.6)
 [node name="Garden_Scene" type="Node2D"]
 script = ExtResource("1_pllxo")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="garden_camera" type="Camera2D" parent="."]
 position = Vector2(0, -6)
 zoom = Vector2(0.09, 0.09)
+script = ExtResource("2_itv3v")
 
 [node name="Pig" parent="." instance=ExtResource("2_8vgd5")]
 position = Vector2(-96, -112)
@@ -152,7 +154,6 @@ z_index = 3
 position = Vector2(5811, 2856)
 
 [node name="Day_Night_Cycle" parent="." instance=ExtResource("6_m5735")]
-visible = false
 
 [node name="Music" parent="." instance=ExtResource("7_j366y")]
 

@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://cegv87gpx1qd7"]
+
+[ext_resource type="PackedScene" uid="uid://bmfvrbim5mj2j" path="res://Scenes/Shop/diamond_poop_purchase.tscn" id="1_2hldy"]
+[ext_resource type="Script" path="res://Scripts/poop_types_shop.gd" id="1_8114l"]
+[ext_resource type="Script" path="res://Scripts/poop_types_camera.gd" id="2_1haka"]
+[ext_resource type="PackedScene" uid="uid://cypvnme735xpc" path="res://Scenes/Shop/giant_poop_purchase.tscn" id="4_5ckjv"]
+
+[node name="poop_types_shop" type="Node2D"]
+script = ExtResource("1_8114l")
+
+[node name="Diamond_Poop_Purchase" parent="." instance=ExtResource("1_2hldy")]
+position = Vector2(832, 552)
+
+[node name="giant_poop_purchase" parent="." instance=ExtResource("4_5ckjv")]
+position = Vector2(488, 504)
+
+[node name="poop_types_camera" type="Camera2D" parent="."]
+position = Vector2(801, 454)
+script = ExtResource("2_1haka")
+
+[node name="Poop_Types_title" type="Label" parent="."]
+offset_left = 32.0
+offset_top = 48.0
+offset_right = 1634.0
+offset_bottom = 306.0
+theme_override_font_sizes/font_size = 100
+text = "Poop Types"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Poop_Types_to_shop" type="Button" parent="."]
+offset_left = 44.0
+offset_top = 823.0
+offset_right = 220.0
+offset_bottom = 871.0
+text = "Guinea Gadget Gallery"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Poop_Types_to_shop" to="." method="_on_poop_types_to_shop_pressed"]

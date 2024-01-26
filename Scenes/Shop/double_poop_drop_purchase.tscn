@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4607w7esjfvi"]
+
+[ext_resource type="Script" path="res://Scripts/double_poop_drop_purchase.gd" id="1_k7j17"]
+[ext_resource type="Texture2D" uid="uid://lme15b00hisx" path="res://Sprites/Poop upscale.aseprite" id="2_1lhlh"]
+
+[node name="Double_poop_drop_purchase" type="Node2D"]
+script = ExtResource("1_k7j17")
+
+[node name="upgrade_button" type="Button" parent="."]
+offset_left = -128.0
+offset_right = 128.0
+offset_bottom = 70.0
+text = "Buy Double Poop Upgrade
+50 Poop"
+
+[node name="Double_poop_count" type="Label" parent="."]
+offset_left = -24.0
+offset_top = 88.0
+offset_right = 24.0
+offset_bottom = 111.0
+text = "0/3"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-20, -89)
+scale = Vector2(0.3125, 0.296875)
+texture = ExtResource("2_1lhlh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(20, -65)
+scale = Vector2(0.3125, 0.296875)
+texture = ExtResource("2_1lhlh")
+
+[connection signal="pressed" from="upgrade_button" to="." method="_on_upgrade_button_pressed"]

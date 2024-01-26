@@ -27,7 +27,7 @@ stream = ExtResource("4_isl0e")
 volume_db = 1.0
 bus = &"music"
 
-[connection signal="finished" from="main_song_one" to="." method="_on_main_song_finished"]
 [connection signal="finished" from="main_song_one" to="." method="_on_main_song_one_finished"]
+[connection signal="finished" from="main_song_one" to="." method="_on_main_song_finished"]
 [connection signal="finished" from="main_song_two" to="." method="_on_main_song_two_finished"]
 [connection signal="finished" from="gold_poop_song" to="." method="_on_gold_poop_song_finished"]

@@ -1,28 +1,25 @@
 [gd_scene load_steps=3 format=3 uid="uid://diwrvhytcahww"]
 
-[ext_resource type="Texture2D" uid="uid://ea60x83f2vq7" path="res://Sprites/Pixel_Patrick.aseprite" id="1_pib0k"]
 [ext_resource type="Script" path="res://Scripts/guinea_pig_two_purchase.gd" id="1_pk7ab"]
+[ext_resource type="Texture2D" uid="uid://cfvafyh3wfdsl" path="res://Sprites/Currently Used/Pixel Guinea Pig 2-Sheet.png" id="2_krkhw"]
 
 [node name="Guinea_Pig_Two_Purchase" type="Node2D"]
 position = Vector2(240, 37)
 script = ExtResource("1_pk7ab")
 
 [node name="Button" type="Button" parent="."]
-offset_left = -99.0
-offset_top = 17.0
-offset_right = 84.0
-offset_bottom = 116.0
-text = "Buy Patrick
+offset_left = -120.0
+offset_top = 19.0
+offset_right = 104.0
+offset_bottom = 91.0
+text = "Buy Guinea Pig
 10 Poop"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(648, 475)
-disable_mode = 1
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(-647, -511)
-scale = Vector2(2, 2)
-texture = ExtResource("1_pib0k")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-8, -61)
+scale = Vector2(0.3, 0.281)
+texture = ExtResource("2_krkhw")
+hframes = 2
 
 [node name="pig_two_purchased_label" type="Label" parent="."]
 visible = false

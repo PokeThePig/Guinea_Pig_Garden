@@ -10,6 +10,7 @@ func _ready():
 	
 func _on_effect_duration_timeout():
 	effect_end.emit()
+	Globals.movespeed = randf_range(1,3)
 	Globals.golden_poop_active = false
 	Globals.golden_poop_dropped = false
 	print("stop")

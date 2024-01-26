@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cypvnme735xpc"]
+
+[ext_resource type="Texture2D" uid="uid://lme15b00hisx" path="res://Sprites/Poop upscale.aseprite" id="1_g7m21"]
+[ext_resource type="Script" path="res://Scripts/giant_poop_purchase.gd" id="1_rqgm5"]
+
+[node name="giant_poop_purchase" type="Node2D"]
+scale = Vector2(0.992149, 0.899725)
+script = ExtResource("1_rqgm5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3.8147e-06, -106.699)
+scale = Vector2(0.563307, 0.58)
+texture = ExtResource("1_g7m21")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -129.013
+offset_right = 120.987
+offset_bottom = 81.0
+scale = Vector2(1.03115, 1.08315)
+text = "Unlock Giant Poops
+5 Poop"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

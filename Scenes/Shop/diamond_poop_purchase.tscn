@@ -12,25 +12,12 @@ offset_top = -47.0
 offset_right = 123.0
 offset_bottom = 34.0
 text = "Unlock Diamond Poops
-5 Poop"
+10 Poop"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(1, -84)
-
-[node name="diamond_shop_sprite" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(-5, -18)
+[node name="diamond_shop_sprite" type="Sprite2D" parent="."]
+position = Vector2(-4, -102)
 scale = Vector2(0.176758, 0.175)
 texture = ExtResource("2_04iaj")
 hframes = 7
-
-[node name="diamond_purchased_label" type="Label" parent="."]
-visible = false
-offset_left = -118.0
-offset_top = -209.0
-offset_right = 121.0
-offset_bottom = -146.0
-text = "SOLD OUT"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

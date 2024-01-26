@@ -1,10 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8an7cmfb0keb"]
+[gd_scene load_steps=5 format=3 uid="uid://c8an7cmfb0keb"]
 
 [ext_resource type="PackedScene" uid="uid://cj1qi3eed3trw" path="res://Scenes/Garden/Main_World.tscn" id="1_qtg4v"]
 [ext_resource type="PackedScene" uid="uid://btb1pslcs8m6q" path="res://Scenes/Shop/shop_scene.tscn" id="2_6efl6"]
+[ext_resource type="PackedScene" uid="uid://chhwylwe27qw2" path="res://Scenes/Shop/poop_upgrades_shop.tscn" id="3_s462g"]
+[ext_resource type="PackedScene" uid="uid://cegv87gpx1qd7" path="res://Scenes/Shop/poop_types_shop.tscn" id="4_u4yyr"]
 
 [node name="Main_Tree" type="Node2D"]
 
 [node name="Garden" parent="." instance=ExtResource("1_qtg4v")]
 
 [node name="Shop_Scene" parent="." instance=ExtResource("2_6efl6")]
+position = Vector2(-792, -7736)
+
+[node name="Poop_Upgrades_Shop" parent="." instance=ExtResource("3_s462g")]
+position = Vector2(-3120, -9304)
+
+[node name="Poop_Types_Shop" parent="." instance=ExtResource("4_u4yyr")]
+position = Vector2(-728, -9224)

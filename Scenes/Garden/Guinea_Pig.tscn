@@ -1,6 +1,5 @@
-[gd_scene load_steps=12 format=3 uid="uid://bjmeyefd8dff5"]
+[gd_scene load_steps=11 format=3 uid="uid://bjmeyefd8dff5"]
 
-[ext_resource type="Script" path="res://Scripts/Parent_Pig_Node.gd" id="1_24bw0"]
 [ext_resource type="Script" path="res://Scripts/Guinea_Pig.gd" id="1_km6o0"]
 [ext_resource type="Texture2D" uid="uid://cl0vjnsy8ir1a" path="res://Sprites/Currently Used/Bella Sheet.png" id="3_uv6n8"]
 [ext_resource type="AudioStream" uid="uid://wlpwv33acvjk" path="res://Sounds/Sounds Effects/Pop_one.wav" id="4_g0ybr"]
@@ -52,7 +51,6 @@ _data = {
 
 [node name="Pig" type="Node2D"]
 position = Vector2(0, -80)
-script = ExtResource("1_24bw0")
 
 [node name="Guinea_Pig" type="CharacterBody2D" parent="." groups=["Persist"]]
 position = Vector2(30, 10)
@@ -81,7 +79,7 @@ libraries = {
 
 [node name="poop_spawner" type="Timer" parent="Guinea_Pig"]
 unique_name_in_owner = true
-wait_time = 2.5
+wait_time = 5.0
 autostart = true
 
 [node name="pop_one" type="AudioStreamPlayer" parent="Guinea_Pig"]

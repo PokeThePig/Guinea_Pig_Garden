@@ -1,14 +1,17 @@
 extends Node
 
 #Poop counts
-var poop_amount = 0
+var poop_amount = 1000
 var diamond_poop_amount = 0
 
 #Shop purchases
 var guinea_two_purchased = false
 var diamond_poop_purchased = false
+var giant_poop_purchased = false
 
-var pig_position : Vector2
+var double_poop_purchased = false
+var double_poop_chance = 10
+
 var poop_ui_position : Vector2
 var movespeed = 0
 
@@ -17,11 +20,12 @@ var movement_state = 0
 var poop_drop_speed = 0
 var golden_poop_active = false
 var golden_poop_dropped = false
+var poop_speed_multiplier = 1
 
 
 
 '''Scene saving'''
-
+'''
 var current_scene = null
 
 func _ready() -> void:
@@ -38,3 +42,4 @@ func _deferred_switch_scene(res_path):
 	current_scene = s.instantiate()
 	get_tree().root.add_child(current_scene)
 	get_tree().current_scene = current_scene
+'''

@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://chhwylwe27qw2"]
+
+[ext_resource type="Script" path="res://Scripts/Shop_poop_count.gd" id="1_6nj71"]
+[ext_resource type="Script" path="res://Scripts/poop_upgrades_shop.gd" id="1_cqc40"]
+[ext_resource type="Script" path="res://Scripts/poop_upgrades_camera.gd" id="2_0tpnx"]
+[ext_resource type="PackedScene" uid="uid://b2k31cad532at" path="res://Scenes/Shop/poop_speed_purchase.tscn" id="3_si8c3"]
+[ext_resource type="PackedScene" uid="uid://c4607w7esjfvi" path="res://Scenes/Shop/double_poop_drop_purchase.tscn" id="4_iu6cv"]
+
+[node name="Poop_Upgrades_Shop" type="Node2D"]
+script = ExtResource("1_cqc40")
+
+[node name="poop_upgrades_camera" type="Camera2D" parent="."]
+position = Vector2(801, 454)
+script = ExtResource("2_0tpnx")
+
+[node name="Poop_Up_count" type="Label" parent="."]
+offset_left = 672.0
+offset_top = 680.0
+offset_right = 992.0
+offset_bottom = 851.0
+theme_override_font_sizes/font_size = 40
+text = "Poop Count:"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_6nj71")
+
+[node name="Poop_Up_title" type="Label" parent="."]
+offset_left = 32.0
+offset_top = 48.0
+offset_right = 1634.0
+offset_bottom = 306.0
+theme_override_font_sizes/font_size = 100
+text = "Poop Upgrades"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Poop_Up_to_shop" type="Button" parent="."]
+offset_left = 44.0
+offset_top = 823.0
+offset_right = 220.0
+offset_bottom = 871.0
+text = "Guinea Gadget Gallery"
+metadata/_edit_use_anchors_ = true
+
+[node name="Poop_Speed_Purchase" parent="." instance=ExtResource("3_si8c3")]
+position = Vector2(448, 480)
+
+[node name="Double_poop_drop_purchase" parent="." instance=ExtResource("4_iu6cv")]
+position = Vector2(832, 472)
+
+[connection signal="pressed" from="Poop_Up_to_shop" to="." method="_on_poop_up_to_shop_pressed"]
