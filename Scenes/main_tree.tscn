@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cj1qi3eed3trw" path="res://Scenes/Garden/Main_World.tscn" id="1_qtg4v"]
 [ext_resource type="PackedScene" uid="uid://btb1pslcs8m6q" path="res://Scenes/Shop/shop_scene.tscn" id="2_6efl6"]
-[ext_resource type="PackedScene" uid="uid://chhwylwe27qw2" path="res://Scenes/Shop/poop_upgrades_shop.tscn" id="3_s462g"]
-[ext_resource type="PackedScene" uid="uid://cegv87gpx1qd7" path="res://Scenes/Shop/poop_types_shop.tscn" id="4_u4yyr"]
+[ext_resource type="PackedScene" path="res://Scenes/Shop/poop_upgrades_shop.tscn" id="3_s462g"]
+[ext_resource type="PackedScene" path="res://Scenes/Shop/poop_types_shop.tscn" id="4_u4yyr"]
 
 [node name="Main_Tree" type="Node2D"]
 

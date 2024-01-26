@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bmfvrbim5mj2j"]
 
 [ext_resource type="Script" path="res://Scripts/Diamond_Poop_Purchase.gd" id="1_vglcu"]
-[ext_resource type="Texture2D" uid="uid://cn82d4844uspq" path="res://Sprites/Diamond Poop-Sheet.aseprite" id="2_04iaj"]
+[ext_resource type="Texture2D" uid="uid://cvsfgy7iqqmos" path="res://Sprites/Currently Used/Diamond Poop-Sheet.png" id="2_04iaj"]
 
 [node name="Diamond_Poop_Purchase" type="Node2D"]
 script = ExtResource("1_vglcu")
