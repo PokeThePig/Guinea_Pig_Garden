@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cypvnme735xpc"]
 
-[ext_resource type="Texture2D" uid="uid://lme15b00hisx" path="res://Sprites/Poop upscale.aseprite" id="1_g7m21"]
+[ext_resource type="Texture2D" uid="uid://vjm4igbsy0h7" path="res://Sprites/Currently Used/Poop upscale.png" id="1_g7m21"]
 [ext_resource type="Script" path="res://Scripts/giant_poop_purchase.gd" id="1_rqgm5"]
 
 [node name="giant_poop_purchase" type="Node2D"]

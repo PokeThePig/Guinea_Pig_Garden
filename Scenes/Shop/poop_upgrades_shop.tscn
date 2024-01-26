@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://chhwylwe27qw2"]
+[gd_scene load_steps=6 format=3 uid="uid://ny6ry4ow8hh6"]
 
 [ext_resource type="Script" path="res://Scripts/Shop_poop_count.gd" id="1_6nj71"]
 [ext_resource type="Script" path="res://Scripts/poop_upgrades_shop.gd" id="1_cqc40"]
 [ext_resource type="Script" path="res://Scripts/poop_upgrades_camera.gd" id="2_0tpnx"]
-[ext_resource type="PackedScene" uid="uid://b2k31cad532at" path="res://Scenes/Shop/poop_speed_purchase.tscn" id="3_si8c3"]
+[ext_resource type="PackedScene" uid="uid://buu4qpft0qvii" path="res://Scenes/Shop/poop_speed_purchase.tscn" id="3_si8c3"]
 [ext_resource type="PackedScene" uid="uid://c4607w7esjfvi" path="res://Scenes/Shop/double_poop_drop_purchase.tscn" id="4_iu6cv"]
 
 [node name="Poop_Upgrades_Shop" type="Node2D"]
