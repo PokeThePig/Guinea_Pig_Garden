@@ -45,6 +45,10 @@ folder_colors={
 "res://Sprites/": "pink"
 }
 
+[filesystem]
+
+import/blender/enabled=false
+
 [layer_names]
 
 2d_render/layer_1="pig"

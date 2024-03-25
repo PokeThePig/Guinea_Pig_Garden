@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://sa7obbeljsei"]
+
+[ext_resource type="Script" path="res://Scripts/Rich_Guinea_Pig_Purchase.gd" id="1_pm8as"]
+[ext_resource type="Texture2D" uid="uid://b043t6bewsv5v" path="res://Sprites/Currently Used/Fancy Pig Sheet.png" id="2_3f4ma"]
+
+[node name="Rich_Guinea_Pig_Purchase" type="Node2D"]
+script = ExtResource("1_pm8as")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -120.0
+offset_top = 19.0
+offset_right = 104.0
+offset_bottom = 91.0
+text = "Buy Guinea Pig
+1 Diamond Poop"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-8, -61)
+scale = Vector2(0.3, 0.281)
+texture = ExtResource("2_3f4ma")
+hframes = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

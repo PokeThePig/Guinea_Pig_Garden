@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://h8xc8stjllc5"]
+
+[ext_resource type="Script" path="res://Scripts/guinea_pigs_shop.gd" id="1_gptvp"]
+[ext_resource type="Script" path="res://Scripts/guinea_pigs_shop_cam.gd" id="1_mvolx"]
+[ext_resource type="Script" path="res://Scripts/Shop_poop_count.gd" id="2_fx1ny"]
+[ext_resource type="Script" path="res://Scripts/Shop_prismatic_poop_count.gd" id="4_mss2s"]
+[ext_resource type="Script" path="res://Scripts/Shop_diamond_poop_count.gd" id="4_utrhr"]
+[ext_resource type="PackedScene" uid="uid://diwrvhytcahww" path="res://Scenes/Shop/guinea_pig_two_purchase.tscn" id="4_uxxcf"]
+[ext_resource type="PackedScene" uid="uid://sa7obbeljsei" path="res://Scenes/Shop/rich_guinea_pig_purchase.tscn" id="5_fd150"]
+
+[node name="guinea_pigs_shop" type="Node2D"]
+script = ExtResource("1_gptvp")
+
+[node name="guinea_pigs_shop_cam" type="Camera2D" parent="."]
+position = Vector2(801, 454)
+script = ExtResource("1_mvolx")
+
+[node name="Guinea_Shop_count" type="Label" parent="."]
+offset_left = 640.0
+offset_top = 616.0
+offset_right = 960.0
+offset_bottom = 787.0
+theme_override_colors/font_color = Color(0.898039, 0.662745, 0.47451, 1)
+theme_override_font_sizes/font_size = 40
+text = "Poop Count:"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_fx1ny")
+metadata/_edit_use_anchors_ = true
+
+[node name="Shop_diamond_poop_count" type="Label" parent="."]
+offset_left = 592.0
+offset_top = 696.0
+offset_right = 1011.0
+offset_bottom = 867.0
+theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Diamond Poop Count:"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_utrhr")
+
+[node name="Shop_prismatic_poop_count" type="Label" parent="."]
+offset_left = 584.0
+offset_top = 776.0
+offset_right = 1016.0
+offset_bottom = 947.0
+theme_override_colors/font_color = Color(0.941176, 0.411765, 0.698039, 1)
+theme_override_font_sizes/font_size = 40
+text = "Prismatic Poop Count:"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_mss2s")
+
+[node name="Guinea_Shop_title" type="Label" parent="."]
+offset_top = 48.0
+offset_right = 1602.0
+offset_bottom = 306.0
+theme_override_font_sizes/font_size = 100
+text = "Guinea Pigs"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Guinea_Shop_to_shop" type="Button" parent="."]
+offset_left = 44.0
+offset_top = 823.0
+offset_right = 220.0
+offset_bottom = 871.0
+text = "Guinea Gadget Gallery"
+metadata/_edit_use_anchors_ = true
+
+[node name="Guinea_Pig_Two_Purchase" parent="." instance=ExtResource("4_uxxcf")]
+position = Vector2(408, 488)
+
+[node name="Rich_Guinea_Pig_Purchase" parent="." instance=ExtResource("5_fd150")]
+position = Vector2(800, 488)
+
+[connection signal="pressed" from="Guinea_Shop_to_shop" to="." method="_on_guinea_shop_to_shop_pressed"]

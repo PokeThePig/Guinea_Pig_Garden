@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://ny6ry4ow8hh6"]
+[gd_scene load_steps=9 format=3 uid="uid://ny6ry4ow8hh6"]
 
 [ext_resource type="Script" path="res://Scripts/Shop_poop_count.gd" id="1_6nj71"]
 [ext_resource type="Script" path="res://Scripts/poop_upgrades_shop.gd" id="1_cqc40"]
 [ext_resource type="Script" path="res://Scripts/poop_upgrades_camera.gd" id="2_0tpnx"]
 [ext_resource type="PackedScene" uid="uid://buu4qpft0qvii" path="res://Scenes/Shop/poop_speed_purchase.tscn" id="3_si8c3"]
+[ext_resource type="Script" path="res://Scripts/Shop_prismatic_poop_count.gd" id="4_3n5d6"]
 [ext_resource type="PackedScene" uid="uid://c4607w7esjfvi" path="res://Scenes/Shop/double_poop_drop_purchase.tscn" id="4_iu6cv"]
+[ext_resource type="Script" path="res://Scripts/Shop_diamond_poop_count.gd" id="5_anh7c"]
+[ext_resource type="PackedScene" uid="uid://p1vyxvstb614" path="res://Scenes/Shop/giant_poop_upgrade.tscn" id="6_lh6nx"]
 
 [node name="Poop_Upgrades_Shop" type="Node2D"]
 script = ExtResource("1_cqc40")
@@ -14,20 +17,46 @@ position = Vector2(801, 454)
 script = ExtResource("2_0tpnx")
 
 [node name="Poop_Up_count" type="Label" parent="."]
-offset_left = 672.0
-offset_top = 680.0
-offset_right = 992.0
-offset_bottom = 851.0
+offset_left = 640.0
+offset_top = 616.0
+offset_right = 960.0
+offset_bottom = 787.0
+scale = Vector2(0.998767, 1)
+theme_override_colors/font_color = Color(0.898039, 0.662745, 0.47451, 1)
 theme_override_font_sizes/font_size = 40
 text = "Poop Count:"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_6nj71")
+metadata/_edit_use_anchors_ = true
+
+[node name="Shop_prismatic_poop_count" type="Label" parent="."]
+offset_left = 584.0
+offset_top = 776.0
+offset_right = 1016.0
+offset_bottom = 947.0
+theme_override_colors/font_color = Color(0.941176, 0.411765, 0.698039, 1)
+theme_override_font_sizes/font_size = 40
+text = "Prismatic Poop Count:"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_3n5d6")
+
+[node name="Shop_diamond_poop_count" type="Label" parent="."]
+offset_left = 592.0
+offset_top = 696.0
+offset_right = 1011.0
+offset_bottom = 867.0
+theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Diamond Poop Count:"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_anh7c")
 
 [node name="Poop_Up_title" type="Label" parent="."]
-offset_left = 32.0
 offset_top = 48.0
-offset_right = 1634.0
+offset_right = 1602.0
 offset_bottom = 306.0
 theme_override_font_sizes/font_size = 100
 text = "Poop Upgrades"
@@ -44,9 +73,12 @@ text = "Guinea Gadget Gallery"
 metadata/_edit_use_anchors_ = true
 
 [node name="Poop_Speed_Purchase" parent="." instance=ExtResource("3_si8c3")]
-position = Vector2(448, 480)
+position = Vector2(392, 480)
 
 [node name="Double_poop_drop_purchase" parent="." instance=ExtResource("4_iu6cv")]
-position = Vector2(832, 472)
+position = Vector2(800, 472)
+
+[node name="giant_poop_upgrade" parent="." instance=ExtResource("6_lh6nx")]
+position = Vector2(1216, 472)
 
 [connection signal="pressed" from="Poop_Up_to_shop" to="." method="_on_poop_up_to_shop_pressed"]

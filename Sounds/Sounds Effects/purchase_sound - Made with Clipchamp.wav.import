@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bufxqd7jydxy4"
+path="res://.godot/imported/purchase_sound - Made with Clipchamp.wav-77377d608c5ffecfd17b116cc4e5d847.sample"
+
+[deps]
+
+source_file="res://Sounds/Sounds Effects/purchase_sound - Made with Clipchamp.wav"
+dest_files=["res://.godot/imported/purchase_sound - Made with Clipchamp.wav-77377d608c5ffecfd17b116cc4e5d847.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

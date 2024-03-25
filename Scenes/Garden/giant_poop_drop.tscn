@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2kke74h1byao"]
+[gd_scene load_steps=6 format=3 uid="uid://d2kke74h1byao"]
 
 [ext_resource type="Texture2D" uid="uid://vjm4igbsy0h7" path="res://Sprites/Currently Used/Poop upscale.png" id="1_0rpxe"]
 [ext_resource type="Script" path="res://Scripts/Giant_poop.gd" id="1_gvwrw"]
+[ext_resource type="AudioStream" uid="uid://b20f6cp83swlo" path="res://Sounds/Sounds Effects/crush_sound_1 - Made with Clipchamp.wav" id="3_qjqbc"]
+[ext_resource type="AudioStream" uid="uid://baucb4j4ybf16" path="res://Sounds/Sounds Effects/crush_sound_2 - Made with Clipchamp.wav" id="4_5kbv7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6g7es"]
 radius = 481.068
@@ -18,11 +20,23 @@ script = ExtResource("1_gvwrw")
 
 [node name="giant_poop_sprite" type="Sprite2D" parent="Giant_poop"]
 position = Vector2(-904.561, 631.973)
-scale = Vector2(1.98731, 1.87813)
+scale = Vector2(3, 2.836)
 texture = ExtResource("1_0rpxe")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Giant_poop"]
+[node name="giant_poop_collision" type="CollisionShape2D" parent="Giant_poop"]
 position = Vector2(-898.252, 618.934)
+scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_6g7es")
 
+[node name="crush_1" type="AudioStreamPlayer" parent="Giant_poop"]
+stream = ExtResource("3_qjqbc")
+volume_db = -15.0
+pitch_scale = 1.5
+
+[node name="crush_2" type="AudioStreamPlayer" parent="Giant_poop"]
+stream = ExtResource("4_5kbv7")
+volume_db = -5.0
+
+[connection signal="input_event" from="Giant_poop" to="Giant_poop" method="_on_input_event"]
 [connection signal="mouse_entered" from="Giant_poop" to="Giant_poop" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Giant_poop" to="Giant_poop" method="_on_mouse_exited"]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://dogdk5ysw1ty1"]
+
+[ext_resource type="Script" path="res://Scripts/rain_particles.gd" id="1_6prwv"]
+
+[node name="rain_effect" type="Node2D"]
+
+[node name="rain_particles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+lifetime = 2.0
+speed_scale = 2.5
+randomness = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(10000, 3000)
+gravity = Vector2(100, 2000)
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+scale_amount_min = 50.0
+scale_amount_max = 50.0
+color = Color(0.14902, 0.654902, 0.886275, 1)
+hue_variation_min = 0.5
+hue_variation_max = 1.0
+script = ExtResource("1_6prwv")
+
+[node name="rain_duration" type="Timer" parent="rain_particles"]
+wait_time = 360.0
+one_shot = true
+
+[node name="rain_start_check" type="Timer" parent="rain_particles"]
+wait_time = 400.0
+autostart = true
+
+[connection signal="timeout" from="rain_particles/rain_duration" to="rain_particles" method="_on_rain_duration_timeout"]
+[connection signal="timeout" from="rain_particles/rain_start_check" to="rain_particles" method="_on_rain_start_check_timeout"]
