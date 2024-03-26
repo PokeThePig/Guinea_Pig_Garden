@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://h8xc8stjllc5"]
+[gd_scene load_steps=10 format=3 uid="uid://h8xc8stjllc5"]
 
 [ext_resource type="Script" path="res://Scripts/guinea_pigs_shop.gd" id="1_gptvp"]
 [ext_resource type="Script" path="res://Scripts/guinea_pigs_shop_cam.gd" id="1_mvolx"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://Scripts/Shop_diamond_poop_count.gd" id="4_utrhr"]
 [ext_resource type="PackedScene" uid="uid://diwrvhytcahww" path="res://Scenes/Shop/guinea_pig_two_purchase.tscn" id="4_uxxcf"]
 [ext_resource type="PackedScene" uid="uid://sa7obbeljsei" path="res://Scenes/Shop/rich_guinea_pig_purchase.tscn" id="5_fd150"]
+[ext_resource type="PackedScene" uid="uid://b1d14mqmcujmf" path="res://Scenes/Shop/rainbow_guinea_pig_purchase.tscn" id="8_kp4jm"]
+[ext_resource type="PackedScene" uid="uid://b8ys2c1rd83bh" path="res://Scenes/Shop/king_calix_purchase.tscn" id="9_f37tp"]
 
 [node name="guinea_pigs_shop" type="Node2D"]
 script = ExtResource("1_gptvp")
@@ -71,9 +73,15 @@ text = "Guinea Gadget Gallery"
 metadata/_edit_use_anchors_ = true
 
 [node name="Guinea_Pig_Two_Purchase" parent="." instance=ExtResource("4_uxxcf")]
-position = Vector2(408, 488)
+position = Vector2(320, 488)
+
+[node name="Rainbow_Guinea_Pig_Purchase" parent="." instance=ExtResource("8_kp4jm")]
+position = Vector2(960, 424)
 
 [node name="Rich_Guinea_Pig_Purchase" parent="." instance=ExtResource("5_fd150")]
-position = Vector2(800, 488)
+position = Vector2(640, 488)
+
+[node name="king_calix_purchase" parent="." instance=ExtResource("9_f37tp")]
+position = Vector2(1280, 424)
 
 [connection signal="pressed" from="Guinea_Shop_to_shop" to="." method="_on_guinea_shop_to_shop_pressed"]

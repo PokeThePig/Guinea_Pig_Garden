@@ -16,8 +16,8 @@ text = "Buy Guinea Pig
 10 Poop"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-8, -61)
-scale = Vector2(0.3, 0.281)
+position = Vector2(-8.00001, -53)
+scale = Vector2(0.275, 0.257167)
 texture = ExtResource("2_krkhw")
 hframes = 2
 

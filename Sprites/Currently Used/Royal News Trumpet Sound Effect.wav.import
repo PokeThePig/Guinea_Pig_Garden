@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d0vit2ka2nsrg"
+path="res://.godot/imported/Royal News Trumpet Sound Effect.wav-f5f4e91b03feac34aa69f00c404c7f5a.sample"
+
+[deps]
+
+source_file="res://Sprites/Currently Used/Royal News Trumpet Sound Effect.wav"
+dest_files=["res://.godot/imported/Royal News Trumpet Sound Effect.wav-f5f4e91b03feac34aa69f00c404c7f5a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

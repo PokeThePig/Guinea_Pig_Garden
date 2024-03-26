@@ -3,13 +3,14 @@ extends CharacterBody2D
 #Poop drops
 @onready var poop_item = load("res://Scenes/Garden/poop_dropping.tscn")
 @onready var golden_poop = load("res://Scenes/Garden/golden_poop_drop.tscn")
+@onready var rainbow_gold_effect = load("res://Scenes/Garden/rainbow_pig_gold_effect.tscn")
 @onready var diamond_poop = load("res://Scenes/Garden/diamond_poop_drop.tscn")
 @onready var giant_poop = load("res://Scenes/Garden/giant_poop_drop.tscn")
 @onready var prismatic_poop = load("res://Scenes/Garden/prismatic_poop_drop.tscn")
 
 #Guinea Pig Assets
 @onready var pig_sprite = $Pig_Sprite
-@onready var pig_animation = $Pig_AnimationPlayer
+@onready var main_pig_animation = $Pig_AnimationPlayer
 @onready var movement_change = %wander_timer
 @onready var poop_drop_speed = %poop_spawner
 
@@ -30,6 +31,8 @@ func _ready():
 '''Movement of Guinea Pigs'''
 
 func _physics_process(_delta):
+	if (velocity.x != 0) || (velocity.y != 0):
+		main_pig_animation.play("walk_animation")
 	
 	pig_position = position
 
@@ -41,19 +44,19 @@ func _physics_process(_delta):
 	elif state == 1:
 		velocity.x = 100 * Globals.movespeed
 		pig_sprite.flip_h = true
-		pig_animation.play("walk_animation")
+		main_pig_animation.play("walk_animation")
 		face_left = false
 	elif state == 2:
 		velocity.x = -100 * Globals.movespeed
 		pig_sprite.flip_h = false
-		pig_animation.play("walk_animation")
+		main_pig_animation.play("walk_animation")
 		face_left = true
 	elif state == 3:
 		velocity.y = 100 * Globals.movespeed
-		pig_animation.play("walk_animation")
+		main_pig_animation.play("walk_animation")
 	elif state == 4:
 		velocity.y = -100 * Globals.movespeed
-		pig_animation.play("walk_animation")
+		main_pig_animation.play("walk_animation")
 	
 	move_and_slide()
 
@@ -75,7 +78,6 @@ func _on_wander_timer_timeout():
 
 '''Spawning poop'''
 
-
 func _on_poop_spawner_timeout():
 	if Globals.double_poop_purchased == true:
 		var double_poop_check = randi_range(1, Globals.double_poop_chance)
@@ -86,7 +88,7 @@ func _on_poop_spawner_timeout():
 	var diamond_poop_check = randi() % 5000 + 1
 	var golden_poop_check = randi() % 100 + 1
 	var giant_poop_check = randi() % 500 + 1
-	var prismatic_poop_check = randi() % 3 + 1
+	var prismatic_poop_check = randi() % 50 + 1
 
 	var current_dropped_poop = null
 
@@ -152,7 +154,13 @@ func _start_golden_poop_effect():
 	movement_change.wait_time = 0.25
 	movement_change.start()
 	
+	if (get_node("Pig_Sprite").texture == load("res://Sprites/Currently Used/Rainbow Pig-Sheet Two Frame.png")):
+		add_child(rainbow_gold_effect.instantiate())
+		
+	
 func _end_golden_poop_effect():
+	velocity.x = 0
+	velocity.y = 0
 	poop_drop_speed.stop()
 	poop_drop_speed.wait_time = 5 * Globals.poop_speed_multiplier
 	poop_drop_speed.start()
@@ -164,9 +172,14 @@ func _end_golden_poop_effect():
 	
 '''Updating Poop Speed'''
 func _update_poop_speed():
-	poop_drop_speed.stop()
-	poop_drop_speed.wait_time = 5 * Globals.poop_speed_multiplier
-	poop_drop_speed.start()
+	if Globals.golden_poop_active == true:
+		poop_drop_speed.stop()
+		poop_drop_speed.wait_time = .1 * Globals.poop_speed_multiplier
+		poop_drop_speed.start()
+	else:
+		poop_drop_speed.stop()
+		poop_drop_speed.wait_time = 5 * Globals.poop_speed_multiplier
+		poop_drop_speed.start()
 
 
 '''Playing pickup sound effects'''
@@ -219,3 +232,5 @@ func _input(event):
 		if event.pressed == true:
 			if mouse_in_area == true:
 				squeek_randomizer().play()
+				if (get_node("Pig_Sprite").texture == load("res://Sprites/Currently Used/King Calix-Sheet Final.png")):
+					$king_calix_trumpet.play()

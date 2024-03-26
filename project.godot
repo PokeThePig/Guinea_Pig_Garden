@@ -28,6 +28,7 @@ Globals="*res://Scripts/Globals.gd"
 window/size/viewport_width=1600
 window/size/viewport_height=900
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="res://Sprites/Currently Used/Shovel Cursor v1.png"
 
 [editor_plugins]
 

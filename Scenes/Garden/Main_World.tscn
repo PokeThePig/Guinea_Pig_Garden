@@ -173,6 +173,7 @@ offset_bottom = 7.99999
 position = Vector2(96, -2312)
 
 [node name="Day_Night_Cycle" parent="." instance=ExtResource("6_m5735")]
+visible = false
 
 [connection signal="open_settings" from="HUD" to="." method="_on_hud_open_settings"]
 [connection signal="open_settings" from="HUD" to="Pause_menu" method="_on_hud_open_settings"]

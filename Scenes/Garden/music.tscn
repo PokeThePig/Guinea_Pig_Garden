@@ -27,11 +27,11 @@ bus = &"music"
 
 [node name="gold_poop_song" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_isl0e")
-volume_db = 1.0
+volume_db = -5.0
 bus = &"music"
 
-[connection signal="finished" from="main_song_one" to="." method="_on_main_song_finished"]
 [connection signal="finished" from="main_song_one" to="." method="_on_main_song_one_finished"]
+[connection signal="finished" from="main_song_one" to="." method="_on_main_song_finished"]
 [connection signal="finished" from="main_song_two" to="." method="_on_main_song_two_finished"]
 [connection signal="finished" from="main_song_three" to="." method="_on_main_song_two_finished"]
 [connection signal="finished" from="main_song_three" to="." method="_on_main_song_three_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bjmeyefd8dff5"]
+[gd_scene load_steps=19 format=3 uid="uid://bjmeyefd8dff5"]
 
 [ext_resource type="Script" path="res://Scripts/Guinea_Pig.gd" id="1_km6o0"]
 [ext_resource type="Texture2D" uid="uid://cl0vjnsy8ir1a" path="res://Sprites/Currently Used/Bella Sheet.png" id="3_uv6n8"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://co5ebu8804qbn" path="res://Sounds/Sounds Effects/small_squeeks.wav" id="9_vtfgh"]
 [ext_resource type="AudioStream" uid="uid://b18wbrlictobx" path="res://Sounds/Sounds Effects/loud_squeek.wav" id="10_d8dhk"]
 [ext_resource type="AudioStream" uid="uid://c6owyi7hfyx3u" path="res://Sounds/Sounds Effects/Final_crush.wav" id="11_m6fuh"]
+[ext_resource type="AudioStream" uid="uid://doeytnmcwsrjk" path="res://Sounds/Sounds Effects/Royal News Trumpet Sound Effect.wav" id="11_mp4rw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p7jxy"]
 size = Vector2(5077.32, 2369.25)
@@ -29,6 +30,9 @@ tracks/0/keys = {
 "update": 1,
 "values": [1]
 }
+
+[sub_resource type="Animation" id="Animation_lk3ic"]
+resource_name = "rainbow_walk"
 
 [sub_resource type="Animation" id="Animation_2ss7n"]
 resource_name = "walk"
@@ -51,6 +55,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_av8tg"]
 _data = {
 "RESET": SubResource("Animation_ko0lf"),
+"rainbow_walk": SubResource("Animation_lk3ic"),
 "walk": SubResource("Animation_2ss7n"),
 "walk_animation": SubResource("Animation_i4lci")
 }
@@ -66,7 +71,7 @@ input_pickable = true
 script = ExtResource("1_km6o0")
 
 [node name="Pig_Sprite" type="Sprite2D" parent="Guinea_Pig"]
-z_index = 2
+z_index = 5
 position = Vector2(-20.0001, 72)
 scale = Vector2(1.714, 1.59673)
 texture = ExtResource("3_uv6n8")
@@ -74,8 +79,8 @@ hframes = 2
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guinea_Pig"]
-position = Vector2(-60.5001, 109)
-scale = Vector2(0.210938, 0.199219)
+position = Vector2(-40, 104)
+scale = Vector2(0.212, 0.2)
 shape = SubResource("RectangleShape2D_p7jxy")
 
 [node name="Pig_AnimationPlayer" type="AnimationPlayer" parent="Guinea_Pig"]
@@ -83,11 +88,6 @@ root_node = NodePath("../Pig_Sprite")
 libraries = {
 "": SubResource("AnimationLibrary_av8tg")
 }
-
-[node name="poop_spawner" type="Timer" parent="Guinea_Pig"]
-unique_name_in_owner = true
-wait_time = 5.0
-autostart = true
 
 [node name="pop_one" type="AudioStreamPlayer" parent="Guinea_Pig"]
 stream = ExtResource("4_g0ybr")
@@ -122,16 +122,25 @@ volume_db = -5.0
 stream = ExtResource("10_d8dhk")
 volume_db = -5.0
 
+[node name="king_calix_trumpet" type="AudioStreamPlayer" parent="Guinea_Pig"]
+stream = ExtResource("11_mp4rw")
+volume_db = -20.0
+
 [node name="final_crush" type="AudioStreamPlayer" parent="Guinea_Pig"]
 stream = ExtResource("11_m6fuh")
 volume_db = -10.0
 
-[node name="wander_timer" type="Timer" parent="."]
+[node name="wander_timer" type="Timer" parent="Guinea_Pig"]
 unique_name_in_owner = true
 wait_time = 3.5
 autostart = true
 
+[node name="poop_spawner" type="Timer" parent="Guinea_Pig"]
+unique_name_in_owner = true
+wait_time = 5.0
+autostart = true
+
 [connection signal="mouse_entered" from="Guinea_Pig" to="Guinea_Pig" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Guinea_Pig" to="Guinea_Pig" method="_on_mouse_exited"]
+[connection signal="timeout" from="Guinea_Pig/wander_timer" to="Guinea_Pig" method="_on_wander_timer_timeout"]
 [connection signal="timeout" from="Guinea_Pig/poop_spawner" to="Guinea_Pig" method="_on_poop_spawner_timeout"]
-[connection signal="timeout" from="wander_timer" to="Guinea_Pig" method="_on_wander_timer_timeout"]

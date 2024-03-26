@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy68i6e37083o"
-path="res://.godot/imported/Stone_Shovel_SDGP.webp-216affb54d188040e3030d07946e2509.ctex"
+uid="uid://dacy6cldk8v"
+path="res://.godot/imported/Rainbow Pig-Sheet Two Frame.png-d323ab2d4c0388e80e513b616131feaf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Stone_Shovel_SDGP.webp"
-dest_files=["res://.godot/imported/Stone_Shovel_SDGP.webp-216affb54d188040e3030d07946e2509.ctex"]
+source_file="res://Sprites/Currently Used/Rainbow Pig-Sheet Two Frame.png"
+dest_files=["res://.godot/imported/Rainbow Pig-Sheet Two Frame.png-d323ab2d4c0388e80e513b616131feaf.ctex"]
 
 [params]
 

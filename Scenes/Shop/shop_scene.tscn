@@ -106,8 +106,8 @@ text = "Guinea Pigs"
 stream = ExtResource("7_0ri4a")
 volume_db = -5.0
 
-[connection signal="pressed" from="Back_to_garden" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Back_to_garden" to="." method="_on_back_to_garden_pressed"]
+[connection signal="pressed" from="Back_to_garden" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Go_poop_upgrades" to="." method="_on_go_poop_upgrades_pressed"]
 [connection signal="pressed" from="Go_poop_types" to="." method="_on_go_poop_types_pressed"]
 [connection signal="pressed" from="Go_guinea_shop" to="." method="_on_go_guinea_shop_pressed"]

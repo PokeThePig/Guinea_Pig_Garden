@@ -23,11 +23,11 @@ hue_variation_max = 1.0
 script = ExtResource("1_6prwv")
 
 [node name="rain_duration" type="Timer" parent="rain_particles"]
-wait_time = 360.0
+wait_time = 420.0
 one_shot = true
 
 [node name="rain_start_check" type="Timer" parent="rain_particles"]
-wait_time = 400.0
+wait_time = 300.0
 autostart = true
 
 [connection signal="timeout" from="rain_particles/rain_duration" to="rain_particles" method="_on_rain_duration_timeout"]
