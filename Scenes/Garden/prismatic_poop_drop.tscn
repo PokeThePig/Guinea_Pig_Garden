@@ -64,4 +64,9 @@ libraries = {
 "": SubResource("AnimationLibrary_yiuoj")
 }
 
+[node name="decay_timer" type="Timer" parent="Prismatic_Poop"]
+wait_time = 900.0
+autostart = true
+
 [connection signal="mouse_entered" from="Prismatic_Poop" to="Prismatic_Poop" method="_on_mouse_entered"]
+[connection signal="timeout" from="Prismatic_Poop/decay_timer" to="Prismatic_Poop" method="_on_decay_timer_timeout"]

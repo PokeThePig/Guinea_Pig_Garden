@@ -12,7 +12,9 @@ func _on_rain_start_check_timeout():
 		print("Rain started")
 	else:
 		print("No rain started")
+		$rain_start_check.stop()
 		$rain_start_check.wait_time = randi_range(240, 360)
+		$rain_start_check.start()
 		pass
 
 

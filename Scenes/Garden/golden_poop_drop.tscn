@@ -71,6 +71,11 @@ wait_time = 10.0
 one_shot = true
 autostart = true
 
+[node name="decay_timer" type="Timer" parent="."]
+wait_time = 900.0
+autostart = true
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="effect_duration" to="." method="_on_effect_duration_timeout"]
+[connection signal="timeout" from="decay_timer" to="." method="_on_decay_timer_timeout"]

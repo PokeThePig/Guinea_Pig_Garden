@@ -11,7 +11,7 @@ offset_left = -120.0
 offset_top = 19.0
 offset_right = 104.0
 offset_bottom = 91.0
-text = "Buy Guinea Pig
+text = "Buy Pennybags
 1 Diamond Poop"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

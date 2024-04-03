@@ -70,4 +70,9 @@ libraries = {
 "": SubResource("AnimationLibrary_kcuwr")
 }
 
+[node name="decay_timer" type="Timer" parent="Diamond_Poop"]
+wait_time = 1200.0
+autostart = true
+
 [connection signal="mouse_entered" from="Diamond_Poop" to="Diamond_Poop" method="_on_mouse_entered"]
+[connection signal="timeout" from="Diamond_Poop/decay_timer" to="Diamond_Poop" method="_on_decay_timer_timeout"]
