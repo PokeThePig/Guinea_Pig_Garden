@@ -5,12 +5,18 @@ extends Node2D
 
 var face_left = true
 
+signal disco_achievement_unlocked
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rainbow_sprite.visible = false
+	disco_achievement_unlocked.connect(get_parent().get_parent().get_parent().get_parent().get_node("Achievements_Screen")._disco_achievement_unlocked.bind())
+	if (Globals.disco_party_achievement_completed == false):
+		disco_achievement_unlocked.emit()
+		Globals.disco_party_achievement_completed = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	disco_animation.play("disco_walk")
 
 #Randomized movement

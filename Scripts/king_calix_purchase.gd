@@ -3,15 +3,18 @@ extends Node2D
 @onready var guinea_pig_assets = load("res://Scenes/Garden/Guinea_Pig.tscn")
 
 signal pig_purchased
+signal king_calix_purchased
 
 func _ready():
 	pig_purchased.connect(get_parent().get_parent().get_node("Shop_Scene")._item_purchased.bind())
+	king_calix_purchased.connect(get_parent().get_parent().get_node("Poop_Upgrades_Shop").get_node("Poop_Speed_Purchase")._new_pig_purchased.bind())
 
 func _on_button_pressed():
 	if (Globals.poop_amount >= 10) and (Globals.prismatic_poop_amount >= 5) and (Globals.diamond_poop_amount >= 3) and (Globals.king_calix_purchased == false):
 		Globals.poop_amount -= 10
 		Globals.prismatic_poop_amount -= 5
 		Globals.diamond_poop_amount -= 3
+		Globals.guinea_pigs_purchased += 1
 
 		var new_pig = guinea_pig_assets.instantiate()
 		get_parent().get_parent().get_node("Garden").add_child(new_pig)
@@ -27,5 +30,6 @@ func _on_button_pressed():
 		
 		$Button.text = "SOLD OUT"
 		pig_purchased.emit()
+		king_calix_purchased.emit()
 		
 		Globals.king_calix_purchased = true

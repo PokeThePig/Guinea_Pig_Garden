@@ -37,6 +37,11 @@ pitch_scale = 1.5
 stream = ExtResource("4_5kbv7")
 volume_db = -5.0
 
+[node name="decay_timer" type="Timer" parent="Giant_poop"]
+wait_time = 1800.0
+autostart = true
+
 [connection signal="input_event" from="Giant_poop" to="Giant_poop" method="_on_input_event"]
 [connection signal="mouse_entered" from="Giant_poop" to="Giant_poop" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Giant_poop" to="Giant_poop" method="_on_mouse_exited"]
+[connection signal="timeout" from="Giant_poop/decay_timer" to="Giant_poop" method="_on_decay_timer_timeout"]

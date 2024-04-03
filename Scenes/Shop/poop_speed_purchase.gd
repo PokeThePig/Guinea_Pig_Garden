@@ -6,10 +6,16 @@ signal upgrade_purchased
 var upgrades_left = 5
 
 func _ready():
-	poop_speed_purchased.connect(get_parent().get_parent().get_node("Garden").get_node("Pig").get_node("Guinea_Pig")._update_poop_speed.bind())
+	for pig in get_tree().get_nodes_in_group("Pig"):
+		poop_speed_purchased.connect(pig._update_poop_speed.bind())
 	upgrade_purchased.connect(get_parent().get_parent().get_node("Shop_Scene")._item_purchased.bind())
-	
-	
+
+func _new_pig_purchased():
+	#for pig in get_tree().get_nodes_in_group("Pig"):
+		#poop_speed_purchased.connect(pig._update_poop_speed.bind())
+	var current_pig = get_tree().get_nodes_in_group("Pig")[-1]
+	poop_speed_purchased.connect(current_pig._update_poop_speed.bind())
+
 func _on_upgrade_button_pressed():
 	if (upgrades_left == 5) and (Globals.poop_amount >= 10):
 		upgrades_left = 4
@@ -49,6 +55,7 @@ func _on_upgrade_button_pressed():
 		Globals.poop_speed_multiplier -= 0.1
 		%upgrade_button.text = "MAXED"
 		%Poop_speed_count.text = "5/5"
+		Globals.max_speed_upgrade = true
 		poop_speed_purchased.emit()
 		upgrade_purchased.emit()
 

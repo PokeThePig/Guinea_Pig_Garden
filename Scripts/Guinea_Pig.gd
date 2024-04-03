@@ -19,14 +19,19 @@ var movespeed = randf_range(1, 3)
 var state = 0
 var face_left = true
 
+var test_var = false
+
 var pig_position = null
 var mouse_in_area = false
+var petting_achievement_unlocked = false
+
+signal thousand_pets_achievement_unlocked
 
 #0 no movement, 1 move right, 2 move left, 3 move up, 4 move down
 
 func _ready():
+	thousand_pets_achievement_unlocked.connect(get_parent().get_parent().get_parent().get_node("Achievements_Screen")._thousand_pets_achievement_unlocked.bind())
 	poop_drop_speed.wait_time = 5 * Globals.poop_speed_multiplier
-	
 
 '''Movement of Guinea Pigs'''
 
@@ -68,7 +73,6 @@ func _on_wander_timer_timeout():
 	if Globals.golden_poop_active == false:
 		state = randi_range(0,5)
 		Globals.movespeed = randf_range(1, 3)
-		print("Speed: ", Globals.movespeed)
 		movement_change.wait_time = 3.5
 	else:
 		state = randi_range(1,5)
@@ -159,8 +163,9 @@ func _start_golden_poop_effect():
 		
 	
 func _end_golden_poop_effect():
-	velocity.x = 0
-	velocity.y = 0
+	for pig in get_tree().get_nodes_in_group("Pig"):
+		pig.velocity.x = 0
+		pig.velocity.y = 0
 	poop_drop_speed.stop()
 	poop_drop_speed.wait_time = 5 * Globals.poop_speed_multiplier
 	poop_drop_speed.start()
@@ -168,6 +173,7 @@ func _end_golden_poop_effect():
 	movement_change.wait_time = 3.5
 	movement_change.start()
 	state = randi_range(0,5)
+	
 	
 	
 '''Updating Poop Speed'''
@@ -232,5 +238,10 @@ func _input(event):
 		if event.pressed == true:
 			if mouse_in_area == true:
 				squeek_randomizer().play()
+				Globals.pet_count += 1
+				print(Globals.pet_count)
 				if (get_node("Pig_Sprite").texture == load("res://Sprites/Currently Used/King Calix-Sheet Final.png")):
 					$king_calix_trumpet.play()
+				if (Globals.pet_count >= 1000) and (Globals.petting_professional_achievement_completed == false):
+					thousand_pets_achievement_unlocked.emit()
+					Globals.petting_professional_achievement_completed = true

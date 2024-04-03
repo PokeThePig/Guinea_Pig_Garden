@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://buu4qpft0qvii"]
+
+[ext_resource type="Script" path="res://Scenes/Shop/poop_speed_purchase.gd" id="1_ivnsh"]
+[ext_resource type="Texture2D" uid="uid://6j5hyv6k1gmq" path="res://Sprites/Currently Used/Fiber upgrade v1.png" id="2_lcem4"]
+
+[node name="Poop_Speed_Purchase" type="Node2D"]
+script = ExtResource("1_ivnsh")
+
+[node name="upgrade_button" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = -120.0
+offset_right = 120.0
+offset_bottom = 64.0
+text = "Fiber Rich Grass
+10 Poop"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-8, -72)
+scale = Vector2(0.525781, 0.490625)
+texture = ExtResource("2_lcem4")
+
+[node name="Poop_speed_count" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -24.0
+offset_top = 88.0
+offset_right = 24.0
+offset_bottom = 111.0
+text = "0/5"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="upgrade_button" to="." method="_on_upgrade_button_pressed"]

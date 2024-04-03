@@ -23,4 +23,9 @@ light_mask = 8
 shape = SubResource("CircleShape2D_3e1rc")
 one_way_collision = true
 
+[node name="decay_timer" type="Timer" parent="."]
+wait_time = 300.0
+autostart = true
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="timeout" from="decay_timer" to="." method="_on_decay_timer_timeout"]

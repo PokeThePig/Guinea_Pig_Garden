@@ -63,7 +63,7 @@ _data = {
 [node name="Pig" type="Node2D"]
 position = Vector2(0, -80)
 
-[node name="Guinea_Pig" type="CharacterBody2D" parent="." groups=["Persist"]]
+[node name="Guinea_Pig" type="CharacterBody2D" parent="." groups=["Pig"]]
 position = Vector2(30, 10)
 collision_layer = 4
 collision_mask = 2
