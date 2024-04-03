@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://vjm4igbsy0h7" path="res://Sprites/Currently Used/Poop upscale.png" id="2_xfgo8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3e1rc"]
-radius = 164.012
+radius = 111.113
 
 [node name="Poop" type="CharacterBody2D" groups=["Persist"]]
 z_index = 1

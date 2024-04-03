@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cvsfgy7iqqmos" path="res://Sprites/Currently Used/Diamond Poop-Sheet.png" id="2_140wq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2qt48"]
-radius = 142.014
+radius = 104.005
 
 [sub_resource type="Animation" id="Animation_0i0ll"]
 length = 0.001

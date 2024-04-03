@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://vn61nun33ok3"
+path="res://.godot/imported/prismatic_sound.wav-a76aad7687a569b5ea955d1f6b743498.sample"
+
+[deps]
+
+source_file="res://Sounds/Sounds Effects/prismatic_sound.wav"
+dest_files=["res://.godot/imported/prismatic_sound.wav-a76aad7687a569b5ea955d1f6b743498.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

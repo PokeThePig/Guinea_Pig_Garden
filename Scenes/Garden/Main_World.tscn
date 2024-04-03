@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cj1qi3eed3trw"]
+[gd_scene load_steps=21 format=3 uid="uid://cj1qi3eed3trw"]
 
 [ext_resource type="Script" path="res://Scripts/Main_World.gd" id="1_pllxo"]
 [ext_resource type="PackedScene" uid="uid://bjmeyefd8dff5" path="res://Scenes/Garden/Guinea_Pig.tscn" id="2_8vgd5"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c2jqsdm1nvtgs" path="res://Scenes/Garden/music.tscn" id="7_j366y"]
 [ext_resource type="PackedScene" uid="uid://c81hiwf201f5" path="res://Scenes/Garden/hud.tscn" id="8_unkip"]
 [ext_resource type="PackedScene" uid="uid://3y4wlgqjokug" path="res://Scenes/Pause Screen/pause_menu.tscn" id="9_ilch8"]
+[ext_resource type="PackedScene" uid="uid://dogdk5ysw1ty1" path="res://Scenes/Garden/rain_effect.tscn" id="12_pueb2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4u4wq"]
 texture = ExtResource("3_p7wj6")
@@ -153,8 +154,6 @@ shape = SubResource("SegmentShape2D_yd8mp")
 z_index = 3
 position = Vector2(5811, 2856)
 
-[node name="Day_Night_Cycle" parent="." instance=ExtResource("6_m5735")]
-
 [node name="Music" parent="." instance=ExtResource("7_j366y")]
 
 [node name="HUD" parent="." instance=ExtResource("8_unkip")]
@@ -169,6 +168,12 @@ offset_left = -6.10352e-05
 offset_top = 7.99999
 offset_right = -6.10352e-05
 offset_bottom = 7.99999
+
+[node name="rain_effect" parent="." instance=ExtResource("12_pueb2")]
+position = Vector2(96, -2312)
+
+[node name="Day_Night_Cycle" parent="." instance=ExtResource("6_m5735")]
+visible = false
 
 [connection signal="open_settings" from="HUD" to="." method="_on_hud_open_settings"]
 [connection signal="open_settings" from="HUD" to="Pause_menu" method="_on_hud_open_settings"]

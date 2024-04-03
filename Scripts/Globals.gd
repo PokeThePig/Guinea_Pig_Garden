@@ -2,12 +2,20 @@ extends Node
 
 #Poop counts
 var poop_amount = 1000
-var diamond_poop_amount = 0
+var diamond_poop_amount = 5
+var prismatic_poop_amount = 10
+
+var currently_raining = false
 
 #Shop purchases
 var guinea_two_purchased = false
+var rich_guinea_purchased = false
+var rainbow_guinea_purchased = false
+var king_calix_purchased = false
+
 var diamond_poop_purchased = false
 var giant_poop_purchased = false
+var prismatic_poop_purchased = false
 
 var double_poop_purchased = false
 var double_poop_chance = 10
@@ -16,11 +24,13 @@ var poop_ui_position : Vector2
 var movespeed = 0
 
 #poop drops variables
-var movement_state = 0
+var state = 0
 var poop_drop_speed = 0
 var golden_poop_active = false
 var golden_poop_dropped = false
 var poop_speed_multiplier = 1
+var giant_poop_min = 1
+var giant_poop_max = 1.5
 
 
 

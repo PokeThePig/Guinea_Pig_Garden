@@ -8,3 +8,6 @@ func _switch_to_shop_cam_from_poop_up():
 	
 func _switch_to_shop_cam_from_poop_types():
 	self.make_current()
+
+func _switch_to_shop_cam_from_guinea_shop():
+	self.make_current()

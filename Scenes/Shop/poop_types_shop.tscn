@@ -1,33 +1,76 @@
-[gd_scene load_steps=5 format=3 uid="uid://cegv87gpx1qd7"]
+[gd_scene load_steps=9 format=3 uid="uid://cegv87gpx1qd7"]
 
 [ext_resource type="PackedScene" uid="uid://bmfvrbim5mj2j" path="res://Scenes/Shop/diamond_poop_purchase.tscn" id="1_2hldy"]
 [ext_resource type="Script" path="res://Scripts/poop_types_shop.gd" id="1_8114l"]
 [ext_resource type="Script" path="res://Scripts/poop_types_camera.gd" id="2_1haka"]
 [ext_resource type="PackedScene" uid="uid://cypvnme735xpc" path="res://Scenes/Shop/giant_poop_purchase.tscn" id="4_5ckjv"]
+[ext_resource type="Script" path="res://Scripts/Shop_prismatic_poop_count.gd" id="5_o80i2"]
+[ext_resource type="PackedScene" uid="uid://b8uqrksk1wyyx" path="res://Scenes/Shop/prismatic_poop_purchase.tscn" id="5_pcujp"]
+[ext_resource type="Script" path="res://Scripts/Shop_poop_count.gd" id="5_v7bpa"]
+[ext_resource type="Script" path="res://Scripts/Shop_diamond_poop_count.gd" id="6_edp2k"]
 
 [node name="poop_types_shop" type="Node2D"]
 script = ExtResource("1_8114l")
 
 [node name="Diamond_Poop_Purchase" parent="." instance=ExtResource("1_2hldy")]
-position = Vector2(832, 552)
+position = Vector2(800, 552)
+
+[node name="Prismatic_Poop_Purchase" parent="." instance=ExtResource("5_pcujp")]
+position = Vector2(1216, 440)
 
 [node name="giant_poop_purchase" parent="." instance=ExtResource("4_5ckjv")]
-position = Vector2(488, 504)
+position = Vector2(384, 504)
 
 [node name="poop_types_camera" type="Camera2D" parent="."]
 position = Vector2(801, 454)
 script = ExtResource("2_1haka")
 
 [node name="Poop_Types_title" type="Label" parent="."]
-offset_left = 32.0
 offset_top = 48.0
-offset_right = 1634.0
+offset_right = 1602.0
 offset_bottom = 306.0
 theme_override_font_sizes/font_size = 100
 text = "Poop Types"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="Poop_Type_count" type="Label" parent="."]
+offset_left = 640.0
+offset_top = 616.0
+offset_right = 960.0
+offset_bottom = 787.0
+theme_override_colors/font_color = Color(0.898039, 0.662745, 0.47451, 1)
+theme_override_font_sizes/font_size = 40
+text = "Poop Count:"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_v7bpa")
+metadata/_edit_use_anchors_ = true
+
+[node name="Shop_diamond_poop_count" type="Label" parent="."]
+offset_left = 592.0
+offset_top = 696.0
+offset_right = 1011.0
+offset_bottom = 867.0
+theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Diamond Poop Count:"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_edp2k")
+
+[node name="Shop_prismatic_poop_count" type="Label" parent="."]
+offset_left = 584.0
+offset_top = 776.0
+offset_right = 1016.0
+offset_bottom = 947.0
+theme_override_colors/font_color = Color(0.941176, 0.411765, 0.698039, 1)
+theme_override_font_sizes/font_size = 40
+text = "Prismatic Poop Count:"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_o80i2")
 
 [node name="Poop_Types_to_shop" type="Button" parent="."]
 offset_left = 44.0

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8an7cmfb0keb"]
+[gd_scene load_steps=6 format=3 uid="uid://c8an7cmfb0keb"]
 
 [ext_resource type="PackedScene" uid="uid://cj1qi3eed3trw" path="res://Scenes/Garden/Main_World.tscn" id="1_qtg4v"]
 [ext_resource type="PackedScene" uid="uid://btb1pslcs8m6q" path="res://Scenes/Shop/shop_scene.tscn" id="2_6efl6"]
-[ext_resource type="PackedScene" path="res://Scenes/Shop/poop_upgrades_shop.tscn" id="3_s462g"]
-[ext_resource type="PackedScene" path="res://Scenes/Shop/poop_types_shop.tscn" id="4_u4yyr"]
+[ext_resource type="PackedScene" uid="uid://ny6ry4ow8hh6" path="res://Scenes/Shop/poop_upgrades_shop.tscn" id="3_s462g"]
+[ext_resource type="PackedScene" uid="uid://cegv87gpx1qd7" path="res://Scenes/Shop/poop_types_shop.tscn" id="4_u4yyr"]
+[ext_resource type="PackedScene" uid="uid://h8xc8stjllc5" path="res://Scenes/Shop/guinea_pigs_shop.tscn" id="5_glv3d"]
 
 [node name="Main_Tree" type="Node2D"]
 
@@ -17,3 +18,6 @@ position = Vector2(-3120, -9304)
 
 [node name="Poop_Types_Shop" parent="." instance=ExtResource("4_u4yyr")]
 position = Vector2(-728, -9224)
+
+[node name="guinea_pigs_shop" parent="." instance=ExtResource("5_glv3d")]
+position = Vector2(1807, -9239)

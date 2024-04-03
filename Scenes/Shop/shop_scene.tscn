@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://btb1pslcs8m6q"]
+[gd_scene load_steps=8 format=3 uid="uid://btb1pslcs8m6q"]
 
 [ext_resource type="Script" path="res://Scripts/shop_scene.gd" id="1_8evvr"]
-[ext_resource type="PackedScene" uid="uid://diwrvhytcahww" path="res://Scenes/Shop/guinea_pig_two_purchase.tscn" id="1_sca5w"]
 [ext_resource type="Script" path="res://Scripts/main_shop_camera.gd" id="2_d1qrc"]
 [ext_resource type="Script" path="res://Scripts/Shop_poop_count.gd" id="2_gn45u"]
 [ext_resource type="Script" path="res://Scripts/Shop_diamond_count.gd" id="3_vijd3"]
+[ext_resource type="Script" path="res://Scripts/Shop_diamond_poop_count.gd" id="4_la6m1"]
+[ext_resource type="Script" path="res://Scripts/Shop_prismatic_poop_count.gd" id="5_hths7"]
+[ext_resource type="AudioStream" uid="uid://bufxqd7jydxy4" path="res://Sounds/Sounds Effects/purchase_sound - Made with Clipchamp.wav" id="7_0ri4a"]
 
 [node name="Shop_Scene" type="Node2D"]
 script = ExtResource("1_8evvr")
@@ -14,15 +16,40 @@ position = Vector2(801, 454)
 script = ExtResource("2_d1qrc")
 
 [node name="Shop_poop_count" type="Label" parent="."]
-offset_left = 650.0
-offset_top = 687.0
-offset_right = 970.0
-offset_bottom = 858.0
+offset_left = 640.0
+offset_top = 616.0
+offset_right = 960.0
+offset_bottom = 787.0
+theme_override_colors/font_color = Color(0.898039, 0.662745, 0.47451, 1)
 theme_override_font_sizes/font_size = 40
 text = "Poop Count:"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_gn45u")
+
+[node name="Shop_diamond_poop_count" type="Label" parent="."]
+offset_left = 592.0
+offset_top = 696.0
+offset_right = 1011.0
+offset_bottom = 867.0
+theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Diamond Poop Count:"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_la6m1")
+
+[node name="Shop_prismatic_poop_count" type="Label" parent="."]
+offset_left = 584.0
+offset_top = 776.0
+offset_right = 1016.0
+offset_bottom = 947.0
+theme_override_colors/font_color = Color(0.941176, 0.411765, 0.698039, 1)
+theme_override_font_sizes/font_size = 40
+text = "Prismatic Poop Count:"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_hths7")
 
 [node name="Shop_diamond_count" type="Label" parent="."]
 visible = false
@@ -53,9 +80,6 @@ offset_bottom = 871.0
 text = "Garden"
 metadata/_edit_use_anchors_ = true
 
-[node name="Guinea_Pig_Two_Purchase" parent="." instance=ExtResource("1_sca5w")]
-position = Vector2(1216, 456)
-
 [node name="Go_poop_upgrades" type="Button" parent="."]
 offset_left = 248.0
 offset_top = 472.0
@@ -71,7 +95,19 @@ offset_right = 936.0
 offset_bottom = 552.0
 text = "Poop Types"
 
-[connection signal="pressed" from="Back_to_garden" to="." method="_on_button_pressed"]
+[node name="Go_guinea_shop" type="Button" parent="."]
+offset_left = 1080.0
+offset_top = 472.0
+offset_right = 1352.0
+offset_bottom = 552.0
+text = "Guinea Pigs"
+
+[node name="Purchase_sound_effect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_0ri4a")
+volume_db = -5.0
+
 [connection signal="pressed" from="Back_to_garden" to="." method="_on_back_to_garden_pressed"]
+[connection signal="pressed" from="Back_to_garden" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Go_poop_upgrades" to="." method="_on_go_poop_upgrades_pressed"]
 [connection signal="pressed" from="Go_poop_types" to="." method="_on_go_poop_types_pressed"]
+[connection signal="pressed" from="Go_guinea_shop" to="." method="_on_go_guinea_shop_pressed"]

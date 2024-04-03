@@ -9,12 +9,14 @@ func _ready():
 
 func _on_unpause_button_pressed():
 	hide()
+	get_parent().get_node("Day_Night_Cycle").visible = true
 	get_tree().paused = false
 	pass
 
 
 func _on_hud_open_settings():
 	show()
+	get_parent().get_node("Day_Night_Cycle").visible = false
 	get_tree().paused = true
 	pass
 

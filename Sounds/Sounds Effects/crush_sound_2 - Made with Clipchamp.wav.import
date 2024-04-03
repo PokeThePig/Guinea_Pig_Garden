@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://baucb4j4ybf16"
+path="res://.godot/imported/crush_sound_2 - Made with Clipchamp.wav-b043b737dc2b6c5a4ec3459da4e77b6a.sample"
+
+[deps]
+
+source_file="res://Sounds/Sounds Effects/crush_sound_2 - Made with Clipchamp.wav"
+dest_files=["res://.godot/imported/crush_sound_2 - Made with Clipchamp.wav-b043b737dc2b6c5a4ec3459da4e77b6a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
