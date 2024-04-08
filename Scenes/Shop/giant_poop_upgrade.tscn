@@ -11,7 +11,7 @@ offset_left = -128.0
 offset_right = 128.0
 offset_bottom = 72.0
 text = "Upgrade Giant Poop
-10 Poop"
+500 Poop"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.84217e-14, -80)

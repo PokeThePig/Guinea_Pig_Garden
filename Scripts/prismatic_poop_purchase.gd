@@ -6,9 +6,9 @@ func _ready():
 	prismatic_purchased.connect(get_parent().get_parent().get_node("Shop_Scene")._item_purchased.bind())
 
 func _on_button_pressed():
-	if (Globals.poop_amount >= 15) and (Globals.prismatic_poop_purchased == false):
+	if (Globals.poop_amount >= 1500) and (Globals.prismatic_poop_purchased == false):
 		Globals.prismatic_poop_purchased = true
-		Globals.poop_amount -= 15
+		Globals.poop_amount -= 1500
 		prismatic_purchased.emit()
 		$Button.text = "SOLD OUT"
 		pass

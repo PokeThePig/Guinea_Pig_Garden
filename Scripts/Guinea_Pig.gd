@@ -89,7 +89,7 @@ func _on_poop_spawner_timeout():
 			_on_poop_spawner_timeout()
 		
 #Odds for rare poop drops
-	var diamond_poop_check = randi() % 5000 + 1
+	var diamond_poop_check = randi() % 10000 + 1
 	var golden_poop_check = randi() % 100 + 1
 	var giant_poop_check = randi() % 500 + 1
 	var prismatic_poop_check = randi() % 50 + 1
@@ -97,7 +97,7 @@ func _on_poop_spawner_timeout():
 	var current_dropped_poop = null
 
 #Diamond poop drop
-	if (diamond_poop_check == 5000) and (Globals.diamond_poop_purchased == true):
+	if (diamond_poop_check == 10000) and (Globals.diamond_poop_purchased == true):
 		var dropped_diamond_poop = diamond_poop.instantiate()
 		get_parent().add_child(dropped_diamond_poop)
 		

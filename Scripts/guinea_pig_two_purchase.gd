@@ -10,8 +10,8 @@ func _ready():
 	pig_two_purchased.connect(get_parent().get_parent().get_node("Poop_Upgrades_Shop").get_node("Poop_Speed_Purchase")._new_pig_purchased.bind())
 
 func _on_button_pressed():
-	if (Globals.poop_amount >= 10) and (Globals.guinea_two_purchased == false):
-		Globals.poop_amount -= 10
+	if (Globals.poop_amount >= 300) and (Globals.guinea_two_purchased == false):
+		Globals.poop_amount -= 150
 		Globals.guinea_pigs_purchased += 1
 
 		var new_pig = guinea_pig_assets.instantiate()

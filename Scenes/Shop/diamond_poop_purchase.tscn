@@ -12,7 +12,7 @@ offset_top = -47.0
 offset_right = 123.0
 offset_bottom = 34.0
 text = "Unlock Diamond Poops
-10 Poop"
+750 Poop"
 
 [node name="diamond_shop_sprite" type="Sprite2D" parent="."]
 position = Vector2(-4, -102)

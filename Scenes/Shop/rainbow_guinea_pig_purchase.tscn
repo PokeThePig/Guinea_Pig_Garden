@@ -12,7 +12,7 @@ offset_top = 80.0
 offset_right = 112.0
 offset_bottom = 152.0
 text = "Buy Chroma
-5 Prismatic Poop"
+15 Prismatic Poop"
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,9 +1,9 @@
 extends Node
 
 #Poop counts
-var poop_amount = 999999
-var diamond_poop_amount = 5
-var prismatic_poop_amount = 10
+var poop_amount = 0
+var diamond_poop_amount = 0
+var prismatic_poop_amount = 0
 
 var currently_raining = false
 
@@ -14,7 +14,7 @@ var rainbow_guinea_purchased = false
 var king_calix_purchased = false
 
 var guinea_pigs_purchased = 0
-var pet_count = 999
+var pet_count = 0
 
 var gold_rush_achievement_completed = false
 var diamond_digger_achievement_completed = false

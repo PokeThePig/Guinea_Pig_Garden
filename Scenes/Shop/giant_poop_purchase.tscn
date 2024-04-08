@@ -18,6 +18,6 @@ offset_right = 120.987
 offset_bottom = 81.0
 scale = Vector2(1.03115, 1.08315)
 text = "Unlock Giant Poops
-5 Poop"
+500 Poop"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
