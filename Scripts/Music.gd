@@ -27,21 +27,22 @@ func _process(_delta):
 
 func _song_randomizer():
 	song_state = randi_range(0,4)
-	if song_state == 0:
-		main_one.play()
-		current_song = main_one
-	elif song_state == 1:
-		main_two.play()
-		current_song = main_two
-	elif song_state == 2:
-		main_three.play()
-		current_song = main_three
-	elif song_state == 3:
-		main_four.play()
-		current_song = main_four
-	elif song_state == 4:
-		main_five.play()
-		current_song = main_five
+	match song_state:
+		0:
+			main_one.play()
+			current_song = main_one
+		1:
+			main_two.play()
+			current_song = main_two
+		2:
+			main_three.play()
+			current_song = main_three
+		3:
+			main_four.play()
+			current_song = main_four
+		4:
+			main_five.play()
+			current_song = main_five
 
 func _on_gold_poop_song_finished():
 	current_song.play(gold_pause_position)

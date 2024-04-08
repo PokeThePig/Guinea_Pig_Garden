@@ -17,6 +17,6 @@ offset_top = 64.0
 offset_right = 120.0
 offset_bottom = 144.0
 text = "Unlock Prismatic Poops
-15 Poop"
+1500 Poop"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

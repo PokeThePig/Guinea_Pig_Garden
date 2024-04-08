@@ -10,8 +10,8 @@ func _ready():
 	rainbow_pig_purchased.connect(get_parent().get_parent().get_node("Poop_Upgrades_Shop").get_node("Poop_Speed_Purchase")._new_pig_purchased.bind())
 
 func _on_button_pressed():
-	if (Globals.prismatic_poop_amount >= 5) and (Globals.rainbow_guinea_purchased == false):
-		Globals.prismatic_poop_amount -= 5
+	if (Globals.prismatic_poop_amount >= 15) and (Globals.rainbow_guinea_purchased == false):
+		Globals.prismatic_poop_amount -= 15
 		Globals.guinea_pigs_purchased += 1
 
 		var new_pig = guinea_pig_assets.instantiate()

@@ -11,7 +11,7 @@ offset_left = -128.0
 offset_right = 128.0
 offset_bottom = 70.0
 text = "Buy Double Poop Upgrade
-50 Poop"
+25 Poop"
 
 [node name="Double_poop_count" type="Label" parent="."]
 offset_left = -24.0

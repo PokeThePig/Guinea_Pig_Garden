@@ -10,10 +10,10 @@ func _ready():
 	king_calix_purchased.connect(get_parent().get_parent().get_node("Poop_Upgrades_Shop").get_node("Poop_Speed_Purchase")._new_pig_purchased.bind())
 
 func _on_button_pressed():
-	if (Globals.poop_amount >= 10) and (Globals.prismatic_poop_amount >= 5) and (Globals.diamond_poop_amount >= 3) and (Globals.king_calix_purchased == false):
-		Globals.poop_amount -= 10
-		Globals.prismatic_poop_amount -= 5
-		Globals.diamond_poop_amount -= 3
+	if (Globals.poop_amount >= 50000) and (Globals.prismatic_poop_amount >= 500) and (Globals.diamond_poop_amount >= 5) and (Globals.king_calix_purchased == false):
+		Globals.poop_amount -= 50000
+		Globals.prismatic_poop_amount -= 500
+		Globals.diamond_poop_amount -= 5
 		Globals.guinea_pigs_purchased += 1
 
 		var new_pig = guinea_pig_assets.instantiate()
