@@ -7,7 +7,9 @@ signal king_calix_purchased
 
 func _ready():
 	pig_purchased.connect(get_parent().get_parent().get_node("Shop_Scene")._item_purchased.bind())
-	king_calix_purchased.connect(get_parent().get_parent().get_node("Poop_Upgrades_Shop").get_node("Poop_Speed_Purchase")._new_pig_purchased.bind())
+	king_calix_purchased.connect(get_parent().get_parent().get_node("Poop_Upgrades_Shop").get_node("ScrollContainer").get_node("VBoxContainer").get_node("Poop_Speed_Purchase")._new_pig_purchased.bind())
+	king_calix_purchased.connect(get_parent().get_parent().get_node("Garden")._update_guinea_dictionary.bind())
+	king_calix_purchased.connect(get_parent().get_parent().get_node("Poop_Upgrades_Shop")._update_poop_upgrades.bind())
 
 func _on_button_pressed():
 	if (Globals.poop_amount >= 50000) and (Globals.prismatic_poop_amount >= 500) and (Globals.diamond_poop_amount >= 5) and (Globals.king_calix_purchased == false):

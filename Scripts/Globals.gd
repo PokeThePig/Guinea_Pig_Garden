@@ -1,9 +1,17 @@
 extends Node
 
+#Guinea pigs
+var guinea_dictionary = {}
+var upgrade_guinea_id = null
+var poop_speed_upgrade_amount = 0.0
+var double_poop_upgrade_amount = 0
+var giant_poop_upgrade_minimum = 0
+var giant_poop_upgrade_maximum = 0
+
 #Poop counts
-var poop_amount = 0
-var diamond_poop_amount = 0
-var prismatic_poop_amount = 0
+var poop_amount = 9999999
+var diamond_poop_amount = 99999999
+var prismatic_poop_amount = 9999999
 
 var currently_raining = false
 
@@ -30,7 +38,6 @@ var giant_poop_purchased = false
 var prismatic_poop_purchased = false
 
 var double_poop_purchased = false
-var double_poop_chance = 10
 
 var poop_ui_position : Vector2
 var movespeed = 0

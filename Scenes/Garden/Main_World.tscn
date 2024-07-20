@@ -1,7 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://cj1qi3eed3trw"]
+[gd_scene load_steps=20 format=3 uid="uid://cj1qi3eed3trw"]
 
 [ext_resource type="Script" path="res://Scripts/Main_World.gd" id="1_pllxo"]
-[ext_resource type="PackedScene" uid="uid://bjmeyefd8dff5" path="res://Scenes/Garden/Guinea_Pig.tscn" id="2_8vgd5"]
 [ext_resource type="Script" path="res://Scripts/garden_camera.gd" id="2_itv3v"]
 [ext_resource type="Texture2D" uid="uid://8xsa3iana1xa" path="res://Sprites/Fences.png" id="3_p7wj6"]
 [ext_resource type="Texture2D" uid="uid://d2aybab7f0wnv" path="res://Sprites/Currently Used/Grass mono-Sheet darker-export.png" id="5_fu61i"]
@@ -106,9 +105,6 @@ script = ExtResource("1_pllxo")
 position = Vector2(0, -6)
 zoom = Vector2(0.09, 0.09)
 script = ExtResource("2_itv3v")
-
-[node name="Pig" parent="." instance=ExtResource("2_8vgd5")]
-position = Vector2(-96, -112)
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = 2
