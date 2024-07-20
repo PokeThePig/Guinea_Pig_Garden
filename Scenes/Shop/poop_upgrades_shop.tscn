@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ny6ry4ow8hh6"]
+[gd_scene load_steps=17 format=3 uid="uid://ny6ry4ow8hh6"]
 
 [ext_resource type="Script" path="res://Scripts/Shop_poop_count.gd" id="1_6nj71"]
 [ext_resource type="Script" path="res://Scripts/poop_upgrades_shop.gd" id="1_cqc40"]
@@ -7,20 +7,106 @@
 [ext_resource type="Script" path="res://Scripts/Shop_prismatic_poop_count.gd" id="4_3n5d6"]
 [ext_resource type="PackedScene" uid="uid://c4607w7esjfvi" path="res://Scenes/Shop/double_poop_drop_purchase.tscn" id="4_iu6cv"]
 [ext_resource type="Script" path="res://Scripts/Shop_diamond_poop_count.gd" id="5_anh7c"]
+[ext_resource type="Texture2D" uid="uid://w4dv8gmcnh6m" path="res://Sprites/Template Pig.png" id="6_5cjbf"]
 [ext_resource type="PackedScene" uid="uid://p1vyxvstb614" path="res://Scenes/Shop/giant_poop_upgrade.tscn" id="6_lh6nx"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_jnld4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4oy5c"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.4)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8yjpk"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pu1y"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.75, 0.75, 0.75, 0.75)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfws0"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4da1"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="Theme" id="Theme_bfdaw"]
+VScrollBar/colors/test = Color(0.92549, 0, 0, 1)
+VScrollBar/icons/decrement = SubResource("ImageTexture_jnld4")
+VScrollBar/icons/decrement_highlight = SubResource("ImageTexture_jnld4")
+VScrollBar/icons/decrement_pressed = SubResource("ImageTexture_jnld4")
+VScrollBar/icons/increment = SubResource("ImageTexture_jnld4")
+VScrollBar/icons/increment_highlight = SubResource("ImageTexture_jnld4")
+VScrollBar/icons/increment_pressed = SubResource("ImageTexture_jnld4")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_4oy5c")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_8yjpk")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_7pu1y")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_pfws0")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_y4da1")
 
 [node name="Poop_Upgrades_Shop" type="Node2D"]
 script = ExtResource("1_cqc40")
 
 [node name="poop_upgrades_camera" type="Camera2D" parent="."]
-position = Vector2(801, 454)
+position = Vector2(800, 448)
 script = ExtResource("2_0tpnx")
 
 [node name="Poop_Up_count" type="Label" parent="."]
-offset_left = 640.0
-offset_top = 616.0
-offset_right = 960.0
-offset_bottom = 787.0
+offset_left = 592.0
+offset_top = 943.0
+offset_right = 912.0
+offset_bottom = 1114.0
 scale = Vector2(0.998767, 1)
 theme_override_colors/font_color = Color(0.898039, 0.662745, 0.47451, 1)
 theme_override_font_sizes/font_size = 40
@@ -28,13 +114,12 @@ text = "Poop Count:"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_6nj71")
-metadata/_edit_use_anchors_ = true
 
 [node name="Shop_prismatic_poop_count" type="Label" parent="."]
-offset_left = 584.0
-offset_top = 776.0
-offset_right = 1016.0
-offset_bottom = 947.0
+offset_left = 536.0
+offset_top = 1103.0
+offset_right = 968.0
+offset_bottom = 1274.0
 theme_override_colors/font_color = Color(0.941176, 0.411765, 0.698039, 1)
 theme_override_font_sizes/font_size = 40
 text = "Prismatic Poop Count:"
@@ -43,10 +128,10 @@ vertical_alignment = 1
 script = ExtResource("4_3n5d6")
 
 [node name="Shop_diamond_poop_count" type="Label" parent="."]
-offset_left = 592.0
-offset_top = 696.0
-offset_right = 1011.0
-offset_bottom = 867.0
+offset_left = 544.0
+offset_top = 1023.0
+offset_right = 963.0
+offset_bottom = 1194.0
 theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
 theme_override_font_sizes/font_size = 40
 text = "Diamond Poop Count:"
@@ -55,11 +140,12 @@ vertical_alignment = 1
 script = ExtResource("5_anh7c")
 
 [node name="Poop_Up_title" type="Label" parent="."]
-offset_top = 48.0
-offset_right = 1602.0
-offset_bottom = 306.0
+offset_left = -8.0
+offset_top = -48.0
+offset_right = 1594.0
+offset_bottom = 210.0
 theme_override_font_sizes/font_size = 100
-text = "Poop Upgrades"
+text = "Guinea Pig Upgrades"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -72,13 +158,37 @@ offset_bottom = 871.0
 text = "Guinea Gadget Gallery"
 metadata/_edit_use_anchors_ = true
 
-[node name="Poop_Speed_Purchase" parent="." instance=ExtResource("3_si8c3")]
-position = Vector2(392, 480)
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(0, 660)
+offset_top = 155.0
+offset_right = 1545.0
+offset_bottom = 815.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
 
-[node name="Double_poop_drop_purchase" parent="." instance=ExtResource("4_iu6cv")]
-position = Vector2(800, 472)
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_bfdaw")
 
-[node name="giant_poop_upgrade" parent="." instance=ExtResource("6_lh6nx")]
-position = Vector2(1216, 472)
+[node name="Pig_Sprite" type="Sprite2D" parent="ScrollContainer/VBoxContainer"]
+position = Vector2(185, 192)
+scale = Vector2(0.350714, 0.377)
+texture = ExtResource("6_5cjbf")
+hframes = 2
+
+[node name="Poop_Speed_Purchase" parent="ScrollContainer/VBoxContainer" instance=ExtResource("3_si8c3")]
+position = Vector2(520, 248)
+
+[node name="Double_poop_drop_purchase" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_iu6cv")]
+position = Vector2(928, 240)
+
+[node name="giant_poop_upgrade" parent="ScrollContainer/VBoxContainer" instance=ExtResource("6_lh6nx")]
+position = Vector2(1344, 240)
 
 [connection signal="pressed" from="Poop_Up_to_shop" to="." method="_on_poop_up_to_shop_pressed"]

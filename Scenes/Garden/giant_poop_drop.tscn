@@ -8,7 +8,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_6g7es"]
 radius = 481.068
 
-[node name="giant_poop_drop" type="Node2D"]
+[node name="giant_poop_drop" type="Node2D" groups=["Giant"]]
 position = Vector2(1153, -822)
 
 [node name="Giant_poop" type="CharacterBody2D" parent="."]

@@ -6,14 +6,18 @@ var max_size_poop = false
 var giant_poop_size = 0
 var giant_poop_collision = 0
 
+var giant_poop_min = 1
+var giant_poop_max = 1.5
+
 signal giant_poop_crushed
 signal giant_poop_achievement_unlocked
 
 func _ready():
+	_update_giant_poop()
 	self.giant_poop_crushed.connect(get_parent().get_parent().get_node("Guinea_Pig")._on_giant_poop_crushed.bind())
 	giant_poop_achievement_unlocked.connect(get_parent().get_parent().get_parent().get_parent().get_node("Achievements_Screen")._giant_poop_achievement_unlocked.bind())
 	
-	giant_poop_size = randf_range(Globals.giant_poop_min, Globals.giant_poop_max)
+	giant_poop_size = randf_range(giant_poop_min, giant_poop_max)
 	giant_poop_collision = float(giant_poop_size) / 2
 	print(giant_poop_size, " ", giant_poop_collision)
 	
@@ -75,3 +79,8 @@ func _input(event):
 
 func _on_decay_timer_timeout():
 	queue_free()
+	
+'''Updating Giant Poop Sizes'''
+func _update_giant_poop():
+	giant_poop_min = get_parent().get_parent().get_node("Guinea_Pig").giant_poop_minimum
+	giant_poop_max = get_parent().get_parent().get_node("Guinea_Pig").giant_poop_maximum

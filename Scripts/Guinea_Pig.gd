@@ -16,8 +16,16 @@ extends CharacterBody2D
 
 var poop_count = 0
 var movespeed = randf_range(1, 3)
+var poop_speed = 1
 var state = 0
 var face_left = true
+
+var double_poop_unlocked = false
+var double_poop_chance = 10
+
+var giant_poop_purchased = false
+var giant_poop_minimum = 1
+var giant_poop_maximum = 1.5
 
 var test_var = false
 
@@ -31,7 +39,7 @@ signal thousand_pets_achievement_unlocked
 
 func _ready():
 	thousand_pets_achievement_unlocked.connect(get_parent().get_parent().get_parent().get_node("Achievements_Screen")._thousand_pets_achievement_unlocked.bind())
-	poop_drop_speed.wait_time = 5 * Globals.poop_speed_multiplier
+	poop_drop_speed.wait_time = 5 * poop_speed
 
 '''Movement of Guinea Pigs'''
 
@@ -83,9 +91,9 @@ func _on_wander_timer_timeout():
 '''Spawning poop'''
 
 func _on_poop_spawner_timeout():
-	if Globals.double_poop_purchased == true:
-		var double_poop_check = randi_range(1, Globals.double_poop_chance)
-		if double_poop_check == Globals.double_poop_chance:
+	if double_poop_unlocked == true:
+		var double_poop_check = randi_range(1, double_poop_chance)
+		if double_poop_check == double_poop_chance:
 			_on_poop_spawner_timeout()
 		
 #Odds for rare poop drops
@@ -152,7 +160,7 @@ func _on_poop_spawner_timeout():
 
 func _start_golden_poop_effect():
 	poop_drop_speed.stop()
-	poop_drop_speed.wait_time = .1 * Globals.poop_speed_multiplier
+	poop_drop_speed.wait_time = .1 * poop_speed
 	poop_drop_speed.start()
 	movement_change.stop()
 	movement_change.wait_time = 0.25
@@ -167,7 +175,7 @@ func _end_golden_poop_effect():
 		pig.velocity.x = 0
 		pig.velocity.y = 0
 	poop_drop_speed.stop()
-	poop_drop_speed.wait_time = 5 * Globals.poop_speed_multiplier
+	poop_drop_speed.wait_time = 5 * poop_speed
 	poop_drop_speed.start()
 	movement_change.stop()
 	movement_change.wait_time = 3.5
@@ -179,14 +187,41 @@ func _end_golden_poop_effect():
 '''Updating Poop Speed'''
 func _update_poop_speed():
 	if Globals.golden_poop_active == true:
+		if (self == Globals.upgrade_guinea_id):
+			poop_speed -= Globals.poop_speed_upgrade_amount
+			Globals.upgrade_guinea_id = null
+			Globals.poop_speed_upgrade_amount = 0.0
 		poop_drop_speed.stop()
-		poop_drop_speed.wait_time = .1 * Globals.poop_speed_multiplier
+		poop_drop_speed.wait_time = .1 * poop_speed
 		poop_drop_speed.start()
 	else:
+		if (self == Globals.upgrade_guinea_id):
+			poop_speed -= Globals.poop_speed_upgrade_amount
+			Globals.upgrade_guinea_id = null
+			Globals.poop_speed_upgrade_amount = 0.0
 		poop_drop_speed.stop()
-		poop_drop_speed.wait_time = 5 * Globals.poop_speed_multiplier
+		poop_drop_speed.wait_time = 5 * poop_speed
 		poop_drop_speed.start()
+		
+'''Updating Double Poop Odds'''
 
+func _update_double_poop():
+	double_poop_unlocked = true
+	if (self == Globals.upgrade_guinea_id):
+		double_poop_chance = Globals.double_poop_upgrade_amount
+		Globals.upgrade_guinea_id = null
+		Globals.double_poop_upgrade_amount = 0
+		print(double_poop_chance)
+		
+
+'''Updating Giant Poop Sizes'''
+func _update_giant_poop():
+	if (self == Globals.upgrade_guinea_id):
+		giant_poop_minimum = Globals.giant_poop_upgrade_minimum
+		giant_poop_maximum = Globals.giant_poop_upgrade_maximum
+		Globals.upgrade_guinea_id = null
+		Globals.giant_poop_upgrade_minimum = 0
+		Globals.giant_poop_upgrade_minimum = 0
 
 '''Playing pickup sound effects'''
 

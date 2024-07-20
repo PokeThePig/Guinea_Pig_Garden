@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://bjmeyefd8dff5"]
 
 [ext_resource type="Script" path="res://Scripts/Guinea_Pig.gd" id="1_km6o0"]
-[ext_resource type="Texture2D" uid="uid://cl0vjnsy8ir1a" path="res://Sprites/Currently Used/Bella Sheet.png" id="3_uv6n8"]
+[ext_resource type="Texture2D" uid="uid://w4dv8gmcnh6m" path="res://Sprites/Template Pig.png" id="2_u76an"]
 [ext_resource type="AudioStream" uid="uid://wlpwv33acvjk" path="res://Sounds/Sounds Effects/Pop_one.wav" id="4_g0ybr"]
 [ext_resource type="AudioStream" uid="uid://ckq5qnvii1lti" path="res://Sounds/Sounds Effects/Pop_three.wav" id="6_i0ab3"]
 [ext_resource type="AudioStream" uid="uid://djc4vv3rod3mj" path="res://Sounds/Sounds Effects/diamond_sound.wav" id="6_sgm43"]
@@ -74,7 +74,7 @@ script = ExtResource("1_km6o0")
 z_index = 5
 position = Vector2(-20.0001, 72)
 scale = Vector2(1.714, 1.59673)
-texture = ExtResource("3_uv6n8")
+texture = ExtResource("2_u76an")
 hframes = 2
 frame = 1
 
