@@ -9,6 +9,7 @@ signal gold_poop_achievement_unlocked
 func _ready():
 	effect_start.connect(get_parent().get_node("Guinea_Pig")._start_golden_poop_effect.bind())
 	gold_poop_achievement_unlocked.connect(get_parent().get_parent().get_parent().get_node("Achievements_Screen")._golden_poop_achievement_unlocked.bind())
+	Globals.gold_poop_pig = get_parent().get_node("Guinea_Pig")
 
 func _process(_delta):
 	poop_animation.play("gold_poop_sparkle")

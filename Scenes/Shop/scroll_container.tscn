@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8irhb30q5tn8"]
+
+[ext_resource type="Texture2D" uid="uid://b6ru5f62s8wxr" path="res://Sprites/icon.svg" id="1_6cpue"]
+[ext_resource type="Texture2D" uid="uid://w4dv8gmcnh6m" path="res://Sprites/Template Pig.png" id="2_ygx1i"]
+[ext_resource type="PackedScene" uid="uid://buu4qpft0qvii" path="res://Scenes/Shop/poop_speed_purchase.tscn" id="3_5i0tq"]
+[ext_resource type="PackedScene" uid="uid://c4607w7esjfvi" path="res://Scenes/Shop/double_poop_drop_purchase.tscn" id="4_wk0u5"]
+[ext_resource type="PackedScene" uid="uid://p1vyxvstb614" path="res://Scenes/Shop/giant_poop_upgrade.tscn" id="5_a0akx"]
+
+[sub_resource type="Theme" id="Theme_5ayhv"]
+
+[node name="ScrollContainer" type="ScrollContainer" groups=["Scroll"]]
+custom_minimum_size = Vector2(1500, 370)
+layout_direction = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+mouse_filter = 2
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+scroll_deadzone = -1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(2000, 0)
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme = SubResource("Theme_5ayhv")
+
+[node name="Unique_upgrade_placeholder" type="Sprite2D" parent="HBoxContainer"]
+visible = false
+position = Vector2(1741, 220)
+texture = ExtResource("1_6cpue")
+
+[node name="Pig_Sprite" type="Sprite2D" parent="HBoxContainer"]
+position = Vector2(185, 170)
+scale = Vector2(0.350714, 0.377)
+texture = ExtResource("2_ygx1i")
+hframes = 2
+
+[node name="Poop_Speed_Purchase" parent="HBoxContainer" instance=ExtResource("3_5i0tq")]
+position = Vector2(520, 220)
+
+[node name="Double_poop_drop_purchase" parent="HBoxContainer" instance=ExtResource("4_wk0u5")]
+position = Vector2(928, 220)
+
+[node name="giant_poop_upgrade" parent="HBoxContainer" instance=ExtResource("5_a0akx")]
+position = Vector2(1344, 220)

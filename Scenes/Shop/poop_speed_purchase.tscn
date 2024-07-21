@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://buu4qpft0qvii"]
+[gd_scene load_steps=5 format=3 uid="uid://buu4qpft0qvii"]
 
 [ext_resource type="Script" path="res://Scenes/Shop/poop_speed_purchase.gd" id="1_ivnsh"]
 [ext_resource type="Texture2D" uid="uid://6j5hyv6k1gmq" path="res://Sprites/Currently Used/Fiber upgrade v1.png" id="2_lcem4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7y47a"]
+bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
+
+[sub_resource type="Theme" id="Theme_epm47"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/fonts/font = null
+Label/styles/normal = SubResource("StyleBoxFlat_7y47a")
 
 [node name="Poop_Speed_Purchase" type="Node2D"]
 script = ExtResource("1_ivnsh")
@@ -28,4 +36,18 @@ offset_bottom = 111.0
 text = "0/5"
 horizontal_alignment = 1
 
+[node name="Poop_speed_description" type="Label" parent="."]
+visible = false
+offset_left = -104.0
+offset_top = -136.0
+offset_right = 104.0
+offset_bottom = -57.0
+theme = SubResource("Theme_epm47")
+text = "Increases Poop Speed
+[5s > 4s]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="upgrade_button" to="." method="_on_upgrade_button_mouse_entered"]
+[connection signal="mouse_exited" from="upgrade_button" to="." method="_on_upgrade_button_mouse_exited"]
 [connection signal="pressed" from="upgrade_button" to="." method="_on_upgrade_button_pressed"]

@@ -7,7 +7,7 @@ signal max_speed_achievement_unlocked
 func _ready():
 	effect_end.connect(get_parent().get_node("Guinea_Pig")._end_golden_poop_effect.bind());
 	max_speed_achievement_unlocked.connect(get_parent().get_parent().get_parent().get_node("Achievements_Screen")._max_speed_achievement_unlocked.bind())
-	Globals.movespeed = randf_range(5,10)
+	get_parent().get_node("Guinea_Pig").movespeed = randf_range(5,10)
 	print("start")
 	
 func _process(_delta):
@@ -20,5 +20,6 @@ func _on_effect_duration_timeout():
 	Globals.movespeed = randf_range(1,3)
 	Globals.golden_poop_active = false
 	Globals.golden_poop_dropped = false
+	Globals.gold_poop_pig = null
 	print("stop")
 	queue_free()

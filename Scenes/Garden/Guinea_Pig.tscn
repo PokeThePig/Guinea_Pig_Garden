@@ -140,7 +140,12 @@ unique_name_in_owner = true
 wait_time = 5.0
 autostart = true
 
+[node name="Squeek_frenzy_charge" type="Timer" parent="Guinea_Pig"]
+wait_time = 300.0
+autostart = true
+
 [connection signal="mouse_entered" from="Guinea_Pig" to="Guinea_Pig" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Guinea_Pig" to="Guinea_Pig" method="_on_mouse_exited"]
 [connection signal="timeout" from="Guinea_Pig/wander_timer" to="Guinea_Pig" method="_on_wander_timer_timeout"]
 [connection signal="timeout" from="Guinea_Pig/poop_spawner" to="Guinea_Pig" method="_on_poop_spawner_timeout"]
+[connection signal="timeout" from="Guinea_Pig/Squeek_frenzy_charge" to="Guinea_Pig" method="_on_squeek_frenzy_charge_timeout"]

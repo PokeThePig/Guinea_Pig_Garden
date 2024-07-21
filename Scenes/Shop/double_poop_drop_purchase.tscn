@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4607w7esjfvi"]
+[gd_scene load_steps=5 format=3 uid="uid://c4607w7esjfvi"]
 
 [ext_resource type="Script" path="res://Scripts/double_poop_drop_purchase.gd" id="1_k7j17"]
 [ext_resource type="Texture2D" uid="uid://vjm4igbsy0h7" path="res://Sprites/Currently Used/Poop upscale.png" id="2_1lhlh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hud4w"]
+bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
+
+[sub_resource type="Theme" id="Theme_t3tpo"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/fonts/font = null
+Label/styles/normal = SubResource("StyleBoxFlat_hud4w")
 
 [node name="Double_poop_drop_purchase" type="Node2D"]
 script = ExtResource("1_k7j17")
@@ -10,7 +18,7 @@ script = ExtResource("1_k7j17")
 offset_left = -128.0
 offset_right = 128.0
 offset_bottom = 70.0
-text = "Buy Double Poop Upgrade
+text = "Double Poop Upgrade
 25 Poop"
 
 [node name="Double_poop_count" type="Label" parent="."]
@@ -23,13 +31,28 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-20, -89)
+position = Vector2(-19, -109)
 scale = Vector2(0.3125, 0.296875)
 texture = ExtResource("2_1lhlh")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(20, -65)
+position = Vector2(21, -83)
 scale = Vector2(0.3125, 0.296875)
 texture = ExtResource("2_1lhlh")
 
+[node name="Double_poop_description" type="Label" parent="."]
+visible = false
+offset_left = -112.0
+offset_top = -136.0
+offset_right = 113.0
+offset_bottom = -57.0
+theme = SubResource("Theme_t3tpo")
+text = "Adds a chance for two poops to be dropped.
+[10%]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="mouse_entered" from="upgrade_button" to="." method="_on_upgrade_button_mouse_entered"]
+[connection signal="mouse_exited" from="upgrade_button" to="." method="_on_upgrade_button_mouse_exited"]
 [connection signal="pressed" from="upgrade_button" to="." method="_on_upgrade_button_pressed"]
