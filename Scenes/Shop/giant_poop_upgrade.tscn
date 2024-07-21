@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://p1vyxvstb614"]
+[gd_scene load_steps=5 format=3 uid="uid://p1vyxvstb614"]
 
 [ext_resource type="Texture2D" uid="uid://vjm4igbsy0h7" path="res://Sprites/Currently Used/Poop upscale.png" id="1_hmpd7"]
 [ext_resource type="Script" path="res://Scripts/giant_poop_upgrade.gd" id="1_pajqe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_judyo"]
+bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
+
+[sub_resource type="Theme" id="Theme_tnwvr"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/fonts/font = null
+Label/styles/normal = SubResource("StyleBoxFlat_judyo")
 
 [node name="giant_poop_upgrade" type="Node2D"]
 script = ExtResource("1_pajqe")
@@ -26,4 +34,20 @@ offset_bottom = 111.0
 text = "0/3"
 horizontal_alignment = 1
 
+[node name="Giant_poop_upgrade_description" type="Label" parent="."]
+visible = false
+offset_left = -144.0
+offset_top = -144.0
+offset_right = 144.0
+offset_bottom = -17.0
+theme = SubResource("Theme_tnwvr")
+text = "Increases minimum and maximum value of giant poop drops.
+Minimum: [100 > 155]
+Maximum: [225 > 400]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="mouse_entered" from="upgrade_giant_poop_button" to="." method="_on_upgrade_giant_poop_button_mouse_entered"]
+[connection signal="mouse_exited" from="upgrade_giant_poop_button" to="." method="_on_upgrade_giant_poop_button_mouse_exited"]
 [connection signal="pressed" from="upgrade_giant_poop_button" to="." method="_on_upgrade_giant_poop_button_pressed"]

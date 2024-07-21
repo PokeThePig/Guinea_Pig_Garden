@@ -1,14 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://ny6ry4ow8hh6"]
+[gd_scene load_steps=14 format=3 uid="uid://ny6ry4ow8hh6"]
 
 [ext_resource type="Script" path="res://Scripts/Shop_poop_count.gd" id="1_6nj71"]
 [ext_resource type="Script" path="res://Scripts/poop_upgrades_shop.gd" id="1_cqc40"]
 [ext_resource type="Script" path="res://Scripts/poop_upgrades_camera.gd" id="2_0tpnx"]
-[ext_resource type="PackedScene" uid="uid://buu4qpft0qvii" path="res://Scenes/Shop/poop_speed_purchase.tscn" id="3_si8c3"]
 [ext_resource type="Script" path="res://Scripts/Shop_prismatic_poop_count.gd" id="4_3n5d6"]
-[ext_resource type="PackedScene" uid="uid://c4607w7esjfvi" path="res://Scenes/Shop/double_poop_drop_purchase.tscn" id="4_iu6cv"]
 [ext_resource type="Script" path="res://Scripts/Shop_diamond_poop_count.gd" id="5_anh7c"]
-[ext_resource type="Texture2D" uid="uid://w4dv8gmcnh6m" path="res://Sprites/Template Pig.png" id="6_5cjbf"]
-[ext_resource type="PackedScene" uid="uid://p1vyxvstb614" path="res://Scenes/Shop/giant_poop_upgrade.tscn" id="6_lh6nx"]
+[ext_resource type="PackedScene" uid="uid://b8irhb30q5tn8" path="res://Scenes/Shop/scroll_container.tscn" id="6_a3iqr"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_jnld4"]
 
@@ -158,11 +155,11 @@ offset_bottom = 871.0
 text = "Guinea Gadget Gallery"
 metadata/_edit_use_anchors_ = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
-custom_minimum_size = Vector2(0, 660)
+[node name="ScrollContainer" type="ScrollContainer" parent="." groups=["Scroll"]]
+offset_left = 15.0
 offset_top = 155.0
-offset_right = 1545.0
-offset_bottom = 815.0
+offset_right = 1560.0
+offset_bottom = 785.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
@@ -176,19 +173,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource("Theme_bfdaw")
 
-[node name="Pig_Sprite" type="Sprite2D" parent="ScrollContainer/VBoxContainer"]
-position = Vector2(185, 192)
-scale = Vector2(0.350714, 0.377)
-texture = ExtResource("6_5cjbf")
-hframes = 2
-
-[node name="Poop_Speed_Purchase" parent="ScrollContainer/VBoxContainer" instance=ExtResource("3_si8c3")]
-position = Vector2(520, 248)
-
-[node name="Double_poop_drop_purchase" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_iu6cv")]
-position = Vector2(928, 240)
-
-[node name="giant_poop_upgrade" parent="ScrollContainer/VBoxContainer" instance=ExtResource("6_lh6nx")]
-position = Vector2(1344, 240)
+[node name="ScrollContainer" parent="ScrollContainer/VBoxContainer" instance=ExtResource("6_a3iqr")]
+layout_mode = 2
 
 [connection signal="pressed" from="Poop_Up_to_shop" to="." method="_on_poop_up_to_shop_pressed"]

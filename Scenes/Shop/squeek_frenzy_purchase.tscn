@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://cu5dagbcogu6h"]
+
+[ext_resource type="Script" path="res://Scripts/Squeek Frenzy Purchase.gd" id="1_85tv0"]
+[ext_resource type="Texture2D" uid="uid://blc24talt12ri" path="res://Sprites/Currently Used/Squeek Frenzy.png" id="2_77h5b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h75dr"]
+bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
+
+[sub_resource type="Theme" id="Theme_4f4u2"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/fonts/font = null
+Label/styles/normal = SubResource("StyleBoxFlat_h75dr")
+
+[node name="Squeek Frenzy Purchase" type="Node2D"]
+script = ExtResource("1_85tv0")
+
+[node name="upgrade_button" type="Button" parent="."]
+offset_left = -120.0
+offset_right = 120.0
+offset_bottom = 64.0
+text = "Squeek Frenzy
+10000 Poop"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.02344, -96)
+scale = Vector2(0.383078, 0.383876)
+texture = ExtResource("2_77h5b")
+
+[node name="Squeek_frenzy_count" type="Label" parent="."]
+offset_left = -24.0
+offset_top = 88.0
+offset_right = 24.0
+offset_bottom = 111.0
+text = "0/5"
+horizontal_alignment = 1
+
+[node name="Squeek_frenzy_description" type="Label" parent="."]
+visible = false
+offset_left = -152.0
+offset_top = -176.0
+offset_right = 152.0
+offset_bottom = -23.0
+theme = SubResource("Theme_4f4u2")
+text = "Adds the ability to squeek extra loud every 3 - 5 minutes when pet, causing all guinea pigs to enter a frenzy state where poop speed is halved.
+[5 seconds]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="mouse_entered" from="upgrade_button" to="." method="_on_upgrade_button_mouse_entered"]
+[connection signal="mouse_exited" from="upgrade_button" to="." method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="upgrade_button" to="." method="_on_upgrade_button_pressed"]

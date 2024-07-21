@@ -1,19 +1,26 @@
 extends Node2D
 
-@onready var speed_upgrade_assets = load("res://Scenes/Shop/poop_speed_purchase.tscn")
-@onready var double_upgrade_assets = load("res://Scenes/Shop/double_poop_drop_purchase.tscn")
-@onready var giant_upgrade_assets = load("res://Scenes/Shop/giant_poop_upgrade.tscn")
-
 var current_pig = 1
-var current_scroll_size = 800
 var pig_instance
+
+@onready var upgrade_row_assets = load("res://Scenes/Shop/scroll_container.tscn")
+
+#Unique upgrades
+var unique_upgrade = null
+@onready var squeek_frenzy_assets = load("res://Scenes/Shop/squeek_frenzy_purchase.tscn")
+@onready var rain_or_shine_assets = load("res://Scenes/Shop/rain_or_shine_purchase.tscn")
 
 signal shop_cam_from_poop_up
 
 func _ready():
 	shop_cam_from_poop_up.connect(get_parent().get_node("Shop_Scene").get_node("main_shop_camera")._switch_to_shop_cam_from_poop_up.bind())
-	var upgrade_sprite = get_node("ScrollContainer/VBoxContainer/Pig_Sprite")
+	var upgrade_sprite = get_node("ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer/Pig_Sprite")
 	upgrade_sprite.texture = load("res://Sprites/Currently Used/Bella Sheet.png")
+	unique_upgrade = squeek_frenzy_assets.instantiate()
+	get_node("ScrollContainer").get_node("VBoxContainer").get_node("ScrollContainer").get_node("HBoxContainer").add_child(unique_upgrade)
+	unique_upgrade.global_position = $ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer/Unique_upgrade_placeholder.global_position
+	unique_upgrade = null
+	
 	current_pig += 1
 
 func _on_poop_up_to_shop_pressed():
@@ -21,27 +28,20 @@ func _on_poop_up_to_shop_pressed():
 	
 func _update_poop_upgrades():
 	await get_tree().create_timer(.01).timeout
-	
-	var speed_upgrade_location = $ScrollContainer/VBoxContainer/Poop_Speed_Purchase.global_position.y
-	var double_upgrade_location = $ScrollContainer/VBoxContainer/Double_poop_drop_purchase.global_position.y
-	var giant_upgrade_location = $ScrollContainer/VBoxContainer/giant_poop_upgrade.global_position.y
-	var sprite_upgrade_location = $ScrollContainer/VBoxContainer/Pig_Sprite.global_position.y
-	
-	pig_instance = instance_from_id(Globals.guinea_dictionary["Guinea" + str(current_pig)])
+	var upgrade_row_location = $ScrollContainer/VBoxContainer/ScrollContainer.global_position.y
+	pig_instance = instance_from_id(Globals.guinea_dictionary[Globals.new_pig])
 	current_pig += 1
-	current_scroll_size += 250
-	$ScrollContainer/VBoxContainer.set_custom_minimum_size(Vector2(0,current_scroll_size))
-	var new_speed_upgrades =  speed_upgrade_assets.instantiate()
-	var new_double_upgrades = double_upgrade_assets.instantiate()
-	var new_giant_upgrades = giant_upgrade_assets.instantiate()
-	var new_sprite = $ScrollContainer/VBoxContainer/Pig_Sprite.duplicate()
-	get_node("ScrollContainer").get_node("VBoxContainer").add_child(new_speed_upgrades)
-	get_node("ScrollContainer").get_node("VBoxContainer").add_child(new_double_upgrades)
-	get_node("ScrollContainer").get_node("VBoxContainer").add_child(new_giant_upgrades)
-	get_node("ScrollContainer").get_node("VBoxContainer").add_child(new_sprite)
-	new_sprite.texture = pig_instance.get_parent().get_node("Guinea_Pig").get_node("Pig_Sprite").texture
 	
-	new_speed_upgrades.global_position = Vector2(-2600, speed_upgrade_location + (320 * (current_pig - 2)))
-	new_double_upgrades.global_position = Vector2(-2192, double_upgrade_location + (320 * (current_pig - 2)))
-	new_giant_upgrades.global_position = Vector2(-1776, giant_upgrade_location + (320 * (current_pig - 2)))
-	new_sprite.global_position = Vector2(-2935, sprite_upgrade_location + (320 * (current_pig - 2)))
+	#Adding row
+	var new_upgrade_row = upgrade_row_assets.instantiate()
+	get_node("ScrollContainer").get_node("VBoxContainer").add_child(new_upgrade_row)
+	
+	#Customizing row
+	new_upgrade_row.get_node("HBoxContainer").get_node("Pig_Sprite").texture = pig_instance.get_parent().get_node("Guinea_Pig").get_node("Pig_Sprite").texture
+	new_upgrade_row.global_position = Vector2(-9149, upgrade_row_location + (100 * (current_pig - 2)))
+	
+	if (Globals.rainbow_guinea_purchased == true):
+		if (pig_instance == instance_from_id(Globals.guinea_dictionary["Chroma"])):
+			unique_upgrade = rain_or_shine_assets.instantiate()
+			new_upgrade_row.get_node("HBoxContainer").add_child(unique_upgrade)
+			unique_upgrade.global_position = new_upgrade_row.get_node("HBoxContainer").get_node("Unique_upgrade_placeholder").global_position
