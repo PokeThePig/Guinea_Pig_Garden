@@ -201,12 +201,13 @@ func _end_golden_poop_effect():
 	poop_drop_speed.wait_time = 5 * poop_speed * squeek_frenzy_multiplier
 	poop_drop_speed.start()
 	if !Globals.squeek_frenzy_effect_active:
+		movement_change.stop()
 		self.velocity.x = 0
 		self.velocity.y = 0
-		movement_change.stop()
 		movement_change.wait_time = 3.5
 		_on_wander_timer_timeout()
 		movement_change.start()
+		state = randi_range(0,5)
 	
 	
 '''Squeek Frenzy Effect'''
@@ -317,6 +318,14 @@ func _on_prismatic_poop_collected():
 func _on_giant_poop_crushed():
 	$final_crush.play()
 	pass
+	
+	'''UNFINISHED'''
+func _on_giant_prismatic_crushed():
+	pass
+	
+func _on_copper_poop_collected():
+	sound_effect_randomizer().play()
+	Globals.poop_amount += 5
 
 func sound_effect_randomizer():
 	var sound_effect_num = floor(randf_range(0,3))

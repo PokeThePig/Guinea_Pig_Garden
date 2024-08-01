@@ -18,6 +18,9 @@ var rain_or_shine_purchased = false
 var giant_prismatic_purchased = false
 var chroma_prismatic_odds = 1
 
+var copper_poop_purchased = false
+var copper_poop_value = 1
+
 #Poop counts
 var poop_amount = 9999999
 var diamond_poop_amount = 99999999
