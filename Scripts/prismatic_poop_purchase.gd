@@ -12,3 +12,11 @@ func _on_button_pressed():
 		prismatic_purchased.emit()
 		$Button.text = "SOLD OUT"
 		pass
+
+
+func _on_button_mouse_entered():
+	$prismatic_poop_description.visible = true
+
+
+func _on_button_mouse_exited():
+	$prismatic_poop_description.visible = false

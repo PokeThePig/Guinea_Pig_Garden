@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bjmeyefd8dff5"]
+[gd_scene load_steps=21 format=3 uid="uid://bjmeyefd8dff5"]
 
 [ext_resource type="Script" path="res://Scripts/Guinea_Pig.gd" id="1_km6o0"]
 [ext_resource type="Texture2D" uid="uid://w4dv8gmcnh6m" path="res://Sprites/Template Pig.png" id="2_u76an"]
@@ -7,14 +7,17 @@
 [ext_resource type="AudioStream" uid="uid://djc4vv3rod3mj" path="res://Sounds/Sounds Effects/diamond_sound.wav" id="6_sgm43"]
 [ext_resource type="AudioStream" uid="uid://dfbnopbst4cp2" path="res://Sounds/Sounds Effects/Pop_two_new.wav" id="7_177yb"]
 [ext_resource type="AudioStream" uid="uid://vn61nun33ok3" path="res://Sounds/Sounds Effects/prismatic_sound.wav" id="7_oiabt"]
+[ext_resource type="AudioStream" uid="uid://bqavvkrprcnir" path="res://Sounds/Sounds Effects/Copper-poop-sound-Made-with-Clipchamp.wav" id="8_oty4x"]
 [ext_resource type="AudioStream" uid="uid://bqhsrd0vsjfdh" path="res://Sounds/Sounds Effects/tiny_squeeks.wav" id="8_pf08n"]
 [ext_resource type="AudioStream" uid="uid://co5ebu8804qbn" path="res://Sounds/Sounds Effects/small_squeeks.wav" id="9_vtfgh"]
 [ext_resource type="AudioStream" uid="uid://b18wbrlictobx" path="res://Sounds/Sounds Effects/loud_squeek.wav" id="10_d8dhk"]
 [ext_resource type="AudioStream" uid="uid://c6owyi7hfyx3u" path="res://Sounds/Sounds Effects/Final_crush.wav" id="11_m6fuh"]
 [ext_resource type="AudioStream" uid="uid://doeytnmcwsrjk" path="res://Sounds/Sounds Effects/Royal News Trumpet Sound Effect.wav" id="11_mp4rw"]
+[ext_resource type="AudioStream" uid="uid://o0l08tdf8blb" path="res://Sounds/Sounds Effects/Prismatic Crush - Made with Clipchamp.wav" id="13_j3o6e"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7jxy"]
-size = Vector2(5077.32, 2369.25)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p8bvi"]
+radius = 1108.49
+height = 5550.0
 
 [sub_resource type="Animation" id="Animation_ko0lf"]
 length = 0.001
@@ -80,8 +83,9 @@ frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guinea_Pig"]
 position = Vector2(-40, 104)
+rotation = 1.5708
 scale = Vector2(0.212, 0.2)
-shape = SubResource("RectangleShape2D_p7jxy")
+shape = SubResource("CapsuleShape2D_p8bvi")
 
 [node name="Pig_AnimationPlayer" type="AnimationPlayer" parent="Guinea_Pig"]
 root_node = NodePath("../Pig_Sprite")
@@ -92,43 +96,63 @@ libraries = {
 [node name="pop_one" type="AudioStreamPlayer" parent="Guinea_Pig"]
 stream = ExtResource("4_g0ybr")
 volume_db = -15.0
+bus = &"sfx"
 
 [node name="pop_two" type="AudioStreamPlayer" parent="Guinea_Pig"]
 stream = ExtResource("7_177yb")
 volume_db = -15.0
+bus = &"sfx"
 
 [node name="pop_three" type="AudioStreamPlayer" parent="Guinea_Pig"]
 stream = ExtResource("6_i0ab3")
 volume_db = -15.0
+bus = &"sfx"
 
 [node name="diamond_sound" type="AudioStreamPlayer" parent="Guinea_Pig"]
 stream = ExtResource("6_sgm43")
 volume_db = -20.0
+bus = &"sfx"
 
 [node name="prismatic_sound" type="AudioStreamPlayer" parent="Guinea_Pig"]
 stream = ExtResource("7_oiabt")
 volume_db = -15.0
 pitch_scale = 2.06
+bus = &"sfx"
+
+[node name="copper_sound" type="AudioStreamPlayer" parent="Guinea_Pig"]
+stream = ExtResource("8_oty4x")
+pitch_scale = 2.06
+bus = &"sfx"
 
 [node name="tiny_squeek_sound" type="AudioStreamPlayer" parent="Guinea_Pig"]
 stream = ExtResource("8_pf08n")
 volume_db = -5.0
+bus = &"sfx"
 
 [node name="small_squeek_sound" type="AudioStreamPlayer" parent="Guinea_Pig"]
 stream = ExtResource("9_vtfgh")
 volume_db = -5.0
+bus = &"sfx"
 
 [node name="loud_squeek_sound" type="AudioStreamPlayer" parent="Guinea_Pig"]
 stream = ExtResource("10_d8dhk")
 volume_db = -5.0
+bus = &"sfx"
 
 [node name="king_calix_trumpet" type="AudioStreamPlayer" parent="Guinea_Pig"]
 stream = ExtResource("11_mp4rw")
 volume_db = -20.0
+bus = &"sfx"
 
 [node name="final_crush" type="AudioStreamPlayer" parent="Guinea_Pig"]
 stream = ExtResource("11_m6fuh")
 volume_db = -10.0
+bus = &"sfx"
+
+[node name="prismatic_crush" type="AudioStreamPlayer" parent="Guinea_Pig"]
+stream = ExtResource("13_j3o6e")
+volume_db = -10.0
+bus = &"sfx"
 
 [node name="wander_timer" type="Timer" parent="Guinea_Pig"]
 unique_name_in_owner = true
@@ -144,8 +168,13 @@ autostart = true
 wait_time = 300.0
 autostart = true
 
+[node name="hibernation_activation" type="Timer" parent="Guinea_Pig"]
+wait_time = 300.0
+autostart = true
+
 [connection signal="mouse_entered" from="Guinea_Pig" to="Guinea_Pig" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Guinea_Pig" to="Guinea_Pig" method="_on_mouse_exited"]
 [connection signal="timeout" from="Guinea_Pig/wander_timer" to="Guinea_Pig" method="_on_wander_timer_timeout"]
 [connection signal="timeout" from="Guinea_Pig/poop_spawner" to="Guinea_Pig" method="_on_poop_spawner_timeout"]
 [connection signal="timeout" from="Guinea_Pig/Squeek_frenzy_charge" to="Guinea_Pig" method="_on_squeek_frenzy_charge_timeout"]
+[connection signal="timeout" from="Guinea_Pig/hibernation_activation" to="Guinea_Pig" method="_on_hibernation_activation_timeout"]

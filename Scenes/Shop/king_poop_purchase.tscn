@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf3kwvm23v2dn"]
+
+[ext_resource type="Script" path="res://Scripts/King_Poop_Purchase.gd" id="1_26cjr"]
+[ext_resource type="Texture2D" uid="uid://xqntcestvn62" path="res://Sprites/Currently Used/King Poop-Sheet.png" id="2_8lj78"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_enlh7"]
+bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
+
+[sub_resource type="Theme" id="Theme_ui65c"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/fonts/font = null
+Label/styles/normal = SubResource("StyleBoxFlat_enlh7")
+
+[node name="Kings_Coronation_Purchase" type="Node2D"]
+script = ExtResource("1_26cjr")
+
+[node name="upgrade_button" type="Button" parent="."]
+offset_left = -120.0
+offset_right = 120.0
+offset_bottom = 64.0
+text = "King's Coronation
+10000 Poop"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -88)
+scale = Vector2(0.278308, 0.277672)
+texture = ExtResource("2_8lj78")
+hframes = 16
+
+[node name="coronation_count" type="Label" parent="."]
+offset_left = -24.0
+offset_top = 88.0
+offset_right = 24.0
+offset_bottom = 111.0
+text = "0/1"
+horizontal_alignment = 1
+
+[node name="coronation_description" type="Label" parent="."]
+visible = false
+offset_left = -120.0
+offset_top = -152.0
+offset_right = 120.0
+offset_bottom = -48.0
+theme = SubResource("Theme_ui65c")
+theme_override_font_sizes/font_size = 12
+text = "Adds a chance for a unique poop type to drop that acts as all other poop types combined with increased value.
+[1/1000]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="mouse_entered" from="upgrade_button" to="." method="_on_upgrade_button_mouse_entered"]
+[connection signal="mouse_exited" from="upgrade_button" to="." method="_on_upgrade_button_mouse_exited"]

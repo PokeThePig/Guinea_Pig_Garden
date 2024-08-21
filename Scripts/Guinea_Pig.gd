@@ -4,10 +4,13 @@ extends CharacterBody2D
 @onready var poop_item = load("res://Scenes/Garden/poop_dropping.tscn")
 @onready var golden_poop = load("res://Scenes/Garden/golden_poop_drop.tscn")
 @onready var rainbow_gold_effect = load("res://Scenes/Garden/rainbow_pig_gold_effect.tscn")
+@onready var hibernation_ability = load("res://Scenes/Garden/hibernation_ability.tscn")
 @onready var diamond_poop = load("res://Scenes/Garden/diamond_poop_drop.tscn")
 @onready var giant_poop = load("res://Scenes/Garden/giant_poop_drop.tscn")
 @onready var prismatic_poop = load("res://Scenes/Garden/prismatic_poop_drop.tscn")
 @onready var giant_prismatic_poop = load("res://Scenes/Garden/giant_prismatic_poop.tscn")
+@onready var copper_poop = load("res://Scenes/Garden/copper_poop.tscn")
+@onready var king_poop = load("res://Scenes/Garden/king_poop_drop.tscn")
 
 #Guinea Pig Assets
 @onready var pig_sprite = $Pig_Sprite
@@ -16,6 +19,7 @@ extends CharacterBody2D
 @onready var poop_drop_speed = %poop_spawner
 
 #Basic variables
+var current_dropped_poop
 var poop_count = 0
 var movespeed = randf_range(1, 3)
 var poop_speed = 1
@@ -36,18 +40,23 @@ var giant_poop_maximum = 1.5
 var squeek_frenzy_ready = false
 var squeek_frenzy_multiplier = 1
 
+var effect_multiplier = 5
+
+var hibernation_ready = false
+
 var pig_position = null
 var mouse_in_area = false
 var petting_achievement_unlocked = false
 
 signal thousand_pets_achievement_unlocked
-signal speed_update
+signal mouse_in_box
+signal mouse_out_box
 
 #0 no movement, 1 move right, 2 move left, 3 move up, 4 move down
 
 func _ready():
 	thousand_pets_achievement_unlocked.connect(get_parent().get_parent().get_parent().get_node("Achievements_Screen")._thousand_pets_achievement_unlocked.bind())
-	poop_drop_speed.wait_time = 5 * poop_speed * squeek_frenzy_multiplier
+	poop_drop_speed.wait_time = effect_multiplier * poop_speed * squeek_frenzy_multiplier
 
 '''Movement of Guinea Pigs'''
 
@@ -94,6 +103,10 @@ func _on_wander_timer_timeout():
 		state = randi_range(0,5)
 		movespeed = randf_range(1, 3)
 		movement_change.wait_time = 3.5
+	if ((Globals.hiberation_sleep_active == true) and (self == instance_from_id(Globals.guinea_dictionary["Gizmo"]))):
+		state = 0
+		movespeed = 0
+		movement_change.wait_time = 3.5
 
 
 '''Spawning poop'''
@@ -111,48 +124,55 @@ func _on_poop_spawner_timeout():
 	var prismatic_poop_check = randi() % 50 + 1
 	var chroma_prismatic_check = randi() % Globals.chroma_prismatic_odds + 1
 	var giant_prismatic_check = randi() % 500 + 1
+	var king_poop_check = randi() % 1000 + 1
 
-	var current_dropped_poop = null
+	current_dropped_poop = null
+
+#Hibernation poop
+	if ((Globals.hiberation_sleep_active == true) and (self == instance_from_id(Globals.guinea_dictionary["Gizmo"]))):
+		pass
+	elif ((Globals.hiberation_effect_active == true) and (self == instance_from_id(Globals.guinea_dictionary["Gizmo"]))):
+		var dropped_giant_poop = giant_poop.instantiate()
+		get_parent().add_child(dropped_giant_poop)
+
+		giant_poops_location_setting(dropped_giant_poop)
 
 #Diamond poop drop
-	if (diamond_poop_check == 10000) and (Globals.diamond_poop_purchased == true):
+	elif (king_poop_check == 1000) and (Globals.kings_coronation_purchased == true) and (Globals.king_poop_dropped == false) and (self == instance_from_id(Globals.guinea_dictionary["Calix"])):
+		var dropped_king_poop = king_poop.instantiate()
+		get_parent().add_child(dropped_king_poop)
+		current_dropped_poop = dropped_king_poop
+		
+		Globals.king_poop_dropped = true
+
+	elif (diamond_poop_check == 10000) and (Globals.diamond_poop_purchased == true):
 		var dropped_diamond_poop = diamond_poop.instantiate()
 		get_parent().add_child(dropped_diamond_poop)
 		current_dropped_poop = dropped_diamond_poop
 
 #Golden poop drop
-	elif (golden_poop_check == 100) and (Globals.golden_poop_dropped == false):
+	elif (golden_poop_check == 100) and (Globals.golden_poop_dropped == false) and (Globals.kings_coronation_active == false):
 		var dropped_gold_poop = golden_poop.instantiate()
 		get_parent().add_child(dropped_gold_poop)
 		current_dropped_poop = dropped_gold_poop
 		
 		Globals.golden_poop_dropped = true
 	
+#Giant prismatic poop drop
 	elif (Globals.giant_prismatic_purchased == true) and (self == instance_from_id(Globals.guinea_dictionary["Chroma"]) and (giant_prismatic_check == 500)):
 		var dropped_giant_prismatic_poop = giant_prismatic_poop.instantiate()
 		get_parent().add_child(dropped_giant_prismatic_poop)
 		
-		if face_left == true:
-			dropped_giant_prismatic_poop.global_position.x = randf_range(pig_position.x + 2000, pig_position.x + 2000)
-			dropped_giant_prismatic_poop.global_position.y = randf_range(pig_position.y - 500, pig_position.y - 500)
-		else:
-			dropped_giant_prismatic_poop.global_position.x = randf_range(pig_position.x, pig_position.x)
-			dropped_giant_prismatic_poop.global_position.y = randf_range(pig_position.y - 500, pig_position.y - 500)
-			
-			current_dropped_poop = null
-			
+		giant_poops_location_setting(dropped_giant_prismatic_poop)
+
+#Giant regular poop drop
 	elif (giant_poop_check == 500) and (Globals.giant_poop_purchased == true): 
 		var dropped_giant_poop = giant_poop.instantiate()
 		get_parent().add_child(dropped_giant_poop)
 
-		if face_left == true:
-			dropped_giant_poop.global_position.x = randf_range(pig_position.x + 2000, pig_position.x + 2000)
-			dropped_giant_poop.global_position.y = randf_range(pig_position.y - 500, pig_position.y - 500)
-		else:
-			dropped_giant_poop.global_position.x = randf_range(pig_position.x, pig_position.x)
-			dropped_giant_poop.global_position.y = randf_range(pig_position.y - 500, pig_position.y - 500)
+		giant_poops_location_setting(dropped_giant_poop)
 			
-			current_dropped_poop = null
+#Prismatic poop drops
 	elif (Globals.rain_or_shine_purchased == true) and (self == instance_from_id(Globals.guinea_dictionary["Chroma"])) and (chroma_prismatic_check == Globals.chroma_prismatic_odds):
 		var dropped_prismatic_poop = prismatic_poop.instantiate()
 		get_parent().add_child(dropped_prismatic_poop)
@@ -161,7 +181,14 @@ func _on_poop_spawner_timeout():
 		var dropped_prismatic_poop = prismatic_poop.instantiate()
 		get_parent().add_child(dropped_prismatic_poop)
 		current_dropped_poop = dropped_prismatic_poop
+
+#Copper poop drop
+	elif (Globals.copper_poop_purchased == true) and (self == instance_from_id(Globals.guinea_dictionary["Pennybags"])):
+		var dropped_copper_poop = copper_poop.instantiate()
+		get_parent().add_child(dropped_copper_poop)
 		
+		current_dropped_poop = dropped_copper_poop
+
 #Regular poop drop
 	else:
 		var dropped_poop = poop_item.instantiate()
@@ -179,11 +206,25 @@ func _on_poop_spawner_timeout():
 	pass
 
 
+func giant_poops_location_setting(poop):
+	if face_left == true:
+		poop.global_position.x = randf_range(pig_position.x + 2000, pig_position.x + 2000)
+		poop.global_position.y = randf_range(pig_position.y - 500, pig_position.y - 500)
+	else:
+		poop.global_position.x = randf_range(pig_position.x, pig_position.x)
+		poop.global_position.y = randf_range(pig_position.y - 500, pig_position.y - 500)
+			
+		current_dropped_poop = null
+
 '''Gold Poop Effect'''
 
 func _start_golden_poop_effect():
+	if (Globals.kings_coronation_active == true) and (self == instance_from_id(Globals.guinea_dictionary["Calix"])):
+		effect_multiplier = .05
+	else:
+		effect_multiplier = .5
 	poop_drop_speed.stop()
-	poop_drop_speed.wait_time = .1 * poop_speed * squeek_frenzy_multiplier
+	poop_drop_speed.wait_time = effect_multiplier * poop_speed * squeek_frenzy_multiplier
 	poop_drop_speed.start()
 	if !Globals.squeek_frenzy_effect_active:
 		movement_change.stop()
@@ -193,12 +234,16 @@ func _start_golden_poop_effect():
 	#Disco mode activiation check for Chroma
 	if (get_node("Pig_Sprite").texture == load("res://Sprites/Currently Used/Rainbow Pig-Sheet Two Frame.png")):
 		add_child(rainbow_gold_effect.instantiate())
-		
+	print("Drop speed at gold: ", poop_drop_speed.wait_time)
 	
 func _end_golden_poop_effect():
 	#Adjusting speeds and movement back to normal
+	if (Globals.kings_coronation_active == true) and (self == instance_from_id(Globals.guinea_dictionary["Calix"])):
+		effect_multiplier = .1
+	else:
+		effect_multiplier = 5
 	poop_drop_speed.stop()
-	poop_drop_speed.wait_time = 5 * poop_speed * squeek_frenzy_multiplier
+	poop_drop_speed.wait_time = effect_multiplier * poop_speed * squeek_frenzy_multiplier
 	poop_drop_speed.start()
 	if !Globals.squeek_frenzy_effect_active:
 		movement_change.stop()
@@ -208,6 +253,7 @@ func _end_golden_poop_effect():
 		_on_wander_timer_timeout()
 		movement_change.start()
 		state = randi_range(0,5)
+	print("Drop speed post gold: ", poop_drop_speed.wait_time)
 	
 	
 '''Squeek Frenzy Effect'''
@@ -228,15 +274,15 @@ func _on_squeek_frenzy_charge_timeout():
 
 func _start_squeek_frenzy_effect():
 	poop_drop_speed.stop()
-	if (Globals.golden_poop_active == true) and (self == Globals.gold_poop_pig):
-		poop_drop_speed.wait_time = .1 * poop_speed * squeek_frenzy_multiplier
+	if ((Globals.golden_poop_active == true) and (self == Globals.gold_poop_pig)) or ((Globals.kings_coronation_active == true) and (self == instance_from_id(Globals.guinea_dictionary["Calix"]))):
+		poop_drop_speed.wait_time = effect_multiplier * poop_speed * squeek_frenzy_multiplier
 	else:
-		poop_drop_speed.wait_time = 5 * poop_speed * squeek_frenzy_multiplier
+		poop_drop_speed.wait_time = effect_multiplier * poop_speed * squeek_frenzy_multiplier
 		movement_change.stop()
 		movement_change.wait_time = 0.25
 		movement_change.start()
 	poop_drop_speed.start()
-
+	print("Drop speed at frenzy: ", poop_drop_speed.wait_time)
 
 
 func _end_squeek_frenzy_effect():
@@ -249,10 +295,10 @@ func _end_squeek_frenzy_effect():
 	
 	#Adjusting speeds and movement back to normal depending on gold poop status
 	poop_drop_speed.stop()
-	if (Globals.golden_poop_active == true) and (self == Globals.gold_poop_pig):
-		poop_drop_speed.wait_time = .1 * poop_speed * squeek_frenzy_multiplier
+	if ((Globals.golden_poop_active == true) and (self == Globals.gold_poop_pig)) or ((Globals.kings_coronation_active == true) and (self == instance_from_id(Globals.guinea_dictionary["Calix"]))):
+		poop_drop_speed.wait_time = effect_multiplier * poop_speed * squeek_frenzy_multiplier
 	else:
-		poop_drop_speed.wait_time = 5 * poop_speed * squeek_frenzy_multiplier
+		poop_drop_speed.wait_time = effect_multiplier * poop_speed * squeek_frenzy_multiplier
 		movement_change.stop()
 		self.velocity.x = 0
 		self.velocity.y = 0
@@ -262,24 +308,72 @@ func _end_squeek_frenzy_effect():
 		state = randi_range(0,5)
 	
 	poop_drop_speed.start()
+	print("Drop speed post frenzy: ", poop_drop_speed.wait_time)
 
 
+'''Hibernation Effect'''
+func _on_hibernation_activation_timeout():
+	if (Globals.hibernation_purchased == true) and (self == instance_from_id(Globals.guinea_dictionary["Gizmo"])):
+		print("HIBERNATION READY")
+		hibernation_ready = true
+		$Pig_Sprite.texture = load("res://Sprites/Currently Used/Pixel Guinea Pig 2 Hibernation Ready.-Sheet.png")
+		$hibernation_activation.stop()
+	else:
+		print("hibernation not purchased")
+		
+	if ((Globals.guinea_two_purchased == true) and !(self == instance_from_id(Globals.guinea_dictionary["Gizmo"]))):
+		$hibernation_activation.queue_free()
 
+
+'''Kings Coronation Effect'''
+
+func _start_kings_coronation_effect():
+	
+	if (Globals.golden_poop_active == true) and (self == Globals.gold_poop_pig):
+		effect_multiplier = .05
+	else:
+		effect_multiplier = .1
+	poop_drop_speed.stop()
+	poop_drop_speed.wait_time = effect_multiplier * poop_speed * squeek_frenzy_multiplier
+	poop_drop_speed.start()
+	if !Globals.squeek_frenzy_effect_active:
+		movement_change.stop()
+		movement_change.wait_time = 0.25
+		movement_change.start()
+	print("Drop speed at king: ", poop_drop_speed.wait_time)
+	
+func _end_kings_coronation_effect():
+	#Adjusting speeds and movement back to normal
+	if (Globals.golden_poop_active == true) and (self == Globals.gold_poop_pig):
+		effect_multiplier = .5
+	else:
+		effect_multiplier = 5
+	poop_drop_speed.stop()
+	poop_drop_speed.wait_time = effect_multiplier * poop_speed * squeek_frenzy_multiplier
+	poop_drop_speed.start()
+	if !Globals.squeek_frenzy_effect_active:
+		movement_change.stop()
+		self.velocity.x = 0
+		self.velocity.y = 0
+		movement_change.wait_time = 3.5
+		_on_wander_timer_timeout()
+		movement_change.start()
+		state = randi_range(0,5)
+	print("Drop speed post king: ", poop_drop_speed.wait_time)
 
 '''Updating Poop Speed'''
 func _update_poop_speed():
 	if (self == Globals.upgrade_guinea_id):
 		poop_speed -= Globals.poop_speed_upgrade_amount
+		poop_drop_speed.wait_time = effect_multiplier * poop_speed * squeek_frenzy_multiplier
 		Globals.upgrade_guinea_id = null
 		Globals.poop_speed_upgrade_amount = 0.0
-	if (Globals.golden_poop_active == true) and (self == Globals.gold_poop_pig):
-		poop_drop_speed.stop()
-		poop_drop_speed.wait_time = .1 * poop_speed * squeek_frenzy_multiplier
-		poop_drop_speed.start()
 	else:
 		poop_drop_speed.stop()
-		poop_drop_speed.wait_time = 5 * poop_speed * squeek_frenzy_multiplier
+		poop_drop_speed.wait_time = effect_multiplier * poop_speed * squeek_frenzy_multiplier
 		poop_drop_speed.start()
+
+
 '''Updating Double Poop Odds'''
 
 func _update_double_poop():
@@ -289,7 +383,7 @@ func _update_double_poop():
 		Globals.upgrade_guinea_id = null
 		Globals.double_poop_upgrade_amount = 0
 		print(double_poop_chance)
-		
+
 
 '''Updating Giant Poop Sizes'''
 func _update_giant_poop():
@@ -300,6 +394,7 @@ func _update_giant_poop():
 		Globals.giant_poop_upgrade_minimum = 0
 		Globals.giant_poop_upgrade_minimum = 0
 
+
 '''Playing pickup sound effects'''
 
 func _on_poop_collected():
@@ -309,23 +404,18 @@ func _on_poop_collected():
 	
 func _on_diamond_poop_collected():
 	$diamond_sound.play()
-	pass
 
 func _on_prismatic_poop_collected():
 	$prismatic_sound.play()
-	pass
 
 func _on_giant_poop_crushed():
 	$final_crush.play()
-	pass
 	
-	'''UNFINISHED'''
 func _on_giant_prismatic_crushed():
-	pass
+	$prismatic_crush.play()
 	
 func _on_copper_poop_collected():
-	sound_effect_randomizer().play()
-	Globals.poop_amount += 5
+	$copper_sound.play()
 
 func sound_effect_randomizer():
 	var sound_effect_num = floor(randf_range(0,3))
@@ -349,14 +439,18 @@ func squeek_randomizer():
 '''Clicking on Guinea Pig'''
 func _on_mouse_entered():
 	mouse_in_area = true
+	mouse_in_box.emit()
 
 func _on_mouse_exited():
 	mouse_in_area = false
+	mouse_out_box.emit()
 	
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.pressed == true:
 			if mouse_in_area == true:
+				
+				#Squeek frenzy
 				if (Globals.squeek_frenzy_purchased == true) and (squeek_frenzy_ready == true) and (self == instance_from_id(Globals.guinea_dictionary["Bella"])):
 					$Pig_Sprite.texture = load("res://Sprites/Currently Used/Bella Sheet.png")
 					#Effect start sound effects
@@ -379,6 +473,15 @@ func _input(event):
 						pig.squeek_frenzy_multiplier = 0.5
 						pig._start_squeek_frenzy_effect()
 					get_parent().add_child(squeek_frenzy_effect.instantiate())
+				
+				elif (Globals.hibernation_purchased == true) and (hibernation_ready == true) and (self == instance_from_id(Globals.guinea_dictionary["Gizmo"])):
+					Globals.hiberation_sleep_active = true
+					add_child(hibernation_ability.instantiate())
+					_on_wander_timer_timeout()
+					mouse_in_box.connect(get_node("hibernation_ability")._sleep_box_entered.bind())
+					mouse_out_box.connect(get_node("hibernation_ability")._sleep_box_exited.bind())
+					hibernation_ready = false
+					
 				else:
 					squeek_randomizer().play()
 				Globals.pet_count += 1

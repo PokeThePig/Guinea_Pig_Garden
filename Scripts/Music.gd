@@ -6,24 +6,38 @@ extends Node2D
 @onready var main_four = $main_song_four
 @onready var main_five = $main_song_five
 @onready var gold_song = $gold_poop_song
+@onready var king_song = $king_poop_song
 
-
-var gold_started = false
 var song_state = null
 var current_song = null
-var gold_pause_position = null
+var effect_pause_position = null
+var king_pause_position = null
 var pause_position = null
+
+var gold_started = false
+var king_started = false
 
 func _ready():
 	_song_randomizer()
 
-func _process(_delta):
-	if (Globals.golden_poop_active == true) and (gold_started == false):
-		if current_song != null:
-			gold_pause_position = current_song.get_playback_position()
-		current_song.stop()
-		gold_song.play()
-		gold_started = true
+		
+func _start_gold_song():
+	if Globals.kings_coronation_active == true:
+		king_song.stop()
+	if current_song != null:
+		effect_pause_position = current_song.get_playback_position()
+	current_song.stop()
+	gold_song.play()
+	gold_started = true
+	
+func _start_king_song():
+	if Globals.golden_poop_active == true:
+		gold_song.stop()
+	if current_song != null:
+		effect_pause_position = current_song.get_playback_position()
+	current_song.stop()
+	king_song.play()
+	king_started = true
 
 func _song_randomizer():
 	song_state = randi_range(0,4)
@@ -45,8 +59,14 @@ func _song_randomizer():
 			current_song = main_five
 
 func _on_gold_poop_song_finished():
-	current_song.play(gold_pause_position)
+	if (Globals.kings_coronation_active != true):
+		current_song.play(effect_pause_position)
 	gold_started = false
+
+func _on_king_poop_song_finished():
+	if (Globals.golden_poop_active != true):
+		current_song.play(effect_pause_position)
+	king_started = false
 
 func _on_main_song_one_finished():
 	current_song = null
@@ -73,6 +93,9 @@ func _pause_music():
 	if gold_started == true:
 		pause_position = gold_song.get_playback_position()
 		gold_song.stop()
+	if king_started == true:
+		pause_position = king_song.get_playback_position()
+		king_song.stop()
 	else:
 		if current_song != null:
 			pause_position = current_song.get_playback_position()
@@ -81,5 +104,7 @@ func _pause_music():
 func _unpause_music():
 	if gold_started == true:
 		gold_song.play(pause_position)
+	if king_started == true:
+		king_song.play(pause_position)
 	else:
 		current_song.play(pause_position)

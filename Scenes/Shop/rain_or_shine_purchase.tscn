@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cavpbh7moh25k"]
 
 [ext_resource type="Script" path="res://Scripts/Rain_or_shine_purchase.gd" id="1_fg7bx"]
-[ext_resource type="Texture2D" uid="uid://b6ru5f62s8wxr" path="res://Sprites/icon.svg" id="2_kj7py"]
+[ext_resource type="Texture2D" uid="uid://copox4yg1nus7" path="res://Sprites/Currently Used/Rain or Shine.png" id="2_ji6gt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ad2tv"]
 bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
@@ -18,13 +18,14 @@ script = ExtResource("1_fg7bx")
 offset_left = -120.0
 offset_right = 120.0
 offset_bottom = 64.0
+theme_override_font_sizes/font_size = 13
 text = "Rain or Shine
-10000 Poop"
+100 Prismatic Poop"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -96)
-scale = Vector2(1.23823, 1.12944)
-texture = ExtResource("2_kj7py")
+position = Vector2(16, -80)
+scale = Vector2(0.192, 0.192)
+texture = ExtResource("2_ji6gt")
 
 [node name="rain_or_shine_count" type="Label" parent="."]
 offset_left = -24.0

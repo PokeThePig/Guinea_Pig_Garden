@@ -3,25 +3,31 @@
 [ext_resource type="Script" path="res://Scripts/Copper_poop.gd" id="1_6gorf"]
 [ext_resource type="Texture2D" uid="uid://lgehm55wyn8x" path="res://Sprites/Currently Used/Copper Poop-Sheet.png" id="2_7m5xr"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vr40t"]
-radius = 111.113
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7q8qc"]
+radius = 47.0
+height = 196.0
 
-[node name="Copper_poop" type="CharacterBody2D"]
+[node name="Copper_poop" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+input_pickable = true
 script = ExtResource("1_6gorf")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 visibility_layer = 2
-scale = Vector2(0.33, 0.33)
+position = Vector2(9.53674e-07, -1.90735e-06)
+scale = Vector2(0.419766, 0.421719)
 texture = ExtResource("2_7m5xr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 light_mask = 8
-shape = SubResource("CircleShape2D_vr40t")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7q8qc")
 one_way_collision = true
 
-[node name="decay_timer" type="Timer" parent="."]
+[node name="decay_timer" type="Timer" parent="CharacterBody2D"]
 wait_time = 300.0
 autostart = true
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="timeout" from="decay_timer" to="." method="_on_decay_timer_timeout"]
+[connection signal="mouse_entered" from="CharacterBody2D" to="CharacterBody2D" method="_on_mouse_entered"]
+[connection signal="timeout" from="CharacterBody2D/decay_timer" to="." method="_on_decay_timer_timeout"]

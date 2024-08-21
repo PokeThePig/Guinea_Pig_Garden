@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b8rc3eldn3m86"
+path="res://.godot/imported/king_poop_song - Made with Clipchamp.wav-c3254afa541c986bf2345ef15edf4bb1.sample"
+
+[deps]
+
+source_file="res://Sounds/Songs/king_poop_song - Made with Clipchamp.wav"
+dest_files=["res://.godot/imported/king_poop_song - Made with Clipchamp.wav-c3254afa541c986bf2345ef15edf4bb1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

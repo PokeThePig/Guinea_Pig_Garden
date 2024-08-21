@@ -30,4 +30,3 @@ func _on_hud_open_shop():
 func _switch_to_achievements_cam():
 	achievements_opened.emit()
 	$Day_Night_Cycle.visible = false
-

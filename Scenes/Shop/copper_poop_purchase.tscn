@@ -3,13 +3,13 @@
 [ext_resource type="Script" path="res://Scripts/Copper_poop_purchase.gd" id="1_2oe82"]
 [ext_resource type="Texture2D" uid="uid://lgehm55wyn8x" path="res://Sprites/Currently Used/Copper Poop-Sheet.png" id="2_0om04"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_enlh7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vun67"]
 bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
 
 [sub_resource type="Theme" id="Theme_nbr78"]
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/fonts/font = null
-Label/styles/normal = SubResource("StyleBoxFlat_enlh7")
+Label/styles/normal = SubResource("StyleBoxFlat_vun67")
 
 [node name="Copper_poop_purchase" type="Node2D"]
 script = ExtResource("1_2oe82")
@@ -18,12 +18,13 @@ script = ExtResource("1_2oe82")
 offset_left = -120.0
 offset_right = 120.0
 offset_bottom = 64.0
+theme_override_font_sizes/font_size = 13
 text = "Copper Poop
 10000 Poop"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.52588e-05, -96)
-scale = Vector2(0.456615, 0.41472)
+position = Vector2(-1, -75)
+scale = Vector2(0.278308, 0.277672)
 texture = ExtResource("2_0om04")
 
 [node name="copper_poop_count" type="Label" parent="."]
@@ -35,13 +36,18 @@ text = "0/3"
 horizontal_alignment = 1
 
 [node name="copper_poop_description" type="Label" parent="."]
-offset_left = -136.0
-offset_top = -152.0
-offset_right = 136.0
-offset_bottom = -40.0
+visible = false
+offset_left = -137.0
+offset_top = -134.0
+offset_right = 135.0
+offset_bottom = -22.0
 theme = SubResource("Theme_nbr78")
 text = "Replaces basic poops with copper poops that are worth more.
 [1 > 2]"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[connection signal="mouse_entered" from="upgrade_button" to="." method="_on_upgrade_button_mouse_entered"]
+[connection signal="mouse_exited" from="upgrade_button" to="." method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="upgrade_button" to="." method="_on_upgrade_button_pressed"]

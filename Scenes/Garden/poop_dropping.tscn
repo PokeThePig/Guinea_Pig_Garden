@@ -3,8 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/poop_dropping.gd" id="1_7uhof"]
 [ext_resource type="Texture2D" uid="uid://vjm4igbsy0h7" path="res://Sprites/Currently Used/Poop upscale.png" id="2_xfgo8"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3e1rc"]
-radius = 111.113
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cis8o"]
+radius = 37.0
+height = 154.0
 
 [node name="Poop" type="CharacterBody2D" groups=["Persist"]]
 z_index = 1
@@ -20,7 +21,8 @@ texture = ExtResource("2_xfgo8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 8
-shape = SubResource("CircleShape2D_3e1rc")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_cis8o")
 one_way_collision = true
 
 [node name="decay_timer" type="Timer" parent="."]

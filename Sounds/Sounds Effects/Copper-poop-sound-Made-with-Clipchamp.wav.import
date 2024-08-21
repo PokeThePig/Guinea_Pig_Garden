@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bqavvkrprcnir"
+path="res://.godot/imported/Copper-poop-sound-Made-with-Clipchamp.wav-8e9bae9bd50568db0fe0c924d636c1b9.sample"
+
+[deps]
+
+source_file="res://Sounds/Sounds Effects/Copper-poop-sound-Made-with-Clipchamp.wav"
+dest_files=["res://.godot/imported/Copper-poop-sound-Made-with-Clipchamp.wav-8e9bae9bd50568db0fe0c924d636c1b9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
