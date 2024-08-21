@@ -3,8 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://bwe1uq2bjbxfd" path="res://Sprites/Currently Used/Prismatic_Poop_Upscaled-Sheet.png" id="1_3squp"]
 [ext_resource type="Script" path="res://Scripts/Prismatic_Poop_Drop.gd" id="1_4ro8u"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nrsa1"]
-radius = 101.045
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j2jsr"]
+radius = 28.5605
+height = 130.584
 
 [sub_resource type="Animation" id="Animation_10plv"]
 length = 0.001
@@ -69,7 +70,9 @@ texture = ExtResource("1_3squp")
 hframes = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Prismatic_Poop"]
-shape = SubResource("CircleShape2D_nrsa1")
+rotation = 1.5708
+scale = Vector2(-1.36552, -1.24058)
+shape = SubResource("CapsuleShape2D_j2jsr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Prismatic_Poop"]
 libraries = {

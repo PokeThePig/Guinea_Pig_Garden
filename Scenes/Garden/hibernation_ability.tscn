@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://b11xbt4nnsg8g"]
+
+[ext_resource type="Script" path="res://Scripts/hibernation_ability.gd" id="1_1mg8k"]
+[ext_resource type="Texture2D" uid="uid://4puloe8cmdpu" path="res://Sprites/Currently Used/Pixel Guinea Pig Sleep Sheet.png" id="2_or0cw"]
+
+[sub_resource type="Animation" id="Animation_pc3w2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sleep_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_uo868"]
+resource_name = "sleep_animation"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sleep_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jy168"]
+_data = {
+"RESET": SubResource("Animation_pc3w2"),
+"sleep_animation": SubResource("Animation_uo868")
+}
+
+[node name="hibernation_ability" type="Node2D"]
+script = ExtResource("1_1mg8k")
+
+[node name="sleep_timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[node name="Sleep_countdown" type="Label" parent="."]
+visible = false
+visibility_layer = 3
+z_index = 6
+offset_left = -280.0
+offset_top = -416.0
+offset_right = 285.0
+offset_bottom = -106.0
+theme_override_colors/font_outline_color = Color(0.00184107, 0.00184107, 0.00184107, 1)
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/font_size = 180
+text = "0:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="increment_effect_timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="hibernation_effect_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="sleep_sprite" type="Sprite2D" parent="."]
+z_index = 6
+position = Vector2(-40, 96)
+scale = Vector2(1.7, 1.584)
+texture = ExtResource("2_or0cw")
+hframes = 12
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jy168")
+}
+
+[connection signal="timeout" from="sleep_timer" to="." method="_on_sleep_timer_timeout"]
+[connection signal="timeout" from="increment_effect_timer" to="." method="_on_increment_effect_timer_timeout"]
+[connection signal="timeout" from="hibernation_effect_timer" to="." method="_on_hibernation_effect_timer_timeout"]

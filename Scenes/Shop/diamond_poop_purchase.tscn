@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmfvrbim5mj2j"]
+[gd_scene load_steps=5 format=3 uid="uid://bmfvrbim5mj2j"]
 
 [ext_resource type="Script" path="res://Scripts/Diamond_Poop_Purchase.gd" id="1_vglcu"]
 [ext_resource type="Texture2D" uid="uid://cvsfgy7iqqmos" path="res://Sprites/Currently Used/Diamond Poop-Sheet.png" id="2_04iaj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltwy1"]
+bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
+
+[sub_resource type="Theme" id="Theme_sinwa"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/fonts/font = null
+Label/styles/normal = SubResource("StyleBoxFlat_ltwy1")
 
 [node name="Diamond_Poop_Purchase" type="Node2D"]
 script = ExtResource("1_vglcu")
@@ -15,9 +23,25 @@ text = "Unlock Diamond Poops
 750 Poop"
 
 [node name="diamond_shop_sprite" type="Sprite2D" parent="."]
-position = Vector2(-4, -102)
+position = Vector2(0, -136)
 scale = Vector2(0.176758, 0.175)
 texture = ExtResource("2_04iaj")
 hframes = 7
 
+[node name="diamond_poop_description" type="Label" parent="."]
+visible = false
+offset_left = -112.0
+offset_top = -184.0
+offset_right = 113.0
+offset_bottom = -88.0
+theme = SubResource("Theme_sinwa")
+theme_override_font_sizes/font_size = 13
+text = "Adds an extremely rare and valuable poop type
+[0.01%]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

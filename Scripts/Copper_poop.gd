@@ -4,9 +4,10 @@ signal copper_poop_collected
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.copper_poop_collected.connect(get_parent().get_node("Guinea_Pig")._on_copper_poop_collected.bind())
+	self.copper_poop_collected.connect(get_parent().get_parent().get_node("Guinea_Pig")._on_copper_poop_collected.bind())
 
 func _on_mouse_entered():
+	Globals.poop_amount += Globals.copper_poop_value
 	copper_poop_collected.emit()
 	queue_free()
 

@@ -13,3 +13,15 @@ func _on_button_pressed():
 		Globals.diamond_poop_purchased = true
 		
 		$Button.text = "SOLD OUT"
+
+
+func _on_diamond_poop_description_mouse_entered():
+	pass # Replace with function body.
+
+
+func _on_button_mouse_entered():
+	$diamond_poop_description.visible = true
+
+
+func _on_button_mouse_exited():
+	$diamond_poop_description.visible = false

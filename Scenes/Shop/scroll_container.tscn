@@ -39,6 +39,21 @@ scale = Vector2(0.350714, 0.377)
 texture = ExtResource("2_ygx1i")
 hframes = 2
 
+[node name="Guinea_Pig_Name" type="Label" parent="HBoxContainer/Pig_Sprite"]
+auto_translate_mode = 2
+layout_direction = 2
+offset_left = -299.0
+offset_top = 249.0
+offset_right = 292.0
+offset_bottom = 386.0
+localize_numeral_system = false
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 75
+text = "Guinea Pig"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Poop_Speed_Purchase" parent="HBoxContainer" instance=ExtResource("3_5i0tq")]
 position = Vector2(520, 220)
 

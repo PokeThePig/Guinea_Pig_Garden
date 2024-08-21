@@ -1,12 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8uqrksk1wyyx"]
+[gd_scene load_steps=5 format=3 uid="uid://b8uqrksk1wyyx"]
 
 [ext_resource type="Script" path="res://Scripts/prismatic_poop_purchase.gd" id="1_71nbp"]
 [ext_resource type="Texture2D" uid="uid://bwe1uq2bjbxfd" path="res://Sprites/Currently Used/Prismatic_Poop_Upscaled-Sheet.png" id="1_r4vmd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_judyo"]
+bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
+
+[sub_resource type="Theme" id="Theme_bpb3g"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/fonts/font = null
+Label/styles/normal = SubResource("StyleBoxFlat_judyo")
 
 [node name="Prismatic_Poop_Purchase" type="Node2D"]
 script = ExtResource("1_71nbp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
 scale = Vector2(0.177, 0.177)
 texture = ExtResource("1_r4vmd")
 hframes = 7
@@ -19,4 +28,20 @@ offset_bottom = 144.0
 text = "Unlock Prismatic Poops
 1500 Poop"
 
+[node name="prismatic_poop_description" type="Label" parent="."]
+visible = false
+offset_left = -112.0
+offset_top = -72.0
+offset_right = 112.0
+offset_bottom = 24.0
+theme = SubResource("Theme_bpb3g")
+theme_override_font_sizes/font_size = 14
+text = "Adds a poop type that only drops during rain.
+[2%]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://o0l08tdf8blb"
+path="res://.godot/imported/Prismatic Crush - Made with Clipchamp.wav-9c3f3b14f9db0e8e42b6bcb0072fa837.sample"
+
+[deps]
+
+source_file="res://Sounds/Sounds Effects/Prismatic Crush - Made with Clipchamp.wav"
+dest_files=["res://.godot/imported/Prismatic Crush - Made with Clipchamp.wav-9c3f3b14f9db0e8e42b6bcb0072fa837.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

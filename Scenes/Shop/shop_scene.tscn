@@ -66,6 +66,8 @@ script = ExtResource("3_vijd3")
 offset_top = 45.0
 offset_right = 1602.0
 offset_bottom = 303.0
+theme_override_colors/font_outline_color = Color(0.00184107, 0.00184107, 0.00184107, 1)
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 100
 text = "Guinea Gadget Gallery"
 horizontal_alignment = 1
@@ -105,6 +107,7 @@ text = "Guinea Pigs"
 [node name="Purchase_sound_effect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_0ri4a")
 volume_db = -5.0
+bus = &"sfx"
 
 [connection signal="pressed" from="Back_to_garden" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Back_to_garden" to="." method="_on_back_to_garden_pressed"]

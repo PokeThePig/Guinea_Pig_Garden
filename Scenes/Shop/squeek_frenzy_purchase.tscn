@@ -18,8 +18,9 @@ script = ExtResource("1_85tv0")
 offset_left = -120.0
 offset_right = 120.0
 offset_bottom = 64.0
+theme_override_font_sizes/font_size = 13
 text = "Squeek Frenzy
-10000 Poop"
+5000 Poop"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.02344, -96)
@@ -35,13 +36,12 @@ text = "0/5"
 horizontal_alignment = 1
 
 [node name="Squeek_frenzy_description" type="Label" parent="."]
-visible = false
 offset_left = -152.0
 offset_top = -176.0
 offset_right = 152.0
 offset_bottom = -23.0
 theme = SubResource("Theme_4f4u2")
-text = "Adds the ability to squeek extra loud every 3 - 5 minutes when pet, causing all guinea pigs to enter a frenzy state where poop speed is halved.
+text = "Adds the ability to squeek extra loud every 3 - 5 minutes when pet, causing all guinea pigs to enter a frenzy state where poop speed is doubled.
 [5 seconds]"
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -5,8 +5,9 @@
 [ext_resource type="AudioStream" uid="uid://b20f6cp83swlo" path="res://Sounds/Sounds Effects/crush_sound_1 - Made with Clipchamp.wav" id="3_qjqbc"]
 [ext_resource type="AudioStream" uid="uid://baucb4j4ybf16" path="res://Sounds/Sounds Effects/crush_sound_2 - Made with Clipchamp.wav" id="4_5kbv7"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6g7es"]
-radius = 481.068
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jrp5e"]
+radius = 208.613
+height = 935.842
 
 [node name="giant_poop_drop" type="Node2D" groups=["Giant"]]
 position = Vector2(1153, -822)
@@ -24,18 +25,21 @@ scale = Vector2(3, 2.836)
 texture = ExtResource("1_0rpxe")
 
 [node name="giant_poop_collision" type="CollisionShape2D" parent="Giant_poop"]
-position = Vector2(-898.252, 618.934)
+position = Vector2(-906.926, 630.441)
+rotation = 1.5708
 scale = Vector2(1.5, 1.5)
-shape = SubResource("CircleShape2D_6g7es")
+shape = SubResource("CapsuleShape2D_jrp5e")
 
 [node name="crush_1" type="AudioStreamPlayer" parent="Giant_poop"]
 stream = ExtResource("3_qjqbc")
 volume_db = -15.0
 pitch_scale = 1.5
+bus = &"sfx"
 
 [node name="crush_2" type="AudioStreamPlayer" parent="Giant_poop"]
 stream = ExtResource("4_5kbv7")
 volume_db = -5.0
+bus = &"sfx"
 
 [node name="decay_timer" type="Timer" parent="Giant_poop"]
 wait_time = 1800.0

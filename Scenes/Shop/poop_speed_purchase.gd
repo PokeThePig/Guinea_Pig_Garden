@@ -33,14 +33,14 @@ func _on_upgrade_button_pressed():
 		Globals.poop_amount -= 50
 		Globals.upgrade_guinea_id = guinea_id
 		Globals.poop_speed_upgrade_amount = 0.2
-		%upgrade_button.text = "Upgrade Poop Speed \n 200 Poop"
+		%upgrade_button.text = "Upgrade Poop Speed \n 150 Poop"
 		%Poop_speed_count.text = "2/5"
 		$Poop_speed_description.text = "Increases Poop Speed \n [3s > 2s]"
 		poop_speed_purchased.emit()
 		upgrade_purchased.emit()
-	elif (upgrades_left == 3) and (Globals.poop_amount >= 200):
+	elif (upgrades_left == 3) and (Globals.poop_amount >= 150):
 		upgrades_left = 2
-		Globals.poop_amount -= 200
+		Globals.poop_amount -= 150
 		Globals.upgrade_guinea_id = guinea_id
 		Globals.poop_speed_upgrade_amount = 0.2
 		%upgrade_button.text = "Upgrade Poop Speed \n 500 Poop"

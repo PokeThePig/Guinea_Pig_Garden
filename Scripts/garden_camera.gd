@@ -6,5 +6,3 @@ func _switch_to_garden_cam():
 	
 func _switch_to_garden_cam_from_achievements():
 	self.make_current()
-
-

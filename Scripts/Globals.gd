@@ -14,6 +14,12 @@ var squeek_frenzy_purchased = false
 var squeek_frenzy_effect_active = false
 var squeek_frenzy_duration = 0
 
+var hibernation_purchased = false
+var hiberation_sleep_active = false
+var hiberation_effect_active = false
+var hibernation_sleep_time = 0
+var hibernation_effect_time = 0
+
 var rain_or_shine_purchased = false
 var giant_prismatic_purchased = false
 var chroma_prismatic_odds = 1
@@ -21,10 +27,14 @@ var chroma_prismatic_odds = 1
 var copper_poop_purchased = false
 var copper_poop_value = 1
 
+var kings_coronation_purchased = false
+var king_poop_dropped = false
+var kings_coronation_active = false
+
 #Poop counts
-var poop_amount = 9999999
-var diamond_poop_amount = 99999999
-var prismatic_poop_amount = 9999999
+var poop_amount = 0
+var diamond_poop_amount = 0
+var prismatic_poop_amount = 0
 
 var currently_raining = false
 
@@ -54,12 +64,9 @@ var prismatic_poop_purchased = false
 
 var double_poop_purchased = false
 
-#Pig information
-var poop_ui_position : Vector2
-var movespeed = 0
-
 #Poop drops variables
 var state = 0
+var movespeed = 0
 var poop_drop_speed = 0
 var golden_poop_active = false
 var gold_poop_pig = null

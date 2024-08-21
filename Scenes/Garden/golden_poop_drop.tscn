@@ -3,8 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/golden_poop_drop.gd" id="1_gcg5x"]
 [ext_resource type="Texture2D" uid="uid://vis65ubgcjss" path="res://Sprites/Currently Used/Gold Poop-Sheet.png" id="2_70oac"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kd54t"]
-radius = 116.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jvfju"]
+radius = 39.0
+height = 162.0
 
 [sub_resource type="Animation" id="Animation_0i0ll"]
 length = 0.001
@@ -59,7 +60,8 @@ texture = ExtResource("2_70oac")
 hframes = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_kd54t")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_jvfju")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

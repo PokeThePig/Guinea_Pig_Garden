@@ -13,7 +13,7 @@ offset_top = 19.0
 offset_right = 104.0
 offset_bottom = 91.0
 text = "Buy Gizmo
-300 Poop"
+150 Poop"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-8.00001, -53)

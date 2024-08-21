@@ -3,13 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://vjm4igbsy0h7" path="res://Sprites/Currently Used/Poop upscale.png" id="1_hmpd7"]
 [ext_resource type="Script" path="res://Scripts/giant_poop_upgrade.gd" id="1_pajqe"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_judyo"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hg8hr"]
 bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
 
 [sub_resource type="Theme" id="Theme_tnwvr"]
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/fonts/font = null
-Label/styles/normal = SubResource("StyleBoxFlat_judyo")
+Label/styles/normal = SubResource("StyleBoxFlat_hg8hr")
 
 [node name="giant_poop_upgrade" type="Node2D"]
 script = ExtResource("1_pajqe")

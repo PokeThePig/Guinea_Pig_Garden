@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://c26okl4auedr0"]
+
+[ext_resource type="Script" path="res://Scripts/hibernation_purchase.gd" id="1_mh23q"]
+[ext_resource type="Texture2D" uid="uid://4puloe8cmdpu" path="res://Sprites/Currently Used/Pixel Guinea Pig Sleep Sheet.png" id="2_05bvv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvpmp"]
+bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
+
+[sub_resource type="Theme" id="Theme_y027w"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/fonts/font = null
+Label/styles/normal = SubResource("StyleBoxFlat_tvpmp")
+
+[node name="Hibernation_purchase" type="Node2D"]
+script = ExtResource("1_mh23q")
+
+[node name="upgrade_button" type="Button" parent="."]
+offset_left = -120.0
+offset_right = 120.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 13
+text = "Hibernation
+30000 Poop"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -88)
+scale = Vector2(0.278308, 0.277672)
+texture = ExtResource("2_05bvv")
+hframes = 12
+frame = 5
+
+[node name="hibernation_count" type="Label" parent="."]
+offset_left = -24.0
+offset_top = 88.0
+offset_right = 24.0
+offset_bottom = 111.0
+text = "0/3"
+horizontal_alignment = 1
+
+[node name="hibernation_description" type="Label" parent="."]
+visible = false
+offset_left = -144.0
+offset_top = -144.0
+offset_right = 144.0
+offset_bottom = -24.0
+theme = SubResource("Theme_y027w")
+theme_override_font_sizes/font_size = 12
+text = "Can enter a state of hibernation where no poop is dropped, but when waking up will only drop giant poops for a small amount of time.
+(Click to awake early but with a shorter effect)
+[Sleep duration: 30s]
+[Effect duration: 3s]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="mouse_entered" from="upgrade_button" to="." method="_on_upgrade_button_mouse_entered"]
+[connection signal="mouse_exited" from="upgrade_button" to="." method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="upgrade_button" to="." method="_on_upgrade_button_pressed"]
