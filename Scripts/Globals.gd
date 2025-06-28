@@ -36,9 +36,9 @@ var king_poop_dropped = false
 var kings_coronation_active = false
 
 #Poop counts
-var poop_amount = 10000000
-var diamond_poop_amount = 1000000
-var prismatic_poop_amount = 10000000
+var poop_amount = 0
+var diamond_poop_amount = 0
+var prismatic_poop_amount = 0
 
 var currently_raining = false
 
@@ -57,6 +57,7 @@ var diamond_digger_achievement_completed = false
 var taste_rainbow_achievement_completed = false
 var colossal_crusher_achievement_completed = false
 var poop_frenzy_achievement_completed = false
+var full_house_achievement_completed = false
 var disco_party_achievement_completed = false
 var manure_millionare_achievement_completed = false
 var petting_professional_achievement_completed = false

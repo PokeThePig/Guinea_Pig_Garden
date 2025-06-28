@@ -1,6 +1,7 @@
 extends Node
 
-const save_location = "user://SaveFile12.json"
+const save_location = "user://SaveFile.json"
+
 
 var contents_to_save: Dictionary = {
 	"regular_poop_amount": 0,
@@ -50,6 +51,15 @@ var contents_to_save: Dictionary = {
 	"king_poop_unlocked": false,
 	"guinea_order": [],
 	"upgrades_left_dictionary": {},
+	"gold_rush_unlocked": false,
+	"diamond_digger_unlocked": false,
+	"taste_rainbow_unlocked": false,
+	"colossal_crusher_unlocked": false,
+	"poop_frenzy_unlocked": false,
+	"full_house_unlocked": false,
+	"disco_party_unlocked": false,
+	"manure_millionare_unlocked": false,
+	"petting_professional_unlocked": false,
 }
 
 func _ready() -> void:
@@ -114,3 +124,13 @@ func _load():
 		contents_to_save.king_poop_unlocked = save_data.king_poop_unlocked
 		contents_to_save.guinea_order = save_data.guinea_order
 		contents_to_save.upgrades_left_dictionary = save_data.upgrades_left_dictionary
+		contents_to_save.gold_rush_unlocked = save_data.gold_rush_unlocked
+		contents_to_save.diamond_digger_unlocked = save_data.diamond_digger_unlocked
+		contents_to_save.taste_rainbow_unlocked = save_data.taste_rainbow_unlocked
+		contents_to_save.colossal_crusher_unlocked = save_data.colossal_crusher_unlocked
+		contents_to_save.poop_frenzy_unlocked = save_data.poop_frenzy_unlocked
+		contents_to_save.full_house_unlocked = save_data.full_house_unlocked
+		contents_to_save.disco_party_unlocked = save_data.disco_party_unlocked
+		contents_to_save.manure_millionare_unlocked = save_data.manure_millionare_unlocked
+		contents_to_save.petting_professional_unlocked = save_data.petting_professional_unlocked
+		

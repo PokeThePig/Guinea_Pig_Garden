@@ -8,6 +8,7 @@ signal update_buttons
 signal restore_upgrades
 signal update_poop_upgrades_shop
 signal update_bella
+signal update_achievements
 
 var pig_count = 1
 var pig_name = "Bella"
@@ -26,6 +27,7 @@ func _ready():
 	update_bella.connect(get_parent().get_node("Poop_Upgrades_Shop").get_node("ScrollContainer").get_node("VBoxContainer").get_node("ScrollContainer").get_node("HBoxContainer").get_node("giant_poop_upgrade")._update_bella.bind())
 	await get_tree().create_timer(.05).timeout
 	update_bella.connect(instance_from_id(Globals.upgrade_dictionary["Bella"][0]).get_node("HBoxContainer").get_node("Squeek_Frenzy_Purchase")._update_bella.bind())
+	update_achievements.connect(get_parent().get_node("Achievements_Screen")._load_achievements.bind())
 	
 	_spawn_pig(pig_name)
 	new_pig_sprite.texture = load("res://Sprites/Currently Used/Bella2.0-Sheet.png")
@@ -98,7 +100,16 @@ func _on_save_pressed() -> void:
 	SaveLoad.contents_to_save.guinea_order = Globals.guinea_purchase_order
 	SaveLoad.contents_to_save.upgrades_left_dictionary = Globals.upgrade_dictionary
 	
-	print(Globals.upgrade_dictionary)
+	#Achievements
+	SaveLoad.contents_to_save.gold_rush_unlocked = Globals.gold_rush_achievement_completed
+	SaveLoad.contents_to_save.diamond_digger_unlocked = Globals.diamond_digger_achievement_completed
+	SaveLoad.contents_to_save.taste_rainbow_unlocked = Globals.taste_rainbow_achievement_completed
+	SaveLoad.contents_to_save.colossal_crusher_unlocked = Globals.colossal_crusher_achievement_completed
+	SaveLoad.contents_to_save.poop_frenzy_unlocked = Globals.poop_frenzy_achievement_completed
+	SaveLoad.contents_to_save.full_house_unlocked = Globals.full_house_achievement_completed
+	SaveLoad.contents_to_save.disco_party_unlocked = Globals.disco_party_achievement_completed
+	SaveLoad.contents_to_save.manure_millionare_unlocked = Globals.manure_millionare_achievement_completed
+	SaveLoad.contents_to_save.petting_professional_unlocked = Globals.petting_professional_achievement_completed
 	
 	SaveLoad._save()
 
@@ -158,7 +169,15 @@ func _on_load_pressed() -> void:
 	Globals.kings_coronation_purchased = SaveLoad.contents_to_save.king_poop_unlocked
 	Globals.guinea_purchase_order = SaveLoad.contents_to_save.guinea_order
 	Globals.upgrade_dictionary = SaveLoad.contents_to_save.upgrades_left_dictionary
-	
+	Globals.gold_rush_achievement_completed = SaveLoad.contents_to_save.gold_rush_unlocked
+	Globals.diamond_digger_achievement_completed = SaveLoad.contents_to_save.diamond_digger_unlocked
+	Globals.taste_rainbow_achievement_completed = SaveLoad.contents_to_save.taste_rainbow_unlocked
+	Globals.colossal_crusher_achievement_completed = SaveLoad.contents_to_save.colossal_crusher_unlocked
+	Globals.poop_frenzy_achievement_completed = SaveLoad.contents_to_save.poop_frenzy_unlocked
+	Globals.full_house_achievement_completed = SaveLoad.contents_to_save.full_house_unlocked
+	Globals.disco_party_achievement_completed = SaveLoad.contents_to_save.disco_party_unlocked
+	Globals.manure_millionare_achievement_completed = SaveLoad.contents_to_save.manure_millionare_unlocked
+	Globals.petting_professional_achievement_completed = SaveLoad.contents_to_save.petting_professional_unlocked
 	
 	for pig in get_tree().get_nodes_in_group("Pig"):
 		restore_upgrades.connect(pig._update_poop_speed.bind())
@@ -167,8 +186,7 @@ func _on_load_pressed() -> void:
 	update_buttons.emit()
 	update_poop_upgrades_shop.emit()
 	update_bella.emit()
-
-
+	update_achievements.emit()
 
 func _guinea_spawning():
 	#Gizmo

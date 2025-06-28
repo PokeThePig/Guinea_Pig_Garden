@@ -1,7 +1,7 @@
 extends Node2D
 
 var upgrades_left = 3
-var guinea_id = ""
+var guinea_id = null
 signal upgrade_purchased
 
 func _ready():

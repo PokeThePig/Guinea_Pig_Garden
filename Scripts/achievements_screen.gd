@@ -81,3 +81,24 @@ func check_if_all_complete():
 	print(achievements_complete)
 	if achievements_complete == 9:
 		all_achievements_complete.emit()
+		
+func _load_achievements():
+	if Globals.gold_rush_achievement_completed:
+		_golden_poop_achievement_unlocked()
+	if Globals.diamond_digger_achievement_completed:
+		_diamond_poop_achievement_unlocked()
+	if Globals.taste_rainbow_achievement_completed:
+		_prismatic_poop_achievement_unlocked()
+	if Globals.colossal_crusher_achievement_completed:
+		_giant_poop_achievement_unlocked()
+	if Globals.poop_frenzy_achievement_completed:
+		_max_speed_achievement_unlocked()
+	if Globals.full_house_achievement_completed:
+		_all_pigs_achievement_unlocked()
+	if Globals.disco_party_achievement_completed:
+		_disco_achievement_unlocked()
+	if Globals.manure_millionare_achievement_completed:
+		_one_million_achievement_unlocked()
+	if Globals.petting_professional_achievement_completed:
+		_thousand_pets_achievement_unlocked()
+	check_if_all_complete()
