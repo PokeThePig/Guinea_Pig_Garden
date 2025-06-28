@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://d2kke74h1byao"]
 
 [ext_resource type="Texture2D" uid="uid://vjm4igbsy0h7" path="res://Sprites/Currently Used/Poop upscale.png" id="1_0rpxe"]
-[ext_resource type="Script" path="res://Scripts/Giant_poop.gd" id="1_gvwrw"]
+[ext_resource type="Script" uid="uid://cg3whb2itofun" path="res://Scripts/Giant_poop.gd" id="1_gvwrw"]
 [ext_resource type="AudioStream" uid="uid://b20f6cp83swlo" path="res://Sounds/Sounds Effects/crush_sound_1 - Made with Clipchamp.wav" id="3_qjqbc"]
 [ext_resource type="AudioStream" uid="uid://baucb4j4ybf16" path="res://Sounds/Sounds Effects/crush_sound_2 - Made with Clipchamp.wav" id="4_5kbv7"]
 

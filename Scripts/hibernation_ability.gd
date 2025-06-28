@@ -34,7 +34,7 @@ func _on_increment_effect_timer_timeout():
 
 func _on_sleep_timer_timeout():
 	Globals.hiberation_sleep_active = false
-	gizmo_sprite.texture = load("res://Sprites/Currently Used/Pixel Guinea Pig 2-Sheet.png")
+	gizmo_sprite.texture = load("res://Sprites/Currently Used/Gizmo2.0-Sheet.png")
 	gizmo_sprite.visible = true
 	$sleep_sprite.visible = false
 	$Sleep_countdown.text = ""

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cavpbh7moh25k"]
 
-[ext_resource type="Script" path="res://Scripts/Rain_or_shine_purchase.gd" id="1_fg7bx"]
+[ext_resource type="Script" uid="uid://dfq3kjblwnjr2" path="res://Scripts/Rain_or_shine_purchase.gd" id="1_fg7bx"]
 [ext_resource type="Texture2D" uid="uid://copox4yg1nus7" path="res://Sprites/Currently Used/Rain or Shine.png" id="2_ji6gt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ad2tv"]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://ny6ry4ow8hh6"]
 
-[ext_resource type="Script" path="res://Scripts/Shop_poop_count.gd" id="1_6nj71"]
-[ext_resource type="Script" path="res://Scripts/poop_upgrades_shop.gd" id="1_cqc40"]
-[ext_resource type="Script" path="res://Scripts/poop_upgrades_camera.gd" id="2_0tpnx"]
-[ext_resource type="Script" path="res://Scripts/Shop_prismatic_poop_count.gd" id="4_3n5d6"]
-[ext_resource type="Script" path="res://Scripts/Shop_diamond_poop_count.gd" id="5_anh7c"]
+[ext_resource type="Script" uid="uid://ctao8wcybfj67" path="res://Scripts/Shop_poop_count.gd" id="1_6nj71"]
+[ext_resource type="Script" uid="uid://cd8x0mhdf1ce7" path="res://Scripts/poop_upgrades_shop.gd" id="1_cqc40"]
+[ext_resource type="Script" uid="uid://bkpfhetorjjyy" path="res://Scripts/poop_upgrades_camera.gd" id="2_0tpnx"]
+[ext_resource type="Script" uid="uid://bissaklxbm2fl" path="res://Scripts/Shop_prismatic_poop_count.gd" id="4_3n5d6"]
+[ext_resource type="Script" uid="uid://clthccpvplkij" path="res://Scripts/Shop_diamond_poop_count.gd" id="5_anh7c"]
 [ext_resource type="PackedScene" uid="uid://b8irhb30q5tn8" path="res://Scenes/Shop/scroll_container.tscn" id="6_a3iqr"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_jnld4"]

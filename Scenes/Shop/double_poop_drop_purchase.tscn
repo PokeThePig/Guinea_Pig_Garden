@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c4607w7esjfvi"]
 
-[ext_resource type="Script" path="res://Scripts/double_poop_drop_purchase.gd" id="1_k7j17"]
+[ext_resource type="Script" uid="uid://bdy4ca0a88t2f" path="res://Scripts/double_poop_drop_purchase.gd" id="1_k7j17"]
 [ext_resource type="Texture2D" uid="uid://vjm4igbsy0h7" path="res://Sprites/Currently Used/Poop upscale.png" id="2_1lhlh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hud4w"]

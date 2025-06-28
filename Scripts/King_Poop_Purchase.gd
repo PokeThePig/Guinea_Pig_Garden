@@ -6,6 +6,8 @@ signal upgrade_purchased
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	upgrade_purchased.connect(get_tree().get_root().get_node("Main_Tree").get_node("Shop_Scene")._item_purchased.bind())
+	await get_tree().create_timer(.5).timeout
+	_update_upgrade_information()
 
 
 func _on_upgrade_button_pressed():
@@ -14,11 +16,14 @@ func _on_upgrade_button_pressed():
 		Globals.poop_amount -= 50000
 		Globals.prismatic_poop_amount -= 1000
 		Globals.diamond_poop_amount -= 5
+		_update_upgrade_information()
+		upgrade_purchased.emit()
+		Globals.upgrade_dictionary["Calix"][4] = true
+
+func _update_upgrade_information():
+	if Globals.kings_coronation_purchased == true:
 		$upgrade_button.text = "MAXED"
 		$coronation_count.text = "1/1"
-		upgrade_purchased.emit()
-
-
 
 func _on_upgrade_button_mouse_entered():
 	$coronation_description.visible = true

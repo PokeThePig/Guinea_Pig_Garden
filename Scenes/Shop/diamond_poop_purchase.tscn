@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bmfvrbim5mj2j"]
 
-[ext_resource type="Script" path="res://Scripts/Diamond_Poop_Purchase.gd" id="1_vglcu"]
+[ext_resource type="Script" uid="uid://degf85wg1gpwf" path="res://Scripts/Diamond_Poop_Purchase.gd" id="1_vglcu"]
 [ext_resource type="Texture2D" uid="uid://cvsfgy7iqqmos" path="res://Sprites/Currently Used/Diamond Poop-Sheet.png" id="2_04iaj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltwy1"]

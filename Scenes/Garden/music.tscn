@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://c2jqsdm1nvtgs"]
 
-[ext_resource type="Script" path="res://Scripts/Music.gd" id="1_by1lq"]
+[ext_resource type="Script" uid="uid://b5aopkjkiexdx" path="res://Scripts/Music.gd" id="1_by1lq"]
 [ext_resource type="AudioStream" uid="uid://dmwsc1x4vo2an" path="res://Sounds/Songs/Something Wrong with my Dog.wav" id="2_fwqtn"]
 [ext_resource type="AudioStream" uid="uid://cspj70s06u3ds" path="res://Sounds/Songs/Goblin_song_cut.wav" id="3_sge46"]
 [ext_resource type="AudioStream" uid="uid://drijdpttwfm42" path="res://Sounds/Songs/Braidens_Song.wav" id="4_4anpt"]

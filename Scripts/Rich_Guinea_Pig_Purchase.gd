@@ -17,20 +17,22 @@ func _on_button_pressed():
 
 		var new_pig = guinea_pig_assets.instantiate()
 		get_parent().get_parent().get_node("Garden").add_child(new_pig)
-		new_pig.global_position = Vector2(0,0)
+		new_pig.global_position = Vector2(randf_range(-4300, 3700), randf_range(-2000, 2000))
 		
 		var current_pig = get_tree().get_nodes_in_group("Pig")[-1]
 		Globals.guinea_dictionary["Pennybags"] = current_pig.get_instance_id()
 		Globals.new_pig = "Pennybags"
 		
 		var new_pig_sprite = new_pig.get_node("Guinea_Pig").get_node("Pig_Sprite")
-		new_pig_sprite.texture = load("res://Sprites/Currently Used/Fancy Pig Sheet.png")
+		new_pig_sprite.texture = load("res://Sprites/Currently Used/Pennybags2.0-Sheet.png")
 		
 		var new_pig_assets = new_pig.get_node("Guinea_Pig")
-		new_pig_assets.set_scale(Vector2(1.2, 1.2))
+		new_pig_assets.get_node("Pig_Sprite").set_scale(Vector2(37, 36))
+		new_pig_assets.get_node("Shadow_Sprite").set_scale(Vector2(36, 36))
 		
 		$Button.text = "SOLD OUT"
 		pig_purchased.emit()
 		rich_pig_purchased.emit()
 		
 		Globals.rich_guinea_purchased = true
+		Globals.guinea_purchase_order.append("Pennybags")

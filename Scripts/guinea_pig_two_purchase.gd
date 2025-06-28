@@ -17,17 +17,19 @@ func _on_button_pressed():
 
 		var new_pig = guinea_pig_assets.instantiate()
 		get_parent().get_parent().get_node("Garden").add_child(new_pig)
-		new_pig.global_position = Vector2(0,0)
+		new_pig.global_position = Vector2(randf_range(-4300, 3700), randf_range(-2000, 2000))
 		
 		var current_pig = get_tree().get_nodes_in_group("Pig")[-1]
 		Globals.guinea_dictionary["Gizmo"] = current_pig.get_instance_id()
 		Globals.new_pig = "Gizmo"
 		
 		var new_pig_sprite = new_pig.get_node("Guinea_Pig").get_node("Pig_Sprite")
-		new_pig_sprite.texture = load("res://Sprites/Currently Used/Pixel Guinea Pig 2-Sheet.png")
+		new_pig_sprite.texture = load("res://Sprites/Currently Used/Gizmo2.0-Sheet.png")
+		new_pig_sprite.set_scale(Vector2(33, 32))
 		
 		$Button.text = "SOLD OUT"
 		pig_purchased.emit()
 		pig_two_purchased.emit()
 		
 		Globals.guinea_two_purchased = true
+		Globals.guinea_purchase_order.append("Gizmo")

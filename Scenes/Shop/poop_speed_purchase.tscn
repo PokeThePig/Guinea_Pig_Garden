@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://buu4qpft0qvii"]
 
-[ext_resource type="Script" path="res://Scenes/Shop/poop_speed_purchase.gd" id="1_ivnsh"]
+[ext_resource type="Script" uid="uid://b6fgkbn17tk4y" path="res://Scripts/poop_speed_purchase.gd" id="1_ivnsh"]
 [ext_resource type="Texture2D" uid="uid://6j5hyv6k1gmq" path="res://Sprites/Currently Used/Fiber upgrade v1.png" id="2_lcem4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7y47a"]

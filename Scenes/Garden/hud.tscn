@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c81hiwf201f5"]
 
-[ext_resource type="Script" path="res://Scripts/Shop_button.gd" id="1_p0m00"]
+[ext_resource type="Script" uid="uid://crjbq7bugdlvp" path="res://Scripts/Shop_button.gd" id="1_p0m00"]
 [ext_resource type="Texture2D" uid="uid://c6a17p3dmjqd1" path="res://Sprites/Currently Used/Shop Button Grey (no text).png" id="2_cs610"]
 [ext_resource type="Texture2D" uid="uid://8cfkabaqgbx5" path="res://Sprites/Currently Used/Shop Button Grey Pressed (no text).png" id="3_bp5q0"]
 [ext_resource type="Texture2D" uid="uid://c5k1msu0g13uu" path="res://Sprites/Currently Used/Settings Button V1.png" id="4_hbpy6"]

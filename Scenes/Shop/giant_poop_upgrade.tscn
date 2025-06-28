@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://p1vyxvstb614"]
 
 [ext_resource type="Texture2D" uid="uid://vjm4igbsy0h7" path="res://Sprites/Currently Used/Poop upscale.png" id="1_hmpd7"]
-[ext_resource type="Script" path="res://Scripts/giant_poop_upgrade.gd" id="1_pajqe"]
+[ext_resource type="Script" uid="uid://dr5o52jv8n7a5" path="res://Scripts/giant_poop_upgrade.gd" id="1_pajqe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hg8hr"]
 bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)

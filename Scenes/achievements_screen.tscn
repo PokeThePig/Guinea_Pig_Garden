@@ -1,14 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://d1h7px7v0u5pv"]
 
-[ext_resource type="Script" path="res://Scripts/achievements_screen.gd" id="1_s0ibc"]
-[ext_resource type="Script" path="res://Scripts/achievements_cam.gd" id="2_t4s5p"]
-[ext_resource type="Texture2D" uid="uid://b71v75qh4w74e" path="res://Sprites/Currently Used/Gold_Pig-Sheet1-Sheet.png" id="3_26u2s"]
-[ext_resource type="Script" path="res://Scripts/Achievement_Ace.gd" id="4_goaad"]
+[ext_resource type="Script" uid="uid://bstcbvv0dxq83" path="res://Scripts/achievements_screen.gd" id="1_s0ibc"]
+[ext_resource type="Script" uid="uid://bi28jlontj7ct" path="res://Scripts/achievements_cam.gd" id="2_t4s5p"]
+[ext_resource type="Texture2D" uid="uid://dpdf2vmdguviv" path="res://Sprites/Currently Used/Gold_Pig-Sheet.png" id="3_6o2va"]
+[ext_resource type="Script" uid="uid://dlrbhv5xn6jkv" path="res://Scripts/Achievement_Ace.gd" id="4_goaad"]
 [ext_resource type="Texture2D" uid="uid://4rdid6eibw8w" path="res://Sprites/Currently Used/Gold_Pig-Menu-Sheet.png" id="5_u2l8m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cqmuy"]
-radius = 108.49
-height = 500.0
+radius = 169.812
+height = 590.0
 
 [node name="Achievements Screen" type="Node2D"]
 script = ExtResource("1_s0ibc")
@@ -39,8 +39,8 @@ vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Gold Rush"]
 position = Vector2(128, 144)
-scale = Vector2(0.175714, 0.17)
-texture = ExtResource("3_26u2s")
+scale = Vector2(4, 4)
+texture = ExtResource("3_6o2va")
 hframes = 2
 
 [node name="Diamond Digger" type="Label" parent="."]
@@ -65,8 +65,8 @@ vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Diamond Digger"]
 position = Vector2(136, 144)
-scale = Vector2(0.175714, 0.17)
-texture = ExtResource("3_26u2s")
+scale = Vector2(4, 4)
+texture = ExtResource("3_6o2va")
 hframes = 2
 
 [node name="Taste the Rainbow" type="Label" parent="."]
@@ -91,8 +91,8 @@ vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Taste the Rainbow"]
 position = Vector2(160, 144)
-scale = Vector2(0.175714, 0.17)
-texture = ExtResource("3_26u2s")
+scale = Vector2(4, 4)
+texture = ExtResource("3_6o2va")
 hframes = 2
 
 [node name="Colossal Crusher" type="Label" parent="."]
@@ -117,8 +117,8 @@ vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Colossal Crusher"]
 position = Vector2(144, 144)
-scale = Vector2(0.175714, 0.17)
-texture = ExtResource("3_26u2s")
+scale = Vector2(4, 4)
+texture = ExtResource("3_6o2va")
 hframes = 2
 
 [node name="Poop Frenzy" type="Label" parent="."]
@@ -143,8 +143,8 @@ vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Poop Frenzy"]
 position = Vector2(128, 144)
-scale = Vector2(0.175714, 0.17)
-texture = ExtResource("3_26u2s")
+scale = Vector2(4, 4)
+texture = ExtResource("3_6o2va")
 hframes = 2
 
 [node name="Full House" type="Label" parent="."]
@@ -169,8 +169,8 @@ vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Full House"]
 position = Vector2(128, 144)
-scale = Vector2(0.175714, 0.17)
-texture = ExtResource("3_26u2s")
+scale = Vector2(4, 4)
+texture = ExtResource("3_6o2va")
 hframes = 2
 
 [node name="Disco Party" type="Label" parent="."]
@@ -195,8 +195,8 @@ vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Disco Party"]
 position = Vector2(128, 144)
-scale = Vector2(0.175714, 0.17)
-texture = ExtResource("3_26u2s")
+scale = Vector2(4, 4)
+texture = ExtResource("3_6o2va")
 hframes = 2
 
 [node name="Manure Millionare" type="Label" parent="."]
@@ -221,8 +221,8 @@ vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Manure Millionare"]
 position = Vector2(160, 152)
-scale = Vector2(0.175714, 0.17)
-texture = ExtResource("3_26u2s")
+scale = Vector2(4, 4)
+texture = ExtResource("3_6o2va")
 hframes = 2
 
 [node name="Petting Profeshional" type="Label" parent="."]
@@ -247,8 +247,8 @@ vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Petting Profeshional"]
 position = Vector2(168, 144)
-scale = Vector2(0.175714, 0.17)
-texture = ExtResource("3_26u2s")
+scale = Vector2(4, 4)
+texture = ExtResource("3_6o2va")
 hframes = 2
 
 [node name="Achievement_Ace" type="CharacterBody2D" parent="."]
@@ -257,14 +257,14 @@ input_pickable = true
 script = ExtResource("4_goaad")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Achievement_Ace"]
-position = Vector2(142, 148)
+position = Vector2(145, 144)
 rotation = 1.5708
 scale = Vector2(0.212, 0.2)
 shape = SubResource("CapsuleShape2D_cqmuy")
 
 [node name="Sprite2D" type="Sprite2D" parent="Achievement_Ace"]
 position = Vector2(144, 144)
-scale = Vector2(0.175714, 0.17)
+scale = Vector2(4, 4)
 texture = ExtResource("5_u2l8m")
 hframes = 2
 

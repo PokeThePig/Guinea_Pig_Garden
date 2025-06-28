@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c26okl4auedr0"]
 
-[ext_resource type="Script" path="res://Scripts/hibernation_purchase.gd" id="1_mh23q"]
-[ext_resource type="Texture2D" uid="uid://4puloe8cmdpu" path="res://Sprites/Currently Used/Pixel Guinea Pig Sleep Sheet.png" id="2_05bvv"]
+[ext_resource type="Script" uid="uid://do6drwufnbakp" path="res://Scripts/hibernation_purchase.gd" id="1_mh23q"]
+[ext_resource type="Texture2D" uid="uid://dfbxl1c3vtj7i" path="res://Sprites/Currently Used/HibernationGizmo-Sheet.png" id="2_156my"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvpmp"]
 bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
@@ -24,8 +24,8 @@ text = "Hibernation
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -88)
-scale = Vector2(0.278308, 0.277672)
-texture = ExtResource("2_05bvv")
+scale = Vector2(5, 5)
+texture = ExtResource("2_156my")
 hframes = 12
 frame = 5
 
@@ -34,7 +34,7 @@ offset_left = -24.0
 offset_top = 88.0
 offset_right = 24.0
 offset_bottom = 111.0
-text = "0/3"
+text = "0/5"
 horizontal_alignment = 1
 
 [node name="hibernation_description" type="Label" parent="."]

@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://cegv87gpx1qd7"]
 
 [ext_resource type="PackedScene" uid="uid://bmfvrbim5mj2j" path="res://Scenes/Shop/diamond_poop_purchase.tscn" id="1_2hldy"]
-[ext_resource type="Script" path="res://Scripts/poop_types_shop.gd" id="1_8114l"]
-[ext_resource type="Script" path="res://Scripts/poop_types_camera.gd" id="2_1haka"]
+[ext_resource type="Script" uid="uid://be0h6vjhsma28" path="res://Scripts/poop_types_shop.gd" id="1_8114l"]
+[ext_resource type="Script" uid="uid://cbtilgq8skcae" path="res://Scripts/poop_types_camera.gd" id="2_1haka"]
 [ext_resource type="PackedScene" uid="uid://cypvnme735xpc" path="res://Scenes/Shop/giant_poop_purchase.tscn" id="4_5ckjv"]
-[ext_resource type="Script" path="res://Scripts/Shop_prismatic_poop_count.gd" id="5_o80i2"]
+[ext_resource type="Script" uid="uid://bissaklxbm2fl" path="res://Scripts/Shop_prismatic_poop_count.gd" id="5_o80i2"]
 [ext_resource type="PackedScene" uid="uid://b8uqrksk1wyyx" path="res://Scenes/Shop/prismatic_poop_purchase.tscn" id="5_pcujp"]
-[ext_resource type="Script" path="res://Scripts/Shop_poop_count.gd" id="5_v7bpa"]
-[ext_resource type="Script" path="res://Scripts/Shop_diamond_poop_count.gd" id="6_edp2k"]
+[ext_resource type="Script" uid="uid://ctao8wcybfj67" path="res://Scripts/Shop_poop_count.gd" id="5_v7bpa"]
+[ext_resource type="Script" uid="uid://clthccpvplkij" path="res://Scripts/Shop_diamond_poop_count.gd" id="6_edp2k"]
 
 [node name="poop_types_shop" type="Node2D"]
 script = ExtResource("1_8114l")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cu5dagbcogu6h"]
 
-[ext_resource type="Script" path="res://Scripts/Squeek Frenzy Purchase.gd" id="1_85tv0"]
+[ext_resource type="Script" uid="uid://dr0i74egya4jc" path="res://Scripts/Squeek Frenzy Purchase.gd" id="1_85tv0"]
 [ext_resource type="Texture2D" uid="uid://blc24talt12ri" path="res://Sprites/Currently Used/Squeek Frenzy.png" id="2_77h5b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h75dr"]
@@ -11,7 +11,7 @@ Label/colors/font_color = Color(0, 0, 0, 1)
 Label/fonts/font = null
 Label/styles/normal = SubResource("StyleBoxFlat_h75dr")
 
-[node name="Squeek Frenzy Purchase" type="Node2D"]
+[node name="Squeek_Frenzy_Purchase" type="Node2D"]
 script = ExtResource("1_85tv0")
 
 [node name="upgrade_button" type="Button" parent="."]
@@ -23,8 +23,8 @@ text = "Squeek Frenzy
 5000 Poop"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2.02344, -96)
-scale = Vector2(0.383078, 0.383876)
+position = Vector2(1, -103)
+scale = Vector2(5, 5.013)
 texture = ExtResource("2_77h5b")
 
 [node name="Squeek_frenzy_count" type="Label" parent="."]
@@ -36,6 +36,7 @@ text = "0/5"
 horizontal_alignment = 1
 
 [node name="Squeek_frenzy_description" type="Label" parent="."]
+visible = false
 offset_left = -152.0
 offset_top = -176.0
 offset_right = 152.0

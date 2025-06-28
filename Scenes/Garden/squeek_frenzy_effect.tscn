@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b87baj454byp3"]
 
-[ext_resource type="Script" path="res://Scripts/Squeek_frenzy_effect.gd" id="1_2g5g7"]
+[ext_resource type="Script" uid="uid://cb8w3gvf8m2n0" path="res://Scripts/Squeek_frenzy_effect.gd" id="1_2g5g7"]
 
 [node name="Squeek_frenzy_effect" type="Node2D"]
 script = ExtResource("1_2g5g7")

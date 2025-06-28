@@ -1,19 +1,19 @@
 [gd_scene load_steps=8 format=3 uid="uid://bw84xoy2evj21"]
 
-[ext_resource type="Script" path="res://Scripts/Compost Body.gd" id="1_u00bv"]
-[ext_resource type="Script" path="res://Scripts/Poop_count_label.gd" id="2_3pvoq"]
-[ext_resource type="Texture2D" uid="uid://bs1xc1gjmhdrs" path="res://Sprites/Currently Used/Guinea Piggy Bank-Sheet.png" id="2_xhfc1"]
+[ext_resource type="Script" uid="uid://6v08ecu2iplu" path="res://Scripts/Compost Body.gd" id="1_u00bv"]
+[ext_resource type="Script" uid="uid://fn2rgt7uiq5m" path="res://Scripts/Poop_count_label.gd" id="2_3pvoq"]
+[ext_resource type="Texture2D" uid="uid://cpt0jeo5d5hsv" path="res://Sprites/Currently Used/Piggybank-Sheet.png" id="2_u7a64"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v58n2"]
-radius = 328.0
-height = 1232.0
+radius = 304.0
+height = 1070.0
 
 [sub_resource type="Animation" id="Animation_n0qik"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Poop_Symbol:frame")
+tracks/0/path = NodePath("Piggybank_Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -29,7 +29,7 @@ length = 0.9
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Poop_Symbol:frame")
+tracks/0/path = NodePath("Piggybank_Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -41,8 +41,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kpf07"]
 _data = {
-"RESET": SubResource("Animation_n0qik"),
-"piggy bank": SubResource("Animation_6m7qg")
+&"RESET": SubResource("Animation_n0qik"),
+&"piggy bank": SubResource("Animation_6m7qg")
 }
 
 [node name="Poop_Count_UI" type="Node2D"]
@@ -57,20 +57,20 @@ collision_mask = 8
 input_pickable = true
 script = ExtResource("1_u00bv")
 
-[node name="Poop_Symbol" type="Sprite2D" parent="Guinea Piggy Bank"]
-position = Vector2(462, -529)
-scale = Vector2(2.1513, 2.13685)
-texture = ExtResource("2_xhfc1")
+[node name="Piggybank_Sprite" type="Sprite2D" parent="Guinea Piggy Bank"]
+position = Vector2(476, -615)
+scale = Vector2(33, 32)
+texture = ExtResource("2_u7a64")
 hframes = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guinea Piggy Bank"]
-position = Vector2(422, -473)
+position = Vector2(477, -461)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_v58n2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Guinea Piggy Bank"]
 libraries = {
-"": SubResource("AnimationLibrary_kpf07")
+&"": SubResource("AnimationLibrary_kpf07")
 }
 
 [node name="Poop_count_label" type="Label" parent="."]

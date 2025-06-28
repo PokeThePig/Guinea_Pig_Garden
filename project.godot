@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Guinea Pig Garden"
 run/main_scene="res://Scenes/main_tree.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Sprites/icon.svg"
 
 [aseprite_importers]
@@ -22,12 +22,16 @@ aseprite_executable_path="B:/SteamLibrary/steamapps/common/Aseprite/Aseprite.exe
 [autoload]
 
 Globals="*res://Scripts/Globals.gd"
+SaveLoad="*res://SaveLoad.gd"
 
 [display]
 
 window/size/viewport_width=1600
 window/size/viewport_height=900
-window/stretch/mode="viewport"
+window/size/window_width_override=1600
+window/size/window_height_override=900
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
 mouse_cursor/custom_image="res://Sprites/Currently Used/Shovel Cursor v1.png"
 
 [editor_plugins]
@@ -64,3 +68,11 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_2="poop"
 2d_physics/layer_3="pig"
 2d_physics/layer_4="poop_count"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true
+2d/sdf/scale=2
+textures/stretch/mode="canvas_items"

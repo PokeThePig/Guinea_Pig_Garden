@@ -67,7 +67,7 @@ func _input(event):
 				else:
 					print("Giant poop popped")
 					giant_poop_crushed.emit()
-					var giant_poop_amount = snappedf(pow(giant_poop_size.x, 2), 0.01) * 100
+					var giant_poop_amount = int(snappedf(pow(giant_poop_size.x, 2), 0.01) * 100)
 					Globals.poop_amount += giant_poop_amount
 					if (max_size_poop == true) and (Globals.colossal_crusher_achievement_completed == false):
 						giant_poop_achievement_unlocked.emit()

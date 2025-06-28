@@ -14,6 +14,7 @@ extends CharacterBody2D
 
 #Guinea Pig Assets
 @onready var pig_sprite = $Pig_Sprite
+@onready var shadow_sprite = $Shadow_Sprite
 @onready var main_pig_animation = $Pig_AnimationPlayer
 @onready var movement_change = %wander_timer
 @onready var poop_drop_speed = %poop_spawner
@@ -64,7 +65,7 @@ func _physics_process(_delta):
 	if (velocity.x != 0) || (velocity.y != 0):
 		main_pig_animation.play("walk_animation")
 	
-	pig_position = position
+	pig_position = global_position
 
 #Randomized movement
 
@@ -74,11 +75,13 @@ func _physics_process(_delta):
 	elif state == 1:
 		velocity.x = 100 * movespeed
 		pig_sprite.flip_h = true
+		shadow_sprite.flip_h = true
 		main_pig_animation.play("walk_animation")
 		face_left = false
 	elif state == 2:
 		velocity.x = -100 * movespeed
 		pig_sprite.flip_h = false
+		shadow_sprite.flip_h = false
 		main_pig_animation.play("walk_animation")
 		face_left = true
 	elif state == 3:
@@ -232,7 +235,7 @@ func _start_golden_poop_effect():
 		movement_change.start()
 	
 	#Disco mode activiation check for Chroma
-	if (get_node("Pig_Sprite").texture == load("res://Sprites/Currently Used/Rainbow Pig-Sheet Two Frame.png")):
+	if (get_node("Pig_Sprite").texture == load("res://Sprites/Currently Used/Chroma2.0-Sheet.png")):
 		add_child(rainbow_gold_effect.instantiate())
 	print("Drop speed at gold: ", poop_drop_speed.wait_time)
 	
@@ -262,7 +265,7 @@ func _on_squeek_frenzy_charge_timeout():
 	if (Globals.squeek_frenzy_purchased == true) and (self == instance_from_id(Globals.guinea_dictionary["Bella"])):
 		print("EFFECT READY")
 		squeek_frenzy_ready = true
-		$Pig_Sprite.texture = load("res://Sprites/Currently Used/Upgrade ready Bella.png")
+		$Pig_Sprite.texture = load("res://Sprites/Currently Used/Squeek_Ready_Bella.png")
 		$Squeek_frenzy_charge.stop()
 	else:
 		print("not purchased")
@@ -316,7 +319,7 @@ func _on_hibernation_activation_timeout():
 	if (Globals.hibernation_purchased == true) and (self == instance_from_id(Globals.guinea_dictionary["Gizmo"])):
 		print("HIBERNATION READY")
 		hibernation_ready = true
-		$Pig_Sprite.texture = load("res://Sprites/Currently Used/Pixel Guinea Pig 2 Hibernation Ready.-Sheet.png")
+		$Pig_Sprite.texture = load("res://Sprites/Currently Used/Hibernation_Ready_Gizmo.png")
 		$hibernation_activation.stop()
 	else:
 		print("hibernation not purchased")
@@ -368,6 +371,7 @@ func _update_poop_speed():
 		poop_drop_speed.wait_time = effect_multiplier * poop_speed * squeek_frenzy_multiplier
 		Globals.upgrade_guinea_id = null
 		Globals.poop_speed_upgrade_amount = 0.0
+		print(instance_from_id(Globals.guinea_dictionary["Bella"]).poop_speed)
 	else:
 		poop_drop_speed.stop()
 		poop_drop_speed.wait_time = effect_multiplier * poop_speed * squeek_frenzy_multiplier
@@ -377,12 +381,12 @@ func _update_poop_speed():
 '''Updating Double Poop Odds'''
 
 func _update_double_poop():
-	double_poop_unlocked = true
+	#double_poop_unlocked = true
 	if (self == Globals.upgrade_guinea_id):
 		double_poop_chance = Globals.double_poop_upgrade_amount
+		double_poop_unlocked = true
 		Globals.upgrade_guinea_id = null
 		Globals.double_poop_upgrade_amount = 0
-		print(double_poop_chance)
 
 
 '''Updating Giant Poop Sizes'''
@@ -452,7 +456,7 @@ func _input(event):
 				
 				#Squeek frenzy
 				if (Globals.squeek_frenzy_purchased == true) and (squeek_frenzy_ready == true) and (self == instance_from_id(Globals.guinea_dictionary["Bella"])):
-					$Pig_Sprite.texture = load("res://Sprites/Currently Used/Bella Sheet.png")
+					$Pig_Sprite.texture = load("res://Sprites/Currently Used/Bella2.0-Sheet.png")
 					#Effect start sound effects
 					$loud_squeek_sound.set_volume_db(5)
 					$loud_squeek_sound.set_pitch_scale(1.1)
@@ -486,7 +490,7 @@ func _input(event):
 					squeek_randomizer().play()
 				Globals.pet_count += 1
 				print(Globals.pet_count)
-				if (get_node("Pig_Sprite").texture == load("res://Sprites/Currently Used/King Calix-Sheet Final.png")):
+				if (get_node("Pig_Sprite").texture == load("res://Sprites/Currently Used/KingCalix2.0-Sheet.png")):
 					$king_calix_trumpet.play()
 				if (Globals.pet_count >= 1000) and (Globals.petting_professional_achievement_completed == false):
 					thousand_pets_achievement_unlocked.emit()

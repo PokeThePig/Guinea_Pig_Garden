@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkdptvl67v0nm"]
 
-[ext_resource type="Script" path="res://Scripts/Copper_poop_purchase.gd" id="1_2oe82"]
+[ext_resource type="Script" uid="uid://c328ysydp1w3p" path="res://Scripts/Copper_poop_purchase.gd" id="1_2oe82"]
 [ext_resource type="Texture2D" uid="uid://lgehm55wyn8x" path="res://Sprites/Currently Used/Copper Poop-Sheet.png" id="2_0om04"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vun67"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://chf3lywvlapiy"]
 
 [ext_resource type="Texture2D" uid="uid://b35h1sq4ccvkn" path="res://Sprites/Currently Used/Rainbow Pig-Sheet.png" id="1_q0tf7"]
-[ext_resource type="Script" path="res://Scripts/rainbow_pig_gold_effect.gd" id="1_xfir4"]
+[ext_resource type="Script" uid="uid://dywbby8tpmeqo" path="res://Scripts/rainbow_pig_gold_effect.gd" id="1_xfir4"]
 
 [sub_resource type="Animation" id="Animation_3ld5u"]
 length = 0.001
@@ -35,8 +35,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nmoi1"]
 _data = {
-"RESET": SubResource("Animation_3ld5u"),
-"disco_walk": SubResource("Animation_sp8k0")
+&"RESET": SubResource("Animation_3ld5u"),
+&"disco_walk": SubResource("Animation_sp8k0")
 }
 
 [node name="rainbow_pig_gold_effect" type="Node2D"]
@@ -45,13 +45,13 @@ script = ExtResource("1_xfir4")
 [node name="disco_sprite" type="Sprite2D" parent="."]
 z_index = 2
 position = Vector2(-20, 72)
-scale = Vector2(1.714, 1.597)
+scale = Vector2(33, 32)
 texture = ExtResource("1_q0tf7")
 hframes = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_nmoi1")
+&"": SubResource("AnimationLibrary_nmoi1")
 }
 
 [node name="effect_duration" type="Timer" parent="."]

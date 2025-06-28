@@ -1,7 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://bjmeyefd8dff5"]
+[gd_scene load_steps=22 format=3 uid="uid://bjmeyefd8dff5"]
 
-[ext_resource type="Script" path="res://Scripts/Guinea_Pig.gd" id="1_km6o0"]
-[ext_resource type="Texture2D" uid="uid://w4dv8gmcnh6m" path="res://Sprites/Template Pig.png" id="2_u76an"]
+[ext_resource type="Script" uid="uid://cpmwcljnxex1b" path="res://Scripts/Guinea_Pig.gd" id="1_km6o0"]
+[ext_resource type="Texture2D" uid="uid://ogq2ximy5fhw" path="res://Sprites/Currently Used/Template2.0-Sheet.png" id="2_c35d3"]
 [ext_resource type="AudioStream" uid="uid://wlpwv33acvjk" path="res://Sounds/Sounds Effects/Pop_one.wav" id="4_g0ybr"]
 [ext_resource type="AudioStream" uid="uid://ckq5qnvii1lti" path="res://Sounds/Sounds Effects/Pop_three.wav" id="6_i0ab3"]
 [ext_resource type="AudioStream" uid="uid://djc4vv3rod3mj" path="res://Sounds/Sounds Effects/diamond_sound.wav" id="6_sgm43"]
@@ -14,10 +14,11 @@
 [ext_resource type="AudioStream" uid="uid://c6owyi7hfyx3u" path="res://Sounds/Sounds Effects/Final_crush.wav" id="11_m6fuh"]
 [ext_resource type="AudioStream" uid="uid://doeytnmcwsrjk" path="res://Sounds/Sounds Effects/Royal News Trumpet Sound Effect.wav" id="11_mp4rw"]
 [ext_resource type="AudioStream" uid="uid://o0l08tdf8blb" path="res://Sounds/Sounds Effects/Prismatic Crush - Made with Clipchamp.wav" id="13_j3o6e"]
+[ext_resource type="Texture2D" uid="uid://d0lpsyv6yfl0w" path="res://Sprites/Currently Used/Pig-Shadow-Sprite.png" id="15_c35d3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p8bvi"]
-radius = 1108.49
-height = 5550.0
+radius = 1292.45
+height = 4980.0
 
 [sub_resource type="Animation" id="Animation_ko0lf"]
 length = 0.001
@@ -57,10 +58,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_av8tg"]
 _data = {
-"RESET": SubResource("Animation_ko0lf"),
-"rainbow_walk": SubResource("Animation_lk3ic"),
-"walk": SubResource("Animation_2ss7n"),
-"walk_animation": SubResource("Animation_i4lci")
+&"RESET": SubResource("Animation_ko0lf"),
+&"rainbow_walk": SubResource("Animation_lk3ic"),
+&"walk": SubResource("Animation_2ss7n"),
+&"walk_animation": SubResource("Animation_i4lci")
 }
 
 [node name="Pig" type="Node2D"]
@@ -76,13 +77,18 @@ script = ExtResource("1_km6o0")
 [node name="Pig_Sprite" type="Sprite2D" parent="Guinea_Pig"]
 z_index = 5
 position = Vector2(-20.0001, 72)
-scale = Vector2(1.714, 1.59673)
-texture = ExtResource("2_u76an")
+scale = Vector2(33, 32)
+texture = ExtResource("2_c35d3")
 hframes = 2
 frame = 1
 
+[node name="Shadow_Sprite" type="Sprite2D" parent="Guinea_Pig"]
+position = Vector2(0, 100)
+scale = Vector2(32, 32)
+texture = ExtResource("15_c35d3")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guinea_Pig"]
-position = Vector2(-40, 104)
+position = Vector2(-12, 60)
 rotation = 1.5708
 scale = Vector2(0.212, 0.2)
 shape = SubResource("CapsuleShape2D_p8bvi")
@@ -90,7 +96,7 @@ shape = SubResource("CapsuleShape2D_p8bvi")
 [node name="Pig_AnimationPlayer" type="AnimationPlayer" parent="Guinea_Pig"]
 root_node = NodePath("../Pig_Sprite")
 libraries = {
-"": SubResource("AnimationLibrary_av8tg")
+&"": SubResource("AnimationLibrary_av8tg")
 }
 
 [node name="pop_one" type="AudioStreamPlayer" parent="Guinea_Pig"]

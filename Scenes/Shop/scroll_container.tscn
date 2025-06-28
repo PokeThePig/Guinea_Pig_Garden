@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b8irhb30q5tn8"]
 
 [ext_resource type="Texture2D" uid="uid://b6ru5f62s8wxr" path="res://Sprites/icon.svg" id="1_6cpue"]
-[ext_resource type="Texture2D" uid="uid://w4dv8gmcnh6m" path="res://Sprites/Template Pig.png" id="2_ygx1i"]
+[ext_resource type="Texture2D" uid="uid://ogq2ximy5fhw" path="res://Sprites/Currently Used/Template2.0-Sheet.png" id="2_nbc55"]
 [ext_resource type="PackedScene" uid="uid://buu4qpft0qvii" path="res://Scenes/Shop/poop_speed_purchase.tscn" id="3_5i0tq"]
 [ext_resource type="PackedScene" uid="uid://c4607w7esjfvi" path="res://Scenes/Shop/double_poop_drop_purchase.tscn" id="4_wk0u5"]
 [ext_resource type="PackedScene" uid="uid://p1vyxvstb614" path="res://Scenes/Shop/giant_poop_upgrade.tscn" id="5_a0akx"]
@@ -35,21 +35,23 @@ texture = ExtResource("1_6cpue")
 
 [node name="Pig_Sprite" type="Sprite2D" parent="HBoxContainer"]
 position = Vector2(185, 170)
-scale = Vector2(0.350714, 0.377)
-texture = ExtResource("2_ygx1i")
+scale = Vector2(6, 6.444)
+texture = ExtResource("2_nbc55")
 hframes = 2
 
 [node name="Guinea_Pig_Name" type="Label" parent="HBoxContainer/Pig_Sprite"]
 auto_translate_mode = 2
 layout_direction = 2
-offset_left = -299.0
-offset_top = 249.0
-offset_right = 292.0
-offset_bottom = 386.0
+offset_left = -25.5
+offset_top = 9.62136
+offset_right = 488.5
+offset_bottom = 146.621
+scale = Vector2(0.1, 0.1)
+size_flags_stretch_ratio = 0.0
 localize_numeral_system = false
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 30
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 100
 text = "Guinea Pig"
 horizontal_alignment = 1
 vertical_alignment = 1

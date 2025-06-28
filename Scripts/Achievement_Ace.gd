@@ -25,11 +25,10 @@ func _input(event):
 					new_pig.global_position = Vector2(0,0)
 					
 					var new_pig_sprite = new_pig.get_node("Guinea_Pig").get_node("Pig_Sprite")
-					new_pig_sprite.texture = load("res://Sprites/Currently Used/Gold_Pig-Sheet1-Sheet.png")
+					new_pig_sprite.texture = load("res://Sprites/Currently Used/Gold_Pig-Sheet.png")
 					
 					var new_pig_assets = new_pig.get_node("Guinea_Pig")
 					new_pig_assets.set_scale(Vector2(1.2, 1.2))
-					print("CLICKITY HOO HA")
 					
 func _all_achievements_complete():
 	achievement_unlocked = true

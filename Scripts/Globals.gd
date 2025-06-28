@@ -2,12 +2,16 @@ extends Node
 
 #Guinea pigs
 var guinea_dictionary = {}
+var guinea_purchase_order = []
+
 var new_pig = null
 var upgrade_guinea_id = null
 var poop_speed_upgrade_amount = 0.0
 var double_poop_upgrade_amount = 0
 var giant_poop_upgrade_minimum = 0
 var giant_poop_upgrade_maximum = 0
+
+var upgrade_dictionary = {}
 
 #Unique upgrades
 var squeek_frenzy_purchased = false
@@ -32,9 +36,9 @@ var king_poop_dropped = false
 var kings_coronation_active = false
 
 #Poop counts
-var poop_amount = 0
-var diamond_poop_amount = 0
-var prismatic_poop_amount = 0
+var poop_amount = 10000000
+var diamond_poop_amount = 1000000
+var prismatic_poop_amount = 10000000
 
 var currently_raining = false
 
@@ -75,25 +79,3 @@ var poop_speed_multiplier = 1
 var max_speed_upgrade = false
 var giant_poop_min = 1
 var giant_poop_max = 1.5
-
-
-
-'''Scene saving'''
-'''
-var current_scene = null
-
-func _ready() -> void:
-	var root = get_tree().root
-	current_scene = root.get_child(root.get_child_count() - 1)
-	print_debug(current_scene)
-
-func switch_scene(res_path):
-	call_deferred("_deferred_switch_scene", res_path)
-	
-func _deferred_switch_scene(res_path):
-	current_scene.free()
-	var s = load(res_path)
-	current_scene = s.instantiate()
-	get_tree().root.add_child(current_scene)
-	get_tree().current_scene = current_scene
-'''

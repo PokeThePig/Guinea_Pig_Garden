@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://diwrvhytcahww"]
 
-[ext_resource type="Script" path="res://Scripts/guinea_pig_two_purchase.gd" id="1_pk7ab"]
-[ext_resource type="Texture2D" uid="uid://cfvafyh3wfdsl" path="res://Sprites/Currently Used/Pixel Guinea Pig 2-Sheet.png" id="2_krkhw"]
+[ext_resource type="Script" uid="uid://dojnwr5aerx0j" path="res://Scripts/guinea_pig_two_purchase.gd" id="1_pk7ab"]
+[ext_resource type="Texture2D" uid="uid://dm1bt73n81rfo" path="res://Sprites/Currently Used/Gizmo2.0-Sheet.png" id="2_5iiov"]
 
 [node name="Guinea_Pig_Two_Purchase" type="Node2D"]
 position = Vector2(240, 37)
@@ -17,8 +17,8 @@ text = "Buy Gizmo
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-8.00001, -53)
-scale = Vector2(0.275, 0.257167)
-texture = ExtResource("2_krkhw")
+scale = Vector2(5, 5)
+texture = ExtResource("2_5iiov")
 hframes = 2
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

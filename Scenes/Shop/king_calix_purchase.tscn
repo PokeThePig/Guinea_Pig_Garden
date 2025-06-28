@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8ys2c1rd83bh"]
 
-[ext_resource type="Script" path="res://Scripts/king_calix_purchase.gd" id="1_w7ycg"]
-[ext_resource type="Texture2D" uid="uid://c6ej0bd3vnbat" path="res://Sprites/Currently Used/King Calix-Sheet Final.png" id="2_k051n"]
+[ext_resource type="Script" uid="uid://dnoaupffphrvj" path="res://Scripts/king_calix_purchase.gd" id="1_w7ycg"]
+[ext_resource type="Texture2D" uid="uid://y1b7rokrfxd3" path="res://Sprites/Currently Used/KingCalix2.0-Sheet.png" id="2_5vq0v"]
 
 [node name="king_calix_purchase" type="Node2D"]
 script = ExtResource("1_w7ycg")
@@ -18,8 +18,8 @@ text = "Buy King Calix
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.225, 0.225)
-texture = ExtResource("2_k051n")
+scale = Vector2(5, 5)
+texture = ExtResource("2_5vq0v")
 hframes = 2
 frame = 1
 
