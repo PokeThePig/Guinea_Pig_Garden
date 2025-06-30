@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkdptvl67v0nm"]
+[gd_scene load_steps=7 format=3 uid="uid://bkdptvl67v0nm"]
 
 [ext_resource type="Script" uid="uid://c328ysydp1w3p" path="res://Scripts/Copper_poop_purchase.gd" id="1_2oe82"]
 [ext_resource type="Texture2D" uid="uid://lgehm55wyn8x" path="res://Sprites/Currently Used/Copper Poop-Sheet.png" id="2_0om04"]
+[ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="3_q2r6w"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q2r6w"]
+light_mode = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vun67"]
 bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
@@ -15,33 +19,42 @@ Label/styles/normal = SubResource("StyleBoxFlat_vun67")
 script = ExtResource("1_2oe82")
 
 [node name="upgrade_button" type="Button" parent="."]
+material = SubResource("CanvasItemMaterial_q2r6w")
 offset_left = -120.0
 offset_right = 120.0
 offset_bottom = 64.0
-theme_override_font_sizes/font_size = 13
+theme_override_fonts/font = ExtResource("3_q2r6w")
+theme_override_font_sizes/font_size = 30
 text = "Copper Poop
 10000 Poop"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_q2r6w")
 position = Vector2(-1, -75)
 scale = Vector2(0.278308, 0.277672)
 texture = ExtResource("2_0om04")
 
 [node name="copper_poop_count" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_q2r6w")
 offset_left = -24.0
 offset_top = 88.0
 offset_right = 24.0
 offset_bottom = 111.0
+theme_override_fonts/font = ExtResource("3_q2r6w")
+theme_override_font_sizes/font_size = 30
 text = "0/3"
 horizontal_alignment = 1
 
 [node name="copper_poop_description" type="Label" parent="."]
 visible = false
-offset_left = -137.0
-offset_top = -134.0
-offset_right = 135.0
+material = SubResource("CanvasItemMaterial_q2r6w")
+offset_left = -143.0
+offset_top = -141.0
+offset_right = 143.0
 offset_bottom = -22.0
 theme = SubResource("Theme_nbr78")
+theme_override_fonts/font = ExtResource("3_q2r6w")
+theme_override_font_sizes/font_size = 25
 text = "Replaces basic poops with copper poops that are worth more.
 [1 > 2]"
 horizontal_alignment = 1

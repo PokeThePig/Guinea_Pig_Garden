@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8an7cmfb0keb"]
+[gd_scene load_steps=9 format=3 uid="uid://c8an7cmfb0keb"]
 
 [ext_resource type="PackedScene" uid="uid://cj1qi3eed3trw" path="res://Scenes/Garden/Main_World.tscn" id="1_qtg4v"]
 [ext_resource type="PackedScene" uid="uid://btb1pslcs8m6q" path="res://Scenes/Shop/shop_scene.tscn" id="2_6efl6"]
@@ -6,8 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://cegv87gpx1qd7" path="res://Scenes/Shop/poop_types_shop.tscn" id="4_u4yyr"]
 [ext_resource type="PackedScene" uid="uid://h8xc8stjllc5" path="res://Scenes/Shop/guinea_pigs_shop.tscn" id="5_glv3d"]
 [ext_resource type="PackedScene" uid="uid://d1h7px7v0u5pv" path="res://Scenes/achievements_screen.tscn" id="6_12hv2"]
+[ext_resource type="PackedScene" uid="uid://buhcoq3o3lpm" path="res://Scenes/Menus/main_menu.tscn" id="7_y4pn5"]
+[ext_resource type="PackedScene" uid="uid://cxcnrheuvpul" path="res://Scenes/Menus/settings.tscn" id="8_44uc2"]
 
 [node name="Main_Tree" type="Node2D"]
+
+[node name="Main_Menu" parent="." instance=ExtResource("7_y4pn5")]
+position = Vector2(0, 5920)
 
 [node name="Garden" parent="." instance=ExtResource("1_qtg4v")]
 
@@ -41,6 +46,9 @@ position = Vector2(1807, -9239)
 
 [node name="Achievements_Screen" parent="." instance=ExtResource("6_12hv2")]
 position = Vector2(-779, -6325)
+
+[node name="Settings" parent="." instance=ExtResource("8_44uc2")]
+position = Vector2(31, 7419)
 
 [connection signal="pressed" from="Garden/Save" to="Garden" method="_on_save_pressed"]
 [connection signal="pressed" from="Garden/Load" to="Garden" method="_on_load_pressed"]

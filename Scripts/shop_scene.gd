@@ -17,7 +17,6 @@ func _ready():
 
 func _on_back_to_garden_pressed():
 	garden_cam.emit()
-	get_parent().get_node("Garden").get_node("Day_Night_Cycle").visible = true
 
 func _on_go_poop_upgrades_pressed():
 	poop_up_cam.emit()

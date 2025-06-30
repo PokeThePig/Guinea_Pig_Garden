@@ -106,5 +106,5 @@ func _unpause_music():
 		gold_song.play(pause_position)
 	if king_started == true:
 		king_song.play(pause_position)
-	else:
+	elif pause_position != null:
 		current_song.play(pause_position)

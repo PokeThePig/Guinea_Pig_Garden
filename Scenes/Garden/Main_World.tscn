@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dhidrch210gk8" path="res://Scenes/Garden/day_night_cycle.tscn" id="6_m5735"]
 [ext_resource type="PackedScene" uid="uid://c2jqsdm1nvtgs" path="res://Scenes/Garden/music.tscn" id="7_j366y"]
 [ext_resource type="PackedScene" uid="uid://c81hiwf201f5" path="res://Scenes/Garden/hud.tscn" id="8_unkip"]
-[ext_resource type="PackedScene" uid="uid://3y4wlgqjokug" path="res://Scenes/Pause Screen/pause_menu.tscn" id="9_ilch8"]
+[ext_resource type="PackedScene" uid="uid://3y4wlgqjokug" path="res://Scenes/Menus/pause_menu.tscn" id="9_ilch8"]
 [ext_resource type="PackedScene" uid="uid://dogdk5ysw1ty1" path="res://Scenes/Garden/rain_effect.tscn" id="12_pueb2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4u4wq"]
@@ -103,7 +103,7 @@ script = ExtResource("1_pllxo")
 
 [node name="garden_camera" type="Camera2D" parent="."]
 position = Vector2(0, -6)
-zoom = Vector2(0.09, 0.09)
+zoom = Vector2(0.1, 0.1)
 script = ExtResource("2_itv3v")
 
 [node name="TileMap" type="TileMap" parent="."]

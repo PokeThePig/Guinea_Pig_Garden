@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cu5dagbcogu6h"]
+[gd_scene load_steps=7 format=3 uid="uid://cu5dagbcogu6h"]
 
 [ext_resource type="Script" uid="uid://dr0i74egya4jc" path="res://Scripts/Squeek Frenzy Purchase.gd" id="1_85tv0"]
 [ext_resource type="Texture2D" uid="uid://blc24talt12ri" path="res://Sprites/Currently Used/Squeek Frenzy.png" id="2_77h5b"]
+[ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="2_r05ta"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r05ta"]
+light_mode = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h75dr"]
 bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
@@ -15,33 +19,42 @@ Label/styles/normal = SubResource("StyleBoxFlat_h75dr")
 script = ExtResource("1_85tv0")
 
 [node name="upgrade_button" type="Button" parent="."]
+material = SubResource("CanvasItemMaterial_r05ta")
 offset_left = -120.0
 offset_right = 120.0
 offset_bottom = 64.0
-theme_override_font_sizes/font_size = 13
+theme_override_fonts/font = ExtResource("2_r05ta")
+theme_override_font_sizes/font_size = 25
 text = "Squeek Frenzy
 5000 Poop"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_r05ta")
 position = Vector2(1, -103)
 scale = Vector2(5, 5.013)
 texture = ExtResource("2_77h5b")
 
 [node name="Squeek_frenzy_count" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_r05ta")
 offset_left = -24.0
-offset_top = 88.0
+offset_top = 97.0
 offset_right = 24.0
-offset_bottom = 111.0
+offset_bottom = 121.0
+theme_override_fonts/font = ExtResource("2_r05ta")
+theme_override_font_sizes/font_size = 30
 text = "0/5"
 horizontal_alignment = 1
 
 [node name="Squeek_frenzy_description" type="Label" parent="."]
 visible = false
+material = SubResource("CanvasItemMaterial_r05ta")
 offset_left = -152.0
 offset_top = -176.0
 offset_right = 152.0
 offset_bottom = -23.0
 theme = SubResource("Theme_4f4u2")
+theme_override_fonts/font = ExtResource("2_r05ta")
+theme_override_font_sizes/font_size = 25
 text = "Adds the ability to squeek extra loud every 3 - 5 minutes when pet, causing all guinea pigs to enter a frenzy state where poop speed is doubled.
 [5 seconds]"
 horizontal_alignment = 1

@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cypvnme735xpc"]
+[gd_scene load_steps=7 format=3 uid="uid://cypvnme735xpc"]
 
 [ext_resource type="Texture2D" uid="uid://vjm4igbsy0h7" path="res://Sprites/Currently Used/Poop upscale.png" id="1_g7m21"]
 [ext_resource type="Script" uid="uid://cvr47wdro7po5" path="res://Scripts/giant_poop_purchase.gd" id="1_rqgm5"]
+[ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="3_sibkc"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sibkc"]
+light_mode = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xa2vd"]
 bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
@@ -16,26 +20,32 @@ scale = Vector2(0.992149, 0.899725)
 script = ExtResource("1_rqgm5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_sibkc")
 position = Vector2(-3.8147e-06, -106.699)
 scale = Vector2(0.563307, 0.58)
 texture = ExtResource("1_g7m21")
 
 [node name="Button" type="Button" parent="."]
+material = SubResource("CanvasItemMaterial_sibkc")
 offset_left = -129.013
 offset_right = 120.987
 offset_bottom = 81.0
 scale = Vector2(1.03115, 1.08315)
+theme_override_fonts/font = ExtResource("3_sibkc")
+theme_override_font_sizes/font_size = 30
 text = "Unlock Giant Poops
 500 Poop"
 
 [node name="giant_poop_description" type="Label" parent="."]
 visible = false
+material = SubResource("CanvasItemMaterial_sibkc")
 offset_left = -137.0
 offset_top = -178.0
 offset_right = 137.0
 offset_bottom = -36.0
 theme = SubResource("Theme_sbqc8")
-theme_override_font_sizes/font_size = 12
+theme_override_fonts/font = ExtResource("3_sibkc")
+theme_override_font_sizes/font_size = 25
 text = "Adds a chance for a giant poop to be dropped worth a large amount basic poop.
 [0.2%]"
 horizontal_alignment = 1

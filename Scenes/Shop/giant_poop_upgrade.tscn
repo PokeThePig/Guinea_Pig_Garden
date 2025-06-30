@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://p1vyxvstb614"]
+[gd_scene load_steps=7 format=3 uid="uid://p1vyxvstb614"]
 
 [ext_resource type="Texture2D" uid="uid://vjm4igbsy0h7" path="res://Sprites/Currently Used/Poop upscale.png" id="1_hmpd7"]
 [ext_resource type="Script" uid="uid://dr5o52jv8n7a5" path="res://Scripts/giant_poop_upgrade.gd" id="1_pajqe"]
+[ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="2_3i4vc"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3i4vc"]
+light_mode = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hg8hr"]
 bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
@@ -15,32 +19,42 @@ Label/styles/normal = SubResource("StyleBoxFlat_hg8hr")
 script = ExtResource("1_pajqe")
 
 [node name="upgrade_giant_poop_button" type="Button" parent="."]
+material = SubResource("CanvasItemMaterial_3i4vc")
 offset_left = -128.0
 offset_right = 128.0
 offset_bottom = 72.0
+theme_override_fonts/font = ExtResource("2_3i4vc")
+theme_override_font_sizes/font_size = 30
 text = "Upgrade Giant Poop
 500 Poop"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_3i4vc")
 position = Vector2(2.84217e-14, -80)
 scale = Vector2(0.467187, 0.448437)
 texture = ExtResource("1_hmpd7")
 
 [node name="giant_poop_upgrade_count" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_3i4vc")
 offset_left = -24.0
 offset_top = 88.0
 offset_right = 24.0
 offset_bottom = 111.0
+theme_override_fonts/font = ExtResource("2_3i4vc")
+theme_override_font_sizes/font_size = 30
 text = "0/3"
 horizontal_alignment = 1
 
 [node name="Giant_poop_upgrade_description" type="Label" parent="."]
 visible = false
+material = SubResource("CanvasItemMaterial_3i4vc")
 offset_left = -144.0
 offset_top = -144.0
 offset_right = 144.0
 offset_bottom = -17.0
 theme = SubResource("Theme_tnwvr")
+theme_override_fonts/font = ExtResource("2_3i4vc")
+theme_override_font_sizes/font_size = 25
 text = "Increases minimum and maximum value of giant poop drops.
 Minimum: [100 > 155]
 Maximum: [225 > 400]"

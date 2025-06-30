@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cavpbh7moh25k"]
+[gd_scene load_steps=7 format=3 uid="uid://cavpbh7moh25k"]
 
 [ext_resource type="Script" uid="uid://dfq3kjblwnjr2" path="res://Scripts/Rain_or_shine_purchase.gd" id="1_fg7bx"]
+[ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="2_chdvk"]
 [ext_resource type="Texture2D" uid="uid://copox4yg1nus7" path="res://Sprites/Currently Used/Rain or Shine.png" id="2_ji6gt"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_chdvk"]
+light_mode = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ad2tv"]
 bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
@@ -15,33 +19,42 @@ Label/styles/normal = SubResource("StyleBoxFlat_ad2tv")
 script = ExtResource("1_fg7bx")
 
 [node name="upgrade_button" type="Button" parent="."]
+material = SubResource("CanvasItemMaterial_chdvk")
 offset_left = -120.0
 offset_right = 120.0
 offset_bottom = 64.0
-theme_override_font_sizes/font_size = 13
+theme_override_fonts/font = ExtResource("2_chdvk")
+theme_override_font_sizes/font_size = 25
 text = "Rain or Shine
 100 Prismatic Poop"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_chdvk")
 position = Vector2(16, -80)
 scale = Vector2(0.192, 0.192)
 texture = ExtResource("2_ji6gt")
 
 [node name="rain_or_shine_count" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_chdvk")
 offset_left = -24.0
 offset_top = 88.0
 offset_right = 24.0
 offset_bottom = 111.0
+theme_override_fonts/font = ExtResource("2_chdvk")
+theme_override_font_sizes/font_size = 30
 text = "0/5"
 horizontal_alignment = 1
 
 [node name="Rain_or_shine_description" type="Label" parent="."]
 visible = false
-offset_left = -160.0
-offset_top = -160.0
-offset_right = 160.0
-offset_bottom = -39.0
+material = SubResource("CanvasItemMaterial_chdvk")
+offset_left = -171.0
+offset_top = -177.0
+offset_right = 174.0
+offset_bottom = -40.0
 theme = SubResource("Theme_5d1aa")
+theme_override_fonts/font = ExtResource("2_chdvk")
+theme_override_font_sizes/font_size = 30
 text = "Unlocks the ability for Chroma to drop prismatic poop without rain.
 [5%]"
 horizontal_alignment = 1

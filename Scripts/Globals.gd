@@ -36,11 +36,12 @@ var king_poop_dropped = false
 var kings_coronation_active = false
 
 #Poop counts
-var poop_amount = 0
-var diamond_poop_amount = 0
-var prismatic_poop_amount = 0
+var poop_amount = 10000000
+var diamond_poop_amount = 10000000
+var prismatic_poop_amount = 10000000
 
 var currently_raining = false
+var past_scene = null
 
 #Shop purchases
 var guinea_two_purchased = false

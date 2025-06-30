@@ -1,0 +1,140 @@
+[gd_scene load_steps=8 format=3 uid="uid://buhcoq3o3lpm"]
+
+[ext_resource type="Texture2D" uid="uid://cy4a1eogp5q5o" path="res://Sprites/Currently Used/Button-Normal.png" id="1_1ehe0"]
+[ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="1_28flt"]
+[ext_resource type="Script" uid="uid://ceee4cxt4bsno" path="res://Scripts/main_menu.gd" id="1_n45e2"]
+[ext_resource type="Texture2D" uid="uid://baye5k6i4hlnl" path="res://Sprites/Currently Used/Button-Pressed.png" id="2_ce3w2"]
+[ext_resource type="Script" uid="uid://dgowjvs8taago" path="res://Scripts/camera_2d.gd" id="2_opfnp"]
+[ext_resource type="Texture2D" uid="uid://cj2mypdhhug6b" path="res://Sprites/Currently Used/Button-Hover.png" id="3_ce3w2"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_n45e2"]
+light_mode = 1
+
+[node name="Main_Menu" type="Node2D"]
+process_mode = 3
+top_level = true
+script = ExtResource("1_n45e2")
+
+[node name="Main_Menu_Cam" type="Camera2D" parent="."]
+position = Vector2(800, 456)
+script = ExtResource("2_opfnp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_scale = 905.761
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+material = SubResource("CanvasItemMaterial_n45e2")
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 40.0
+offset_top = 48.0
+offset_right = 1596.0
+offset_bottom = 268.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.462745, 0.843137, 0.592157, 1)
+theme_override_colors/font_outline_color = Color(0, 0.609892, 0.448788, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("1_28flt")
+theme_override_font_sizes/normal_font_size = 250
+text = "Guinea Pig Garden"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Start_Button" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_n45e2")
+offset_left = 640.0
+offset_top = 388.0
+offset_right = 704.0
+offset_bottom = 412.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("1_1ehe0")
+texture_pressed = ExtResource("2_ce3w2")
+texture_hover = ExtResource("3_ce3w2")
+metadata/_edit_use_anchors_ = true
+
+[node name="Start_Text" type="RichTextLabel" parent="Start_Button"]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_n45e2")
+layout_mode = 0
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 16.0
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("1_28flt")
+text = "Start"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Settings_Button" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_n45e2")
+offset_left = 640.0
+offset_top = 548.0
+offset_right = 704.0
+offset_bottom = 572.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("1_1ehe0")
+texture_pressed = ExtResource("2_ce3w2")
+texture_hover = ExtResource("3_ce3w2")
+metadata/_edit_use_anchors_ = true
+
+[node name="Settings_Text" type="RichTextLabel" parent="Settings_Button"]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_n45e2")
+layout_mode = 0
+offset_left = 1.6
+offset_top = 3.0
+offset_right = 62.6
+offset_bottom = 16.0
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("1_28flt")
+text = "Settings"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit_Button" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_n45e2")
+offset_left = 640.0
+offset_top = 700.0
+offset_right = 704.0
+offset_bottom = 724.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("1_1ehe0")
+texture_pressed = ExtResource("2_ce3w2")
+texture_hover = ExtResource("3_ce3w2")
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit_Text" type="RichTextLabel" parent="Quit_Button"]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_n45e2")
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.0416667
+anchor_right = 0.109375
+anchor_bottom = 0.0416667
+offset_top = 3.0
+offset_right = 64.0
+offset_bottom = 16.0
+scale = Vector2(0.9, 0.9)
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("1_28flt")
+theme_override_font_sizes/normal_font_size = 16
+text = "Save & Quit"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="button_down" from="Start_Button" to="." method="_on_start_button_button_down"]
+[connection signal="button_up" from="Start_Button" to="." method="_on_start_button_button_up"]
+[connection signal="pressed" from="Start_Button" to="." method="_on_start_button_pressed"]
+[connection signal="button_down" from="Settings_Button" to="." method="_on_settings_button_button_down"]
+[connection signal="button_up" from="Settings_Button" to="." method="_on_settings_button_button_up"]
+[connection signal="pressed" from="Settings_Button" to="." method="_on_settings_button_pressed"]
+[connection signal="button_down" from="Quit_Button" to="." method="_on_quit_button_button_down"]
+[connection signal="button_up" from="Quit_Button" to="." method="_on_quit_button_button_up"]
+[connection signal="pressed" from="Quit_Button" to="." method="_on_quit_button_pressed"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dou5hn40wb4wm"]
 
-[ext_resource type="Script" path="res://Scripts/king_poop.gd" id="1_akm1q"]
+[ext_resource type="Script" uid="uid://cbv0d3yixx6mj" path="res://Scripts/king_poop.gd" id="1_akm1q"]
 [ext_resource type="Texture2D" uid="uid://xqntcestvn62" path="res://Sprites/Currently Used/King Poop-Sheet.png" id="2_y364n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g35qr"]
@@ -41,8 +41,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6q0bq"]
 _data = {
-"RESET": SubResource("Animation_6w8op"),
-"king_poop_shine": SubResource("Animation_l1o6l")
+&"RESET": SubResource("Animation_6w8op"),
+&"king_poop_shine": SubResource("Animation_l1o6l")
 }
 
 [node name="king_poop_drop" type="Node2D"]
@@ -65,7 +65,7 @@ shape = SubResource("CapsuleShape2D_g35qr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="King_poop"]
 libraries = {
-"": SubResource("AnimationLibrary_6q0bq")
+&"": SubResource("AnimationLibrary_6q0bq")
 }
 
 [node name="decay_timer" type="Timer" parent="King_poop"]

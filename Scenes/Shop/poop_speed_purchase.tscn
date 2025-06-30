@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://buu4qpft0qvii"]
+[gd_scene load_steps=7 format=3 uid="uid://buu4qpft0qvii"]
 
 [ext_resource type="Script" uid="uid://b6fgkbn17tk4y" path="res://Scripts/poop_speed_purchase.gd" id="1_ivnsh"]
+[ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="2_7ktlx"]
 [ext_resource type="Texture2D" uid="uid://6j5hyv6k1gmq" path="res://Sprites/Currently Used/Fiber upgrade v1.png" id="2_lcem4"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7ktlx"]
+light_mode = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7y47a"]
 bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
@@ -16,33 +20,43 @@ script = ExtResource("1_ivnsh")
 
 [node name="upgrade_button" type="Button" parent="."]
 unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_7ktlx")
 offset_left = -120.0
 offset_right = 120.0
 offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("2_7ktlx")
+theme_override_font_sizes/font_size = 30
 text = "Fiber Rich Grass
 15 Poop"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_7ktlx")
 position = Vector2(-8, -72)
 scale = Vector2(0.525781, 0.490625)
 texture = ExtResource("2_lcem4")
 
 [node name="Poop_speed_count" type="Label" parent="."]
 unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_7ktlx")
 offset_left = -24.0
 offset_top = 88.0
 offset_right = 24.0
 offset_bottom = 111.0
+theme_override_fonts/font = ExtResource("2_7ktlx")
+theme_override_font_sizes/font_size = 30
 text = "0/5"
 horizontal_alignment = 1
 
 [node name="Poop_speed_description" type="Label" parent="."]
 visible = false
+material = SubResource("CanvasItemMaterial_7ktlx")
 offset_left = -104.0
 offset_top = -136.0
 offset_right = 104.0
 offset_bottom = -57.0
 theme = SubResource("Theme_epm47")
+theme_override_fonts/font = ExtResource("2_7ktlx")
+theme_override_font_sizes/font_size = 25
 text = "Increases Poop Speed
 [5s > 4s]"
 horizontal_alignment = 1

@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3vwyodxtkyt2"]
+[gd_scene load_steps=7 format=3 uid="uid://c3vwyodxtkyt2"]
 
 [ext_resource type="Script" uid="uid://50fio7a5xv7t" path="res://Scripts/King_Poop_Purchase.gd" id="1_ce6qn"]
+[ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="2_1g8oc"]
 [ext_resource type="Texture2D" uid="uid://xqntcestvn62" path="res://Sprites/Currently Used/King Poop-Sheet.png" id="2_dd2n0"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1g8oc"]
+light_mode = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_enlh7"]
 bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
@@ -15,37 +19,45 @@ Label/styles/normal = SubResource("StyleBoxFlat_enlh7")
 script = ExtResource("1_ce6qn")
 
 [node name="upgrade_button" type="Button" parent="."]
+material = SubResource("CanvasItemMaterial_1g8oc")
 offset_left = -120.0
 offset_right = 120.0
 offset_bottom = 64.0
-theme_override_font_sizes/font_size = 13
+theme_override_fonts/font = ExtResource("2_1g8oc")
+theme_override_font_sizes/font_size = 24
 text = "King's Coronation
 50000 Poop
 1000 Prismatic Poop
 5 Diamond Poop"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_1g8oc")
 position = Vector2(0, -88)
 scale = Vector2(0.278308, 0.277672)
 texture = ExtResource("2_dd2n0")
 hframes = 16
 
 [node name="coronation_count" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_1g8oc")
 offset_left = -24.0
 offset_top = 88.0
 offset_right = 24.0
 offset_bottom = 111.0
+theme_override_fonts/font = ExtResource("2_1g8oc")
+theme_override_font_sizes/font_size = 30
 text = "0/1"
 horizontal_alignment = 1
 
 [node name="coronation_description" type="Label" parent="."]
 visible = false
-offset_left = -136.0
-offset_top = -152.0
-offset_right = 136.0
-offset_bottom = -48.0
+material = SubResource("CanvasItemMaterial_1g8oc")
+offset_left = -135.0
+offset_top = -160.0
+offset_right = 137.0
+offset_bottom = -43.0
 theme = SubResource("Theme_ui65c")
-theme_override_font_sizes/font_size = 13
+theme_override_fonts/font = ExtResource("2_1g8oc")
+theme_override_font_sizes/font_size = 25
 text = "Adds a chance for a unique poop type to drop that acts as all other poop types combined with increased value.
 [0.1%]"
 horizontal_alignment = 1

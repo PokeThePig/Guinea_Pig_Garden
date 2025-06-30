@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bw84xoy2evj21"]
+[gd_scene load_steps=9 format=3 uid="uid://bw84xoy2evj21"]
 
 [ext_resource type="Script" uid="uid://6v08ecu2iplu" path="res://Scripts/Compost Body.gd" id="1_u00bv"]
 [ext_resource type="Script" uid="uid://fn2rgt7uiq5m" path="res://Scripts/Poop_count_label.gd" id="2_3pvoq"]
 [ext_resource type="Texture2D" uid="uid://cpt0jeo5d5hsv" path="res://Sprites/Currently Used/Piggybank-Sheet.png" id="2_u7a64"]
+[ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="3_dx0o6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v58n2"]
 radius = 304.0
@@ -74,13 +75,14 @@ libraries = {
 }
 
 [node name="Poop_count_label" type="Label" parent="."]
-offset_left = -624.0
-offset_top = -1160.0
-offset_right = 625.0
-offset_bottom = -475.0
+offset_left = -667.0
+offset_top = -1205.0
+offset_right = 775.0
+offset_bottom = -520.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 50
-theme_override_font_sizes/font_size = 200
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("3_dx0o6")
+theme_override_font_sizes/font_size = 350
 text = "Poop Count: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -96,8 +98,9 @@ offset_right = 312.0
 offset_bottom = 1021.0
 scale = Vector2(1.2759, 1.22541)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 75
-theme_override_font_sizes/font_size = 200
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("3_dx0o6")
+theme_override_font_sizes/font_size = 300
 text = "Coming soon"
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4607w7esjfvi"]
+[gd_scene load_steps=7 format=3 uid="uid://c4607w7esjfvi"]
 
 [ext_resource type="Script" uid="uid://bdy4ca0a88t2f" path="res://Scripts/double_poop_drop_purchase.gd" id="1_k7j17"]
 [ext_resource type="Texture2D" uid="uid://vjm4igbsy0h7" path="res://Sprites/Currently Used/Poop upscale.png" id="2_1lhlh"]
+[ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="2_son5w"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_son5w"]
+light_mode = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hud4w"]
 bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
@@ -15,38 +19,49 @@ Label/styles/normal = SubResource("StyleBoxFlat_hud4w")
 script = ExtResource("1_k7j17")
 
 [node name="upgrade_button" type="Button" parent="."]
+material = SubResource("CanvasItemMaterial_son5w")
 offset_left = -128.0
 offset_right = 128.0
 offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("2_son5w")
+theme_override_font_sizes/font_size = 30
 text = "Double Poop Upgrade
 25 Poop"
 
 [node name="Double_poop_count" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_son5w")
 offset_left = -24.0
 offset_top = 88.0
 offset_right = 24.0
 offset_bottom = 111.0
+theme_override_fonts/font = ExtResource("2_son5w")
+theme_override_font_sizes/font_size = 30
 text = "0/3"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_son5w")
 position = Vector2(-19, -109)
 scale = Vector2(0.3125, 0.296875)
 texture = ExtResource("2_1lhlh")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_son5w")
 position = Vector2(21, -83)
 scale = Vector2(0.3125, 0.296875)
 texture = ExtResource("2_1lhlh")
 
 [node name="Double_poop_description" type="Label" parent="."]
 visible = false
+material = SubResource("CanvasItemMaterial_son5w")
 offset_left = -112.0
 offset_top = -136.0
 offset_right = 113.0
 offset_bottom = -57.0
 theme = SubResource("Theme_t3tpo")
+theme_override_fonts/font = ExtResource("2_son5w")
+theme_override_font_sizes/font_size = 25
 text = "Adds a chance for two poops to be dropped.
 [10%]"
 horizontal_alignment = 1

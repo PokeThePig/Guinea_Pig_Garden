@@ -1,0 +1,172 @@
+[gd_scene load_steps=9 format=3 uid="uid://cxcnrheuvpul"]
+
+[ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="1_0dhq4"]
+[ext_resource type="Script" uid="uid://diug0es1jevd3" path="res://Scripts/settings.gd" id="1_0hoxr"]
+[ext_resource type="Script" uid="uid://yhclx85wspuw" path="res://Scripts/settings_cam.gd" id="1_nkmh8"]
+[ext_resource type="Script" uid="uid://brbj3r3mjwmcw" path="res://Scripts/volume_slider.gd" id="2_nkmh8"]
+[ext_resource type="Texture2D" uid="uid://ciwqsrtgk53vn" path="res://Sprites/Currently Used/Reset-Button.png" id="5_pitel"]
+[ext_resource type="Texture2D" uid="uid://vmbuyd7ye8sl" path="res://Sprites/Currently Used/Reset-Pressed.png" id="6_gmfi3"]
+[ext_resource type="Texture2D" uid="uid://4lprwf1idnha" path="res://Sprites/Currently Used/Reset-Hover.png" id="7_cak1x"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0hoxr"]
+light_mode = 1
+
+[node name="Settings" type="Node2D"]
+script = ExtResource("1_0hoxr")
+
+[node name="Settings_Cam" type="Camera2D" parent="."]
+material = SubResource("CanvasItemMaterial_0hoxr")
+position = Vector2(803, 450)
+script = ExtResource("1_nkmh8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("CanvasItemMaterial_0hoxr")
+offset_right = 1608.0
+offset_bottom = 900.0
+color = Color(0.223103, 0.223103, 0.223103, 1)
+
+[node name="Paused_text" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_0hoxr")
+offset_left = 552.0
+offset_top = 40.0
+offset_right = 1048.0
+offset_bottom = 224.0
+theme_override_fonts/font = ExtResource("1_0dhq4")
+theme_override_font_sizes/font_size = 120
+text = "- Settings -"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Master_vol_label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_0hoxr")
+offset_left = 712.0
+offset_top = 288.0
+offset_right = 888.0
+offset_bottom = 320.0
+theme_override_fonts/font = ExtResource("1_0dhq4")
+theme_override_font_sizes/font_size = 35
+text = "Master Volume:"
+horizontal_alignment = 1
+
+[node name="master_volume" type="HSlider" parent="."]
+process_mode = 3
+material = SubResource("CanvasItemMaterial_0hoxr")
+offset_left = 592.5
+offset_top = 328.0
+offset_right = 1003.5
+offset_bottom = 344.0
+max_value = 1.0
+step = 0.001
+value = 0.75
+script = ExtResource("2_nkmh8")
+bus_name = "Master"
+
+[node name="Music_vol_label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_0hoxr")
+offset_left = 712.0
+offset_top = 360.0
+offset_right = 888.0
+offset_bottom = 389.0
+theme_override_fonts/font = ExtResource("1_0dhq4")
+theme_override_font_sizes/font_size = 35
+text = "Music Volume:"
+horizontal_alignment = 1
+
+[node name="music_volume" type="HSlider" parent="."]
+process_mode = 3
+material = SubResource("CanvasItemMaterial_0hoxr")
+offset_left = 592.0
+offset_top = 397.0
+offset_right = 1006.0
+offset_bottom = 413.0
+max_value = 1.0
+step = 0.001
+value = 0.75
+script = ExtResource("2_nkmh8")
+bus_name = "music"
+
+[node name="sfx_vol_label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_0hoxr")
+offset_left = 688.0
+offset_top = 429.0
+offset_right = 914.0
+offset_bottom = 453.0
+theme_override_fonts/font = ExtResource("1_0dhq4")
+theme_override_font_sizes/font_size = 30
+text = "Sound Effects Volume:"
+horizontal_alignment = 1
+
+[node name="sfx_volume" type="HSlider" parent="."]
+process_mode = 3
+material = SubResource("CanvasItemMaterial_0hoxr")
+offset_left = 592.0
+offset_top = 460.5
+offset_right = 1006.0
+offset_bottom = 476.5
+max_value = 1.0
+step = 0.001
+value = 0.75
+script = ExtResource("2_nkmh8")
+bus_name = "sfx"
+
+[node name="Back_Button" type="Button" parent="."]
+process_mode = 3
+material = SubResource("CanvasItemMaterial_0hoxr")
+offset_left = 64.0
+offset_top = 768.0
+offset_right = 320.0
+offset_bottom = 832.0
+theme_override_fonts/font = ExtResource("1_0dhq4")
+theme_override_font_sizes/font_size = 40
+text = "Back"
+
+[node name="CheckBox" type="CheckBox" parent="."]
+process_mode = 3
+material = SubResource("CanvasItemMaterial_0hoxr")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 712.0
+offset_top = 520.0
+offset_right = 800.0
+offset_bottom = 551.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("1_0dhq4")
+theme_override_font_sizes/font_size = 16
+button_pressed = true
+text = "Auto-Save"
+
+[node name="Reset_Button" type="TextureButton" parent="."]
+process_mode = 3
+material = SubResource("CanvasItemMaterial_0hoxr")
+offset_left = 704.0
+offset_top = 632.0
+offset_right = 752.0
+offset_bottom = 650.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("5_pitel")
+texture_pressed = ExtResource("6_gmfi3")
+texture_hover = ExtResource("7_cak1x")
+
+[node name="Reset_Label" type="Label" parent="Reset_Button"]
+process_mode = 3
+material = SubResource("CanvasItemMaterial_0hoxr")
+layout_mode = 0
+offset_top = -2.0
+offset_right = 50.0
+offset_bottom = 13.0
+theme_override_fonts/font = ExtResource("1_0dhq4")
+theme_override_font_sizes/font_size = 16
+text = "Reset"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Back_Button" to="." method="_on_back_button_pressed"]
+[connection signal="button_down" from="Reset_Button" to="." method="_on_reset_button_button_down"]
+[connection signal="button_up" from="Reset_Button" to="." method="_on_reset_button_button_up"]
+[connection signal="pressed" from="Reset_Button" to="." method="_on_reset_button_pressed"]

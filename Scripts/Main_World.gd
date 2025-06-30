@@ -34,14 +34,12 @@ func _ready():
 
 func _on_hud_open_shop():
 	shop_opened.emit()
-	$Day_Night_Cycle.visible = false
 
 func _switch_to_achievements_cam():
 	achievements_opened.emit()
-	$Day_Night_Cycle.visible = false
 	
 
-func _on_save_pressed() -> void:
+func _save_game():
 	#poop counts
 	SaveLoad.contents_to_save.regular_poop_amount = Globals.poop_amount
 	SaveLoad.contents_to_save.diamond_poop_amount = Globals.diamond_poop_amount

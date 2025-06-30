@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8uqrksk1wyyx"]
+[gd_scene load_steps=7 format=3 uid="uid://b8uqrksk1wyyx"]
 
-[ext_resource type="Script" path="res://Scripts/prismatic_poop_purchase.gd" id="1_71nbp"]
+[ext_resource type="Script" uid="uid://dtafisklpthfb" path="res://Scripts/prismatic_poop_purchase.gd" id="1_71nbp"]
 [ext_resource type="Texture2D" uid="uid://bwe1uq2bjbxfd" path="res://Sprites/Currently Used/Prismatic_Poop_Upscaled-Sheet.png" id="1_r4vmd"]
+[ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="3_slbve"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_slbve"]
+light_mode = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_judyo"]
 bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
@@ -15,27 +19,33 @@ Label/styles/normal = SubResource("StyleBoxFlat_judyo")
 script = ExtResource("1_71nbp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_slbve")
 position = Vector2(0, -24)
 scale = Vector2(0.177, 0.177)
 texture = ExtResource("1_r4vmd")
 hframes = 7
 
 [node name="Button" type="Button" parent="."]
+material = SubResource("CanvasItemMaterial_slbve")
 offset_left = -128.0
 offset_top = 64.0
 offset_right = 120.0
 offset_bottom = 144.0
+theme_override_fonts/font = ExtResource("3_slbve")
+theme_override_font_sizes/font_size = 30
 text = "Unlock Prismatic Poops
 1500 Poop"
 
 [node name="prismatic_poop_description" type="Label" parent="."]
 visible = false
+material = SubResource("CanvasItemMaterial_slbve")
 offset_left = -112.0
 offset_top = -72.0
 offset_right = 112.0
 offset_bottom = 24.0
 theme = SubResource("Theme_bpb3g")
-theme_override_font_sizes/font_size = 14
+theme_override_fonts/font = ExtResource("3_slbve")
+theme_override_font_sizes/font_size = 25
 text = "Adds a poop type that only drops during rain.
 [2%]"
 horizontal_alignment = 1

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhidrch210gk8"]
 
-[ext_resource type="Script" path="res://Scripts/day_night_cycle.gd" id="1_b14g0"]
+[ext_resource type="Script" uid="uid://jvh06utqui0b" path="res://Scripts/day_night_cycle.gd" id="1_b14g0"]
 [ext_resource type="Texture2D" uid="uid://ctw5kyg1c1d2x" path="res://Sprites/daynightcycle-gradient-texture.tres" id="2_raqwj"]
 
 [node name="Day_Night_Cycle" type="Node2D"]

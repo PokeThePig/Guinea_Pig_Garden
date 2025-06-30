@@ -1,21 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1d14mqmcujmf"]
+[gd_scene load_steps=5 format=3 uid="uid://b1d14mqmcujmf"]
 
 [ext_resource type="Script" uid="uid://cawr3gqqnn65w" path="res://Scripts/rainbow_guinea_pig_purchase.gd" id="1_pdbgc"]
 [ext_resource type="Texture2D" uid="uid://b35h1sq4ccvkn" path="res://Sprites/Currently Used/Rainbow Pig-Sheet.png" id="1_qr2h5"]
+[ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="2_63al7"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_63al7"]
+light_mode = 1
 
 [node name="Rainbow_Guinea_Pig_Purchase" type="Node2D"]
 script = ExtResource("1_pdbgc")
 
 [node name="Button" type="Button" parent="."]
+material = SubResource("CanvasItemMaterial_63al7")
 offset_left = -112.0
 offset_top = 80.0
 offset_right = 112.0
 offset_bottom = 152.0
+theme_override_fonts/font = ExtResource("2_63al7")
+theme_override_font_sizes/font_size = 30
 text = "Buy Chroma
 15 Prismatic Poop"
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_63al7")
 position = Vector2(2.27374e-13, 1.13687e-13)
 scale = Vector2(5, 5.018)
 texture = ExtResource("1_qr2h5")

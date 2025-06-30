@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8irhb30q5tn8"]
+[gd_scene load_steps=9 format=3 uid="uid://b8irhb30q5tn8"]
 
 [ext_resource type="Texture2D" uid="uid://b6ru5f62s8wxr" path="res://Sprites/icon.svg" id="1_6cpue"]
 [ext_resource type="Texture2D" uid="uid://ogq2ximy5fhw" path="res://Sprites/Currently Used/Template2.0-Sheet.png" id="2_nbc55"]
 [ext_resource type="PackedScene" uid="uid://buu4qpft0qvii" path="res://Scenes/Shop/poop_speed_purchase.tscn" id="3_5i0tq"]
+[ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="3_xnffj"]
 [ext_resource type="PackedScene" uid="uid://c4607w7esjfvi" path="res://Scenes/Shop/double_poop_drop_purchase.tscn" id="4_wk0u5"]
 [ext_resource type="PackedScene" uid="uid://p1vyxvstb614" path="res://Scenes/Shop/giant_poop_upgrade.tscn" id="5_a0akx"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xnffj"]
+light_mode = 1
 
 [sub_resource type="Theme" id="Theme_5ayhv"]
 
@@ -19,6 +23,7 @@ vertical_scroll_mode = 0
 scroll_deadzone = -1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+material = SubResource("CanvasItemMaterial_xnffj")
 clip_contents = true
 custom_minimum_size = Vector2(2000, 0)
 layout_direction = 2
@@ -30,10 +35,12 @@ theme = SubResource("Theme_5ayhv")
 
 [node name="Unique_upgrade_placeholder" type="Sprite2D" parent="HBoxContainer"]
 visible = false
+material = SubResource("CanvasItemMaterial_xnffj")
 position = Vector2(1741, 220)
 texture = ExtResource("1_6cpue")
 
 [node name="Pig_Sprite" type="Sprite2D" parent="HBoxContainer"]
+material = SubResource("CanvasItemMaterial_xnffj")
 position = Vector2(185, 170)
 scale = Vector2(6, 6.444)
 texture = ExtResource("2_nbc55")
@@ -41,6 +48,7 @@ hframes = 2
 
 [node name="Guinea_Pig_Name" type="Label" parent="HBoxContainer/Pig_Sprite"]
 auto_translate_mode = 2
+material = SubResource("CanvasItemMaterial_xnffj")
 layout_direction = 2
 offset_left = -25.5
 offset_top = 9.62136
@@ -50,17 +58,21 @@ scale = Vector2(0.1, 0.1)
 size_flags_stretch_ratio = 0.0
 localize_numeral_system = false
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 30
-theme_override_font_sizes/font_size = 100
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_xnffj")
+theme_override_font_sizes/font_size = 150
 text = "Guinea Pig"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Poop_Speed_Purchase" parent="HBoxContainer" instance=ExtResource("3_5i0tq")]
+material = SubResource("CanvasItemMaterial_xnffj")
 position = Vector2(520, 220)
 
 [node name="Double_poop_drop_purchase" parent="HBoxContainer" instance=ExtResource("4_wk0u5")]
+material = SubResource("CanvasItemMaterial_xnffj")
 position = Vector2(928, 220)
 
 [node name="giant_poop_upgrade" parent="HBoxContainer" instance=ExtResource("5_a0akx")]
+material = SubResource("CanvasItemMaterial_xnffj")
 position = Vector2(1344, 220)

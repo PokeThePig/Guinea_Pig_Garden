@@ -1,20 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://sa7obbeljsei"]
+[gd_scene load_steps=5 format=3 uid="uid://sa7obbeljsei"]
 
 [ext_resource type="Script" uid="uid://b846dajr6xyu3" path="res://Scripts/Rich_Guinea_Pig_Purchase.gd" id="1_pm8as"]
 [ext_resource type="Texture2D" uid="uid://b437ptngmuy38" path="res://Sprites/Currently Used/Pennybags2.0-Sheet.png" id="2_3lknu"]
+[ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="2_11p44"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_11p44"]
+light_mode = 1
 
 [node name="Rich_Guinea_Pig_Purchase" type="Node2D"]
 script = ExtResource("1_pm8as")
 
 [node name="Button" type="Button" parent="."]
+material = SubResource("CanvasItemMaterial_11p44")
 offset_left = -120.0
 offset_top = 19.0
 offset_right = 104.0
 offset_bottom = 91.0
+theme_override_fonts/font = ExtResource("2_11p44")
+theme_override_font_sizes/font_size = 30
 text = "Buy Pennybags
 1 Diamond Poop"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_11p44")
 position = Vector2(-8, -61)
 scale = Vector2(5, 5)
 texture = ExtResource("2_3lknu")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dogdk5ysw1ty1"]
 
-[ext_resource type="Script" path="res://Scripts/rain_particles.gd" id="1_6prwv"]
+[ext_resource type="Script" uid="uid://0e6swo0qsgb8" path="res://Scripts/rain_particles.gd" id="1_6prwv"]
 
 [node name="rain_effect" type="Node2D"]
 
