@@ -183,6 +183,7 @@ func _on_load_pressed() -> void:
 		restore_upgrades.emit()
 	update_buttons.emit()
 	update_poop_upgrades_shop.emit()
+	await get_tree().create_timer(.05).timeout
 	update_bella.emit()
 	update_achievements.emit()
 

@@ -74,6 +74,7 @@ func _on_upgrade_button_pressed():
 		upgrade_purchased.emit()
 
 func _update_bella():
+	await get_tree().create_timer(.3).timeout
 	if guinea_id == instance_from_id(Globals.guinea_dictionary["Bella"]):
 		upgrades_left = Globals.upgrade_dictionary["Bella"][1]
 		_update_upgrade_information()
@@ -103,11 +104,11 @@ func _update_upgrade_information():
 
 func _update_upgrade_dictionary():
 	for guinea_key in Globals.guinea_dictionary:
-				if (Globals.guinea_dictionary[guinea_key] == guinea_id.get_instance_id()):
-					for upgrade_key in Globals.upgrade_dictionary.keys():
-						if guinea_key == upgrade_key:
-							Globals.upgrade_dictionary[guinea_key][1] = upgrades_left
-							print(Globals.upgrade_dictionary)
+		if (Globals.guinea_dictionary[guinea_key] == guinea_id.get_instance_id()):
+			for upgrade_key in Globals.upgrade_dictionary.keys():
+				if guinea_key == upgrade_key:
+					Globals.upgrade_dictionary[guinea_key][1] = upgrades_left
+					print(Globals.upgrade_dictionary)
 							
 
 

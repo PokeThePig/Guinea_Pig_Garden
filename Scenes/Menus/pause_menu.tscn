@@ -62,6 +62,7 @@ text = "Resume"
 
 [node name="Settings_Button" type="Button" parent="."]
 material = SubResource("CanvasItemMaterial_pdytf")
+layout_mode = 0
 offset_left = -214.0
 offset_top = -50.0
 offset_right = 216.0

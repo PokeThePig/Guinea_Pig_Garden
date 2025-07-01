@@ -20,9 +20,9 @@ signal update_bella
 
 func _ready():
 	shop_cam_from_poop_up.connect(get_parent().get_node("Shop_Scene").get_node("main_shop_camera")._switch_to_shop_cam_from_poop_up.bind())
-	#update_bella.connect(get_node("ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer/Poop_Speed_Purchase")._update_upgrade_information.bind())
-	#update_bella.connect(get_node("ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer/Double_poop_drop_purchase")._update_upgrade_information.bind())
-	#update_bella.connect(get_node("ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer/giant_poop_upgrade")._update_upgrade_information.bind())
+	update_bella.connect(get_node("ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer/Poop_Speed_Purchase")._update_upgrade_information.bind())
+	update_bella.connect(get_node("ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer/Double_poop_drop_purchase")._update_upgrade_information.bind())
+	update_bella.connect(get_node("ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer/giant_poop_upgrade")._update_upgrade_information.bind())
 	upgrade_sprite = get_node("ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer/Pig_Sprite")
 	upgrade_sprite.texture = load("res://Sprites/Currently Used/Bella2.0-Sheet.png")
 	upgrade_sprite.get_node("Guinea_Pig_Name").text = "Bella"
@@ -87,7 +87,7 @@ func _update_poop_upgrades():
 	
 	
 func _load_poop_upgrades():
-	await get_tree().create_timer(.05).timeout
+	await get_tree().create_timer(.5).timeout
 	Globals.upgrade_dictionary["Bella"] = [upgrade_row.get_instance_id(), Globals.upgrade_dictionary["Bella"][1], Globals.upgrade_dictionary["Bella"][2], Globals.upgrade_dictionary["Bella"][3], Globals.upgrade_dictionary["Bella"][4]]
 	update_bella.emit()
 	for guinea_pig_ordered in Globals.guinea_purchase_order:

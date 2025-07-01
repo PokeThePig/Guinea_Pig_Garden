@@ -56,6 +56,7 @@ func _on_upgrade_button_pressed():
 		Globals.upgrade_dictionary["Bella"][4] = upgrades_left
 
 func _update_bella():
+	await get_tree().create_timer(.3).timeout
 	upgrades_left = Globals.upgrade_dictionary["Bella"][4]
 	_update_upgrade_information()
 

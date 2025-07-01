@@ -50,6 +50,7 @@ func _on_upgrade_button_pressed():
 		_update_upgrade_dictionary()
 
 func _update_bella():
+	await get_tree().create_timer(.3).timeout
 	if guinea_id == instance_from_id(Globals.guinea_dictionary["Bella"]):
 			upgrades_left = Globals.upgrade_dictionary["Bella"][2]
 			_update_upgrade_information()
