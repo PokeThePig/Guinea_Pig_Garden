@@ -61,15 +61,15 @@ func _update_bella():
 
 func _update_upgrade_information():
 	if upgrades_left == 2:
-		$upgrade_giant_poop_button.text = "Upgrade Giant Poop\n1000 Poop"
+		$Giant_Poop_Upgrade_Label.text = "Upgrade Giant Poop\n1000 Poop"
 		$giant_poop_upgrade_count.text = "1/3"
 		$Giant_poop_upgrade_description.text = "Increases minimum and maximum value of giant poop drops.\nMinimum: [150 > 300]\nMaximum: [400 > 625]"
 	elif upgrades_left == 1:
-		$upgrade_giant_poop_button.text = "Upgrade Giant Poop\n2500 Poop"
+		$Giant_Poop_Upgrade_Label.text = "Upgrade Giant Poop\n2500 Poop"
 		$giant_poop_upgrade_count.text = "2/3"
 		$Giant_poop_upgrade_description.text = "Increases minimum and maximum value of giant poop drops.\nMinimum: [300 > 500]\nMaximum: [625 > 900]"
 	elif upgrades_left == 0:
-		$upgrade_giant_poop_button.text = "MAXED"
+		$Giant_Poop_Upgrade_Label.text = "MAXED"
 		$giant_poop_upgrade_count.text = "3/3"
 		$Giant_poop_upgrade_description.text = "Increases minimum and maximum value of giant poop drops.\nMinimum: [500]\nMaximum: [900]"
 	
@@ -89,3 +89,11 @@ func _on_upgrade_giant_poop_button_mouse_entered():
 
 func _on_upgrade_giant_poop_button_mouse_exited():
 	$Giant_poop_upgrade_description.visible = false
+
+
+func _on_upgrade_giant_poop_button_button_down() -> void:
+	$Giant_Poop_Upgrade_Label.position = Vector2(-144, 8)
+
+
+func _on_upgrade_giant_poop_button_button_up() -> void:
+	$Giant_Poop_Upgrade_Label.position = Vector2(-144, 0)

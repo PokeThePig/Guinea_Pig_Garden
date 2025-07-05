@@ -78,8 +78,9 @@ func _achievement_ace_unlocked():
 	check_if_all_complete()
 	
 func check_if_all_complete():
+	await get_tree().create_timer(1).timeout
 	print(achievements_complete)
-	if achievements_complete == 9:
+	if Globals.gold_rush_achievement_completed and Globals.diamond_digger_achievement_completed and Globals.taste_rainbow_achievement_completed and Globals.colossal_crusher_achievement_completed and Globals.poop_frenzy_achievement_completed and Globals.full_house_achievement_completed and Globals.disco_party_achievement_completed and Globals.manure_millionare_achievement_completed and Globals.petting_professional_achievement_completed:
 		all_achievements_complete.emit()
 		
 func _load_achievements():

@@ -22,7 +22,8 @@ func _on_upgrade_button_pressed():
 
 func _update_upgrade_information():
 	if Globals.kings_coronation_purchased == true:
-		$upgrade_button.text = "MAXED"
+		$Kings_Coronation_Label.text = "MAXED"
+		$Kings_Coronation_Label.vertical_alignment = 1
 		$coronation_count.text = "1/1"
 
 func _on_upgrade_button_mouse_entered():
@@ -31,3 +32,11 @@ func _on_upgrade_button_mouse_entered():
 
 func _on_upgrade_button_mouse_exited():
 	$coronation_description.visible = false
+
+
+func _on_upgrade_button_button_down() -> void:
+	$Kings_Coronation_Label.position = Vector2(-144, -12)
+
+
+func _on_upgrade_button_button_up() -> void:
+	$Kings_Coronation_Label.position = Vector2(-144, -20)

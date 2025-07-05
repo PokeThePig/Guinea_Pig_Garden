@@ -9,6 +9,7 @@ signal restore_upgrades
 signal update_poop_upgrades_shop
 signal update_bella
 signal update_achievements
+signal restore_volumes
 
 var pig_count = 1
 var pig_name = "Bella"
@@ -25,12 +26,19 @@ func _ready():
 	update_bella.connect(get_parent().get_node("Poop_Upgrades_Shop").get_node("ScrollContainer").get_node("VBoxContainer").get_node("ScrollContainer").get_node("HBoxContainer").get_node("Poop_Speed_Purchase")._update_bella.bind())
 	update_bella.connect(get_parent().get_node("Poop_Upgrades_Shop").get_node("ScrollContainer").get_node("VBoxContainer").get_node("ScrollContainer").get_node("HBoxContainer").get_node("Double_poop_drop_purchase")._update_bella.bind())
 	update_bella.connect(get_parent().get_node("Poop_Upgrades_Shop").get_node("ScrollContainer").get_node("VBoxContainer").get_node("ScrollContainer").get_node("HBoxContainer").get_node("giant_poop_upgrade")._update_bella.bind())
+	restore_volumes.connect(get_parent().get_node("Settings").get_node("master_volume")._restore_volume.bind())
+	restore_volumes.connect(get_parent().get_node("Settings").get_node("music_volume")._restore_volume.bind())
+	restore_volumes.connect(get_parent().get_node("Settings").get_node("sfx_volume")._restore_volume.bind())
 	await get_tree().create_timer(.05).timeout
 	update_bella.connect(instance_from_id(Globals.upgrade_dictionary["Bella"][0]).get_node("HBoxContainer").get_node("Squeek_Frenzy_Purchase")._update_bella.bind())
 	update_achievements.connect(get_parent().get_node("Achievements_Screen")._load_achievements.bind())
 	
 	_spawn_pig(pig_name)
 	new_pig_sprite.texture = load("res://Sprites/Currently Used/Bella2.0-Sheet.png")
+	
+	if Globals.game_loaded:
+		$Auto_Save.autostart = true
+		$Auto_Save.start()
 
 func _on_hud_open_shop():
 	shop_opened.emit()
@@ -92,9 +100,11 @@ func _save_game():
 	SaveLoad.contents_to_save.copper_poop_unlocked = Globals.copper_poop_purchased
 	SaveLoad.contents_to_save.copper_poop_worth = Globals.copper_poop_value
 	SaveLoad.contents_to_save.rain_or_shine_unlocked = Globals.rain_or_shine_purchased
+	SaveLoad.contents_to_save.giant_prismatic_unlocked = Globals.giant_prismatic_purchased
 	SaveLoad.contents_to_save.chroma_prismatic_chance = Globals.chroma_prismatic_odds
 	SaveLoad.contents_to_save.king_poop_unlocked = Globals.kings_coronation_purchased
 	
+	SaveLoad.contents_to_save.times_pet = Globals.pet_count
 	SaveLoad.contents_to_save.guinea_order = Globals.guinea_purchase_order
 	SaveLoad.contents_to_save.upgrades_left_dictionary = Globals.upgrade_dictionary
 	
@@ -109,10 +119,16 @@ func _save_game():
 	SaveLoad.contents_to_save.manure_millionare_unlocked = Globals.manure_millionare_achievement_completed
 	SaveLoad.contents_to_save.petting_professional_unlocked = Globals.petting_professional_achievement_completed
 	
+	#Settings
+	SaveLoad.contents_to_save.master_volume_value = Globals.master_volume
+	SaveLoad.contents_to_save.music_volume_value = Globals.music_volume
+	SaveLoad.contents_to_save.sound_effects_volume_value = Globals.sound_effects_volume
+	SaveLoad.contents_to_save.auto_save_state = Globals.auto_save
+
 	SaveLoad._save()
 
 
-func _on_load_pressed() -> void:
+func _load_game() -> void:
 	SaveLoad._load()
 	Globals.poop_amount = SaveLoad.contents_to_save.regular_poop_amount
 	Globals.diamond_poop_amount = SaveLoad.contents_to_save.diamond_poop_amount
@@ -163,8 +179,10 @@ func _on_load_pressed() -> void:
 	Globals.copper_poop_purchased = SaveLoad.contents_to_save.copper_poop_unlocked
 	Globals.copper_poop_value = SaveLoad.contents_to_save.copper_poop_worth
 	Globals.rain_or_shine_purchased = SaveLoad.contents_to_save.rain_or_shine_unlocked
+	Globals.giant_prismatic_purchased = SaveLoad.contents_to_save.giant_prismatic_unlocked
 	Globals.chroma_prismatic_odds = SaveLoad.contents_to_save.chroma_prismatic_chance
 	Globals.kings_coronation_purchased = SaveLoad.contents_to_save.king_poop_unlocked
+	Globals.pet_count = SaveLoad.contents_to_save.times_pet
 	Globals.guinea_purchase_order = SaveLoad.contents_to_save.guinea_order
 	Globals.upgrade_dictionary = SaveLoad.contents_to_save.upgrades_left_dictionary
 	Globals.gold_rush_achievement_completed = SaveLoad.contents_to_save.gold_rush_unlocked
@@ -176,6 +194,10 @@ func _on_load_pressed() -> void:
 	Globals.disco_party_achievement_completed = SaveLoad.contents_to_save.disco_party_unlocked
 	Globals.manure_millionare_achievement_completed = SaveLoad.contents_to_save.manure_millionare_unlocked
 	Globals.petting_professional_achievement_completed = SaveLoad.contents_to_save.petting_professional_unlocked
+	Globals.master_volume = SaveLoad.contents_to_save.master_volume_value
+	Globals.music_volume = SaveLoad.contents_to_save.music_volume_value
+	Globals.sound_effects_volume = SaveLoad.contents_to_save.sound_effects_volume_value
+	Globals.auto_save = SaveLoad.contents_to_save.auto_save_state
 	
 	for pig in get_tree().get_nodes_in_group("Pig"):
 		restore_upgrades.connect(pig._update_poop_speed.bind())
@@ -186,6 +208,11 @@ func _on_load_pressed() -> void:
 	await get_tree().create_timer(.05).timeout
 	update_bella.emit()
 	update_achievements.emit()
+	
+	$Auto_Save.autostart = true
+	$Auto_Save.start()
+	get_parent().get_node("Settings").get_node("CheckBox").button_pressed = Globals.auto_save
+	restore_volumes.emit()
 
 func _guinea_spawning():
 	#Gizmo
@@ -241,3 +268,9 @@ func _spawn_pig(guinea_pig_name):
 	Globals.new_pig = guinea_pig_name
 		
 	new_pig_sprite = new_pig.get_node("Guinea_Pig").get_node("Pig_Sprite")
+
+
+func _on_auto_save_timeout() -> void:
+	if Globals.auto_save == true:
+		print("Saved")
+		_save_game()

@@ -57,23 +57,24 @@ func _on_upgrade_button_pressed():
 
 func _update_upgrade_information():
 	if upgrades_left == 4:
-		$upgrade_button.text = "Rain or Shine\n150 Prismatic Poop"
+		$Rain_or_Shine_Label.text = "Rain or Shine\n150 Prismatic Poop"
 		$rain_or_shine_count.text = "1/5"
 		$Rain_or_shine_description.text = (description_text + "\n[1% > 2%]")
 	elif upgrades_left == 3:
-		$upgrade_button.text = "Rain or Shine\n250 Prismatic Poop\n1 Diamond Poop"
+		$Rain_or_Shine_Label.text = "Rain or Shine\n250 Prismatic Poop\n1 Diamond Poop"
 		$rain_or_shine_count.text = "2/5"
 		$Rain_or_shine_description.text = (description_text + "\n[2% > 5%]")
 	elif upgrades_left == 2:
-		$upgrade_button.text = "Rain or Shine\n300 Prismatic Poop\n3 Diamond Poop"
+		$Rain_or_Shine_Label.text = "Rain or Shine\n300 Prismatic Poop\n3 Diamond Poop"
 		$rain_or_shine_count.text = "3/5"
 		$Rain_or_shine_description.text = (description_text + "\n[5% > 10%]")
 	elif upgrades_left == 1:
-		$upgrade_button.text = "Rain or Shine\n500 Prismatic Poop\n5 Diamond Poop"
+		$Rain_or_Shine_Label.text = "Rain or Shine\n500 Prismatic Poop\n5 Diamond Poop"
 		$rain_or_shine_count.text = "4/5"
 		$Rain_or_shine_description.text = (description_text + "\n[10% > 25%]")
 	elif upgrades_left == 0:
-		$upgrade_button.text = "MAXED"
+		$Rain_or_Shine_Label.text = "MAXED"
+		$Rain_or_Shine_Label.vertical_alignment = 1
 		$rain_or_shine_count.text = "5/5"
 		$Rain_or_shine_description.text = ("Increases chance of Chroma dropping prismatic poop without rain, along with a rare chance of a giant prismatic poop.\n[25%]")
 
@@ -83,3 +84,10 @@ func _on_upgrade_button_mouse_entered():
 
 func _on_upgrade_button_mouse_exited():
 	$Rain_or_shine_description.visible = false
+
+
+func _on_upgrade_button_button_down() -> void:
+	$Rain_or_Shine_Label.position = Vector2(-144, 0)
+
+func _on_upgrade_button_button_up() -> void:
+	$Rain_or_Shine_Label.position = Vector2(-144, -12)

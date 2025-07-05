@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmfvrbim5mj2j"]
+[gd_scene load_steps=11 format=3 uid="uid://bmfvrbim5mj2j"]
 
 [ext_resource type="Script" uid="uid://degf85wg1gpwf" path="res://Scripts/Diamond_Poop_Purchase.gd" id="1_vglcu"]
 [ext_resource type="Texture2D" uid="uid://cvsfgy7iqqmos" path="res://Sprites/Currently Used/Diamond Poop-Sheet.png" id="2_04iaj"]
 [ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="2_lhv3m"]
+[ext_resource type="Texture2D" uid="uid://c5du35lcbfdx7" path="res://Sprites/Currently Used/Purchase-Button.png" id="4_p13xl"]
+[ext_resource type="Texture2D" uid="uid://d0t5pyqj43o62" path="res://Sprites/Currently Used/Purchase-Pressed.png" id="5_vhc64"]
+[ext_resource type="Texture2D" uid="uid://ci857tfpxitjg" path="res://Sprites/Currently Used/Purchase-Hover.png" id="6_p5p77"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lhv3m"]
 light_mode = 1
@@ -15,24 +18,16 @@ Label/colors/font_color = Color(0, 0, 0, 1)
 Label/fonts/font = null
 Label/styles/normal = SubResource("StyleBoxFlat_ltwy1")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wgl33"]
+light_mode = 1
+
 [node name="Diamond_Poop_Purchase" type="Node2D"]
 script = ExtResource("1_vglcu")
 
-[node name="Button" type="Button" parent="."]
-material = SubResource("CanvasItemMaterial_lhv3m")
-offset_left = -123.0
-offset_top = -47.0
-offset_right = 123.0
-offset_bottom = 34.0
-theme_override_fonts/font = ExtResource("2_lhv3m")
-theme_override_font_sizes/font_size = 30
-text = "Unlock Diamond Poops
-750 Poop"
-
 [node name="diamond_shop_sprite" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_lhv3m")
-position = Vector2(0, -136)
-scale = Vector2(0.176758, 0.175)
+position = Vector2(0, -96)
+scale = Vector2(0.3, 0.297)
 texture = ExtResource("2_04iaj")
 hframes = 7
 
@@ -52,6 +47,29 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[node name="Button" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_wgl33")
+offset_left = -128.0
+offset_right = -64.0
+offset_bottom = 24.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("4_p13xl")
+texture_pressed = ExtResource("5_vhc64")
+texture_hover = ExtResource("6_p5p77")
+
+[node name="Diamond_Poop_Label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_wgl33")
+offset_left = -144.0
+offset_right = 146.0
+offset_bottom = 80.0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_lhv3m")
+theme_override_font_sizes/font_size = 32
+text = "Unlock Diamond Poops
+750 Poop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

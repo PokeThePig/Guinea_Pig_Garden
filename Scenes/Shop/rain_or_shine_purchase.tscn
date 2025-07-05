@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cavpbh7moh25k"]
+[gd_scene load_steps=11 format=3 uid="uid://cavpbh7moh25k"]
 
 [ext_resource type="Script" uid="uid://dfq3kjblwnjr2" path="res://Scripts/Rain_or_shine_purchase.gd" id="1_fg7bx"]
 [ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="2_chdvk"]
 [ext_resource type="Texture2D" uid="uid://copox4yg1nus7" path="res://Sprites/Currently Used/Rain or Shine.png" id="2_ji6gt"]
+[ext_resource type="Texture2D" uid="uid://2d5q3hryfya8" path="res://Sprites/Currently Used/Big-Purchase-Button.png" id="4_3rhrp"]
+[ext_resource type="Texture2D" uid="uid://88vc0343ovqn" path="res://Sprites/Currently Used/Big-Purchase-Pressed.png" id="5_aowt3"]
+[ext_resource type="Texture2D" uid="uid://ditcbqcwvm4qc" path="res://Sprites/Currently Used/Big-Purchase-Hover.png" id="6_ynypm"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_chdvk"]
 light_mode = 1
@@ -15,18 +18,11 @@ Label/colors/font_color = Color(0, 0, 0, 1)
 Label/fonts/font = null
 Label/styles/normal = SubResource("StyleBoxFlat_ad2tv")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0gap3"]
+light_mode = 1
+
 [node name="Rain_or_shine_purchase" type="Node2D"]
 script = ExtResource("1_fg7bx")
-
-[node name="upgrade_button" type="Button" parent="."]
-material = SubResource("CanvasItemMaterial_chdvk")
-offset_left = -120.0
-offset_right = 120.0
-offset_bottom = 64.0
-theme_override_fonts/font = ExtResource("2_chdvk")
-theme_override_font_sizes/font_size = 25
-text = "Rain or Shine
-100 Prismatic Poop"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_chdvk")
@@ -37,11 +33,12 @@ texture = ExtResource("2_ji6gt")
 [node name="rain_or_shine_count" type="Label" parent="."]
 material = SubResource("CanvasItemMaterial_chdvk")
 offset_left = -24.0
-offset_top = 88.0
+offset_top = 120.0
 offset_right = 24.0
-offset_bottom = 111.0
+offset_bottom = 146.0
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("2_chdvk")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 32
 text = "0/5"
 horizontal_alignment = 1
 
@@ -61,6 +58,34 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="upgrade_button" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_0gap3")
+offset_left = -128.0
+offset_top = -29.0
+offset_right = -64.0
+offset_bottom = 7.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("4_3rhrp")
+texture_pressed = ExtResource("5_aowt3")
+texture_hover = ExtResource("6_ynypm")
+
+[node name="Rain_or_Shine_Label" type="Label" parent="."]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_0gap3")
+offset_left = -144.0
+offset_top = -12.0
+offset_right = 144.0
+offset_bottom = 83.0
+theme_override_constants/line_spacing = 0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_chdvk")
+theme_override_font_sizes/font_size = 36
+text = "Rain or Shine
+100 Prismatic Poop"
+horizontal_alignment = 1
+
+[connection signal="button_down" from="upgrade_button" to="." method="_on_upgrade_button_button_down"]
+[connection signal="button_up" from="upgrade_button" to="." method="_on_upgrade_button_button_up"]
 [connection signal="mouse_entered" from="upgrade_button" to="." method="_on_upgrade_button_mouse_entered"]
 [connection signal="mouse_exited" from="upgrade_button" to="." method="_on_upgrade_button_mouse_exited"]
 [connection signal="pressed" from="upgrade_button" to="." method="_on_upgrade_button_pressed"]

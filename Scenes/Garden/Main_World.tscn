@@ -169,8 +169,13 @@ position = Vector2(96, -2312)
 
 [node name="Day_Night_Cycle" parent="." instance=ExtResource("6_m5735")]
 
+[node name="Auto_Save" type="Timer" parent="."]
+process_mode = 3
+wait_time = 60.0
+
 [connection signal="achievements_opened" from="." to="." method="_on_achievements_opened"]
 [connection signal="open_settings" from="HUD" to="." method="_on_hud_open_settings"]
 [connection signal="open_settings" from="HUD" to="Pause_menu" method="_on_hud_open_settings"]
 [connection signal="open_shop" from="HUD" to="." method="_on_hud_open_shop"]
 [connection signal="unpause" from="Pause_menu" to="." method="_on_pause_menu_unpause"]
+[connection signal="timeout" from="Auto_Save" to="." method="_on_auto_save_timeout"]

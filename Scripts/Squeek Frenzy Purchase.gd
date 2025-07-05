@@ -62,23 +62,24 @@ func _update_bella():
 
 func _update_upgrade_information():
 	if upgrades_left == 4:
-		$upgrade_button.text = "Squeek Frenzy\n10000 Poop"
+		$Squeek_Frenzy_Label.text = "Squeek Frenzy\n10000 Poop"
 		$Squeek_frenzy_count.text = "1/5"
 		$Squeek_frenzy_description.text = (description_text + "[5s > 10s]")
 	elif upgrades_left == 3:
-		$upgrade_button.text = "Squeek Frenzy\n10000 Poop\n50 Prismatic Poop"
+		$Squeek_Frenzy_Label.text = "Squeek Frenzy\n10000 Poop\n50 Prismatic Poop"
 		$Squeek_frenzy_count.text = "2/5"
 		$Squeek_frenzy_description.text = (description_text + "[10s > 15s]")
 	elif upgrades_left == 2:
-		$upgrade_button.text = "Squeek Frenzy\n10000 Poop\n100 Prismatic Poop\n1 Diamond Poop"
+		$Squeek_Frenzy_Label.text = "Squeek Frenzy\n10000 Poop\n100 Prismatic Poop\n1 Diamond Poop"
 		$Squeek_frenzy_count.text = "3/5"
 		$Squeek_frenzy_description.text = (description_text + "[15s > 20s]")
 	elif upgrades_left == 1:
-		$upgrade_button.text = "Squeek Frenzy\n30000 Poop\n250 Prismatic Poop\n3 Diamond Poop"
+		$Squeek_Frenzy_Label.text = "Squeek Frenzy\n30000 Poop\n250 Prismatic Poop\n3 Diamond Poop"
 		$Squeek_frenzy_count.text = "4/5"
 		$Squeek_frenzy_description.text = (description_text + "[20s > 30s]")
 	elif upgrades_left == 0:
-		$upgrade_button.text = "MAXED"
+		$Squeek_Frenzy_Label.text = "MAXED"
+		$Squeek_Frenzy_Label.vertical_alignment = 1
 		$Squeek_frenzy_count.text = "5/5"
 		$Squeek_frenzy_description.text = (description_text + "[30s]")
 
@@ -88,3 +89,11 @@ func _on_upgrade_button_mouse_entered():
 
 func _on_upgrade_button_mouse_exited():
 	$Squeek_frenzy_description.visible = false
+
+
+func _on_upgrade_button_button_down() -> void:
+	$Squeek_Frenzy_Label.position = Vector2(-144, -12)
+
+
+func _on_upgrade_button_button_up() -> void:
+	$Squeek_Frenzy_Label.position = Vector2(-144, -20)

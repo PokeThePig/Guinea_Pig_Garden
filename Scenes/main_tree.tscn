@@ -16,22 +16,6 @@ position = Vector2(0, 5920)
 
 [node name="Garden" parent="." instance=ExtResource("1_qtg4v")]
 
-[node name="Save" type="Button" parent="Garden"]
-offset_left = -5295.0
-offset_top = 3472.0
-offset_right = -4009.0
-offset_bottom = 4026.0
-theme_override_font_sizes/font_size = 200
-text = "Save"
-
-[node name="Load" type="Button" parent="Garden"]
-offset_left = -3519.0
-offset_top = 3460.0
-offset_right = -2233.0
-offset_bottom = 4014.0
-theme_override_font_sizes/font_size = 200
-text = "Load"
-
 [node name="Shop_Scene" parent="." instance=ExtResource("2_6efl6")]
 position = Vector2(-792, -7736)
 
@@ -49,6 +33,3 @@ position = Vector2(-779, -6325)
 
 [node name="Settings" parent="." instance=ExtResource("8_44uc2")]
 position = Vector2(31, 7419)
-
-[connection signal="pressed" from="Garden/Save" to="Garden" method="_on_save_pressed"]
-[connection signal="pressed" from="Garden/Load" to="Garden" method="_on_load_pressed"]

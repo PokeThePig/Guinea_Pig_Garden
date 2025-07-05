@@ -11,14 +11,13 @@ func _ready():
 	max_speed_achievement_unlocked.connect(get_parent().get_parent().get_parent().get_node("Achievements_Screen")._max_speed_achievement_unlocked.bind())
 	get_parent().get_node("Guinea_Pig").movespeed = randf_range(10,15)
 	music_start.emit()
-	print("start king effect")
-	if (Globals.golden_poop_active == true) and (self == Globals.gold_poop_pig) and (Globals.squeek_frenzy_effect_active == true) and (Globals.poop_frenzy_achievement_completed == false):
+	if (Globals.golden_poop_active == true) and (instance_from_id(Globals.guinea_dictionary["Calix"]) == Globals.gold_poop_pig) and (Globals.squeek_frenzy_effect_active == true) and (Globals.poop_frenzy_achievement_completed == false):
 		max_speed_achievement_unlocked.emit()
+		print("WORKED IN KINGS EFFECT")
 		Globals.poop_frenzy_achievement_completed = true
 	
 func _on_effect_duration_timeout():
 	effect_end.emit()
 	Globals.kings_coronation_active = false
 	Globals.king_poop_dropped = false
-	print("stop king effect")
 	queue_free()

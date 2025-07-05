@@ -27,9 +27,17 @@ func _on_button_pressed():
 		new_pig_sprite.texture = load("res://Sprites/Currently Used/Gizmo2.0-Sheet.png")
 		new_pig_sprite.set_scale(Vector2(33, 32))
 		
-		$Button.text = "SOLD OUT"
+		$Gizmo_Label.text = "SOLD OUT"
 		pig_purchased.emit()
 		pig_two_purchased.emit()
 		
 		Globals.guinea_two_purchased = true
 		Globals.guinea_purchase_order.append("Gizmo")
+
+
+func _on_button_button_down() -> void:
+	$Gizmo_Label.position = Vector2(-145, 8)
+
+
+func _on_button_button_up() -> void:
+	$Gizmo_Label.position = Vector2(-145, 0)

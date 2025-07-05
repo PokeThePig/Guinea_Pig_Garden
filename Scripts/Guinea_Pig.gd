@@ -237,7 +237,6 @@ func _start_golden_poop_effect():
 	#Disco mode activiation check for Chroma
 	if (get_node("Pig_Sprite").texture == load("res://Sprites/Currently Used/Chroma2.0-Sheet.png")):
 		add_child(rainbow_gold_effect.instantiate())
-	print("Drop speed at gold: ", poop_drop_speed.wait_time)
 	
 func _end_golden_poop_effect():
 	#Adjusting speeds and movement back to normal
@@ -285,7 +284,6 @@ func _start_squeek_frenzy_effect():
 		movement_change.wait_time = 0.25
 		movement_change.start()
 	poop_drop_speed.start()
-	print("Drop speed at frenzy: ", poop_drop_speed.wait_time)
 
 
 func _end_squeek_frenzy_effect():
@@ -311,19 +309,14 @@ func _end_squeek_frenzy_effect():
 		state = randi_range(0,5)
 	
 	poop_drop_speed.start()
-	print("Drop speed post frenzy: ", poop_drop_speed.wait_time)
 
 
 '''Hibernation Effect'''
 func _on_hibernation_activation_timeout():
 	if (Globals.hibernation_purchased == true) and (self == instance_from_id(Globals.guinea_dictionary["Gizmo"])):
-		print("HIBERNATION READY")
 		hibernation_ready = true
 		$Pig_Sprite.texture = load("res://Sprites/Currently Used/Hibernation_Ready_Gizmo.png")
 		$hibernation_activation.stop()
-	else:
-		print("hibernation not purchased")
-		
 	if ((Globals.guinea_two_purchased == true) and !(self == instance_from_id(Globals.guinea_dictionary["Gizmo"]))):
 		$hibernation_activation.queue_free()
 
@@ -343,7 +336,6 @@ func _start_kings_coronation_effect():
 		movement_change.stop()
 		movement_change.wait_time = 0.25
 		movement_change.start()
-	print("Drop speed at king: ", poop_drop_speed.wait_time)
 	
 func _end_kings_coronation_effect():
 	#Adjusting speeds and movement back to normal
@@ -362,7 +354,6 @@ func _end_kings_coronation_effect():
 		_on_wander_timer_timeout()
 		movement_change.start()
 		state = randi_range(0,5)
-	print("Drop speed post king: ", poop_drop_speed.wait_time)
 
 '''Updating Poop Speed'''
 func _update_poop_speed():
@@ -371,7 +362,6 @@ func _update_poop_speed():
 		poop_drop_speed.wait_time = effect_multiplier * poop_speed * squeek_frenzy_multiplier
 		Globals.upgrade_guinea_id = null
 		Globals.poop_speed_upgrade_amount = 0.0
-		print(instance_from_id(Globals.guinea_dictionary["Bella"]).poop_speed)
 	else:
 		poop_drop_speed.stop()
 		poop_drop_speed.wait_time = effect_multiplier * poop_speed * squeek_frenzy_multiplier

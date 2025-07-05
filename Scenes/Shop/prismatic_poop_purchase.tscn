@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8uqrksk1wyyx"]
+[gd_scene load_steps=11 format=3 uid="uid://b8uqrksk1wyyx"]
 
 [ext_resource type="Script" uid="uid://dtafisklpthfb" path="res://Scripts/prismatic_poop_purchase.gd" id="1_71nbp"]
 [ext_resource type="Texture2D" uid="uid://bwe1uq2bjbxfd" path="res://Sprites/Currently Used/Prismatic_Poop_Upscaled-Sheet.png" id="1_r4vmd"]
 [ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="3_slbve"]
+[ext_resource type="Texture2D" uid="uid://c5du35lcbfdx7" path="res://Sprites/Currently Used/Purchase-Button.png" id="4_ewofl"]
+[ext_resource type="Texture2D" uid="uid://d0t5pyqj43o62" path="res://Sprites/Currently Used/Purchase-Pressed.png" id="5_gm2kc"]
+[ext_resource type="Texture2D" uid="uid://ci857tfpxitjg" path="res://Sprites/Currently Used/Purchase-Hover.png" id="6_rfh4x"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_slbve"]
 light_mode = 1
@@ -15,26 +18,18 @@ Label/colors/font_color = Color(0, 0, 0, 1)
 Label/fonts/font = null
 Label/styles/normal = SubResource("StyleBoxFlat_judyo")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ah7ik"]
+light_mode = 1
+
 [node name="Prismatic_Poop_Purchase" type="Node2D"]
 script = ExtResource("1_71nbp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_slbve")
-position = Vector2(0, -24)
-scale = Vector2(0.177, 0.177)
+position = Vector2(0, -32)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_r4vmd")
 hframes = 7
-
-[node name="Button" type="Button" parent="."]
-material = SubResource("CanvasItemMaterial_slbve")
-offset_left = -128.0
-offset_top = 64.0
-offset_right = 120.0
-offset_bottom = 144.0
-theme_override_fonts/font = ExtResource("3_slbve")
-theme_override_font_sizes/font_size = 30
-text = "Unlock Prismatic Poops
-1500 Poop"
 
 [node name="prismatic_poop_description" type="Label" parent="."]
 visible = false
@@ -52,6 +47,31 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[node name="Button" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_ah7ik")
+offset_left = -128.0
+offset_top = 64.0
+offset_right = -64.0
+offset_bottom = 88.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("4_ewofl")
+texture_pressed = ExtResource("5_gm2kc")
+texture_hover = ExtResource("6_rfh4x")
+
+[node name="Prismatic_Poop_Label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_ah7ik")
+offset_left = -144.0
+offset_top = 64.0
+offset_right = 146.0
+offset_bottom = 138.0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_slbve")
+theme_override_font_sizes/font_size = 32
+text = "Unlock Prismatic Poops
+1500 Poop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

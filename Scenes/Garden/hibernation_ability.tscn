@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b11xbt4nnsg8g"]
+[gd_scene load_steps=7 format=3 uid="uid://b11xbt4nnsg8g"]
 
 [ext_resource type="Script" uid="uid://cj3ilpdiks6wl" path="res://Scripts/hibernation_ability.gd" id="1_1mg8k"]
+[ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="2_ixlg0"]
 [ext_resource type="Texture2D" uid="uid://dfbxl1c3vtj7i" path="res://Sprites/Currently Used/HibernationGizmo-Sheet.png" id="2_sn5k5"]
 
 [sub_resource type="Animation" id="Animation_pc3w2"]
@@ -48,16 +49,16 @@ wait_time = 30.0
 one_shot = true
 
 [node name="Sleep_countdown" type="Label" parent="."]
-visible = false
 visibility_layer = 3
 z_index = 6
-offset_left = -280.0
-offset_top = -416.0
-offset_right = 285.0
-offset_bottom = -106.0
+offset_left = -281.0
+offset_top = -554.0
+offset_right = 284.0
+offset_bottom = -244.0
 theme_override_colors/font_outline_color = Color(0.00184107, 0.00184107, 0.00184107, 1)
 theme_override_constants/outline_size = 40
-theme_override_font_sizes/font_size = 180
+theme_override_fonts/font = ExtResource("2_ixlg0")
+theme_override_font_sizes/font_size = 300
 text = "0:00"
 horizontal_alignment = 1
 vertical_alignment = 1

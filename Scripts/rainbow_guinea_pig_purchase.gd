@@ -29,9 +29,16 @@ func _on_button_pressed():
 		var new_pig_assets = new_pig.get_node("Guinea_Pig")
 		new_pig_assets.set_scale(Vector2(1, 1))
 		
-		$Button.text = "SOLD OUT"
+		$Chroma_Label.text = "SOLD OUT"
 		pig_purchased.emit()
 		rainbow_pig_purchased.emit()
 		
 		Globals.rainbow_guinea_purchased = true
 		Globals.guinea_purchase_order.append("Chroma")
+
+
+func _on_button_button_down() -> void:
+	$Chroma_Label.position = Vector2(-144, 8)
+
+func _on_button_button_up() -> void:
+	$Chroma_Label.position = Vector2(-144, 0)

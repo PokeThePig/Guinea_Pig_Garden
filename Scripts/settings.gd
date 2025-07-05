@@ -2,19 +2,30 @@ extends Node2D
 
 signal leave_settings
 signal pause
+signal save
+signal restore_volume
 
 func _ready() -> void:
 	leave_settings.connect(get_parent().get_node("Garden").get_node("garden_camera")._leave_settings.bind())
 	pause.connect(get_parent().get_node("Garden").get_node("Music")._pause_music.bind())
+	save.connect(get_parent().get_node("Garden")._save_game.bind())
+	restore_volume.connect(get_node("master_volume")._restore_volume.bind())
+	restore_volume.connect(get_node("music_volume")._restore_volume.bind())
+	restore_volume.connect(get_node("sfx_volume")._restore_volume.bind())
 
 func _on_reset_button_pressed() -> void:
-	_reset_all_values()
-	get_tree().reload_current_scene()
+	$Reset_Confirmation.visible = true
 
 func _on_back_button_pressed() -> void:
 	Globals.past_scene.make_current()
 	if Globals.past_scene == get_parent().get_node("Garden").get_node("garden_camera"):
 		pause.emit()
+
+func _on_back_button_button_down() -> void:
+	$Back_Button/Back_Label.position = Vector2(0,2)
+
+func _on_back_button_button_up() -> void:
+	$Back_Button/Back_Label.position = Vector2(0,0)
 
 func _on_reset_button_button_down() -> void:
 	$Reset_Button/Reset_Label.position = Vector2(0,0)
@@ -22,6 +33,27 @@ func _on_reset_button_button_down() -> void:
 func _on_reset_button_button_up() -> void:
 	$Reset_Button/Reset_Label.position = Vector2(0,-2)
 
+
+func _on_confirm_button_button_up() -> void:
+	$Reset_Confirmation/Confirm_Label.position = Vector2(632, 688)
+
+func _on_confirm_button_button_down() -> void:
+	$Reset_Confirmation/Confirm_Label.position = Vector2(632, 694)
+
+func _on_confirm_button_pressed() -> void:
+	_reset_all_values()
+	restore_volume.emit()
+	get_tree().reload_current_scene()
+
+
+func _on_cancel_button_button_down() -> void:
+	$Reset_Confirmation/Cancel_Label.position = Vector2(824, 694)
+
+func _on_cancel_button_button_up() -> void:
+	$Reset_Confirmation/Cancel_Label.position = Vector2(824, 688)
+
+func _on_cancel_button_pressed() -> void:
+	$Reset_Confirmation.visible = false
 
 
 func _reset_all_values():
@@ -36,7 +68,7 @@ func _reset_all_values():
 	Globals.giant_poop_upgrade_minimum = 0
 	Globals.giant_poop_upgrade_maximum = 0
 
-	Globals.upgrade_dictionary = {}
+	Globals.upgrade_dictionary = {"Bella": []}
 
 	#Unique upgrades
 	Globals.squeek_frenzy_purchased = false
@@ -61,9 +93,9 @@ func _reset_all_values():
 	Globals.kings_coronation_active = false
 
 	#Poop counts
-	Globals.poop_amount = 10000000
-	Globals.diamond_poop_amount = 10000000
-	Globals.prismatic_poop_amount = 10000000
+	Globals.poop_amount = 0
+	Globals.diamond_poop_amount = 0
+	Globals.prismatic_poop_amount = 0
 
 	Globals.currently_raining = false
 	Globals.past_scene = null
@@ -106,3 +138,12 @@ func _reset_all_values():
 	Globals.max_speed_upgrade = false
 	Globals.giant_poop_min = 1
 	Globals.giant_poop_max = 1.5
+
+	#settings
+	Globals.master_volume = 0.75
+	Globals.music_volume = 0.75
+	Globals.sound_effects_volume = 0.75
+	Globals.auto_save = true
+
+func _on_check_box_toggled(toggled_on: bool) -> void:
+	Globals.auto_save = toggled_on

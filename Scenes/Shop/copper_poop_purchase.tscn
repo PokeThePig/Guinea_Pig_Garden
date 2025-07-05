@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkdptvl67v0nm"]
+[gd_scene load_steps=11 format=3 uid="uid://bkdptvl67v0nm"]
 
 [ext_resource type="Script" uid="uid://c328ysydp1w3p" path="res://Scripts/Copper_poop_purchase.gd" id="1_2oe82"]
 [ext_resource type="Texture2D" uid="uid://lgehm55wyn8x" path="res://Sprites/Currently Used/Copper Poop-Sheet.png" id="2_0om04"]
 [ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="3_q2r6w"]
+[ext_resource type="Texture2D" uid="uid://2d5q3hryfya8" path="res://Sprites/Currently Used/Big-Purchase-Button.png" id="4_frpsq"]
+[ext_resource type="Texture2D" uid="uid://88vc0343ovqn" path="res://Sprites/Currently Used/Big-Purchase-Pressed.png" id="5_02j5h"]
+[ext_resource type="Texture2D" uid="uid://ditcbqcwvm4qc" path="res://Sprites/Currently Used/Big-Purchase-Hover.png" id="6_eu1j0"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q2r6w"]
 light_mode = 1
@@ -15,43 +18,38 @@ Label/colors/font_color = Color(0, 0, 0, 1)
 Label/fonts/font = null
 Label/styles/normal = SubResource("StyleBoxFlat_vun67")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_b5dtg"]
+light_mode = 1
+
 [node name="Copper_poop_purchase" type="Node2D"]
 script = ExtResource("1_2oe82")
 
-[node name="upgrade_button" type="Button" parent="."]
-material = SubResource("CanvasItemMaterial_q2r6w")
-offset_left = -120.0
-offset_right = 120.0
-offset_bottom = 64.0
-theme_override_fonts/font = ExtResource("3_q2r6w")
-theme_override_font_sizes/font_size = 30
-text = "Copper Poop
-10000 Poop"
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_q2r6w")
-position = Vector2(-1, -75)
+position = Vector2(0, -104)
 scale = Vector2(0.278308, 0.277672)
 texture = ExtResource("2_0om04")
 
 [node name="copper_poop_count" type="Label" parent="."]
 material = SubResource("CanvasItemMaterial_q2r6w")
 offset_left = -24.0
-offset_top = 88.0
+offset_top = 128.0
 offset_right = 24.0
-offset_bottom = 111.0
+offset_bottom = 154.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_q2r6w")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 32
 text = "0/3"
 horizontal_alignment = 1
 
 [node name="copper_poop_description" type="Label" parent="."]
 visible = false
 material = SubResource("CanvasItemMaterial_q2r6w")
-offset_left = -143.0
-offset_top = -141.0
-offset_right = 143.0
-offset_bottom = -22.0
+offset_left = -144.0
+offset_top = -168.0
+offset_right = 142.0
+offset_bottom = -49.0
 theme = SubResource("Theme_nbr78")
 theme_override_fonts/font = ExtResource("3_q2r6w")
 theme_override_font_sizes/font_size = 25
@@ -61,6 +59,34 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="upgrade_button" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_b5dtg")
+offset_left = -128.0
+offset_top = -24.792
+offset_right = -64.0
+offset_bottom = 11.208
+scale = Vector2(4, 4)
+texture_normal = ExtResource("4_frpsq")
+texture_pressed = ExtResource("5_02j5h")
+texture_hover = ExtResource("6_eu1j0")
+
+[node name="Copper_Poop_Label" type="Label" parent="."]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_b5dtg")
+offset_left = -144.0
+offset_top = -20.0
+offset_right = 144.0
+offset_bottom = 103.0
+theme_override_constants/line_spacing = 0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_q2r6w")
+theme_override_font_sizes/font_size = 36
+text = "Copper Poop
+10000 Poop"
+horizontal_alignment = 1
+
+[connection signal="button_down" from="upgrade_button" to="." method="_on_upgrade_button_button_down"]
+[connection signal="button_up" from="upgrade_button" to="." method="_on_upgrade_button_button_up"]
 [connection signal="mouse_entered" from="upgrade_button" to="." method="_on_upgrade_button_mouse_entered"]
 [connection signal="mouse_exited" from="upgrade_button" to="." method="_on_upgrade_button_mouse_exited"]
 [connection signal="pressed" from="upgrade_button" to="." method="_on_upgrade_button_pressed"]

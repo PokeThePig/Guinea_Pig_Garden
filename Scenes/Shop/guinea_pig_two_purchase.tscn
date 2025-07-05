@@ -1,32 +1,52 @@
-[gd_scene load_steps=5 format=3 uid="uid://diwrvhytcahww"]
+[gd_scene load_steps=9 format=3 uid="uid://diwrvhytcahww"]
 
 [ext_resource type="Script" uid="uid://dojnwr5aerx0j" path="res://Scripts/guinea_pig_two_purchase.gd" id="1_pk7ab"]
 [ext_resource type="Texture2D" uid="uid://dm1bt73n81rfo" path="res://Sprites/Currently Used/Gizmo2.0-Sheet.png" id="2_5iiov"]
 [ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="2_y2ad6"]
+[ext_resource type="Texture2D" uid="uid://c5du35lcbfdx7" path="res://Sprites/Currently Used/Purchase-Button.png" id="3_k1mi0"]
+[ext_resource type="Texture2D" uid="uid://d0t5pyqj43o62" path="res://Sprites/Currently Used/Purchase-Pressed.png" id="4_k1mi0"]
+[ext_resource type="Texture2D" uid="uid://ci857tfpxitjg" path="res://Sprites/Currently Used/Purchase-Hover.png" id="5_tnws1"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y2ad6"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rg5jy"]
 light_mode = 1
 
 [node name="Guinea_Pig_Two_Purchase" type="Node2D"]
 position = Vector2(240, 37)
 script = ExtResource("1_pk7ab")
 
-[node name="Button" type="Button" parent="."]
-material = SubResource("CanvasItemMaterial_y2ad6")
-offset_left = -120.0
-offset_top = 19.0
-offset_right = 104.0
-offset_bottom = 91.0
-theme_override_fonts/font = ExtResource("2_y2ad6")
-theme_override_font_sizes/font_size = 30
-text = "Buy Gizmo
-150 Poop"
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_y2ad6")
-position = Vector2(-8.00001, -53)
+position = Vector2(-5.72205e-06, -77)
 scale = Vector2(5, 5)
 texture = ExtResource("2_5iiov")
 hframes = 2
 
+[node name="Button" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_rg5jy")
+offset_left = -128.0
+offset_right = -64.0
+offset_bottom = 24.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("3_k1mi0")
+texture_pressed = ExtResource("4_k1mi0")
+texture_hover = ExtResource("5_tnws1")
+
+[node name="Gizmo_Label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_rg5jy")
+offset_left = -144.0
+offset_right = 146.0
+offset_bottom = 80.0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_y2ad6")
+theme_override_font_sizes/font_size = 36
+text = "Buy Gizmo
+150 Poop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

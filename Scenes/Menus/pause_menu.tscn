@@ -1,9 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://3y4wlgqjokug"]
+[gd_scene load_steps=10 format=3 uid="uid://3y4wlgqjokug"]
 
 [ext_resource type="Script" uid="uid://cbxmecc3yil20" path="res://Scripts/pause_menu.gd" id="1_vx85b"]
 [ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="2_pdytf"]
+[ext_resource type="Texture2D" uid="uid://bxaae57tfrutw" path="res://Sprites/Currently Used/Cancel-Button.png" id="3_pw12o"]
+[ext_resource type="Texture2D" uid="uid://bfphuooi3e1ec" path="res://Sprites/Currently Used/Cancel-Pressed.png" id="4_7smr3"]
+[ext_resource type="Texture2D" uid="uid://cvaxlbdujr8jr" path="res://Sprites/Currently Used/Cancel-Hover.png" id="5_nwnlq"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pdytf"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pw12o"]
 light_mode = 1
 
 [sub_resource type="InputEventKey" id="InputEventKey_13elr"]
@@ -33,7 +39,7 @@ offset_left = -868.0
 offset_top = -480.0
 offset_right = 880.0
 offset_bottom = 483.0
-color = Color(0.223529, 0.223529, 0.223529, 1)
+color = Color(0.174278, 0.301085, 0.250925, 1)
 
 [node name="Paused_text" type="Label" parent="."]
 material = SubResource("CanvasItemMaterial_pdytf")
@@ -42,62 +48,126 @@ offset_left = -320.0
 offset_top = -372.8
 offset_right = 329.0
 offset_bottom = -188.8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_pdytf")
 theme_override_font_sizes/font_size = 120
 text = "- Paused -"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Unpause_button" type="Button" parent="."]
-material = SubResource("CanvasItemMaterial_pdytf")
+[node name="Unpause_button" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_pw12o")
 layout_mode = 0
-offset_left = -214.0
-offset_top = -180.0
-offset_right = 214.0
-offset_bottom = -88.0
-theme_override_fonts/font = ExtResource("2_pdytf")
-theme_override_font_sizes/font_size = 35
+offset_left = -144.0
+offset_top = -175.0
+offset_right = -96.0
+offset_bottom = -157.0
+scale = Vector2(6, 6)
 shortcut = SubResource("Shortcut_ke64k")
+texture_normal = ExtResource("3_pw12o")
+texture_pressed = ExtResource("4_7smr3")
+texture_hover = ExtResource("5_nwnlq")
+
+[node name="Unpause_Label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_pw12o")
+layout_mode = 0
+offset_left = -143.2
+offset_top = -175.0
+offset_right = 144.8
+offset_bottom = -97.0
+theme_override_fonts/font = ExtResource("2_pdytf")
+theme_override_font_sizes/font_size = 48
 text = "Resume"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Settings_Button" type="Button" parent="."]
-material = SubResource("CanvasItemMaterial_pdytf")
+[node name="Settings_Button" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_pw12o")
 layout_mode = 0
-offset_left = -214.0
-offset_top = -50.0
-offset_right = 216.0
-offset_bottom = 42.0
+offset_left = -144.0
+offset_top = -35.0
+offset_right = -96.0
+offset_bottom = -17.0
+scale = Vector2(6, 6)
+shortcut = SubResource("Shortcut_ke64k")
+texture_normal = ExtResource("3_pw12o")
+texture_pressed = ExtResource("4_7smr3")
+texture_hover = ExtResource("5_nwnlq")
+
+[node name="Settings_Label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_pw12o")
+layout_mode = 0
+offset_left = -144.0
+offset_top = -35.0
+offset_right = 144.0
+offset_bottom = 43.0
 theme_override_fonts/font = ExtResource("2_pdytf")
-theme_override_font_sizes/font_size = 35
-shortcut_feedback = false
-shortcut_in_tooltip = false
+theme_override_font_sizes/font_size = 48
 text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Main_Menu_Button" type="Button" parent="."]
-material = SubResource("CanvasItemMaterial_pdytf")
+[node name="Main_Menu_Button" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_pw12o")
 layout_mode = 0
-offset_left = -214.0
-offset_top = 80.0
-offset_right = 216.0
-offset_bottom = 172.0
+offset_left = -144.0
+offset_top = 105.0
+offset_right = -96.0
+offset_bottom = 123.0
+scale = Vector2(6, 6)
+shortcut = SubResource("Shortcut_ke64k")
+texture_normal = ExtResource("3_pw12o")
+texture_pressed = ExtResource("4_7smr3")
+texture_hover = ExtResource("5_nwnlq")
+
+[node name="Main_Menu_Label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_pw12o")
+layout_mode = 0
+offset_left = -144.0
+offset_top = 105.0
+offset_right = 144.0
+offset_bottom = 183.0
 theme_override_fonts/font = ExtResource("2_pdytf")
-theme_override_font_sizes/font_size = 35
-shortcut_feedback = false
-shortcut_in_tooltip = false
+theme_override_font_sizes/font_size = 48
 text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Quit_button" type="Button" parent="."]
-material = SubResource("CanvasItemMaterial_pdytf")
+[node name="Quit_Button" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_pw12o")
 layout_mode = 0
-offset_left = -214.0
-offset_top = 210.0
-offset_right = 216.0
-offset_bottom = 302.0
-theme_override_fonts/font = ExtResource("2_pdytf")
-theme_override_font_sizes/font_size = 35
-text = "Save & Quit"
+offset_left = -144.0
+offset_top = 245.0
+offset_right = -96.0
+offset_bottom = 263.0
+scale = Vector2(6, 6)
+shortcut = SubResource("Shortcut_ke64k")
+texture_normal = ExtResource("3_pw12o")
+texture_pressed = ExtResource("4_7smr3")
+texture_hover = ExtResource("5_nwnlq")
 
+[node name="Quit_Label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_pw12o")
+layout_mode = 0
+offset_left = -144.0
+offset_top = 245.0
+offset_right = 144.0
+offset_bottom = 323.0
+theme_override_fonts/font = ExtResource("2_pdytf")
+theme_override_font_sizes/font_size = 48
+text = "Save & Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="Unpause_button" to="." method="_on_unpause_button_button_down"]
+[connection signal="button_up" from="Unpause_button" to="." method="_on_unpause_button_button_up"]
 [connection signal="pressed" from="Unpause_button" to="." method="_on_unpause_button_pressed"]
+[connection signal="button_down" from="Settings_Button" to="." method="_on_settings_button_button_down"]
+[connection signal="button_up" from="Settings_Button" to="." method="_on_settings_button_button_up"]
 [connection signal="pressed" from="Settings_Button" to="." method="_on_settings_button_pressed"]
+[connection signal="button_down" from="Main_Menu_Button" to="." method="_on_main_menu_button_button_down"]
+[connection signal="button_up" from="Main_Menu_Button" to="." method="_on_main_menu_button_button_up"]
 [connection signal="pressed" from="Main_Menu_Button" to="." method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="Quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="button_down" from="Quit_Button" to="." method="_on_quit_button_button_down"]
+[connection signal="button_up" from="Quit_Button" to="." method="_on_quit_button_button_up"]
+[connection signal="pressed" from="Quit_Button" to="." method="_on_quit_button_pressed"]

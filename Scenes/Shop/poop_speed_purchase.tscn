@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://buu4qpft0qvii"]
+[gd_scene load_steps=11 format=3 uid="uid://buu4qpft0qvii"]
 
 [ext_resource type="Script" uid="uid://b6fgkbn17tk4y" path="res://Scripts/poop_speed_purchase.gd" id="1_ivnsh"]
 [ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="2_7ktlx"]
 [ext_resource type="Texture2D" uid="uid://6j5hyv6k1gmq" path="res://Sprites/Currently Used/Fiber upgrade v1.png" id="2_lcem4"]
+[ext_resource type="Texture2D" uid="uid://c5du35lcbfdx7" path="res://Sprites/Currently Used/Purchase-Button.png" id="4_mnok3"]
+[ext_resource type="Texture2D" uid="uid://d0t5pyqj43o62" path="res://Sprites/Currently Used/Purchase-Pressed.png" id="5_2bu6j"]
+[ext_resource type="Texture2D" uid="uid://ci857tfpxitjg" path="res://Sprites/Currently Used/Purchase-Hover.png" id="6_vevfw"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7ktlx"]
 light_mode = 1
@@ -15,35 +18,29 @@ Label/colors/font_color = Color(0, 0, 0, 1)
 Label/fonts/font = null
 Label/styles/normal = SubResource("StyleBoxFlat_7y47a")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_alno3"]
+light_mode = 1
+
 [node name="Poop_Speed_Purchase" type="Node2D"]
 script = ExtResource("1_ivnsh")
 
-[node name="upgrade_button" type="Button" parent="."]
-unique_name_in_owner = true
-material = SubResource("CanvasItemMaterial_7ktlx")
-offset_left = -120.0
-offset_right = 120.0
-offset_bottom = 64.0
-theme_override_fonts/font = ExtResource("2_7ktlx")
-theme_override_font_sizes/font_size = 30
-text = "Fiber Rich Grass
-15 Poop"
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_7ktlx")
-position = Vector2(-8, -72)
-scale = Vector2(0.525781, 0.490625)
+position = Vector2(-8, -88)
+scale = Vector2(0.6, 0.56)
 texture = ExtResource("2_lcem4")
 
 [node name="Poop_speed_count" type="Label" parent="."]
 unique_name_in_owner = true
 material = SubResource("CanvasItemMaterial_7ktlx")
 offset_left = -24.0
-offset_top = 88.0
+offset_top = 112.0
 offset_right = 24.0
-offset_bottom = 111.0
+offset_bottom = 138.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("2_7ktlx")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 32
 text = "0/5"
 horizontal_alignment = 1
 
@@ -51,9 +48,9 @@ horizontal_alignment = 1
 visible = false
 material = SubResource("CanvasItemMaterial_7ktlx")
 offset_left = -104.0
-offset_top = -136.0
+offset_top = -152.0
 offset_right = 104.0
-offset_bottom = -57.0
+offset_bottom = -73.0
 theme = SubResource("Theme_epm47")
 theme_override_fonts/font = ExtResource("2_7ktlx")
 theme_override_font_sizes/font_size = 25
@@ -62,6 +59,32 @@ text = "Increases Poop Speed
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="upgrade_button" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_alno3")
+offset_left = -128.0
+offset_right = -64.0
+offset_bottom = 24.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("4_mnok3")
+texture_pressed = ExtResource("5_2bu6j")
+texture_hover = ExtResource("6_vevfw")
+
+[node name="Poop_Speed_Label" type="Label" parent="."]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_alno3")
+offset_left = -144.0
+offset_right = 144.0
+offset_bottom = 80.0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_7ktlx")
+theme_override_font_sizes/font_size = 36
+text = "Fiber Rich Grass
+15 Poop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="upgrade_button" to="." method="_on_upgrade_button_button_down"]
+[connection signal="button_up" from="upgrade_button" to="." method="_on_upgrade_button_button_up"]
 [connection signal="mouse_entered" from="upgrade_button" to="." method="_on_upgrade_button_mouse_entered"]
 [connection signal="mouse_exited" from="upgrade_button" to="." method="_on_upgrade_button_mouse_exited"]
 [connection signal="pressed" from="upgrade_button" to="." method="_on_upgrade_button_pressed"]

@@ -1,31 +1,51 @@
-[gd_scene load_steps=5 format=3 uid="uid://sa7obbeljsei"]
+[gd_scene load_steps=9 format=3 uid="uid://sa7obbeljsei"]
 
 [ext_resource type="Script" uid="uid://b846dajr6xyu3" path="res://Scripts/Rich_Guinea_Pig_Purchase.gd" id="1_pm8as"]
 [ext_resource type="Texture2D" uid="uid://b437ptngmuy38" path="res://Sprites/Currently Used/Pennybags2.0-Sheet.png" id="2_3lknu"]
 [ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="2_11p44"]
+[ext_resource type="Texture2D" uid="uid://c5du35lcbfdx7" path="res://Sprites/Currently Used/Purchase-Button.png" id="3_di8tx"]
+[ext_resource type="Texture2D" uid="uid://d0t5pyqj43o62" path="res://Sprites/Currently Used/Purchase-Pressed.png" id="4_qxwxt"]
+[ext_resource type="Texture2D" uid="uid://ci857tfpxitjg" path="res://Sprites/Currently Used/Purchase-Hover.png" id="5_u8ty5"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_11p44"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_c18t2"]
 light_mode = 1
 
 [node name="Rich_Guinea_Pig_Purchase" type="Node2D"]
 script = ExtResource("1_pm8as")
 
-[node name="Button" type="Button" parent="."]
-material = SubResource("CanvasItemMaterial_11p44")
-offset_left = -120.0
-offset_top = 19.0
-offset_right = 104.0
-offset_bottom = 91.0
-theme_override_fonts/font = ExtResource("2_11p44")
-theme_override_font_sizes/font_size = 30
-text = "Buy Pennybags
-1 Diamond Poop"
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_11p44")
-position = Vector2(-8, -61)
+position = Vector2(-4.76837e-07, -96)
 scale = Vector2(5, 5)
 texture = ExtResource("2_3lknu")
 hframes = 2
 
+[node name="Button" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_c18t2")
+offset_left = -128.0
+offset_right = -64.0
+offset_bottom = 24.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("3_di8tx")
+texture_pressed = ExtResource("4_qxwxt")
+texture_hover = ExtResource("5_u8ty5")
+
+[node name="Pennybags_Label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_c18t2")
+offset_left = -144.0
+offset_right = 146.0
+offset_bottom = 80.0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_11p44")
+theme_override_font_sizes/font_size = 36
+text = "Buy Pennybags
+1 Diamond Poop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cu5dagbcogu6h"]
+[gd_scene load_steps=11 format=3 uid="uid://cu5dagbcogu6h"]
 
 [ext_resource type="Script" uid="uid://dr0i74egya4jc" path="res://Scripts/Squeek Frenzy Purchase.gd" id="1_85tv0"]
 [ext_resource type="Texture2D" uid="uid://blc24talt12ri" path="res://Sprites/Currently Used/Squeek Frenzy.png" id="2_77h5b"]
 [ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="2_r05ta"]
+[ext_resource type="Texture2D" uid="uid://2d5q3hryfya8" path="res://Sprites/Currently Used/Big-Purchase-Button.png" id="4_67i0l"]
+[ext_resource type="Texture2D" uid="uid://88vc0343ovqn" path="res://Sprites/Currently Used/Big-Purchase-Pressed.png" id="5_1beor"]
+[ext_resource type="Texture2D" uid="uid://ditcbqcwvm4qc" path="res://Sprites/Currently Used/Big-Purchase-Hover.png" id="6_g178v"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r05ta"]
 light_mode = 1
@@ -15,33 +18,28 @@ Label/colors/font_color = Color(0, 0, 0, 1)
 Label/fonts/font = null
 Label/styles/normal = SubResource("StyleBoxFlat_h75dr")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s2nci"]
+light_mode = 1
+
 [node name="Squeek_Frenzy_Purchase" type="Node2D"]
 script = ExtResource("1_85tv0")
 
-[node name="upgrade_button" type="Button" parent="."]
-material = SubResource("CanvasItemMaterial_r05ta")
-offset_left = -120.0
-offset_right = 120.0
-offset_bottom = 64.0
-theme_override_fonts/font = ExtResource("2_r05ta")
-theme_override_font_sizes/font_size = 25
-text = "Squeek Frenzy
-5000 Poop"
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_r05ta")
-position = Vector2(1, -103)
+position = Vector2(1, -127.792)
 scale = Vector2(5, 5.013)
 texture = ExtResource("2_77h5b")
 
 [node name="Squeek_frenzy_count" type="Label" parent="."]
 material = SubResource("CanvasItemMaterial_r05ta")
 offset_left = -24.0
-offset_top = 97.0
+offset_top = 123.0
 offset_right = 24.0
-offset_bottom = 121.0
+offset_bottom = 149.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("2_r05ta")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 32
 text = "0/5"
 horizontal_alignment = 1
 
@@ -49,9 +47,9 @@ horizontal_alignment = 1
 visible = false
 material = SubResource("CanvasItemMaterial_r05ta")
 offset_left = -152.0
-offset_top = -176.0
+offset_top = -208.0
 offset_right = 152.0
-offset_bottom = -23.0
+offset_bottom = -55.0
 theme = SubResource("Theme_4f4u2")
 theme_override_fonts/font = ExtResource("2_r05ta")
 theme_override_font_sizes/font_size = 25
@@ -61,6 +59,34 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="upgrade_button" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_s2nci")
+offset_left = -128.0
+offset_top = -24.792
+offset_right = -64.0
+offset_bottom = 11.208
+scale = Vector2(4, 4)
+texture_normal = ExtResource("4_67i0l")
+texture_pressed = ExtResource("5_1beor")
+texture_hover = ExtResource("6_g178v")
+
+[node name="Squeek_Frenzy_Label" type="Label" parent="."]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_s2nci")
+offset_left = -144.0
+offset_top = -20.0
+offset_right = 144.0
+offset_bottom = 103.0
+theme_override_constants/line_spacing = 0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_r05ta")
+theme_override_font_sizes/font_size = 36
+text = "Squeek Frenzy
+5000 Poop"
+horizontal_alignment = 1
+
+[connection signal="button_down" from="upgrade_button" to="." method="_on_upgrade_button_button_down"]
+[connection signal="button_up" from="upgrade_button" to="." method="_on_upgrade_button_button_up"]
 [connection signal="mouse_entered" from="upgrade_button" to="." method="_on_upgrade_button_mouse_entered"]
 [connection signal="mouse_exited" from="upgrade_button" to="." method="_on_upgrade_button_mouse_exited"]
 [connection signal="pressed" from="upgrade_button" to="." method="_on_upgrade_button_pressed"]

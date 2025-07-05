@@ -33,3 +33,31 @@ func _item_purchased():
 		Globals.full_house_achievement_completed = true
 		all_guinea_pigs_purchased.emit()
 		achievement_unlocked = true
+
+
+func _on_back_to_garden_button_down() -> void:
+	$Back_Label.position = Vector2(64,776)
+
+func _on_back_to_garden_button_up() -> void:
+	$Back_Label.position = Vector2(64,768)
+
+
+func _on_go_poop_upgrades_button_down() -> void:
+	$Poop_Upgrades_Label.position = Vector2(264, 472)
+
+func _on_go_poop_upgrades_button_up() -> void:
+	$Poop_Upgrades_Label.position = Vector2(264, 464)
+
+
+func _on_go_poop_types_button_down() -> void:
+	$Poop_Types_Label.position = Vector2(680, 472)
+
+func _on_go_poop_types_button_up() -> void:
+	$Poop_Types_Label.position = Vector2(680, 464)
+
+
+func _on_go_guinea_shop_button_down() -> void:
+	$Guinea_Pigs_Label.position = Vector2(1096, 472)
+
+func _on_go_guinea_shop_button_up() -> void:
+	$Guinea_Pigs_Label.position = Vector2(1096, 464)

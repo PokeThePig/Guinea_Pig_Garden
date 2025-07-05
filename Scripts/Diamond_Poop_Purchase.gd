@@ -12,11 +12,7 @@ func _on_button_pressed():
 		diamond_purchased.emit()
 		Globals.diamond_poop_purchased = true
 		
-		$Button.text = "SOLD OUT"
-
-
-func _on_diamond_poop_description_mouse_entered():
-	pass # Replace with function body.
+		$Diamond_Poop_Label.text = "SOLD OUT"
 
 
 func _on_button_mouse_entered():
@@ -25,3 +21,11 @@ func _on_button_mouse_entered():
 
 func _on_button_mouse_exited():
 	$diamond_poop_description.visible = false
+
+
+func _on_button_button_down() -> void:
+	$Diamond_Poop_Label.position = Vector2(-144, 8)
+
+
+func _on_button_button_up() -> void:
+	$Diamond_Poop_Label.position = Vector2(-144, 0)

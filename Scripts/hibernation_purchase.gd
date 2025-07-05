@@ -62,23 +62,24 @@ func _on_upgrade_button_pressed():
 
 func _update_upgrade_information():
 	if upgrades_left == 4:
-		$upgrade_button.text = "Hibernation\n10000 Poop\n100 Prismatic Poop"
+		$Hibernation_Label.text = "Hibernation\n10000 Poop\n100 Prismatic Poop"
 		$hibernation_count.text = "1/5"
 		$hibernation_description.text = (description_text + "\n[Sleep duration: 30s > 40s]\n[Effect duration: 3s > 4s]")
 	elif upgrades_left == 3:
-		$upgrade_button.text = "Hibernation\n15000 Poop\n250 Prismatic Poop"
+		$Hibernation_Label.text = "Hibernation\n15000 Poop\n250 Prismatic Poop"
 		$hibernation_count.text = "2/5"
 		$hibernation_description.text = (description_text + "\n[Sleep duration: 40s > 60s]\n[Effect duration: 4s > 6s]")
 	elif upgrades_left == 2:
-		$upgrade_button.text = "Hibernation\n20000 Poop\n500 Prismatic Poop"
+		$Hibernation_Label.text = "Hibernation\n20000 Poop\n500 Prismatic Poop"
 		$hibernation_count.text = "3/5"
 		$hibernation_description.text = (description_text + "\n[Sleep duration: 60s > 80s]\n[Effect duration: 6s > 8s]")
 	elif upgrades_left == 1:
-		$upgrade_button.text = "Hibernation\n30000 Poop\n1000 Prismatic Poop"
+		$Hibernation_Label.text = "Hibernation\n30000 Poop\n1000 Prismatic Poop"
 		$hibernation_count.text = "4/5"
 		$hibernation_description.text = (description_text + "\n[Sleep duration: 80s > 100s]\n[Effect duration: 8s > 10s]")
 	elif upgrades_left == 0:
-		$upgrade_button.text = "MAXED"
+		$Hibernation_Label.text = "MAXED"
+		$Hibernation_Label.vertical_alignment = 1
 		$hibernation_count.text = "5/5"
 		$hibernation_description.text = ("Can enter a state of hibernation where no poop is dropped, but when waking up will only drop giant poops for a small amount of time.\n(Click to awake early but with a shorter effect)\n[Sleep duration: 100s]\n[Effect duration: 10s]")
 
@@ -88,3 +89,11 @@ func _on_upgrade_button_mouse_entered():
 
 func _on_upgrade_button_mouse_exited():
 	$hibernation_description.visible = false
+
+
+func _on_upgrade_button_button_down() -> void:
+	$Hibernation_Label.position = Vector2(-144, 0)
+
+
+func _on_upgrade_button_button_up() -> void:
+	$Hibernation_Label.position = Vector2(-144, -12)

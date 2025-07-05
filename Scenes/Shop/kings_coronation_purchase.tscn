@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3vwyodxtkyt2"]
+[gd_scene load_steps=11 format=3 uid="uid://c3vwyodxtkyt2"]
 
 [ext_resource type="Script" uid="uid://50fio7a5xv7t" path="res://Scripts/King_Poop_Purchase.gd" id="1_ce6qn"]
 [ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="2_1g8oc"]
 [ext_resource type="Texture2D" uid="uid://xqntcestvn62" path="res://Sprites/Currently Used/King Poop-Sheet.png" id="2_dd2n0"]
+[ext_resource type="Texture2D" uid="uid://2d5q3hryfya8" path="res://Sprites/Currently Used/Big-Purchase-Button.png" id="4_70nep"]
+[ext_resource type="Texture2D" uid="uid://88vc0343ovqn" path="res://Sprites/Currently Used/Big-Purchase-Pressed.png" id="5_5ywje"]
+[ext_resource type="Texture2D" uid="uid://ditcbqcwvm4qc" path="res://Sprites/Currently Used/Big-Purchase-Hover.png" id="6_50x0q"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1g8oc"]
 light_mode = 1
@@ -15,20 +18,11 @@ Label/colors/font_color = Color(0, 0, 0, 1)
 Label/fonts/font = null
 Label/styles/normal = SubResource("StyleBoxFlat_enlh7")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uy761"]
+light_mode = 1
+
 [node name="Kings_Coronation_Purchase" type="Node2D"]
 script = ExtResource("1_ce6qn")
-
-[node name="upgrade_button" type="Button" parent="."]
-material = SubResource("CanvasItemMaterial_1g8oc")
-offset_left = -120.0
-offset_right = 120.0
-offset_bottom = 64.0
-theme_override_fonts/font = ExtResource("2_1g8oc")
-theme_override_font_sizes/font_size = 24
-text = "King's Coronation
-50000 Poop
-1000 Prismatic Poop
-5 Diamond Poop"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_1g8oc")
@@ -40,11 +34,12 @@ hframes = 16
 [node name="coronation_count" type="Label" parent="."]
 material = SubResource("CanvasItemMaterial_1g8oc")
 offset_left = -24.0
-offset_top = 88.0
+offset_top = 128.0
 offset_right = 24.0
-offset_bottom = 111.0
+offset_bottom = 154.0
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("2_1g8oc")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 32
 text = "0/1"
 horizontal_alignment = 1
 
@@ -64,6 +59,36 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="upgrade_button" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_uy761")
+offset_left = -128.0
+offset_top = -24.792
+offset_right = -64.0
+offset_bottom = 11.208
+scale = Vector2(4, 4)
+texture_normal = ExtResource("4_70nep")
+texture_pressed = ExtResource("5_5ywje")
+texture_hover = ExtResource("6_50x0q")
+
+[node name="Kings_Coronation_Label" type="Label" parent="."]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_uy761")
+offset_left = -144.0
+offset_top = -20.0
+offset_right = 144.0
+offset_bottom = 103.0
+theme_override_constants/line_spacing = 0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_1g8oc")
+theme_override_font_sizes/font_size = 34
+text = "King's Coronation
+50000 Poop
+1000 Prismatic Poop
+5 Diamond Poop"
+horizontal_alignment = 1
+
+[connection signal="button_down" from="upgrade_button" to="." method="_on_upgrade_button_button_down"]
+[connection signal="button_up" from="upgrade_button" to="." method="_on_upgrade_button_button_up"]
 [connection signal="mouse_entered" from="upgrade_button" to="." method="_on_upgrade_button_mouse_entered"]
 [connection signal="mouse_exited" from="upgrade_button" to="." method="_on_upgrade_button_mouse_exited"]
 [connection signal="pressed" from="upgrade_button" to="." method="_on_upgrade_button_pressed"]

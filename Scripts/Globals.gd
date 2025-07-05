@@ -11,7 +11,7 @@ var double_poop_upgrade_amount = 0
 var giant_poop_upgrade_minimum = 0
 var giant_poop_upgrade_maximum = 0
 
-var upgrade_dictionary = {}
+var upgrade_dictionary = {"Bella": []}
 
 #Unique upgrades
 var squeek_frenzy_purchased = false
@@ -36,12 +36,13 @@ var king_poop_dropped = false
 var kings_coronation_active = false
 
 #Poop counts
-var poop_amount = 10000000
-var diamond_poop_amount = 10000000
-var prismatic_poop_amount = 10000000
+var poop_amount = 0
+var diamond_poop_amount = 0
+var prismatic_poop_amount = 0
 
 var currently_raining = false
 var past_scene = null
+var game_loaded = false
 
 #Shop purchases
 var guinea_two_purchased = false
@@ -81,3 +82,9 @@ var poop_speed_multiplier = 1
 var max_speed_upgrade = false
 var giant_poop_min = 1
 var giant_poop_max = 1.5
+
+#settings
+var master_volume = 0.75
+var music_volume = 0.75
+var sound_effects_volume = 0.75
+var auto_save = true

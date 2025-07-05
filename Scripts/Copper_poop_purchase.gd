@@ -42,15 +42,16 @@ func _on_upgrade_button_pressed():
 
 func _update_upgrade_information():
 	if upgrades_left == 2:
-		$upgrade_button.text = "Copper Poop\n30000 Poop\n300 Prismatic Poop"
+		$Copper_Poop_Label.text = "Copper Poop\n30000 Poop\n300 Prismatic Poop"
 		$copper_poop_count.text = "1/3"
 		$copper_poop_description.text = (description_text + "\n[2 > 3]")
 	elif upgrades_left == 1:
-		$upgrade_button.text = "Copper Poop\n50000 Poop\n300 Prismatic Poop\n3 Diamond Poop"
+		$Copper_Poop_Label.text = "Copper Poop\n50000 Poop\n300 Prismatic Poop\n3 Diamond Poop"
 		$copper_poop_count.text = "2/3"
 		$copper_poop_description.text = (description_text + "\n[3 > 5]")
 	elif upgrades_left == 0:
-		$upgrade_button.text = "MAXED"
+		$Copper_Poop_Label.text = "MAXED"
+		$Copper_Poop_Label.vertical_alignment = 1
 		$copper_poop_count.text = "3/3"
 		$copper_poop_description.text = (description_text + "\n[5]")
 
@@ -61,3 +62,11 @@ func _on_upgrade_button_mouse_entered():
 
 func _on_upgrade_button_mouse_exited():
 	$copper_poop_description.visible = false
+
+
+func _on_upgrade_button_button_down() -> void:
+	$Copper_Poop_Label.position = Vector2(-144, -12)
+
+
+func _on_upgrade_button_button_up() -> void:
+	$Copper_Poop_Label.position = Vector2(-144, -20)

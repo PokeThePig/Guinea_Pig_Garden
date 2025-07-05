@@ -30,9 +30,17 @@ func _on_button_pressed():
 		new_pig_assets.get_node("Pig_Sprite").set_scale(Vector2(37, 36))
 		new_pig_assets.get_node("Shadow_Sprite").set_scale(Vector2(36, 36))
 		
-		$Button.text = "SOLD OUT"
+		$Pennybags_Label.text = "SOLD OUT"
 		pig_purchased.emit()
 		rich_pig_purchased.emit()
 		
 		Globals.rich_guinea_purchased = true
 		Globals.guinea_purchase_order.append("Pennybags")
+
+
+func _on_button_button_down() -> void:
+	$Pennybags_Label.position = Vector2(-144, 8)
+
+
+func _on_button_button_up() -> void:
+	$Pennybags_Label.position = Vector2(-144, 0)

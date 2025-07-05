@@ -31,9 +31,17 @@ func _on_button_pressed():
 		var new_pig_assets = new_pig.get_node("Guinea_Pig")
 		new_pig_assets.set_scale(Vector2(1, 1))
 		
-		$Button.text = "SOLD OUT"
+		$Calix_Label.text = "SOLD OUT"
 		pig_purchased.emit()
 		king_calix_purchased.emit()
 		
 		Globals.king_calix_purchased = true
 		Globals.guinea_purchase_order.append("Calix")
+
+
+func _on_button_button_down() -> void:
+	$Calix_Label.position = Vector2(-160, 8)
+
+
+func _on_button_button_up() -> void:
+	$Calix_Label.position = Vector2(-160, 0)

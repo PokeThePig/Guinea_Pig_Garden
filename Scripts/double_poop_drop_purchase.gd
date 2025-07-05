@@ -57,17 +57,17 @@ func _update_bella():
 
 func _update_upgrade_information():
 	if upgrades_left == 2:
-		$upgrade_button.text = "Double Poop Upgrade\n75 Poop"
-		$Double_poop_description.text = "Increases chance of two poops being dropped. \n [10% > 20%]"
+		$Double_Poop_Label.text = "Double Poop Upgrade\n75 Poop"
+		$Double_poop_description.text = "Increases chance of two poops being dropped.\n [10% > 20%]"
 		$Double_poop_count.text = "1/3"
 	elif upgrades_left == 1:
-		$upgrade_button.text = "Double Poop Upgrade\n300 Poop"
+		$Double_Poop_Label.text = "Double Poop Upgrade\n300 Poop"
 		$Double_poop_count.text = "2/3"
-		$Double_poop_description.text = "Increases chance of two poops being dropped. \n [20% > 33%]"
+		$Double_poop_description.text = "Increases chance of two poops being dropped.\n [20% > 33%]"
 	elif upgrades_left == 0:
-		$upgrade_button.text = "MAXED"
+		$Double_Poop_Label.text = "MAXED"
 		$Double_poop_count.text = "3/3"
-		$Double_poop_description.text = "Increases chance of two poops being dropped. \n [33%]"
+		$Double_poop_description.text = "Increases chance of two poops being dropped.\n [33%]"
 
 func _update_upgrade_dictionary():
 	for guinea_key in Globals.guinea_dictionary:
@@ -84,3 +84,11 @@ func _on_upgrade_button_mouse_entered():
 
 func _on_upgrade_button_mouse_exited():
 	$Double_poop_description.visible = false
+
+
+func _on_upgrade_button_button_down() -> void:
+	$Double_Poop_Label.position = Vector2(-144, 8)
+
+
+func _on_upgrade_button_button_up() -> void:
+	$Double_Poop_Label.position = Vector2(-144, 0)

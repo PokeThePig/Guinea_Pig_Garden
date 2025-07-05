@@ -47,10 +47,12 @@ var contents_to_save: Dictionary = {
 	"copper_poop_unlocked": false,
 	"copper_poop_worth": 2,
 	"rain_or_shine_unlocked": false,
+	"giant_prismatic_unlocked": false,
 	"chroma_prismatic_chance": 100,
 	"king_poop_unlocked": false,
+	"times_pet": 0,
 	"guinea_order": [],
-	"upgrades_left_dictionary": {},
+	"upgrades_left_dictionary": {"Bella": [null, null, null, null, null]},
 	"gold_rush_unlocked": false,
 	"diamond_digger_unlocked": false,
 	"taste_rainbow_unlocked": false,
@@ -60,6 +62,10 @@ var contents_to_save: Dictionary = {
 	"disco_party_unlocked": false,
 	"manure_millionare_unlocked": false,
 	"petting_professional_unlocked": false,
+	"master_volume_value": 0.75,
+	"music_volume_value": 0.75,
+	"sound_effects_volume_value": 0.75,
+	"auto_save_state": true,
 }
 
 func _ready() -> void:
@@ -69,7 +75,6 @@ func _save():
 	var file = FileAccess.open(save_location, FileAccess.WRITE)
 	file.store_var(contents_to_save.duplicate())
 	file.close()
-	
 func _load():
 	if FileAccess.file_exists(save_location):
 		var file = FileAccess.open(save_location, FileAccess.READ)
@@ -120,8 +125,10 @@ func _load():
 		contents_to_save.copper_poop_unlocked = save_data.copper_poop_unlocked
 		contents_to_save.copper_poop_worth = save_data.copper_poop_worth
 		contents_to_save.rain_or_shine_unlocked = save_data.rain_or_shine_unlocked
+		contents_to_save.giant_prismatic_unlocked = save_data.giant_prismatic_unlocked
 		contents_to_save.chroma_prismatic_chance = save_data.chroma_prismatic_chance
 		contents_to_save.king_poop_unlocked = save_data.king_poop_unlocked
+		contents_to_save.times_pet = save_data.times_pet
 		contents_to_save.guinea_order = save_data.guinea_order
 		contents_to_save.upgrades_left_dictionary = save_data.upgrades_left_dictionary
 		contents_to_save.gold_rush_unlocked = save_data.gold_rush_unlocked
@@ -133,4 +140,8 @@ func _load():
 		contents_to_save.disco_party_unlocked = save_data.disco_party_unlocked
 		contents_to_save.manure_millionare_unlocked = save_data.manure_millionare_unlocked
 		contents_to_save.petting_professional_unlocked = save_data.petting_professional_unlocked
+		contents_to_save.master_volume_value = save_data.master_volume_value
+		contents_to_save.music_volume_value = save_data.music_volume_value
+		contents_to_save.sound_effects_value = save_data.sound_effects_volume_value
+		contents_to_save.auto_save_state = save_data.auto_save_state
 		

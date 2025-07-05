@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4607w7esjfvi"]
+[gd_scene load_steps=12 format=3 uid="uid://c4607w7esjfvi"]
 
 [ext_resource type="Script" uid="uid://bdy4ca0a88t2f" path="res://Scripts/double_poop_drop_purchase.gd" id="1_k7j17"]
 [ext_resource type="Texture2D" uid="uid://vjm4igbsy0h7" path="res://Sprites/Currently Used/Poop upscale.png" id="2_1lhlh"]
 [ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="2_son5w"]
+[ext_resource type="Texture2D" uid="uid://c5du35lcbfdx7" path="res://Sprites/Currently Used/Purchase-Button.png" id="4_6mq46"]
+[ext_resource type="Texture2D" uid="uid://d0t5pyqj43o62" path="res://Sprites/Currently Used/Purchase-Pressed.png" id="5_smyti"]
+[ext_resource type="Texture2D" uid="uid://ci857tfpxitjg" path="res://Sprites/Currently Used/Purchase-Hover.png" id="6_xhvaq"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_son5w"]
 light_mode = 1
@@ -15,27 +18,24 @@ Label/colors/font_color = Color(0, 0, 0, 1)
 Label/fonts/font = null
 Label/styles/normal = SubResource("StyleBoxFlat_hud4w")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gfds2"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ahrgo"]
+light_mode = 1
+
 [node name="Double_poop_drop_purchase" type="Node2D"]
 script = ExtResource("1_k7j17")
-
-[node name="upgrade_button" type="Button" parent="."]
-material = SubResource("CanvasItemMaterial_son5w")
-offset_left = -128.0
-offset_right = 128.0
-offset_bottom = 70.0
-theme_override_fonts/font = ExtResource("2_son5w")
-theme_override_font_sizes/font_size = 30
-text = "Double Poop Upgrade
-25 Poop"
 
 [node name="Double_poop_count" type="Label" parent="."]
 material = SubResource("CanvasItemMaterial_son5w")
 offset_left = -24.0
-offset_top = 88.0
+offset_top = 112.0
 offset_right = 24.0
-offset_bottom = 111.0
+offset_bottom = 138.0
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("2_son5w")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 32
 text = "0/3"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -68,6 +68,31 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="upgrade_button" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_gfds2")
+offset_left = -128.0
+offset_right = -64.0
+offset_bottom = 24.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("4_6mq46")
+texture_pressed = ExtResource("5_smyti")
+texture_hover = ExtResource("6_xhvaq")
+
+[node name="Double_Poop_Label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_ahrgo")
+offset_left = -144.0
+offset_right = 144.0
+offset_bottom = 80.0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_son5w")
+theme_override_font_sizes/font_size = 34
+text = "Double Poop Upgrade
+25 Poop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="upgrade_button" to="." method="_on_upgrade_button_button_down"]
+[connection signal="button_up" from="upgrade_button" to="." method="_on_upgrade_button_button_up"]
 [connection signal="mouse_entered" from="upgrade_button" to="." method="_on_upgrade_button_mouse_entered"]
 [connection signal="mouse_exited" from="upgrade_button" to="." method="_on_upgrade_button_mouse_exited"]
 [connection signal="pressed" from="upgrade_button" to="." method="_on_upgrade_button_pressed"]

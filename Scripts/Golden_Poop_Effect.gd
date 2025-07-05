@@ -11,7 +11,7 @@ func _ready():
 	max_speed_achievement_unlocked.connect(get_parent().get_parent().get_parent().get_node("Achievements_Screen")._max_speed_achievement_unlocked.bind())
 	get_parent().get_node("Guinea_Pig").movespeed = randf_range(5,10)
 	music_start.emit()
-	if (Globals.kings_coronation_active == true) and (self == instance_from_id(Globals.guinea_dictionary["Calix"])) and (Globals.squeek_frenzy_effect_active == true) and (Globals.poop_frenzy_achievement_completed == false):
+	if (Globals.kings_coronation_active == true) and (Globals.gold_poop_pig == instance_from_id(Globals.guinea_dictionary["Calix"])) and (Globals.squeek_frenzy_effect_active == true) and (Globals.poop_frenzy_achievement_completed == false):
 		max_speed_achievement_unlocked.emit()
 		Globals.poop_frenzy_achievement_completed = true
 	print("start gold effect")

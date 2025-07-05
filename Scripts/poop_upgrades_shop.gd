@@ -88,43 +88,52 @@ func _update_poop_upgrades():
 	
 func _load_poop_upgrades():
 	await get_tree().create_timer(.5).timeout
-	Globals.upgrade_dictionary["Bella"] = [upgrade_row.get_instance_id(), Globals.upgrade_dictionary["Bella"][1], Globals.upgrade_dictionary["Bella"][2], Globals.upgrade_dictionary["Bella"][3], Globals.upgrade_dictionary["Bella"][4]]
-	update_bella.emit()
-	for guinea_pig_ordered in Globals.guinea_purchase_order:
-		for guinea_pig_dict in Globals.guinea_dictionary:
-			if guinea_pig_ordered == guinea_pig_dict:
-				pig_instance = instance_from_id(Globals.guinea_dictionary[guinea_pig_dict])
-				var loaded_upgrade_row_location = $ScrollContainer/VBoxContainer/ScrollContainer.global_position.y
-				current_pig += 1
-				var loaded_upgrade_row = upgrade_row_assets.instantiate()
-				get_node("ScrollContainer").get_node("VBoxContainer").add_child(loaded_upgrade_row)
-			
-				#Customizing row
-				upgrade_sprite = pig_instance.get_parent().get_node("Guinea_Pig").get_node("Pig_Sprite")
-				loaded_upgrade_row.get_node("HBoxContainer").get_node("Pig_Sprite").texture = upgrade_sprite.texture
-				loaded_upgrade_row.global_position = Vector2(-9149, loaded_upgrade_row_location + (100 * (current_pig - 2)))
+	if FileAccess.file_exists("user://SaveFile.json"):
+		Globals.upgrade_dictionary["Bella"] = [upgrade_row.get_instance_id(), Globals.upgrade_dictionary["Bella"][1], Globals.upgrade_dictionary["Bella"][2], Globals.upgrade_dictionary["Bella"][3], Globals.upgrade_dictionary["Bella"][4]]
+		update_bella.emit()
+		for guinea_pig_ordered in Globals.guinea_purchase_order:
+			for guinea_pig_dict in Globals.guinea_dictionary:
+				if guinea_pig_ordered == guinea_pig_dict:
+					pig_instance = instance_from_id(Globals.guinea_dictionary[guinea_pig_dict])
+					var loaded_upgrade_row_location = $ScrollContainer/VBoxContainer/ScrollContainer.global_position.y
+					current_pig += 1
+					var loaded_upgrade_row = upgrade_row_assets.instantiate()
+					get_node("ScrollContainer").get_node("VBoxContainer").add_child(loaded_upgrade_row)
 				
-				if guinea_pig_dict == "Gizmo":
-					loaded_upgrade_row.get_node("HBoxContainer").get_node("Pig_Sprite").get_node("Guinea_Pig_Name").text = "Gizmo"
-					unique_upgrade = hibernation_assets.instantiate()
-					loaded_upgrade_row.get_node("HBoxContainer").add_child(unique_upgrade)
-					unique_upgrade.global_position = loaded_upgrade_row.get_node("HBoxContainer").get_node("Unique_upgrade_placeholder").global_position
-					Globals.upgrade_dictionary["Gizmo"][0] = loaded_upgrade_row.get_instance_id()
-				if guinea_pig_dict == "Pennybags":
-					loaded_upgrade_row.get_node("HBoxContainer").get_node("Pig_Sprite").get_node("Guinea_Pig_Name").text = "Pennybags"
-					unique_upgrade = copper_poop_assets.instantiate()
-					loaded_upgrade_row.get_node("HBoxContainer").add_child(unique_upgrade)
-					unique_upgrade.global_position = loaded_upgrade_row.get_node("HBoxContainer").get_node("Unique_upgrade_placeholder").global_position
-					Globals.upgrade_dictionary["Pennybags"][0] = loaded_upgrade_row.get_instance_id()
-				if guinea_pig_dict == "Chroma":
-					loaded_upgrade_row.get_node("HBoxContainer").get_node("Pig_Sprite").get_node("Guinea_Pig_Name").text = "Chroma"
-					unique_upgrade = rain_or_shine_assets.instantiate()
-					loaded_upgrade_row.get_node("HBoxContainer").add_child(unique_upgrade)
-					unique_upgrade.global_position = loaded_upgrade_row.get_node("HBoxContainer").get_node("Unique_upgrade_placeholder").global_position
-					Globals.upgrade_dictionary["Chroma"][0] = loaded_upgrade_row.get_instance_id()
-				if guinea_pig_dict == "Calix":
-					loaded_upgrade_row.get_node("HBoxContainer").get_node("Pig_Sprite").get_node("Guinea_Pig_Name").text = "King Calix"
-					unique_upgrade = kings_coronation_assets.instantiate()
-					loaded_upgrade_row.get_node("HBoxContainer").add_child(unique_upgrade)
-					unique_upgrade.global_position = loaded_upgrade_row.get_node("HBoxContainer").get_node("Unique_upgrade_placeholder").global_position
-					Globals.upgrade_dictionary["Calix"][0] = loaded_upgrade_row.get_instance_id()
+					#Customizing row
+					upgrade_sprite = pig_instance.get_parent().get_node("Guinea_Pig").get_node("Pig_Sprite")
+					loaded_upgrade_row.get_node("HBoxContainer").get_node("Pig_Sprite").texture = upgrade_sprite.texture
+					loaded_upgrade_row.global_position = Vector2(-9149, loaded_upgrade_row_location + (100 * (current_pig - 2)))
+					
+					if guinea_pig_dict == "Gizmo":
+						loaded_upgrade_row.get_node("HBoxContainer").get_node("Pig_Sprite").get_node("Guinea_Pig_Name").text = "Gizmo"
+						unique_upgrade = hibernation_assets.instantiate()
+						loaded_upgrade_row.get_node("HBoxContainer").add_child(unique_upgrade)
+						unique_upgrade.global_position = loaded_upgrade_row.get_node("HBoxContainer").get_node("Unique_upgrade_placeholder").global_position
+						Globals.upgrade_dictionary["Gizmo"][0] = loaded_upgrade_row.get_instance_id()
+					if guinea_pig_dict == "Pennybags":
+						loaded_upgrade_row.get_node("HBoxContainer").get_node("Pig_Sprite").get_node("Guinea_Pig_Name").text = "Pennybags"
+						unique_upgrade = copper_poop_assets.instantiate()
+						loaded_upgrade_row.get_node("HBoxContainer").add_child(unique_upgrade)
+						unique_upgrade.global_position = loaded_upgrade_row.get_node("HBoxContainer").get_node("Unique_upgrade_placeholder").global_position
+						Globals.upgrade_dictionary["Pennybags"][0] = loaded_upgrade_row.get_instance_id()
+					if guinea_pig_dict == "Chroma":
+						loaded_upgrade_row.get_node("HBoxContainer").get_node("Pig_Sprite").get_node("Guinea_Pig_Name").text = "Chroma"
+						unique_upgrade = rain_or_shine_assets.instantiate()
+						loaded_upgrade_row.get_node("HBoxContainer").add_child(unique_upgrade)
+						unique_upgrade.global_position = loaded_upgrade_row.get_node("HBoxContainer").get_node("Unique_upgrade_placeholder").global_position
+						Globals.upgrade_dictionary["Chroma"][0] = loaded_upgrade_row.get_instance_id()
+					if guinea_pig_dict == "Calix":
+						loaded_upgrade_row.get_node("HBoxContainer").get_node("Pig_Sprite").get_node("Guinea_Pig_Name").text = "King Calix"
+						unique_upgrade = kings_coronation_assets.instantiate()
+						loaded_upgrade_row.get_node("HBoxContainer").add_child(unique_upgrade)
+						unique_upgrade.global_position = loaded_upgrade_row.get_node("HBoxContainer").get_node("Unique_upgrade_placeholder").global_position
+						Globals.upgrade_dictionary["Calix"][0] = loaded_upgrade_row.get_instance_id()
+
+
+func _on_poop_up_to_shop_button_down() -> void:
+	$Back_Label.position = Vector2(63, 768)
+
+
+func _on_poop_up_to_shop_button_up() -> void:
+	$Back_Label.position = Vector2(63, 762)

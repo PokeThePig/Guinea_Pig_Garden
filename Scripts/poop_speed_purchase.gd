@@ -81,25 +81,25 @@ func _update_bella():
 
 func _update_upgrade_information():
 	if upgrades_left == 4:
-		%upgrade_button.text = "Upgrade Poop Speed \n 50 Poop"
+		%Poop_Speed_Label.text = "Upgrade Poop Speed\n 50 Poop"
 		%Poop_speed_count.text = "1/5"
-		$Poop_speed_description.text = "Increases Poop Speed \n [4s > 3s]"
+		$Poop_speed_description.text = "Increases Poop Speed\n [4s > 3s]"
 	elif upgrades_left == 3:
-		%upgrade_button.text = "Upgrade Poop Speed \n 150 Poop"
+		%Poop_Speed_Label.text = "Upgrade Poop Speed\n 150 Poop"
 		%Poop_speed_count.text = "2/5"
-		$Poop_speed_description.text = "Increases Poop Speed \n [3s > 2s]"
+		$Poop_speed_description.text = "Increases Poop Speed\n [3s > 2s]"
 	elif upgrades_left == 2:
-		%upgrade_button.text = "Upgrade Poop Speed \n 500 Poop"
+		%Poop_Speed_Label.text = "Upgrade Poop Speed\n 500 Poop"
 		%Poop_speed_count.text = "3/5"
-		$Poop_speed_description.text = "Increases Poop Speed \n [2s > 1s]"
+		$Poop_speed_description.text = "Increases Poop Speed\n [2s > 1s]"
 	elif upgrades_left == 1:
-		%upgrade_button.text = "Upgrade Poop Speed \n 1500 Poop"
+		%Poop_Speed_Label.text = "Upgrade Poop Speed\n 1500 Poop"
 		%Poop_speed_count.text = "4/5"
-		$Poop_speed_description.text = "Increases Poop Speed \n [1s > .5s]"
+		$Poop_speed_description.text = "Increases Poop Speed\n [1s > .5s]"
 	elif upgrades_left == 0:
-		%upgrade_button.text = "MAXED"
+		%Poop_Speed_Label.text = "MAXED"
 		%Poop_speed_count.text = "5/5"
-		$Poop_speed_description.text = "Increases Poop Speed \n [.5s]"
+		$Poop_speed_description.text = "Increases Poop Speed\n [.5s]"
 
 
 func _update_upgrade_dictionary():
@@ -119,3 +119,11 @@ func _on_upgrade_button_mouse_entered():
 
 func _on_upgrade_button_mouse_exited():
 	$Poop_speed_description.visible = false
+
+
+func _on_upgrade_button_button_down() -> void:
+	$Poop_Speed_Label.position = Vector2(-144, 8)
+
+
+func _on_upgrade_button_button_up() -> void:
+	$Poop_Speed_Label.position = Vector2(-144, 0)

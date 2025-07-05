@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bf3kwvm23v2dn"]
+[gd_scene load_steps=6 format=3 uid="uid://cc44lpqaqm0pl"]
 
 [ext_resource type="Script" uid="uid://50fio7a5xv7t" path="res://Scripts/King_Poop_Purchase.gd" id="1_26cjr"]
 [ext_resource type="Texture2D" uid="uid://xqntcestvn62" path="res://Sprites/Currently Used/King Poop-Sheet.png" id="2_8lj78"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8irhb30q5tn8"]
+[gd_scene load_steps=10 format=3 uid="uid://b8irhb30q5tn8"]
 
 [ext_resource type="Texture2D" uid="uid://b6ru5f62s8wxr" path="res://Sprites/icon.svg" id="1_6cpue"]
 [ext_resource type="Texture2D" uid="uid://ogq2ximy5fhw" path="res://Sprites/Currently Used/Template2.0-Sheet.png" id="2_nbc55"]
@@ -7,14 +7,20 @@
 [ext_resource type="PackedScene" uid="uid://c4607w7esjfvi" path="res://Scenes/Shop/double_poop_drop_purchase.tscn" id="4_wk0u5"]
 [ext_resource type="PackedScene" uid="uid://p1vyxvstb614" path="res://Scenes/Shop/giant_poop_upgrade.tscn" id="5_a0akx"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_i8ra0"]
+light_mode = 1
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xnffj"]
 light_mode = 1
 
 [sub_resource type="Theme" id="Theme_5ayhv"]
 
 [node name="ScrollContainer" type="ScrollContainer" groups=["Scroll"]]
+material = SubResource("CanvasItemMaterial_i8ra0")
 custom_minimum_size = Vector2(1500, 370)
 layout_direction = 2
+offset_right = 1500.0
+offset_bottom = 370.0
 size_flags_horizontal = 0
 size_flags_vertical = 2
 mouse_filter = 2
@@ -36,12 +42,12 @@ theme = SubResource("Theme_5ayhv")
 [node name="Unique_upgrade_placeholder" type="Sprite2D" parent="HBoxContainer"]
 visible = false
 material = SubResource("CanvasItemMaterial_xnffj")
-position = Vector2(1741, 220)
+position = Vector2(1744, 206)
 texture = ExtResource("1_6cpue")
 
 [node name="Pig_Sprite" type="Sprite2D" parent="HBoxContainer"]
 material = SubResource("CanvasItemMaterial_xnffj")
-position = Vector2(185, 170)
+position = Vector2(184, 149)
 scale = Vector2(6, 6.444)
 texture = ExtResource("2_nbc55")
 hframes = 2
@@ -64,15 +70,16 @@ theme_override_font_sizes/font_size = 150
 text = "Guinea Pig"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Poop_Speed_Purchase" parent="HBoxContainer" instance=ExtResource("3_5i0tq")]
 material = SubResource("CanvasItemMaterial_xnffj")
-position = Vector2(520, 220)
+position = Vector2(520, 206)
 
 [node name="Double_poop_drop_purchase" parent="HBoxContainer" instance=ExtResource("4_wk0u5")]
 material = SubResource("CanvasItemMaterial_xnffj")
-position = Vector2(928, 220)
+position = Vector2(928, 206)
 
 [node name="giant_poop_upgrade" parent="HBoxContainer" instance=ExtResource("5_a0akx")]
 material = SubResource("CanvasItemMaterial_xnffj")
-position = Vector2(1344, 220)
+position = Vector2(1344, 206)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://btb1pslcs8m6q"]
+[gd_scene load_steps=18 format=3 uid="uid://btb1pslcs8m6q"]
 
 [ext_resource type="Script" uid="uid://clru2yukjf1w2" path="res://Scripts/shop_scene.gd" id="1_8evvr"]
 [ext_resource type="Script" uid="uid://7honbovjb6op" path="res://Scripts/main_shop_camera.gd" id="2_d1qrc"]
@@ -8,8 +8,20 @@
 [ext_resource type="Script" uid="uid://clthccpvplkij" path="res://Scripts/Shop_diamond_poop_count.gd" id="4_la6m1"]
 [ext_resource type="Script" uid="uid://bissaklxbm2fl" path="res://Scripts/Shop_prismatic_poop_count.gd" id="5_hths7"]
 [ext_resource type="AudioStream" uid="uid://bufxqd7jydxy4" path="res://Sounds/Sounds Effects/purchase_sound - Made with Clipchamp.wav" id="7_0ri4a"]
+[ext_resource type="Texture2D" uid="uid://dr6d35t605qdo" path="res://Sprites/Currently Used/Gray-Button.png" id="8_1mixf"]
+[ext_resource type="Texture2D" uid="uid://bxaae57tfrutw" path="res://Sprites/Currently Used/Cancel-Button.png" id="8_k42t3"]
+[ext_resource type="Texture2D" uid="uid://byq4lad2t8hyh" path="res://Sprites/Currently Used/Gray-Pressed.png" id="9_assh8"]
+[ext_resource type="Texture2D" uid="uid://bfphuooi3e1ec" path="res://Sprites/Currently Used/Cancel-Pressed.png" id="9_meu8n"]
+[ext_resource type="Texture2D" uid="uid://cvaxlbdujr8jr" path="res://Sprites/Currently Used/Cancel-Hover.png" id="10_iqum0"]
+[ext_resource type="Texture2D" uid="uid://cgts2eu7b1vvi" path="res://Sprites/Currently Used/Gray-Hover.png" id="10_rxxb5"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r37aj"]
+light_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ry10u"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1mixf"]
 light_mode = 1
 
 [node name="Shop_Scene" type="Node2D"]
@@ -19,6 +31,14 @@ script = ExtResource("1_8evvr")
 position = Vector2(801, 454)
 script = ExtResource("2_d1qrc")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+material = SubResource("CanvasItemMaterial_r37aj")
+offset_right = 1602.0
+offset_bottom = 904.0
+mouse_filter = 2
+color = Color(0.72549, 0.847059, 0.866667, 1)
+
 [node name="Shop_poop_count" type="Label" parent="."]
 material = SubResource("CanvasItemMaterial_ry10u")
 offset_left = 640.0
@@ -26,8 +46,8 @@ offset_top = 616.0
 offset_right = 960.0
 offset_bottom = 787.0
 theme_override_colors/font_color = Color(0.898039, 0.662745, 0.47451, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
+theme_override_colors/font_outline_color = Color(0.457733, 0.288521, 0.144144, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_ry10u")
 theme_override_font_sizes/font_size = 80
 text = "Poop Count:"
@@ -42,8 +62,8 @@ offset_top = 696.0
 offset_right = 1066.0
 offset_bottom = 867.0
 theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
+theme_override_colors/font_outline_color = Color(0.00289405, 0.000251194, 0.539556, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_ry10u")
 theme_override_font_sizes/font_size = 80
 text = "Diamond Poop Count:"
@@ -58,8 +78,8 @@ offset_top = 776.0
 offset_right = 1080.0
 offset_bottom = 947.0
 theme_override_colors/font_color = Color(0.941176, 0.411765, 0.698039, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
+theme_override_colors/font_outline_color = Color(0.668159, 0.11522, 0.454089, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_ry10u")
 theme_override_font_sizes/font_size = 80
 text = "Prismatic Poop Count:"
@@ -84,7 +104,8 @@ material = SubResource("CanvasItemMaterial_ry10u")
 offset_top = 45.0
 offset_right = 1602.0
 offset_bottom = 303.0
-theme_override_colors/font_outline_color = Color(0.00184107, 0.00184107, 0.00184107, 1)
+theme_override_colors/font_color = Color(0.567622, 0.708996, 1, 1)
+theme_override_colors/font_outline_color = Color(0.000287882, 0.0716418, 0.347075, 1)
 theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("3_ry10u")
 theme_override_font_sizes/font_size = 175
@@ -93,55 +114,113 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Back_to_garden" type="Button" parent="."]
-material = SubResource("CanvasItemMaterial_ry10u")
-offset_left = 44.0
-offset_top = 823.0
-offset_right = 220.0
-offset_bottom = 871.0
-theme_override_fonts/font = ExtResource("3_ry10u")
-theme_override_font_sizes/font_size = 30
-text = "Garden"
-metadata/_edit_use_anchors_ = true
+[node name="Back_to_garden" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_1mixf")
+offset_left = 64.0
+offset_top = 768.0
+offset_right = 128.0
+offset_bottom = 792.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("8_1mixf")
+texture_pressed = ExtResource("9_assh8")
+texture_hover = ExtResource("10_rxxb5")
 
-[node name="Go_poop_upgrades" type="Button" parent="."]
-material = SubResource("CanvasItemMaterial_ry10u")
-offset_left = 248.0
-offset_top = 472.0
-offset_right = 520.0
-offset_bottom = 552.0
+[node name="Back_Label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_1mixf")
+offset_left = 64.0
+offset_top = 768.0
+offset_right = 256.0
+offset_bottom = 824.0
+theme_override_fonts/font = ExtResource("3_ry10u")
+theme_override_font_sizes/font_size = 48
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Go_poop_upgrades" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_1mixf")
+offset_left = 264.0
+offset_top = 464.0
+offset_right = 312.0
+offset_bottom = 482.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("8_k42t3")
+texture_pressed = ExtResource("9_meu8n")
+texture_hover = ExtResource("10_iqum0")
+
+[node name="Poop_Upgrades_Label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_1mixf")
+offset_left = 264.0
+offset_top = 464.0
+offset_right = 504.0
+offset_bottom = 528.0
 theme_override_fonts/font = ExtResource("3_ry10u")
 theme_override_font_sizes/font_size = 40
 text = "Poop Upgrades"
-metadata/_edit_use_anchors_ = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Go_poop_types" type="Button" parent="."]
-material = SubResource("CanvasItemMaterial_ry10u")
-offset_left = 664.0
-offset_top = 472.0
-offset_right = 936.0
-offset_bottom = 552.0
+[node name="Go_poop_types" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_1mixf")
+offset_left = 680.0
+offset_top = 464.0
+offset_right = 728.0
+offset_bottom = 482.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("8_k42t3")
+texture_pressed = ExtResource("9_meu8n")
+texture_hover = ExtResource("10_iqum0")
+
+[node name="Poop_Types_Label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_1mixf")
+offset_left = 680.0
+offset_top = 464.0
+offset_right = 920.0
+offset_bottom = 528.0
 theme_override_fonts/font = ExtResource("3_ry10u")
 theme_override_font_sizes/font_size = 40
 text = "Poop Types"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Go_guinea_shop" type="Button" parent="."]
-material = SubResource("CanvasItemMaterial_ry10u")
-offset_left = 1080.0
-offset_top = 472.0
-offset_right = 1352.0
-offset_bottom = 552.0
+[node name="Go_guinea_shop" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_1mixf")
+offset_left = 1096.0
+offset_top = 464.0
+offset_right = 1144.0
+offset_bottom = 482.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("8_k42t3")
+texture_pressed = ExtResource("9_meu8n")
+texture_hover = ExtResource("10_iqum0")
+
+[node name="Guinea_Pigs_Label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_1mixf")
+offset_left = 1096.0
+offset_top = 464.0
+offset_right = 1336.0
+offset_bottom = 528.0
 theme_override_fonts/font = ExtResource("3_ry10u")
 theme_override_font_sizes/font_size = 40
 text = "Guinea Pigs"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Purchase_sound_effect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_0ri4a")
 volume_db = -5.0
 bus = &"sfx"
 
+[connection signal="button_down" from="Back_to_garden" to="." method="_on_back_to_garden_button_down"]
+[connection signal="button_up" from="Back_to_garden" to="." method="_on_back_to_garden_button_up"]
 [connection signal="pressed" from="Back_to_garden" to="." method="_on_back_to_garden_pressed"]
 [connection signal="pressed" from="Back_to_garden" to="." method="_on_button_pressed"]
+[connection signal="button_down" from="Go_poop_upgrades" to="." method="_on_go_poop_upgrades_button_down"]
+[connection signal="button_up" from="Go_poop_upgrades" to="." method="_on_go_poop_upgrades_button_up"]
 [connection signal="pressed" from="Go_poop_upgrades" to="." method="_on_go_poop_upgrades_pressed"]
+[connection signal="button_down" from="Go_poop_types" to="." method="_on_go_poop_types_button_down"]
+[connection signal="button_up" from="Go_poop_types" to="." method="_on_go_poop_types_button_up"]
 [connection signal="pressed" from="Go_poop_types" to="." method="_on_go_poop_types_pressed"]
+[connection signal="button_down" from="Go_guinea_shop" to="." method="_on_go_guinea_shop_button_down"]
+[connection signal="button_up" from="Go_guinea_shop" to="." method="_on_go_guinea_shop_button_up"]
 [connection signal="pressed" from="Go_guinea_shop" to="." method="_on_go_guinea_shop_pressed"]

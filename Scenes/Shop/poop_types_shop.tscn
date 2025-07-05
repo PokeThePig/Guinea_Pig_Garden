@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cegv87gpx1qd7"]
+[gd_scene load_steps=16 format=3 uid="uid://cegv87gpx1qd7"]
 
 [ext_resource type="PackedScene" uid="uid://bmfvrbim5mj2j" path="res://Scenes/Shop/diamond_poop_purchase.tscn" id="1_2hldy"]
 [ext_resource type="Script" uid="uid://be0h6vjhsma28" path="res://Scripts/poop_types_shop.gd" id="1_8114l"]
@@ -9,21 +9,39 @@
 [ext_resource type="Script" uid="uid://ctao8wcybfj67" path="res://Scripts/Shop_poop_count.gd" id="5_v7bpa"]
 [ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="6_bfkqc"]
 [ext_resource type="Script" uid="uid://clthccpvplkij" path="res://Scripts/Shop_diamond_poop_count.gd" id="6_edp2k"]
+[ext_resource type="Texture2D" uid="uid://dr6d35t605qdo" path="res://Sprites/Currently Used/Gray-Button.png" id="10_41myy"]
+[ext_resource type="Texture2D" uid="uid://byq4lad2t8hyh" path="res://Sprites/Currently Used/Gray-Pressed.png" id="11_87odf"]
+[ext_resource type="Texture2D" uid="uid://cgts2eu7b1vvi" path="res://Sprites/Currently Used/Gray-Hover.png" id="12_vhobi"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wo70v"]
+light_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bfkqc"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7i6d5"]
 light_mode = 1
 
 [node name="poop_types_shop" type="Node2D"]
 script = ExtResource("1_8114l")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+material = SubResource("CanvasItemMaterial_wo70v")
+offset_right = 1602.0
+offset_bottom = 904.0
+mouse_filter = 2
+color = Color(0.912907, 0.897675, 0.76823, 1)
+
 [node name="Diamond_Poop_Purchase" parent="." instance=ExtResource("1_2hldy")]
-position = Vector2(800, 552)
+position = Vector2(800, 480)
 
 [node name="Prismatic_Poop_Purchase" parent="." instance=ExtResource("5_pcujp")]
-position = Vector2(1216, 440)
+position = Vector2(1216, 416)
 
 [node name="giant_poop_purchase" parent="." instance=ExtResource("4_5ckjv")]
-position = Vector2(384, 504)
+position = Vector2(384, 480)
+scale = Vector2(1, 1)
 
 [node name="poop_types_camera" type="Camera2D" parent="."]
 material = SubResource("CanvasItemMaterial_bfkqc")
@@ -32,27 +50,17 @@ script = ExtResource("2_1haka")
 
 [node name="Poop_Types_title" type="Label" parent="."]
 material = SubResource("CanvasItemMaterial_bfkqc")
-offset_top = 48.0
+offset_top = 24.0
 offset_right = 1602.0
-offset_bottom = 306.0
-theme_override_colors/font_outline_color = Color(0.00184107, 0.00184107, 0.00184107, 1)
+offset_bottom = 282.0
+theme_override_colors/font_color = Color(0.898039, 0.662745, 0.529412, 1)
+theme_override_colors/font_outline_color = Color(0.604659, 0.368841, 0.227717, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("6_bfkqc")
 theme_override_font_sizes/font_size = 200
 text = "Poop Types"
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Poop_Types_to_shop" type="Button" parent="."]
-material = SubResource("CanvasItemMaterial_bfkqc")
-offset_left = 44.0
-offset_top = 823.0
-offset_right = 220.0
-offset_bottom = 871.0
-theme_override_fonts/font = ExtResource("6_bfkqc")
-theme_override_font_sizes/font_size = 25
-text = "Guinea Gadget Gallery"
 metadata/_edit_use_anchors_ = true
 
 [node name="Poop_Type_Count" type="Label" parent="."]
@@ -62,8 +70,8 @@ offset_top = 616.0
 offset_right = 960.0
 offset_bottom = 787.0
 theme_override_colors/font_color = Color(0.898039, 0.662745, 0.47451, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
+theme_override_colors/font_outline_color = Color(0.458824, 0.290196, 0.145098, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("6_bfkqc")
 theme_override_font_sizes/font_size = 80
 text = "Poop Count:"
@@ -78,8 +86,8 @@ offset_top = 696.0
 offset_right = 1066.0
 offset_bottom = 867.0
 theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
+theme_override_colors/font_outline_color = Color(0.00392157, 0, 0.541176, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("6_bfkqc")
 theme_override_font_sizes/font_size = 80
 text = "Diamond Poop Count:"
@@ -94,8 +102,8 @@ offset_top = 776.0
 offset_right = 1080.0
 offset_bottom = 947.0
 theme_override_colors/font_color = Color(0.941176, 0.411765, 0.698039, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
+theme_override_colors/font_outline_color = Color(0.666667, 0.113725, 0.454902, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("6_bfkqc")
 theme_override_font_sizes/font_size = 80
 text = "Prismatic Poop Count:"
@@ -103,4 +111,29 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_o80i2")
 
-[connection signal="pressed" from="Poop_Types_to_shop" to="." method="_on_poop_types_to_shop_pressed"]
+[node name="Poop_Types_To_Shop" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_7i6d5")
+offset_left = 64.0
+offset_top = 768.0
+offset_right = 128.0
+offset_bottom = 792.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("10_41myy")
+texture_pressed = ExtResource("11_87odf")
+texture_hover = ExtResource("12_vhobi")
+
+[node name="Back_Label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_7i6d5")
+offset_left = 64.0
+offset_top = 768.0
+offset_right = 256.0
+offset_bottom = 824.0
+theme_override_fonts/font = ExtResource("6_bfkqc")
+theme_override_font_sizes/font_size = 48
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="Poop_Types_To_Shop" to="." method="_on_poop_types_to_shop_button_down"]
+[connection signal="button_up" from="Poop_Types_To_Shop" to="." method="_on_poop_types_to_shop_button_up"]
+[connection signal="pressed" from="Poop_Types_To_Shop" to="." method="_on_poop_types_to_shop_pressed"]

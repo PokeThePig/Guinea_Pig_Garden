@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1h7px7v0u5pv"]
+[gd_scene load_steps=10 format=3 uid="uid://d1h7px7v0u5pv"]
 
 [ext_resource type="Script" uid="uid://bstcbvv0dxq83" path="res://Scripts/achievements_screen.gd" id="1_s0ibc"]
 [ext_resource type="Script" uid="uid://bi28jlontj7ct" path="res://Scripts/achievements_cam.gd" id="2_t4s5p"]
@@ -7,9 +7,15 @@
 [ext_resource type="Script" uid="uid://dlrbhv5xn6jkv" path="res://Scripts/Achievement_Ace.gd" id="4_goaad"]
 [ext_resource type="Texture2D" uid="uid://4rdid6eibw8w" path="res://Sprites/Currently Used/Gold_Pig-Menu-Sheet.png" id="5_u2l8m"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_odpfo"]
+light_mode = 1
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cqmuy"]
 radius = 169.812
 height = 590.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0j72i"]
+light_mode = 1
 
 [node name="Achievements Screen" type="Node2D"]
 script = ExtResource("1_s0ibc")
@@ -19,6 +25,7 @@ position = Vector2(801, 454)
 script = ExtResource("2_t4s5p")
 
 [node name="Gold Rush" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_odpfo")
 offset_left = 192.0
 offset_top = 32.0
 offset_right = 448.0
@@ -31,6 +38,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="Gold Rush"]
+material = SubResource("CanvasItemMaterial_odpfo")
 layout_mode = 0
 offset_left = 32.0
 offset_top = 64.0
@@ -43,12 +51,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Gold Rush"]
+material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(128, 144)
 scale = Vector2(4, 4)
 texture = ExtResource("3_6o2va")
 hframes = 2
 
 [node name="Diamond Digger" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_odpfo")
 offset_left = 664.0
 offset_top = 32.0
 offset_right = 936.0
@@ -61,6 +71,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="Diamond Digger"]
+material = SubResource("CanvasItemMaterial_odpfo")
 layout_mode = 0
 offset_left = 24.0
 offset_top = 64.0
@@ -73,12 +84,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Diamond Digger"]
+material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(136, 144)
 scale = Vector2(4, 4)
 texture = ExtResource("3_6o2va")
 hframes = 2
 
 [node name="Taste the Rainbow" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_odpfo")
 offset_left = 1120.0
 offset_top = 32.0
 offset_right = 1440.0
@@ -91,6 +104,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="Taste the Rainbow"]
+material = SubResource("CanvasItemMaterial_odpfo")
 layout_mode = 0
 offset_left = -8.0
 offset_top = 64.0
@@ -103,12 +117,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Taste the Rainbow"]
+material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(160, 144)
 scale = Vector2(4, 4)
 texture = ExtResource("3_6o2va")
 hframes = 2
 
 [node name="Colossal Crusher" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_odpfo")
 offset_left = 176.0
 offset_top = 256.0
 offset_right = 464.0
@@ -121,6 +137,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="Colossal Crusher"]
+material = SubResource("CanvasItemMaterial_odpfo")
 layout_mode = 0
 offset_left = 24.0
 offset_top = 64.0
@@ -133,12 +150,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Colossal Crusher"]
+material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(144, 144)
 scale = Vector2(4, 4)
 texture = ExtResource("3_6o2va")
 hframes = 2
 
 [node name="Poop Frenzy" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_odpfo")
 offset_left = 672.0
 offset_top = 256.0
 offset_right = 928.0
@@ -151,6 +170,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="Poop Frenzy"]
+material = SubResource("CanvasItemMaterial_odpfo")
 layout_mode = 0
 offset_left = -16.0
 offset_top = 64.0
@@ -163,12 +183,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Poop Frenzy"]
+material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(128, 144)
 scale = Vector2(4, 4)
 texture = ExtResource("3_6o2va")
 hframes = 2
 
 [node name="Full House" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_odpfo")
 offset_left = 1152.0
 offset_top = 256.0
 offset_right = 1408.0
@@ -181,6 +203,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="Full House"]
+material = SubResource("CanvasItemMaterial_odpfo")
 layout_mode = 0
 offset_left = 24.0
 offset_top = 64.0
@@ -193,12 +216,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Full House"]
+material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(128, 144)
 scale = Vector2(4, 4)
 texture = ExtResource("3_6o2va")
 hframes = 2
 
 [node name="Disco Party" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_odpfo")
 offset_left = 192.0
 offset_top = 480.0
 offset_right = 448.0
@@ -211,6 +236,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="Disco Party"]
+material = SubResource("CanvasItemMaterial_odpfo")
 layout_mode = 0
 offset_left = 32.0
 offset_top = 64.0
@@ -223,12 +249,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Disco Party"]
+material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(128, 144)
 scale = Vector2(4, 4)
 texture = ExtResource("3_6o2va")
 hframes = 2
 
 [node name="Manure Millionare" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_odpfo")
 offset_left = 640.0
 offset_top = 472.0
 offset_right = 958.0
@@ -241,6 +269,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="Manure Millionare"]
+material = SubResource("CanvasItemMaterial_odpfo")
 layout_mode = 0
 offset_left = 32.0
 offset_top = 64.0
@@ -253,12 +282,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Manure Millionare"]
+material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(160, 152)
 scale = Vector2(4, 4)
 texture = ExtResource("3_6o2va")
 hframes = 2
 
 [node name="Petting Profeshional" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_odpfo")
 offset_left = 1112.0
 offset_top = 480.0
 offset_right = 1450.0
@@ -271,6 +302,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="Petting Profeshional"]
+material = SubResource("CanvasItemMaterial_odpfo")
 layout_mode = 0
 offset_left = 64.0
 offset_top = 64.0
@@ -283,29 +315,34 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Petting Profeshional"]
+material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(168, 144)
 scale = Vector2(4, 4)
 texture = ExtResource("3_6o2va")
 hframes = 2
 
 [node name="Achievement_Ace" type="CharacterBody2D" parent="."]
+material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(656, 696)
 input_pickable = true
 script = ExtResource("4_goaad")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Achievement_Ace"]
+material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(145, 144)
 rotation = 1.5708
 scale = Vector2(0.212, 0.2)
 shape = SubResource("CapsuleShape2D_cqmuy")
 
 [node name="Sprite2D" type="Sprite2D" parent="Achievement_Ace"]
+material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(144, 144)
 scale = Vector2(4, 4)
 texture = ExtResource("5_u2l8m")
 hframes = 2
 
 [node name="Label" type="Label" parent="Achievement_Ace"]
+material = SubResource("CanvasItemMaterial_odpfo")
 offset_left = 24.0
 offset_top = 64.0
 offset_right = 264.0
@@ -317,6 +354,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Achievement Ace" type="Label" parent="Achievement_Ace"]
+material = SubResource("CanvasItemMaterial_odpfo")
 offset_right = 289.0
 offset_bottom = 64.0
 theme_override_constants/outline_size = 0
@@ -327,12 +365,21 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Back_to_garden" type="Button" parent="."]
+material = SubResource("CanvasItemMaterial_odpfo")
 offset_left = 44.0
 offset_top = 823.0
 offset_right = 220.0
 offset_bottom = 871.0
 text = "Garden"
 metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+material = SubResource("CanvasItemMaterial_0j72i")
+offset_right = 1608.0
+offset_bottom = 904.0
+mouse_filter = 2
+color = Color(0.43134, 0.43134, 0.43134, 1)
 
 [connection signal="mouse_entered" from="Achievement_Ace" to="Achievement_Ace" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Achievement_Ace" to="Achievement_Ace" method="_on_mouse_exited"]

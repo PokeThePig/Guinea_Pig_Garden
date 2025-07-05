@@ -18,6 +18,7 @@ var gold_started = false
 var king_started = false
 
 func _ready():
+	await get_tree().create_timer(.6).timeout
 	_song_randomizer()
 
 		

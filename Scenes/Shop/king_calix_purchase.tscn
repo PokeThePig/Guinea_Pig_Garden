@@ -1,34 +1,55 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8ys2c1rd83bh"]
+[gd_scene load_steps=9 format=3 uid="uid://b8ys2c1rd83bh"]
 
 [ext_resource type="Script" uid="uid://dnoaupffphrvj" path="res://Scripts/king_calix_purchase.gd" id="1_w7ycg"]
 [ext_resource type="Texture2D" uid="uid://y1b7rokrfxd3" path="res://Sprites/Currently Used/KingCalix2.0-Sheet.png" id="2_5vq0v"]
 [ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="2_y7qyv"]
+[ext_resource type="Texture2D" uid="uid://2d5q3hryfya8" path="res://Sprites/Currently Used/Big-Purchase-Button.png" id="3_ixfr6"]
+[ext_resource type="Texture2D" uid="uid://88vc0343ovqn" path="res://Sprites/Currently Used/Big-Purchase-Pressed.png" id="4_yn1y2"]
+[ext_resource type="Texture2D" uid="uid://ditcbqcwvm4qc" path="res://Sprites/Currently Used/Big-Purchase-Hover.png" id="5_uol4e"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y7qyv"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ixfr6"]
 light_mode = 1
 
 [node name="king_calix_purchase" type="Node2D"]
 script = ExtResource("1_w7ycg")
 
-[node name="Button" type="Button" parent="."]
-material = SubResource("CanvasItemMaterial_y7qyv")
-offset_left = -112.0
-offset_top = 80.0
-offset_right = 112.0
-offset_bottom = 152.0
-theme_override_fonts/font = ExtResource("2_y7qyv")
-theme_override_font_sizes/font_size = 30
-text = "Buy King Calix
-50000 Poop
-5 Diamond Poop
-500 Prismatic Poop"
-metadata/_edit_use_anchors_ = true
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_y7qyv")
+position = Vector2(0, -80)
 scale = Vector2(5, 5)
 texture = ExtResource("2_5vq0v")
 hframes = 2
 frame = 1
 
+[node name="Button" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_ixfr6")
+offset_left = -128.0
+offset_right = -64.0
+offset_bottom = 36.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("3_ixfr6")
+texture_pressed = ExtResource("4_yn1y2")
+texture_hover = ExtResource("5_uol4e")
+
+[node name="Calix_Label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_ixfr6")
+offset_left = -160.0
+offset_right = 160.0
+offset_bottom = 120.0
+theme_override_constants/line_spacing = 0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_y7qyv")
+theme_override_font_sizes/font_size = 36
+text = "Buy King Calix
+50000 Poop
+5 Diamond Poop
+500 Prismatic Poop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
