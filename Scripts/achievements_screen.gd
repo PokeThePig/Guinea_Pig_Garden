@@ -103,3 +103,11 @@ func _load_achievements():
 	if Globals.petting_professional_achievement_completed:
 		_thousand_pets_achievement_unlocked()
 	check_if_all_complete()
+
+
+func _on_back_to_garden_button_down() -> void:
+	$Back_Label.position = Vector2(64, 776)
+
+
+func _on_back_to_garden_button_up() -> void:
+	$Back_Label.position = Vector2(64, 768)

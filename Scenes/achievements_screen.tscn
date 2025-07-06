@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1h7px7v0u5pv"]
+[gd_scene load_steps=14 format=3 uid="uid://d1h7px7v0u5pv"]
 
 [ext_resource type="Script" uid="uid://bstcbvv0dxq83" path="res://Scripts/achievements_screen.gd" id="1_s0ibc"]
 [ext_resource type="Script" uid="uid://bi28jlontj7ct" path="res://Scripts/achievements_cam.gd" id="2_t4s5p"]
@@ -6,6 +6,9 @@
 [ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="3_odpfo"]
 [ext_resource type="Script" uid="uid://dlrbhv5xn6jkv" path="res://Scripts/Achievement_Ace.gd" id="4_goaad"]
 [ext_resource type="Texture2D" uid="uid://4rdid6eibw8w" path="res://Sprites/Currently Used/Gold_Pig-Menu-Sheet.png" id="5_u2l8m"]
+[ext_resource type="Texture2D" uid="uid://dr6d35t605qdo" path="res://Sprites/Currently Used/Gray-Button.png" id="7_boysn"]
+[ext_resource type="Texture2D" uid="uid://byq4lad2t8hyh" path="res://Sprites/Currently Used/Gray-Pressed.png" id="8_elnh7"]
+[ext_resource type="Texture2D" uid="uid://cgts2eu7b1vvi" path="res://Sprites/Currently Used/Gray-Hover.png" id="9_yab2r"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_odpfo"]
 light_mode = 1
@@ -13,6 +16,9 @@ light_mode = 1
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cqmuy"]
 radius = 169.812
 height = 590.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_np4t2"]
+light_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0j72i"]
 light_mode = 1
@@ -364,14 +370,28 @@ text = "Achievement Ace"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Back_to_garden" type="Button" parent="."]
-material = SubResource("CanvasItemMaterial_odpfo")
-offset_left = 44.0
-offset_top = 823.0
-offset_right = 220.0
-offset_bottom = 871.0
-text = "Garden"
-metadata/_edit_use_anchors_ = true
+[node name="Back_to_garden" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_np4t2")
+offset_left = 64.0
+offset_top = 768.0
+offset_right = 128.0
+offset_bottom = 792.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("7_boysn")
+texture_pressed = ExtResource("8_elnh7")
+texture_hover = ExtResource("9_yab2r")
+
+[node name="Back_Label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_np4t2")
+offset_left = 64.0
+offset_top = 768.0
+offset_right = 256.0
+offset_bottom = 824.0
+theme_override_fonts/font = ExtResource("3_odpfo")
+theme_override_font_sizes/font_size = 48
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
@@ -383,4 +403,6 @@ color = Color(0.43134, 0.43134, 0.43134, 1)
 
 [connection signal="mouse_entered" from="Achievement_Ace" to="Achievement_Ace" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Achievement_Ace" to="Achievement_Ace" method="_on_mouse_exited"]
+[connection signal="button_down" from="Back_to_garden" to="." method="_on_back_to_garden_button_down"]
+[connection signal="button_up" from="Back_to_garden" to="." method="_on_back_to_garden_button_up"]
 [connection signal="pressed" from="Back_to_garden" to="." method="_on_back_to_garden_pressed"]
