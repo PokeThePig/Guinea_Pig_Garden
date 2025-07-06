@@ -42,7 +42,7 @@ func _on_quit_button_button_down() -> void:
 
 func _on_quit_button_button_up() -> void:
 	%Quit_Text.position = Vector2(0, 3)
-
+ 
 
 func _on_start_button_pressed() -> void:
 	get_tree().paused = false

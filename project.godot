@@ -13,7 +13,7 @@ config_version=5
 config/name="Guinea Pig Garden"
 run/main_scene="uid://c8an7cmfb0keb"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://Sprites/icon.svg"
+config/icon="uid://bb70hya7y10ni"
 
 [aseprite_importers]
 
@@ -72,6 +72,8 @@ pointing/emulate_touch_from_mouse=true
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_s3tc_bptc=true
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.796639, 0.970003, 0.823816, 1)
 2d/snap/snap_2d_transforms_to_pixel=true
 2d/snap/snap_2d_vertices_to_pixel=true
