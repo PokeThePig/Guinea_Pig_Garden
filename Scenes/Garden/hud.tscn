@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://c81hiwf201f5"]
 
 [ext_resource type="Script" uid="uid://crjbq7bugdlvp" path="res://Scripts/Shop_button.gd" id="1_p0m00"]
-[ext_resource type="Texture2D" uid="uid://c6a17p3dmjqd1" path="res://Sprites/Currently Used/Shop Button Grey (no text).png" id="2_cs610"]
-[ext_resource type="Texture2D" uid="uid://8cfkabaqgbx5" path="res://Sprites/Currently Used/Shop Button Grey Pressed (no text).png" id="3_bp5q0"]
-[ext_resource type="Texture2D" uid="uid://c5k1msu0g13uu" path="res://Sprites/Currently Used/Settings Button V1.png" id="4_hbpy6"]
-[ext_resource type="Texture2D" uid="uid://tfwd8hupyls8" path="res://Sprites/Currently Used/Settings Button V2 Pressed.png" id="5_ahnl5"]
-[ext_resource type="Texture2D" uid="uid://cc7csisgrvc7" path="res://Sprites/Currently Used/Shop Button Small.png" id="6_7o1d8"]
-[ext_resource type="Texture2D" uid="uid://u0bnqag6msms" path="res://Sprites/Currently Used/Shop Button Pressed.png" id="7_32vyt"]
+[ext_resource type="Texture2D" uid="uid://mip6j68ym2bt" path="res://Sprites/Currently Used/ShopButton.png" id="2_m1r84"]
+[ext_resource type="Texture2D" uid="uid://bdedpkgo1klhg" path="res://Sprites/Currently Used/ShopPressed.png" id="3_683uw"]
+[ext_resource type="Texture2D" uid="uid://i6ib3j45ckrq" path="res://Sprites/Currently Used/SettingsButton.png" id="4_m1r84"]
+[ext_resource type="Texture2D" uid="uid://dg31cvpnneey" path="res://Sprites/Currently Used/SettingsPressed.png" id="5_683uw"]
+[ext_resource type="Texture2D" uid="uid://cvie74dfgm47k" path="res://Sprites/Currently Used/AchievementsButton.png" id="6_m1r84"]
+[ext_resource type="Texture2D" uid="uid://ct2potht6j84a" path="res://Sprites/Currently Used/AchievementsPressed.png" id="7_683uw"]
 
 [node name="HUD" type="Node2D"]
 position = Vector2(-4, -3)
@@ -17,37 +17,38 @@ script = ExtResource("1_p0m00")
 scale = Vector2(0.5, 0.5)
 
 [node name="Shop_Menu_Button" type="TextureButton" parent="Shop_button"]
-offset_left = -552.0
-offset_top = -625.602
-offset_right = 572.0
-offset_bottom = 398.398
-scale = Vector2(1, 1.039)
-texture_normal = ExtResource("2_cs610")
-texture_hover = ExtResource("3_bp5q0")
+offset_left = -88.0
+offset_top = -296.43887
+offset_right = -56.0
+offset_bottom = -264.43887
+scale = Vector2(6, 6)
+texture_normal = ExtResource("2_m1r84")
+texture_hover = ExtResource("3_683uw")
 stretch_mode = 0
 
 [node name="Settings_button" type="Node2D" parent="."]
 
 [node name="Settings_Button" type="TextureButton" parent="Settings_button"]
-offset_left = -308.0
-offset_top = 1080.85
-offset_right = 315.0
-offset_bottom = 1669.85
-texture_normal = ExtResource("4_hbpy6")
-texture_hover = ExtResource("5_ahnl5")
+offset_left = -44.0
+offset_top = 61.597637
+offset_right = -12.0
+offset_bottom = 93.59764
+scale = Vector2(3, 3)
+texture_normal = ExtResource("4_m1r84")
+texture_hover = ExtResource("5_683uw")
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="AchievementsButton" type="Node2D" parent="."]
 
 [node name="Achievement_Menu_Button" type="TextureButton" parent="AchievementsButton"]
-offset_left = -284.0
-offset_top = 395.573
-offset_right = 339.0
-offset_bottom = 984.573
-scale = Vector2(0.93, 0.93)
-texture_normal = ExtResource("6_7o1d8")
-texture_hover = ExtResource("7_32vyt")
+offset_left = -44.0
+offset_top = -43.310932
+offset_right = -12.0
+offset_bottom = -11.310932
+scale = Vector2(3, 3)
+texture_normal = ExtResource("6_m1r84")
+texture_hover = ExtResource("7_683uw")
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 

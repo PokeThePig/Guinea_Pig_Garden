@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://xqntcestvn62" path="res://Sprites/Currently Used/King Poop-Sheet.png" id="2_y364n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g35qr"]
-radius = 96.0
-height = 272.0
+radius = 10.000004
+height = 33.999977
 
 [sub_resource type="Animation" id="Animation_6w8op"]
 length = 0.001
@@ -54,12 +54,10 @@ input_pickable = true
 script = ExtResource("1_akm1q")
 
 [node name="king_poop_Sprite" type="Sprite2D" parent="King_poop"]
-scale = Vector2(0.560547, 0.548828)
 texture = ExtResource("2_y364n")
 hframes = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="King_poop"]
-position = Vector2(0, -24)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_g35qr")
 

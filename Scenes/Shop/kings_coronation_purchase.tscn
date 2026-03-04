@@ -26,8 +26,8 @@ script = ExtResource("1_ce6qn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_1g8oc")
-position = Vector2(0, -88)
-scale = Vector2(0.278308, 0.277672)
+position = Vector2(0, -104)
+scale = Vector2(5, 5)
 texture = ExtResource("2_dd2n0")
 hframes = 16
 
@@ -46,10 +46,10 @@ horizontal_alignment = 1
 [node name="coronation_description" type="Label" parent="."]
 visible = false
 material = SubResource("CanvasItemMaterial_1g8oc")
-offset_left = -135.0
-offset_top = -160.0
-offset_right = 137.0
-offset_bottom = -43.0
+offset_left = -136.0
+offset_top = -168.0
+offset_right = 136.0
+offset_bottom = -51.0
 theme = SubResource("Theme_ui65c")
 theme_override_fonts/font = ExtResource("2_1g8oc")
 theme_override_font_sizes/font_size = 25

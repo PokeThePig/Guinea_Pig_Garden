@@ -29,7 +29,7 @@ func _on_go_guinea_shop_pressed():
 
 func _item_purchased():
 	$Purchase_sound_effect.play()
-	if (len(Globals.guinea_dictionary) == 5) and (achievement_unlocked == false):
+	if (len(Globals.guinea_dictionary) == 6) and (achievement_unlocked == false):
 		Globals.full_house_achievement_completed = true
 		all_guinea_pigs_purchased.emit()
 		achievement_unlocked = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b11xbt4nnsg8g"]
+[gd_scene format=3 uid="uid://b11xbt4nnsg8g"]
 
 [ext_resource type="Script" uid="uid://cj3ilpdiks6wl" path="res://Scripts/hibernation_ability.gd" id="1_1mg8k"]
 [ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="2_ixlg0"]
@@ -41,47 +41,45 @@ _data = {
 &"sleep_animation": SubResource("Animation_uo868")
 }
 
-[node name="hibernation_ability" type="Node2D"]
+[node name="hibernation_ability" type="Node2D" unique_id=522974595]
 script = ExtResource("1_1mg8k")
 
-[node name="sleep_timer" type="Timer" parent="."]
+[node name="sleep_timer" type="Timer" parent="." unique_id=19620973]
 wait_time = 30.0
 one_shot = true
 
-[node name="Sleep_countdown" type="Label" parent="."]
+[node name="Sleep_countdown" type="Label" parent="." unique_id=2025542154]
 visibility_layer = 3
 z_index = 6
-offset_left = -281.0
-offset_top = -554.0
-offset_right = 284.0
-offset_bottom = -244.0
+offset_left = -84.0
+offset_top = -8.0
+offset_right = 44.0
+offset_bottom = 39.0
 theme_override_colors/font_outline_color = Color(0.00184107, 0.00184107, 0.00184107, 1)
-theme_override_constants/outline_size = 40
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_ixlg0")
-theme_override_font_sizes/font_size = 300
+theme_override_font_sizes/font_size = 36
 text = "0:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="increment_effect_timer" type="Timer" parent="."]
+[node name="increment_effect_timer" type="Timer" parent="." unique_id=742318275]
 wait_time = 10.0
 autostart = true
 
-[node name="hibernation_effect_timer" type="Timer" parent="."]
+[node name="hibernation_effect_timer" type="Timer" parent="." unique_id=716791823]
 one_shot = true
 
-[node name="sleep_sprite" type="Sprite2D" parent="."]
+[node name="sleep_sprite" type="Sprite2D" parent="." unique_id=42734596]
 z_index = 6
-position = Vector2(0, -40)
-scale = Vector2(33, 32)
+position = Vector2(-20, 56)
+scale = Vector2(4, 4)
 texture = ExtResource("2_sn5k5")
 hframes = 12
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_jy168")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=821395501]
+libraries/ = SubResource("AnimationLibrary_jy168")
 
 [connection signal="timeout" from="sleep_timer" to="." method="_on_sleep_timer_timeout"]
 [connection signal="timeout" from="increment_effect_timer" to="." method="_on_increment_effect_timer_timeout"]

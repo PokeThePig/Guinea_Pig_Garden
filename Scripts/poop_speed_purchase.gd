@@ -109,6 +109,7 @@ func _update_upgrade_dictionary():
 				if guinea_key == upgrade_key:
 					Globals.upgrade_dictionary[guinea_key][1] = upgrades_left
 					print(Globals.upgrade_dictionary)
+					print(Globals.guinea_dictionary)
 							
 
 

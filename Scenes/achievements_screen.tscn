@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d1h7px7v0u5pv"]
+[gd_scene format=3 uid="uid://d1h7px7v0u5pv"]
 
 [ext_resource type="Script" uid="uid://bstcbvv0dxq83" path="res://Scripts/achievements_screen.gd" id="1_s0ibc"]
 [ext_resource type="Script" uid="uid://bi28jlontj7ct" path="res://Scripts/achievements_cam.gd" id="2_t4s5p"]
@@ -23,14 +23,14 @@ light_mode = 1
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0j72i"]
 light_mode = 1
 
-[node name="Achievements Screen" type="Node2D"]
+[node name="Achievements Screen" type="Node2D" unique_id=823474552]
 script = ExtResource("1_s0ibc")
 
-[node name="achievements_cam" type="Camera2D" parent="."]
+[node name="achievements_cam" type="Camera2D" parent="." unique_id=850733226]
 position = Vector2(801, 454)
 script = ExtResource("2_t4s5p")
 
-[node name="Gold Rush" type="Label" parent="."]
+[node name="Gold Rush" type="Label" parent="." unique_id=986765330]
 material = SubResource("CanvasItemMaterial_odpfo")
 offset_left = 192.0
 offset_top = 32.0
@@ -43,7 +43,7 @@ text = "Gold Rush"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="Gold Rush"]
+[node name="Label" type="Label" parent="Gold Rush" unique_id=553523911]
 material = SubResource("CanvasItemMaterial_odpfo")
 layout_mode = 0
 offset_left = 32.0
@@ -56,14 +56,14 @@ text = "Collect a rare poop type"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Gold Rush"]
+[node name="Sprite2D" type="Sprite2D" parent="Gold Rush" unique_id=425155656]
 material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(128, 144)
 scale = Vector2(4, 4)
 texture = ExtResource("3_6o2va")
 hframes = 2
 
-[node name="Diamond Digger" type="Label" parent="."]
+[node name="Diamond Digger" type="Label" parent="." unique_id=687251150]
 material = SubResource("CanvasItemMaterial_odpfo")
 offset_left = 664.0
 offset_top = 32.0
@@ -76,7 +76,7 @@ text = "Diamond Digger"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="Diamond Digger"]
+[node name="Label" type="Label" parent="Diamond Digger" unique_id=1907628604]
 material = SubResource("CanvasItemMaterial_odpfo")
 layout_mode = 0
 offset_left = 24.0
@@ -89,14 +89,14 @@ text = "Collect a very rare poop type"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Diamond Digger"]
+[node name="Sprite2D" type="Sprite2D" parent="Diamond Digger" unique_id=326051221]
 material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(136, 144)
 scale = Vector2(4, 4)
 texture = ExtResource("3_6o2va")
 hframes = 2
 
-[node name="Taste the Rainbow" type="Label" parent="."]
+[node name="Taste the Rainbow" type="Label" parent="." unique_id=1365088106]
 material = SubResource("CanvasItemMaterial_odpfo")
 offset_left = 1120.0
 offset_top = 32.0
@@ -109,7 +109,7 @@ text = "Taste the Rainbow"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="Taste the Rainbow"]
+[node name="Label" type="Label" parent="Taste the Rainbow" unique_id=169499118]
 material = SubResource("CanvasItemMaterial_odpfo")
 layout_mode = 0
 offset_left = -8.0
@@ -122,14 +122,14 @@ text = "Collect a poop that only spawns in the rain"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Taste the Rainbow"]
+[node name="Sprite2D" type="Sprite2D" parent="Taste the Rainbow" unique_id=213580103]
 material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(160, 144)
 scale = Vector2(4, 4)
 texture = ExtResource("3_6o2va")
 hframes = 2
 
-[node name="Colossal Crusher" type="Label" parent="."]
+[node name="Colossal Crusher" type="Label" parent="." unique_id=67359005]
 material = SubResource("CanvasItemMaterial_odpfo")
 offset_left = 176.0
 offset_top = 256.0
@@ -142,7 +142,7 @@ text = "Colossal Crusher"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="Colossal Crusher"]
+[node name="Label" type="Label" parent="Colossal Crusher" unique_id=76738447]
 material = SubResource("CanvasItemMaterial_odpfo")
 layout_mode = 0
 offset_left = 24.0
@@ -155,14 +155,14 @@ text = "Crush an extra large giant poop"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Colossal Crusher"]
+[node name="Sprite2D" type="Sprite2D" parent="Colossal Crusher" unique_id=1919589222]
 material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(144, 144)
 scale = Vector2(4, 4)
 texture = ExtResource("3_6o2va")
 hframes = 2
 
-[node name="Poop Frenzy" type="Label" parent="."]
+[node name="Poop Frenzy" type="Label" parent="." unique_id=1815067661]
 material = SubResource("CanvasItemMaterial_odpfo")
 offset_left = 672.0
 offset_top = 256.0
@@ -175,7 +175,7 @@ text = "Poop Frenzy"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="Poop Frenzy"]
+[node name="Label" type="Label" parent="Poop Frenzy" unique_id=420626870]
 material = SubResource("CanvasItemMaterial_odpfo")
 layout_mode = 0
 offset_left = -16.0
@@ -188,14 +188,14 @@ text = "Have a guinea pig poop at max speed"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Poop Frenzy"]
+[node name="Sprite2D" type="Sprite2D" parent="Poop Frenzy" unique_id=1932733207]
 material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(128, 144)
 scale = Vector2(4, 4)
 texture = ExtResource("3_6o2va")
 hframes = 2
 
-[node name="Full House" type="Label" parent="."]
+[node name="Full House" type="Label" parent="." unique_id=2107197888]
 material = SubResource("CanvasItemMaterial_odpfo")
 offset_left = 1152.0
 offset_top = 256.0
@@ -208,7 +208,7 @@ text = "Full House"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="Full House"]
+[node name="Label" type="Label" parent="Full House" unique_id=1480243654]
 material = SubResource("CanvasItemMaterial_odpfo")
 layout_mode = 0
 offset_left = 24.0
@@ -221,14 +221,14 @@ text = "Purchase every guinea pig"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Full House"]
+[node name="Sprite2D" type="Sprite2D" parent="Full House" unique_id=931215938]
 material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(128, 144)
 scale = Vector2(4, 4)
 texture = ExtResource("3_6o2va")
 hframes = 2
 
-[node name="Disco Party" type="Label" parent="."]
+[node name="Disco Party" type="Label" parent="." unique_id=1698004962]
 material = SubResource("CanvasItemMaterial_odpfo")
 offset_left = 192.0
 offset_top = 480.0
@@ -241,7 +241,7 @@ text = "Disco Party"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="Disco Party"]
+[node name="Label" type="Label" parent="Disco Party" unique_id=994512412]
 material = SubResource("CanvasItemMaterial_odpfo")
 layout_mode = 0
 offset_left = 32.0
@@ -254,14 +254,14 @@ text = "Witness Chroma go disco"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Disco Party"]
+[node name="Sprite2D" type="Sprite2D" parent="Disco Party" unique_id=1305482390]
 material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(128, 144)
 scale = Vector2(4, 4)
 texture = ExtResource("3_6o2va")
 hframes = 2
 
-[node name="Manure Millionare" type="Label" parent="."]
+[node name="Manure Millionare" type="Label" parent="." unique_id=349587509]
 material = SubResource("CanvasItemMaterial_odpfo")
 offset_left = 640.0
 offset_top = 472.0
@@ -274,7 +274,7 @@ text = "Manure Millionare"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="Manure Millionare"]
+[node name="Label" type="Label" parent="Manure Millionare" unique_id=378371227]
 material = SubResource("CanvasItemMaterial_odpfo")
 layout_mode = 0
 offset_left = 32.0
@@ -287,14 +287,14 @@ text = "Reach 1,000,000 poop collected"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Manure Millionare"]
+[node name="Sprite2D" type="Sprite2D" parent="Manure Millionare" unique_id=1983591140]
 material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(160, 152)
 scale = Vector2(4, 4)
 texture = ExtResource("3_6o2va")
 hframes = 2
 
-[node name="Petting Profeshional" type="Label" parent="."]
+[node name="Petting Profeshional" type="Label" parent="." unique_id=656337427]
 material = SubResource("CanvasItemMaterial_odpfo")
 offset_left = 1112.0
 offset_top = 480.0
@@ -307,7 +307,7 @@ text = "Petting Professional"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="Petting Profeshional"]
+[node name="Label" type="Label" parent="Petting Profeshional" unique_id=163312720]
 material = SubResource("CanvasItemMaterial_odpfo")
 layout_mode = 0
 offset_left = 64.0
@@ -320,34 +320,34 @@ text = "Pet guinea pigs 1,000 times"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Petting Profeshional"]
+[node name="Sprite2D" type="Sprite2D" parent="Petting Profeshional" unique_id=1052560724]
 material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(168, 144)
 scale = Vector2(4, 4)
 texture = ExtResource("3_6o2va")
 hframes = 2
 
-[node name="Achievement_Ace" type="CharacterBody2D" parent="."]
+[node name="Achievement_Ace" type="CharacterBody2D" parent="." unique_id=1622675845]
 material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(656, 696)
 input_pickable = true
 script = ExtResource("4_goaad")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Achievement_Ace"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Achievement_Ace" unique_id=1763553509]
 material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(145, 144)
 rotation = 1.5708
 scale = Vector2(0.212, 0.2)
 shape = SubResource("CapsuleShape2D_cqmuy")
 
-[node name="Sprite2D" type="Sprite2D" parent="Achievement_Ace"]
+[node name="Sprite2D" type="Sprite2D" parent="Achievement_Ace" unique_id=880904438]
 material = SubResource("CanvasItemMaterial_odpfo")
 position = Vector2(144, 144)
 scale = Vector2(4, 4)
 texture = ExtResource("5_u2l8m")
 hframes = 2
 
-[node name="Label" type="Label" parent="Achievement_Ace"]
+[node name="Label" type="Label" parent="Achievement_Ace" unique_id=567861106]
 material = SubResource("CanvasItemMaterial_odpfo")
 offset_left = 24.0
 offset_top = 64.0
@@ -359,7 +359,7 @@ text = "Unlock all other achievements"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Achievement Ace" type="Label" parent="Achievement_Ace"]
+[node name="Achievement Ace" type="Label" parent="Achievement_Ace" unique_id=372288657]
 material = SubResource("CanvasItemMaterial_odpfo")
 offset_right = 289.0
 offset_bottom = 64.0
@@ -370,7 +370,7 @@ text = "Achievement Ace"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Back_to_garden" type="TextureButton" parent="."]
+[node name="Back_to_garden" type="TextureButton" parent="." unique_id=591774202]
 material = SubResource("CanvasItemMaterial_np4t2")
 offset_left = 64.0
 offset_top = 768.0
@@ -381,7 +381,7 @@ texture_normal = ExtResource("7_boysn")
 texture_pressed = ExtResource("8_elnh7")
 texture_hover = ExtResource("9_yab2r")
 
-[node name="Back_Label" type="Label" parent="."]
+[node name="Back_Label" type="Label" parent="." unique_id=549510633]
 material = SubResource("CanvasItemMaterial_np4t2")
 offset_left = 64.0
 offset_top = 768.0
@@ -393,7 +393,7 @@ text = "Back"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=711694794]
 z_index = -1
 material = SubResource("CanvasItemMaterial_0j72i")
 offset_right = 1608.0

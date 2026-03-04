@@ -6,8 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://baucb4j4ybf16" path="res://Sounds/Sounds Effects/crush_sound_2 - Made with Clipchamp.wav" id="4_5kbv7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jrp5e"]
-radius = 208.613
-height = 935.842
+radius = 8.93752
+height = 33.6483
 
 [node name="giant_poop_drop" type="Node2D" groups=["Giant"]]
 position = Vector2(1153, -822)
@@ -20,12 +20,10 @@ input_pickable = true
 script = ExtResource("1_gvwrw")
 
 [node name="giant_poop_sprite" type="Sprite2D" parent="Giant_poop"]
-position = Vector2(-904.561, 631.973)
-scale = Vector2(3, 2.836)
+scale = Vector2(3, 3)
 texture = ExtResource("1_0rpxe")
 
 [node name="giant_poop_collision" type="CollisionShape2D" parent="Giant_poop"]
-position = Vector2(-906.926, 630.441)
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 shape = SubResource("CapsuleShape2D_jrp5e")

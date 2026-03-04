@@ -54,6 +54,7 @@ func _save_game():
 	SaveLoad.contents_to_save.prismatic_poop_amount = Globals.prismatic_poop_amount
 	#guinea pigs bought
 	SaveLoad.contents_to_save.gizmo_unlocked = Globals.guinea_two_purchased
+	SaveLoad.contents_to_save.butterscotch_unlocked = Globals.butterscotch_purchased
 	SaveLoad.contents_to_save.pennybags_unlocked = Globals.rich_guinea_purchased
 	SaveLoad.contents_to_save.chroma_unlocked = Globals.rainbow_guinea_purchased
 	SaveLoad.contents_to_save.calix_unlocked = Globals.king_calix_purchased
@@ -73,6 +74,12 @@ func _save_game():
 		SaveLoad.contents_to_save.gizmo_double_chance = instance_from_id(Globals.guinea_dictionary["Gizmo"]).double_poop_chance
 		SaveLoad.contents_to_save.gizmo_giant_min = instance_from_id(Globals.guinea_dictionary["Gizmo"]).giant_poop_minimum
 		SaveLoad.contents_to_save.gizmo_giant_max = instance_from_id(Globals.guinea_dictionary["Gizmo"]).giant_poop_maximum
+	if Globals.butterscotch_purchased == true:
+		SaveLoad.contents_to_save.butterscotch_poop_speed = instance_from_id(Globals.guinea_dictionary["Butterscotch"]).poop_speed
+		SaveLoad.contents_to_save.butterscotch_poop_speed_double_unlocked = instance_from_id(Globals.guinea_dictionary["Butterscotch"]).double_poop_unlocked
+		SaveLoad.contents_to_save.butterscotch_poop_speed_double_chance = instance_from_id(Globals.guinea_dictionary["Butterscotch"]).double_poop_chance
+		SaveLoad.contents_to_save.butterscotch_poop_speed_giant_min = instance_from_id(Globals.guinea_dictionary["Butterscotch"]).giant_poop_minimum
+		SaveLoad.contents_to_save.butterscotch_poop_speed_giant_max = instance_from_id(Globals.guinea_dictionary["Butterscotch"]).giant_poop_maximum
 	if Globals.rich_guinea_purchased == true:
 		SaveLoad.contents_to_save.pennybags_poop_speed = instance_from_id(Globals.guinea_dictionary["Pennybags"]).poop_speed
 		SaveLoad.contents_to_save.pennybags_double_unlocked = instance_from_id(Globals.guinea_dictionary["Pennybags"]).double_poop_unlocked
@@ -97,6 +104,8 @@ func _save_game():
 	SaveLoad.contents_to_save.hibernation_unlocked = Globals.hibernation_purchased
 	SaveLoad.contents_to_save.hibernation_sleep_duration = Globals.hibernation_sleep_time
 	SaveLoad.contents_to_save.hibernation_effect_duration = Globals.hibernation_effect_time
+	SaveLoad.contents_to_save.squeek_chain_unlocked = Globals.squeek_chain_purchased
+	SaveLoad.contents_to_save.squeek_chain_worth = Globals.squeek_chain_value
 	SaveLoad.contents_to_save.copper_poop_unlocked = Globals.copper_poop_purchased
 	SaveLoad.contents_to_save.copper_poop_worth = Globals.copper_poop_value
 	SaveLoad.contents_to_save.rain_or_shine_unlocked = Globals.rain_or_shine_purchased
@@ -106,6 +115,7 @@ func _save_game():
 	
 	SaveLoad.contents_to_save.times_pet = Globals.pet_count
 	SaveLoad.contents_to_save.guinea_order = Globals.guinea_purchase_order
+	SaveLoad.contents_to_save.guineas_purchased = Globals.guinea_pigs_purchased
 	SaveLoad.contents_to_save.upgrades_left_dictionary = Globals.upgrade_dictionary
 	
 	#Achievements
@@ -123,6 +133,8 @@ func _save_game():
 	SaveLoad.contents_to_save.master_volume_value = Globals.master_volume
 	SaveLoad.contents_to_save.music_volume_value = Globals.music_volume
 	SaveLoad.contents_to_save.sound_effects_volume_value = Globals.sound_effects_volume
+	SaveLoad.contents_to_save.night_cycle = Globals.night_cycle
+	SaveLoad.contents_to_save.rain_visible = Globals.rain_visible
 	SaveLoad.contents_to_save.auto_save_state = Globals.auto_save
 
 	SaveLoad._save()
@@ -134,6 +146,7 @@ func _load_game() -> void:
 	Globals.diamond_poop_amount = SaveLoad.contents_to_save.diamond_poop_amount
 	Globals.prismatic_poop_amount = SaveLoad.contents_to_save.prismatic_poop_amount
 	Globals.guinea_two_purchased = SaveLoad.contents_to_save.gizmo_unlocked
+	Globals.butterscotch_purchased = SaveLoad.contents_to_save.butterscotch_unlocked
 	Globals.rich_guinea_purchased = SaveLoad.contents_to_save.pennybags_unlocked
 	Globals.rainbow_guinea_purchased = SaveLoad.contents_to_save.chroma_unlocked
 	Globals.king_calix_purchased = SaveLoad.contents_to_save.calix_unlocked
@@ -153,6 +166,12 @@ func _load_game() -> void:
 		instance_from_id(Globals.guinea_dictionary["Gizmo"]).double_poop_chance = SaveLoad.contents_to_save.gizmo_double_chance
 		instance_from_id(Globals.guinea_dictionary["Gizmo"]).giant_poop_minimum = SaveLoad.contents_to_save.gizmo_giant_min
 		instance_from_id(Globals.guinea_dictionary["Gizmo"]).giant_poop_maximum = SaveLoad.contents_to_save.gizmo_giant_max
+	if Globals.butterscotch_purchased == true:
+		instance_from_id(Globals.guinea_dictionary["Butterscotch"]).poop_speed = SaveLoad.contents_to_save.gizmo_poop_speed
+		instance_from_id(Globals.guinea_dictionary["Butterscotch"]).double_poop_unlocked = SaveLoad.contents_to_save.gizmo_double_unlocked
+		instance_from_id(Globals.guinea_dictionary["Butterscotch"]).double_poop_chance = SaveLoad.contents_to_save.gizmo_double_chance
+		instance_from_id(Globals.guinea_dictionary["Butterscotch"]).giant_poop_minimum = SaveLoad.contents_to_save.gizmo_giant_min
+		instance_from_id(Globals.guinea_dictionary["Butterscotch"]).giant_poop_maximum = SaveLoad.contents_to_save.gizmo_giant_max
 	if Globals.rich_guinea_purchased == true:
 		instance_from_id(Globals.guinea_dictionary["Pennybags"]).poop_speed = SaveLoad.contents_to_save.pennybags_poop_speed
 		instance_from_id(Globals.guinea_dictionary["Pennybags"]).double_poop_unlocked = SaveLoad.contents_to_save.pennybags_double_unlocked
@@ -176,6 +195,8 @@ func _load_game() -> void:
 	Globals.hibernation_purchased = SaveLoad.contents_to_save.hibernation_unlocked
 	Globals.hibernation_sleep_time = SaveLoad.contents_to_save.hibernation_sleep_duration
 	Globals.hibernation_effect_time = SaveLoad.contents_to_save.hibernation_effect_duration
+	Globals.squeek_chain_purchased = SaveLoad.contents_to_save.squeek_chain_unlocked
+	Globals.squeek_chain_value = SaveLoad.contents_to_save.squeek_chain_worth
 	Globals.copper_poop_purchased = SaveLoad.contents_to_save.copper_poop_unlocked
 	Globals.copper_poop_value = SaveLoad.contents_to_save.copper_poop_worth
 	Globals.rain_or_shine_purchased = SaveLoad.contents_to_save.rain_or_shine_unlocked
@@ -184,6 +205,7 @@ func _load_game() -> void:
 	Globals.kings_coronation_purchased = SaveLoad.contents_to_save.king_poop_unlocked
 	Globals.pet_count = SaveLoad.contents_to_save.times_pet
 	Globals.guinea_purchase_order = SaveLoad.contents_to_save.guinea_order
+	Globals.guinea_pigs_purchased = SaveLoad.contents_to_save.guineas_purchased
 	Globals.upgrade_dictionary = SaveLoad.contents_to_save.upgrades_left_dictionary
 	Globals.gold_rush_achievement_completed = SaveLoad.contents_to_save.gold_rush_unlocked
 	Globals.diamond_digger_achievement_completed = SaveLoad.contents_to_save.diamond_digger_unlocked
@@ -197,6 +219,8 @@ func _load_game() -> void:
 	Globals.master_volume = SaveLoad.contents_to_save.master_volume_value
 	Globals.music_volume = SaveLoad.contents_to_save.music_volume_value
 	Globals.sound_effects_volume = SaveLoad.contents_to_save.sound_effects_volume_value
+	Globals.night_cycle = SaveLoad.contents_to_save.night_cycle
+	Globals.rain_visible = SaveLoad.contents_to_save.rain_visible
 	Globals.auto_save = SaveLoad.contents_to_save.auto_save_state
 	
 	for pig in get_tree().get_nodes_in_group("Pig"):
@@ -211,6 +235,8 @@ func _load_game() -> void:
 	
 	$Auto_Save.autostart = true
 	$Auto_Save.start()
+	get_parent().get_node("Settings").get_node("Night_Toggle").button_pressed = Globals.night_cycle
+	get_parent().get_node("Settings").get_node("Rain_Toggle").button_pressed = Globals.rain_visible
 	get_parent().get_node("Settings").get_node("CheckBox").button_pressed = Globals.auto_save
 	restore_volumes.emit()
 
@@ -224,7 +250,14 @@ func _guinea_spawning():
 			pig_name = "Gizmo"
 			_spawn_pig(pig_name)
 			new_pig_sprite.texture = load("res://Sprites/Currently Used/Gizmo2.0-Sheet.png")
-			new_pig_sprite.set_scale(Vector2(33, 32))
+	if ("Butterscotch" in Globals.guinea_dictionary) and (Globals.butterscotch_purchased == false):
+		instance_from_id(Globals.guinea_dictionary["Butterscotch"]).queue_free()
+		Globals.guinea_dictionary.erase("Butterscotch")
+	if Globals.butterscotch_purchased == true:
+		if "Butterscotch" not in Globals.guinea_dictionary:
+			pig_name = "Butterscotch"
+			_spawn_pig(pig_name)
+			new_pig_sprite.texture = load("res://Sprites/Currently Used/Butterscotch-Left-Sheet.png")
 	#Pennybags
 	if ("Pennybags" in Globals.guinea_dictionary) and (Globals.rich_guinea_purchased == false):
 		instance_from_id(Globals.guinea_dictionary["Pennybags"]).queue_free()
@@ -234,8 +267,8 @@ func _guinea_spawning():
 			pig_name = "Pennybags"
 			_spawn_pig(pig_name)
 			new_pig_sprite.texture = load("res://Sprites/Currently Used/Pennybags2.0-Sheet.png")
-			new_pig_sprite.set_scale(Vector2(37, 36))
-			new_pig_sprite.get_parent().get_node("Shadow_Sprite").set_scale(Vector2(36, 36))
+			new_pig_sprite.set_scale(Vector2(4.2, 4.2))
+			new_pig_sprite.get_parent().get_node("Shadow_Sprite").set_scale(Vector2(4.2, 4.2))
 	#Chroma
 	if ("Chroma" in Globals.guinea_dictionary) and (Globals.rainbow_guinea_purchased == false):
 		instance_from_id(Globals.guinea_dictionary["Chroma"]).queue_free()
@@ -245,7 +278,6 @@ func _guinea_spawning():
 			pig_name = "Chroma"
 			_spawn_pig(pig_name)
 			new_pig_sprite.texture = load("res://Sprites/Currently Used/Chroma2.0-Sheet.png")
-			new_pig_sprite.set_scale(Vector2(33, 32))
 	#Calix
 	if ("Calix" in Globals.guinea_dictionary) and (Globals.king_calix_purchased == false):
 		instance_from_id(Globals.guinea_dictionary["Calix"]).queue_free()
@@ -255,20 +287,19 @@ func _guinea_spawning():
 			pig_name = "Calix"
 			_spawn_pig(pig_name)
 			new_pig_sprite.texture = load("res://Sprites/Currently Used/KingCalix2.0-Sheet.png")
-			new_pig_sprite.set_scale(Vector2(33, 32))
 	
 
 func _spawn_pig(guinea_pig_name):
 	new_pig = guinea_pig_assets.instantiate()
 	add_child(new_pig)
-	new_pig.global_position = Vector2(randf_range(-4300, 3700), randf_range(-2000, 2000))
+	new_pig.global_position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 		
 	current_pig = get_tree().get_nodes_in_group("Pig")[-1]
 	Globals.guinea_dictionary[guinea_pig_name] = current_pig.get_instance_id()
 	Globals.new_pig = guinea_pig_name
 		
 	new_pig_sprite = new_pig.get_node("Guinea_Pig").get_node("Pig_Sprite")
-
+	print(Globals.guinea_dictionary)
 
 func _on_auto_save_timeout() -> void:
 	if Globals.auto_save == true:

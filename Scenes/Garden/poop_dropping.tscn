@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://cq3t6a587n8yl"]
 
-[ext_resource type="Script" path="res://Scripts/poop_dropping.gd" id="1_7uhof"]
+[ext_resource type="Script" uid="uid://cicndmwwlkfgw" path="res://Scripts/poop_dropping.gd" id="1_7uhof"]
 [ext_resource type="Texture2D" uid="uid://vjm4igbsy0h7" path="res://Sprites/Currently Used/Poop upscale.png" id="2_xfgo8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cis8o"]
-radius = 37.0
-height = 154.0
+radius = 4.000004
+height = 15.999992
 
 [node name="Poop" type="CharacterBody2D" groups=["Persist"]]
 z_index = 1
@@ -16,14 +16,12 @@ script = ExtResource("1_7uhof")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visibility_layer = 2
-scale = Vector2(0.33, 0.33)
 texture = ExtResource("2_xfgo8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 8
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_cis8o")
-one_way_collision = true
 
 [node name="decay_timer" type="Timer" parent="."]
 wait_time = 300.0

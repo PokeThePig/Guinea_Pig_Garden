@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://b83w21nqout1q"]
+
+[ext_resource type="Script" uid="uid://bhherldx8u7yy" path="res://squeek_chain_purchase.gd" id="1_gj2yy"]
+[ext_resource type="Texture2D" uid="uid://nr4e6xpehc83" path="res://Sprites/Currently Used/Butterscotch-Right-Sheet.png" id="2_gj2yy"]
+[ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="3_li3gb"]
+[ext_resource type="Texture2D" uid="uid://2d5q3hryfya8" path="res://Sprites/Currently Used/Big-Purchase-Button.png" id="4_lisyk"]
+[ext_resource type="Texture2D" uid="uid://88vc0343ovqn" path="res://Sprites/Currently Used/Big-Purchase-Pressed.png" id="5_5xmxt"]
+[ext_resource type="Texture2D" uid="uid://ditcbqcwvm4qc" path="res://Sprites/Currently Used/Big-Purchase-Hover.png" id="6_wdwr4"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xoy1l"]
+light_mode = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvpmp"]
+bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
+
+[sub_resource type="Theme" id="Theme_y027w"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/fonts/font = null
+Label/styles/normal = SubResource("StyleBoxFlat_tvpmp")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fde0l"]
+light_mode = 1
+
+[node name="Squeek_Chain_Purchase" type="Node2D" unique_id=1490492556]
+position = Vector2(0, -19)
+script = ExtResource("1_gj2yy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=990480006]
+material = SubResource("CanvasItemMaterial_xoy1l")
+position = Vector2(0, -109)
+scale = Vector2(5, 5)
+texture = ExtResource("2_gj2yy")
+hframes = 2
+
+[node name="squeek_chain_count" type="Label" parent="." unique_id=1397789225]
+material = SubResource("CanvasItemMaterial_xoy1l")
+offset_left = -24.0
+offset_top = 118.0
+offset_right = 24.0
+offset_bottom = 144.0
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_li3gb")
+theme_override_font_sizes/font_size = 32
+text = "0/5"
+horizontal_alignment = 1
+
+[node name="squeek_chain_description" type="Label" parent="." unique_id=980957688]
+visible = false
+material = SubResource("CanvasItemMaterial_xoy1l")
+offset_left = -152.0
+offset_top = -181.0
+offset_right = 152.0
+offset_bottom = -43.0
+theme = SubResource("Theme_y027w")
+theme_override_fonts/font = ExtResource("3_li3gb")
+theme_override_font_sizes/font_size = 26
+text = "Clicking Butterscotch causes a random guinea pig to squeek and poop after him, further chaining to other guinea pigs.
+[1 Other Guinea Pig]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="upgrade_button" type="TextureButton" parent="." unique_id=1034692092]
+material = SubResource("CanvasItemMaterial_fde0l")
+offset_left = -128.0
+offset_top = -29.0
+offset_right = -64.0
+offset_bottom = 7.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("4_lisyk")
+texture_pressed = ExtResource("5_5xmxt")
+texture_hover = ExtResource("6_wdwr4")
+
+[node name="Squeek_Chain_Label" type="Label" parent="." unique_id=731862178]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_fde0l")
+offset_left = -144.0
+offset_top = -12.0
+offset_right = 144.0
+offset_bottom = 83.0
+theme_override_constants/line_spacing = 0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_li3gb")
+theme_override_font_sizes/font_size = 36
+text = "Squeek Chain
+30000 Poop"
+horizontal_alignment = 1
+
+[connection signal="button_down" from="upgrade_button" to="." method="_on_upgrade_button_button_down"]
+[connection signal="button_up" from="upgrade_button" to="." method="_on_upgrade_button_button_up"]
+[connection signal="mouse_entered" from="upgrade_button" to="." method="_on_upgrade_button_mouse_entered"]
+[connection signal="mouse_exited" from="upgrade_button" to="." method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="upgrade_button" to="." method="_on_upgrade_button_pressed"]

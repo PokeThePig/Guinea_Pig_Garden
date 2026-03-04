@@ -7,8 +7,8 @@ var giant_poop_collision = 0
 
 @onready var poop_animation = $AnimationPlayer
 
-var giant_poop_min = 1.25
-var giant_poop_max = 1.75
+var giant_poop_min = 3
+var giant_poop_max = 5
 
 signal giant_poop_crushed
 
@@ -23,9 +23,9 @@ func _ready():
 	get_node("giant_poop_collision").set_scale(Vector2(giant_poop_collision, giant_poop_collision))
 	
 	#Setting giant poop health
-	if (giant_poop_size >= 1.25) && (giant_poop_size <= 1.5):
+	if (giant_poop_size >= 3.75) && (giant_poop_size <= 4.5):
 		clicks_left = 4
-	elif (giant_poop_size > 1.5) && (giant_poop_size <= 1.75):
+	elif (giant_poop_size > 4.5):
 		clicks_left = 5
 		
 func _process(_delta):
@@ -50,7 +50,7 @@ func _input(event):
 				else:
 					print("Prismatic giant popped")
 					giant_poop_crushed.emit()
-					var giant_poop_amount = snappedf(pow((giant_poop_size.x * 2), 2), 0.1) * 10
+					var giant_poop_amount = round(giant_poop_size.x * 25)
 					Globals.prismatic_poop_amount += giant_poop_amount
 					queue_free()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b8uqrksk1wyyx"]
+[gd_scene format=3 uid="uid://b8uqrksk1wyyx"]
 
 [ext_resource type="Script" uid="uid://dtafisklpthfb" path="res://Scripts/prismatic_poop_purchase.gd" id="1_71nbp"]
 [ext_resource type="Texture2D" uid="uid://bwe1uq2bjbxfd" path="res://Sprites/Currently Used/Prismatic_Poop_Upscaled-Sheet.png" id="1_r4vmd"]
@@ -21,23 +21,23 @@ Label/styles/normal = SubResource("StyleBoxFlat_judyo")
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ah7ik"]
 light_mode = 1
 
-[node name="Prismatic_Poop_Purchase" type="Node2D"]
+[node name="Prismatic_Poop_Purchase" type="Node2D" unique_id=432816730]
 script = ExtResource("1_71nbp")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1747462267]
 material = SubResource("CanvasItemMaterial_slbve")
 position = Vector2(0, -32)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(8, 8)
 texture = ExtResource("1_r4vmd")
 hframes = 7
 
-[node name="prismatic_poop_description" type="Label" parent="."]
+[node name="prismatic_poop_description" type="Label" parent="." unique_id=1289545556]
 visible = false
 material = SubResource("CanvasItemMaterial_slbve")
 offset_left = -112.0
-offset_top = -72.0
+offset_top = -80.0
 offset_right = 112.0
-offset_bottom = 24.0
+offset_bottom = 16.0
 theme = SubResource("Theme_bpb3g")
 theme_override_fonts/font = ExtResource("3_slbve")
 theme_override_font_sizes/font_size = 25
@@ -47,7 +47,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Button" type="TextureButton" parent="."]
+[node name="Button" type="TextureButton" parent="." unique_id=538942095]
 material = SubResource("CanvasItemMaterial_ah7ik")
 offset_left = -128.0
 offset_top = 64.0
@@ -58,7 +58,7 @@ texture_normal = ExtResource("4_ewofl")
 texture_pressed = ExtResource("5_gm2kc")
 texture_hover = ExtResource("6_rfh4x")
 
-[node name="Prismatic_Poop_Label" type="Label" parent="."]
+[node name="Prismatic_Poop_Label" type="Label" parent="." unique_id=1381539936]
 material = SubResource("CanvasItemMaterial_ah7ik")
 offset_left = -144.0
 offset_top = 64.0
@@ -74,4 +74,6 @@ vertical_alignment = 1
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://cavpbh7moh25k"]
 
 [ext_resource type="Script" uid="uid://dfq3kjblwnjr2" path="res://Scripts/Rain_or_shine_purchase.gd" id="1_fg7bx"]
+[ext_resource type="Texture2D" uid="uid://c5lu57hrbd83a" path="res://Sprites/Currently Used/RainORShine.png" id="2_3rhrp"]
 [ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="2_chdvk"]
-[ext_resource type="Texture2D" uid="uid://copox4yg1nus7" path="res://Sprites/Currently Used/Rain or Shine.png" id="2_ji6gt"]
 [ext_resource type="Texture2D" uid="uid://2d5q3hryfya8" path="res://Sprites/Currently Used/Big-Purchase-Button.png" id="4_3rhrp"]
 [ext_resource type="Texture2D" uid="uid://88vc0343ovqn" path="res://Sprites/Currently Used/Big-Purchase-Pressed.png" id="5_aowt3"]
 [ext_resource type="Texture2D" uid="uid://ditcbqcwvm4qc" path="res://Sprites/Currently Used/Big-Purchase-Hover.png" id="6_ynypm"]
@@ -26,9 +26,9 @@ script = ExtResource("1_fg7bx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_chdvk")
-position = Vector2(16, -80)
-scale = Vector2(0.192, 0.192)
-texture = ExtResource("2_ji6gt")
+position = Vector2(-1.6940659e-21, -112)
+scale = Vector2(5, 5)
+texture = ExtResource("2_3rhrp")
 
 [node name="rain_or_shine_count" type="Label" parent="."]
 material = SubResource("CanvasItemMaterial_chdvk")
@@ -45,10 +45,10 @@ horizontal_alignment = 1
 [node name="Rain_or_shine_description" type="Label" parent="."]
 visible = false
 material = SubResource("CanvasItemMaterial_chdvk")
-offset_left = -171.0
-offset_top = -177.0
-offset_right = 174.0
-offset_bottom = -40.0
+offset_left = -176.0
+offset_top = -184.0
+offset_right = 169.0
+offset_bottom = -47.0
 theme = SubResource("Theme_5d1aa")
 theme_override_fonts/font = ExtResource("2_chdvk")
 theme_override_font_sizes/font_size = 30

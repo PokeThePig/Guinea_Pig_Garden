@@ -18,7 +18,7 @@ script = ExtResource("1_pm8as")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_11p44")
-position = Vector2(-4.76837e-07, -96)
+position = Vector2(-2.84217e-14, -80)
 scale = Vector2(5, 5)
 texture = ExtResource("2_3lknu")
 hframes = 2

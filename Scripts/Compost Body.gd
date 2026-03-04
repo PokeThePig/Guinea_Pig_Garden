@@ -21,7 +21,5 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.pressed == true:
 			if is_clickable == true:
-				%Coming_soon_label.visible = true
-				await get_tree().create_timer(3).timeout
-				%Coming_soon_label.visible = false
+				pass
 				

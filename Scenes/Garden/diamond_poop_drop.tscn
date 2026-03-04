@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://bhr3gnj1l5l2v"]
 
-[ext_resource type="Script" path="res://Scripts/diamond_poop_drop.gd" id="1_vp7vq"]
+[ext_resource type="Script" uid="uid://be4ftkthe63rm" path="res://Scripts/diamond_poop_drop.gd" id="1_vp7vq"]
 [ext_resource type="Texture2D" uid="uid://cvsfgy7iqqmos" path="res://Sprites/Currently Used/Diamond Poop-Sheet.png" id="2_140wq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j4wkb"]
-radius = 39.0
-height = 164.0
+radius = 4.0000033
+height = 15.999992
 
 [sub_resource type="Animation" id="Animation_0i0ll"]
 length = 0.001
@@ -43,9 +43,9 @@ length = 0.7
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kcuwr"]
 _data = {
-"RESET": SubResource("Animation_0i0ll"),
-"diamond_poop_sparkle": SubResource("Animation_rginx"),
-"poop_sparkle": SubResource("Animation_ph82p")
+&"RESET": SubResource("Animation_0i0ll"),
+&"diamond_poop_sparkle": SubResource("Animation_rginx"),
+&"poop_sparkle": SubResource("Animation_ph82p")
 }
 
 [node name="Diamond_Poop_Drop" type="Node2D"]
@@ -58,7 +58,6 @@ script = ExtResource("1_vp7vq")
 
 [node name="Diamond_Sprite" type="Sprite2D" parent="Diamond_Poop"]
 position = Vector2(-2.99998, 0)
-scale = Vector2(0.35, 0.35)
 texture = ExtResource("2_140wq")
 hframes = 7
 
@@ -69,7 +68,7 @@ shape = SubResource("CapsuleShape2D_j4wkb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Diamond_Poop"]
 libraries = {
-"": SubResource("AnimationLibrary_kcuwr")
+&"": SubResource("AnimationLibrary_kcuwr")
 }
 
 [node name="decay_timer" type="Timer" parent="Diamond_Poop"]

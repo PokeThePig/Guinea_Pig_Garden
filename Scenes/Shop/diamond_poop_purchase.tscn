@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmfvrbim5mj2j"]
+[gd_scene format=3 uid="uid://bmfvrbim5mj2j"]
 
 [ext_resource type="Script" uid="uid://degf85wg1gpwf" path="res://Scripts/Diamond_Poop_Purchase.gd" id="1_vglcu"]
 [ext_resource type="Texture2D" uid="uid://cvsfgy7iqqmos" path="res://Sprites/Currently Used/Diamond Poop-Sheet.png" id="2_04iaj"]
@@ -21,23 +21,23 @@ Label/styles/normal = SubResource("StyleBoxFlat_ltwy1")
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wgl33"]
 light_mode = 1
 
-[node name="Diamond_Poop_Purchase" type="Node2D"]
+[node name="Diamond_Poop_Purchase" type="Node2D" unique_id=159154850]
 script = ExtResource("1_vglcu")
 
-[node name="diamond_shop_sprite" type="Sprite2D" parent="."]
+[node name="diamond_shop_sprite" type="Sprite2D" parent="." unique_id=1977890733]
 material = SubResource("CanvasItemMaterial_lhv3m")
 position = Vector2(0, -96)
-scale = Vector2(0.3, 0.297)
+scale = Vector2(8, 8)
 texture = ExtResource("2_04iaj")
 hframes = 7
 
-[node name="diamond_poop_description" type="Label" parent="."]
+[node name="diamond_poop_description" type="Label" parent="." unique_id=511859129]
 visible = false
 material = SubResource("CanvasItemMaterial_lhv3m")
 offset_left = -112.0
-offset_top = -184.0
+offset_top = -144.0
 offset_right = 113.0
-offset_bottom = -88.0
+offset_bottom = -48.0
 theme = SubResource("Theme_sinwa")
 theme_override_fonts/font = ExtResource("2_lhv3m")
 theme_override_font_sizes/font_size = 25
@@ -47,7 +47,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Button" type="TextureButton" parent="."]
+[node name="Button" type="TextureButton" parent="." unique_id=838768634]
 material = SubResource("CanvasItemMaterial_wgl33")
 offset_left = -128.0
 offset_right = -64.0
@@ -57,7 +57,7 @@ texture_normal = ExtResource("4_p13xl")
 texture_pressed = ExtResource("5_vhc64")
 texture_hover = ExtResource("6_p5p77")
 
-[node name="Diamond_Poop_Label" type="Label" parent="."]
+[node name="Diamond_Poop_Label" type="Label" parent="." unique_id=1509826108]
 material = SubResource("CanvasItemMaterial_wgl33")
 offset_left = -144.0
 offset_right = 146.0
@@ -72,4 +72,6 @@ vertical_alignment = 1
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

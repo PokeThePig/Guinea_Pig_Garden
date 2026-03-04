@@ -12,7 +12,7 @@ func _ready():
 	for pig in get_tree().get_nodes_in_group("Pig"):
 		effect_end.connect(pig._end_squeek_frenzy_effect.bind())
 	#max speed achievement bind
-	Globals.movespeed = randf_range(7, 12)
+	Globals.movespeed = randf_range(7, 10)
 	if (Globals.golden_poop_active == true) and (Globals.kings_coronation_active == true) and (instance_from_id(Globals.guinea_dictionary["Calix"]) == Globals.gold_poop_pig):
 		max_speed_achievement_unlocked.emit()
 		Globals.poop_frenzy_achievement_completed = true

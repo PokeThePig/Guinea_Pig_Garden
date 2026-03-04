@@ -10,6 +10,7 @@ var upgrade_sprite
 var unique_upgrade = null
 @onready var squeek_frenzy_assets = load("res://Scenes/Shop/squeek_frenzy_purchase.tscn")
 @onready var hibernation_assets = load("res://Scenes/Shop/hibernation_purchase.tscn")
+@onready var squeek_chain_assets = load("res://Scenes/Shop/squeek_chain_purchase.tscn")
 @onready var copper_poop_assets = load("res://Scenes/Shop/copper_poop_purchase.tscn")
 @onready var rain_or_shine_assets = load("res://Scenes/Shop/rain_or_shine_purchase.tscn")
 @onready var kings_coronation_assets = load("res://Scenes/Shop/kings_coronation_purchase.tscn")
@@ -42,7 +43,7 @@ func _update_poop_upgrades():
 	var upgrade_row_location = $ScrollContainer/VBoxContainer/ScrollContainer.global_position.y
 	pig_instance = instance_from_id(Globals.guinea_dictionary[Globals.new_pig])
 	current_pig += 1
-	
+
 	#Adding row
 	var new_upgrade_row = upgrade_row_assets.instantiate()
 	get_node("ScrollContainer").get_node("VBoxContainer").add_child(new_upgrade_row)
@@ -60,7 +61,13 @@ func _update_poop_upgrades():
 			new_upgrade_row.get_node("HBoxContainer").add_child(unique_upgrade)
 			unique_upgrade.global_position = new_upgrade_row.get_node("HBoxContainer").get_node("Unique_upgrade_placeholder").global_position
 			Globals.upgrade_dictionary["Gizmo"] = [new_upgrade_row.get_instance_id(), new_upgrade_row.get_node("HBoxContainer").get_node("Poop_Speed_Purchase").upgrades_left, new_upgrade_row.get_node("HBoxContainer").get_node("Double_poop_drop_purchase").upgrades_left, new_upgrade_row.get_node("HBoxContainer").get_node("giant_poop_upgrade").upgrades_left, new_upgrade_row.get_node("HBoxContainer").get_node("Hibernation_purchase").upgrades_left]
-	
+	if (Globals.butterscotch_purchased == true):
+		if (pig_instance == instance_from_id(Globals.guinea_dictionary["Butterscotch"])):
+			new_upgrade_row.get_node("HBoxContainer").get_node("Pig_Sprite").get_node("Guinea_Pig_Name").text = "Butterscotch"
+			unique_upgrade = squeek_chain_assets.instantiate()
+			new_upgrade_row.get_node("HBoxContainer").add_child(unique_upgrade)
+			unique_upgrade.global_position = new_upgrade_row.get_node("HBoxContainer").get_node("Unique_upgrade_placeholder").global_position
+			Globals.upgrade_dictionary["Butterscotch"] = [new_upgrade_row.get_instance_id(), new_upgrade_row.get_node("HBoxContainer").get_node("Poop_Speed_Purchase").upgrades_left, new_upgrade_row.get_node("HBoxContainer").get_node("Double_poop_drop_purchase").upgrades_left, new_upgrade_row.get_node("HBoxContainer").get_node("giant_poop_upgrade").upgrades_left, new_upgrade_row.get_node("HBoxContainer").get_node("Squeek_Chain_Purchase").upgrades_left]
 	if (Globals.rich_guinea_purchased == true):
 		if (pig_instance == instance_from_id(Globals.guinea_dictionary["Pennybags"])):
 			new_upgrade_row.get_node("HBoxContainer").get_node("Pig_Sprite").get_node("Guinea_Pig_Name").text = "Pennybags"
@@ -111,6 +118,12 @@ func _load_poop_upgrades():
 						loaded_upgrade_row.get_node("HBoxContainer").add_child(unique_upgrade)
 						unique_upgrade.global_position = loaded_upgrade_row.get_node("HBoxContainer").get_node("Unique_upgrade_placeholder").global_position
 						Globals.upgrade_dictionary["Gizmo"][0] = loaded_upgrade_row.get_instance_id()
+					if guinea_pig_dict == "Butterscotch":
+						loaded_upgrade_row.get_node("HBoxContainer").get_node("Pig_Sprite").get_node("Guinea_Pig_Name").text = "Butterscotch"
+						unique_upgrade = squeek_chain_assets.instantiate()
+						loaded_upgrade_row.get_node("HBoxContainer").add_child(unique_upgrade)
+						unique_upgrade.global_position = loaded_upgrade_row.get_node("HBoxContainer").get_node("Unique_upgrade_placeholder").global_position
+						Globals.upgrade_dictionary["Butterscotch"][0] = loaded_upgrade_row.get_instance_id()
 					if guinea_pig_dict == "Pennybags":
 						loaded_upgrade_row.get_node("HBoxContainer").get_node("Pig_Sprite").get_node("Guinea_Pig_Name").text = "Pennybags"
 						unique_upgrade = copper_poop_assets.instantiate()

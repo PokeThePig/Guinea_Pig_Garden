@@ -43,13 +43,13 @@ metadata/_edit_use_anchors_ = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_son5w")
 position = Vector2(-19, -109)
-scale = Vector2(0.3125, 0.296875)
+scale = Vector2(5, 5)
 texture = ExtResource("2_1lhlh")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_son5w")
 position = Vector2(21, -83)
-scale = Vector2(0.3125, 0.296875)
+scale = Vector2(5, 5)
 texture = ExtResource("2_1lhlh")
 
 [node name="Double_poop_description" type="Label" parent="."]

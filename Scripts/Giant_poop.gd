@@ -6,8 +6,8 @@ var max_size_poop = false
 var giant_poop_size = 0
 var giant_poop_collision = 0
 
-var giant_poop_min = 1
-var giant_poop_max = 1.5
+var giant_poop_min = 3
+var giant_poop_max = 4
 
 signal giant_poop_crushed
 signal giant_poop_achievement_unlocked
@@ -25,19 +25,19 @@ func _ready():
 	get_node("giant_poop_collision").set_scale(Vector2(giant_poop_collision, giant_poop_collision))
 	
 	#Setting giant poop health
-	if (giant_poop_size >= 1.25) && (giant_poop_size <= 1.5):
+	if (giant_poop_size >= 3.5) && (giant_poop_size <= 4):
 		clicks_left = 4
-	elif (giant_poop_size > 1.5) && (giant_poop_size <= 1.75):
+	elif (giant_poop_size > 4) && (giant_poop_size <= 5):
 		clicks_left = 5
-	elif (giant_poop_size > 1.75) && (giant_poop_size <= 2):
+	elif (giant_poop_size > 5) && (giant_poop_size <= 6):
 		clicks_left = 6
-	elif (giant_poop_size > 2) && (giant_poop_size <= 2.25):
+	elif (giant_poop_size > 6) && (giant_poop_size <= 7):
 		clicks_left = 7
-	elif (giant_poop_size > 2.25) && (giant_poop_size <= 2.5):
+	elif (giant_poop_size > 7) && (giant_poop_size <= 8):
 		clicks_left = 8
-	elif (giant_poop_size > 2.5) && (giant_poop_size <= 2.75):
+	elif (giant_poop_size > 8) && (giant_poop_size <= 9.5):
 		clicks_left = 9
-	elif (giant_poop_size > 2.75):
+	elif (giant_poop_size > 9.5):
 		clicks_left = 10
 		max_size_poop = true
 
@@ -67,7 +67,8 @@ func _input(event):
 				else:
 					print("Giant poop popped")
 					giant_poop_crushed.emit()
-					var giant_poop_amount = int(snappedf(pow(giant_poop_size.x, 2), 0.01) * 100)
+					var giant_poop_amount = int(snappedf(giant_poop_size.x, 0.01) * 100)
+					print(giant_poop_amount)
 					Globals.poop_amount += giant_poop_amount
 					if (max_size_poop == true) and (Globals.colossal_crusher_achievement_completed == false):
 						giant_poop_achievement_unlocked.emit()

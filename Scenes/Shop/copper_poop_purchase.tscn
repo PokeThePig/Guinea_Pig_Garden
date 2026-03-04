@@ -27,7 +27,7 @@ script = ExtResource("1_2oe82")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_q2r6w")
 position = Vector2(0, -104)
-scale = Vector2(0.278308, 0.277672)
+scale = Vector2(5, 5)
 texture = ExtResource("2_0om04")
 
 [node name="copper_poop_count" type="Label" parent="."]

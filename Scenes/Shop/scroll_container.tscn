@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8irhb30q5tn8"]
+[gd_scene format=3 uid="uid://b8irhb30q5tn8"]
 
 [ext_resource type="Texture2D" uid="uid://b6ru5f62s8wxr" path="res://Sprites/icon.svg" id="1_6cpue"]
 [ext_resource type="Texture2D" uid="uid://ogq2ximy5fhw" path="res://Sprites/Currently Used/Template2.0-Sheet.png" id="2_nbc55"]
@@ -15,7 +15,7 @@ light_mode = 1
 
 [sub_resource type="Theme" id="Theme_5ayhv"]
 
-[node name="ScrollContainer" type="ScrollContainer" groups=["Scroll"]]
+[node name="ScrollContainer" type="ScrollContainer" unique_id=569381193 groups=["Scroll"]]
 material = SubResource("CanvasItemMaterial_i8ra0")
 custom_minimum_size = Vector2(1500, 370)
 layout_direction = 2
@@ -28,7 +28,7 @@ horizontal_scroll_mode = 2
 vertical_scroll_mode = 0
 scroll_deadzone = -1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=199777904]
 material = SubResource("CanvasItemMaterial_xnffj")
 clip_contents = true
 custom_minimum_size = Vector2(2000, 0)
@@ -39,23 +39,26 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme = SubResource("Theme_5ayhv")
 
-[node name="Unique_upgrade_placeholder" type="Sprite2D" parent="HBoxContainer"]
+[node name="Unique_upgrade_placeholder" type="Sprite2D" parent="HBoxContainer" unique_id=2092233627]
 visible = false
 material = SubResource("CanvasItemMaterial_xnffj")
 position = Vector2(1744, 206)
 texture = ExtResource("1_6cpue")
 
-[node name="Pig_Sprite" type="Sprite2D" parent="HBoxContainer"]
+[node name="Pig_Sprite" type="Sprite2D" parent="HBoxContainer" unique_id=925298237]
 material = SubResource("CanvasItemMaterial_xnffj")
 position = Vector2(184, 149)
 scale = Vector2(6, 6.444)
 texture = ExtResource("2_nbc55")
 hframes = 2
 
-[node name="Guinea_Pig_Name" type="Label" parent="HBoxContainer/Pig_Sprite"]
+[node name="Guinea_Pig_Name" type="Label" parent="HBoxContainer/Pig_Sprite" unique_id=1006817189]
 auto_translate_mode = 2
 material = SubResource("CanvasItemMaterial_xnffj")
 layout_direction = 2
+anchors_preset = -1
+anchor_left = -0.16145831
+anchor_right = 4.192707
 offset_left = -25.5
 offset_top = 9.62136
 offset_right = 488.5
@@ -72,14 +75,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Poop_Speed_Purchase" parent="HBoxContainer" instance=ExtResource("3_5i0tq")]
+[node name="Poop_Speed_Purchase" parent="HBoxContainer" unique_id=1067685862 instance=ExtResource("3_5i0tq")]
 material = SubResource("CanvasItemMaterial_xnffj")
 position = Vector2(520, 206)
 
-[node name="Double_poop_drop_purchase" parent="HBoxContainer" instance=ExtResource("4_wk0u5")]
+[node name="Double_poop_drop_purchase" parent="HBoxContainer" unique_id=727580768 instance=ExtResource("4_wk0u5")]
 material = SubResource("CanvasItemMaterial_xnffj")
 position = Vector2(928, 206)
 
-[node name="giant_poop_upgrade" parent="HBoxContainer" instance=ExtResource("5_a0akx")]
+[node name="giant_poop_upgrade" parent="HBoxContainer" unique_id=2045906639 instance=ExtResource("5_a0akx")]
 material = SubResource("CanvasItemMaterial_xnffj")
 position = Vector2(1344, 206)

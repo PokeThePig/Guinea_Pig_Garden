@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cypvnme735xpc"]
+[gd_scene format=3 uid="uid://cypvnme735xpc"]
 
 [ext_resource type="Texture2D" uid="uid://vjm4igbsy0h7" path="res://Sprites/Currently Used/Poop upscale.png" id="1_g7m21"]
 [ext_resource type="Script" uid="uid://cvr47wdro7po5" path="res://Scripts/giant_poop_purchase.gd" id="1_rqgm5"]
@@ -21,17 +21,17 @@ Label/styles/normal = SubResource("StyleBoxFlat_xa2vd")
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l4hj1"]
 light_mode = 1
 
-[node name="giant_poop_purchase" type="Node2D"]
+[node name="giant_poop_purchase" type="Node2D" unique_id=1171076590]
 scale = Vector2(0.992149, 0.899725)
 script = ExtResource("1_rqgm5")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=482076444]
 material = SubResource("CanvasItemMaterial_sibkc")
 position = Vector2(-5.42101e-20, -106.699)
-scale = Vector2(0.563307, 0.58)
+scale = Vector2(16, 16)
 texture = ExtResource("1_g7m21")
 
-[node name="giant_poop_description" type="Label" parent="."]
+[node name="giant_poop_description" type="Label" parent="." unique_id=151812388]
 visible = false
 material = SubResource("CanvasItemMaterial_sibkc")
 offset_left = -137.0
@@ -47,7 +47,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Button" type="TextureButton" parent="."]
+[node name="Button" type="TextureButton" parent="." unique_id=820229728]
 material = SubResource("CanvasItemMaterial_l4hj1")
 offset_left = -129.013
 offset_right = -65.0129
@@ -57,7 +57,7 @@ texture_normal = ExtResource("4_6u2bd")
 texture_pressed = ExtResource("5_o5nlr")
 texture_hover = ExtResource("6_vusd0")
 
-[node name="Giant_Poop_Label" type="Label" parent="."]
+[node name="Giant_Poop_Label" type="Label" parent="." unique_id=536682816]
 material = SubResource("CanvasItemMaterial_l4hj1")
 offset_left = -145.139
 offset_right = 144.861
@@ -72,4 +72,6 @@ vertical_alignment = 1
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

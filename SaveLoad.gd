@@ -8,6 +8,7 @@ var contents_to_save: Dictionary = {
 	"diamond_poop_amount": 0,
 	"prismatic_poop_amount": 0,
 	"gizmo_unlocked": false,
+	"butterscotch_unlocked": false,
 	"pennybags_unlocked": false,
 	"chroma_unlocked": false,
 	"calix_unlocked": false,
@@ -16,34 +17,41 @@ var contents_to_save: Dictionary = {
 	"prismatic_poop_unlocked": false,
 	"bella_poop_speed": 1,
 	"gizmo_poop_speed": 1,
+	"butterscotch_poop_speed": 1,
 	"pennybags_poop_speed": 1,
 	"chroma_poop_speed": 1,
 	"calix_poop_speed": 1,
 	"bella_double_unlocked": false,
 	"gizmo_double_unlocked": false,
+	"butterscotch_double_unlocked": false,
 	"pennybags_double_unlocked": false,
 	"chroma_double_unlocked": false,
 	"calix_double_unlocked": false,
 	"bella_double_chance": 1,
 	"gizmo_double_chance": 1,
+	"butterscotch_double_chance": 1,
 	"pennybags_double_chance": 1,
 	"chroma_double_chance": 1,
 	"calix_double_chance": 1,
-	"bella_giant_min": 1,
-	"bella_giant_max": 1,
-	"gizmo_giant_min": 1,
-	"gizmo_giant_max": 1,
-	"pennybags_giant_min": 1,
-	"pennybags_giant_max": 1,
-	"chroma_giant_min": 1,
-	"chroma_giant_max": 1,
-	"calix_giant_min": 1,
-	"calix_giant_max": 1,
+	"bella_giant_min": 3,
+	"bella_giant_max": 3.5,
+	"gizmo_giant_min": 3,
+	"gizmo_giant_max": 3.5,
+	"butterscotch_giant_min": 3,
+	"butterscotch_giant_max": 3.5,
+	"pennybags_giant_min": 3,
+	"pennybags_giant_max": 3.5,
+	"chroma_giant_min": 3,
+	"chroma_giant_max": 3.5,
+	"calix_giant_min": 3,
+	"calix_giant_max": 3.5,
 	"squeek_frenzy_unlocked": false,
 	"squeek_frenzy_duration": 5,
 	"hibernation_unlocked": false,
 	"hibernation_sleep_duration": 30,
 	"hibernation_effect_duration": 3,
+	"squeek_chain_unlocked": false,
+	"squeek_chain_worth": 1,
 	"copper_poop_unlocked": false,
 	"copper_poop_worth": 2,
 	"rain_or_shine_unlocked": false,
@@ -52,6 +60,7 @@ var contents_to_save: Dictionary = {
 	"king_poop_unlocked": false,
 	"times_pet": 0,
 	"guinea_order": [],
+	"guineas_purchased": 0,
 	"upgrades_left_dictionary": {"Bella": [null, null, null, null, null]},
 	"gold_rush_unlocked": false,
 	"diamond_digger_unlocked": false,
@@ -65,6 +74,8 @@ var contents_to_save: Dictionary = {
 	"master_volume_value": 0.75,
 	"music_volume_value": 0.75,
 	"sound_effects_volume_value": 0.75,
+	"night_cycle": true,
+	"rain_visible": true,
 	"auto_save_state": true,
 }
 
@@ -86,6 +97,7 @@ func _load():
 		contents_to_save.diamond_poop_amount = save_data.diamond_poop_amount
 		contents_to_save.prismatic_poop_amount = save_data.prismatic_poop_amount
 		contents_to_save.gizmo_unlocked = save_data.gizmo_unlocked
+		contents_to_save.butterscotch_unlocked = save_data.butterscotch_unlocked
 		contents_to_save.pennybags_unlocked = save_data.pennybags_unlocked
 		contents_to_save.chroma_unlocked = save_data.chroma_unlocked
 		contents_to_save.calix_unlocked = save_data.calix_unlocked
@@ -94,16 +106,19 @@ func _load():
 		contents_to_save.prismatic_poop_unlocked = save_data.prismatic_poop_unlocked
 		contents_to_save.bella_poop_speed = save_data.bella_poop_speed
 		contents_to_save.gizmo_poop_speed = save_data.gizmo_poop_speed
+		contents_to_save.butterscotch_poop_speed = save_data.butterscotch_unlocked
 		contents_to_save.pennybags_poop_speed = save_data.pennybags_poop_speed
 		contents_to_save.chroma_poop_speed = save_data.chroma_poop_speed
 		contents_to_save.calix_poop_speed = save_data.calix_poop_speed
 		contents_to_save.bella_double_unlocked = save_data.bella_double_unlocked
 		contents_to_save.gizmo_double_unlocked = save_data.gizmo_double_unlocked
+		contents_to_save.butterscotch_double_unlocked = save_data.butterscotch_double_unlocked
 		contents_to_save.pennybags_double_unlocked = save_data.pennybags_double_unlocked
 		contents_to_save.chroma_double_unlocked = save_data.chroma_double_unlocked
 		contents_to_save.calix_double_unlocked = save_data.calix_double_unlocked
 		contents_to_save.bella_double_chance = save_data.bella_double_chance
 		contents_to_save.gizmo_double_chance = save_data.gizmo_double_chance
+		contents_to_save.butterscotch_double_chance = save_data.butterscotch_double_chance
 		contents_to_save.pennybags_double_chance = save_data.pennybags_double_chance
 		contents_to_save.chroma_double_chance = save_data.chroma_double_chance
 		contents_to_save.calix_double_chance = save_data.calix_double_chance
@@ -111,6 +126,8 @@ func _load():
 		contents_to_save.bella_giant_max = save_data.bella_giant_max
 		contents_to_save.gizmo_giant_min = save_data.gizmo_giant_min
 		contents_to_save.gizmo_giant_max = save_data.gizmo_giant_max
+		contents_to_save.butterscotch_giant_min = save_data.butterscotch_giant_min
+		contents_to_save.butterscotch_giant_max = save_data.butterscotch_giant_max
 		contents_to_save.pennybags_giant_min = save_data.pennybags_giant_min
 		contents_to_save.pennybags_giant_max = save_data.pennybags_giant_max
 		contents_to_save.chroma_giant_min = save_data.chroma_giant_min
@@ -122,6 +139,8 @@ func _load():
 		contents_to_save.hibernation_unlocked = save_data.hibernation_unlocked
 		contents_to_save.hibernation_sleep_duration = save_data.hibernation_sleep_duration
 		contents_to_save.hibernation_effect_duration = save_data.hibernation_effect_duration
+		contents_to_save.squeek_chain_unlocked = save_data.squeek_chain_unlocked
+		contents_to_save.squeek_chain_worth = save_data.squeek_chain_worth
 		contents_to_save.copper_poop_unlocked = save_data.copper_poop_unlocked
 		contents_to_save.copper_poop_worth = save_data.copper_poop_worth
 		contents_to_save.rain_or_shine_unlocked = save_data.rain_or_shine_unlocked
@@ -130,6 +149,7 @@ func _load():
 		contents_to_save.king_poop_unlocked = save_data.king_poop_unlocked
 		contents_to_save.times_pet = save_data.times_pet
 		contents_to_save.guinea_order = save_data.guinea_order
+		contents_to_save.guineas_purchased = save_data.guineas_purchased
 		contents_to_save.upgrades_left_dictionary = save_data.upgrades_left_dictionary
 		contents_to_save.gold_rush_unlocked = save_data.gold_rush_unlocked
 		contents_to_save.diamond_digger_unlocked = save_data.diamond_digger_unlocked
@@ -143,5 +163,7 @@ func _load():
 		contents_to_save.master_volume_value = save_data.master_volume_value
 		contents_to_save.music_volume_value = save_data.music_volume_value
 		contents_to_save.sound_effects_value = save_data.sound_effects_volume_value
+		contents_to_save.night_cycle = save_data.night_cycle
+		contents_to_save.rain_visible = save_data.rain_visible
 		contents_to_save.auto_save_state = save_data.auto_save_state
 		

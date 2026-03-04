@@ -6,8 +6,8 @@
 [ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="3_dx0o6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v58n2"]
-radius = 304.0
-height = 1070.0
+radius = 39.0
+height = 140.00002
 
 [sub_resource type="Animation" id="Animation_n0qik"]
 length = 0.001
@@ -59,13 +59,13 @@ input_pickable = true
 script = ExtResource("1_u00bv")
 
 [node name="Piggybank_Sprite" type="Sprite2D" parent="Guinea Piggy Bank"]
-position = Vector2(476, -615)
-scale = Vector2(33, 32)
+position = Vector2(466, -543)
+scale = Vector2(4, 4)
 texture = ExtResource("2_u7a64")
 hframes = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guinea Piggy Bank"]
-position = Vector2(477, -461)
+position = Vector2(468, -525)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_v58n2")
 
@@ -75,36 +75,19 @@ libraries = {
 }
 
 [node name="Poop_count_label" type="Label" parent="."]
-offset_left = -667.0
-offset_top = -1205.0
-offset_right = 775.0
-offset_bottom = -520.0
+offset_left = -68.0
+offset_top = -118.0
+offset_right = 68.0
+offset_bottom = -63.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 40
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_dx0o6")
-theme_override_font_sizes/font_size = 350
+theme_override_font_sizes/font_size = 32
 text = "Poop Count: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 script = ExtResource("2_3pvoq")
-
-[node name="Coming_soon_label" type="Label" parent="."]
-unique_name_in_owner = true
-visible = false
-offset_left = -528.0
-offset_top = 472.0
-offset_right = 312.0
-offset_bottom = 1021.0
-scale = Vector2(1.2759, 1.22541)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 40
-theme_override_fonts/font = ExtResource("3_dx0o6")
-theme_override_font_sizes/font_size = 300
-text = "Coming soon"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
 
 [connection signal="mouse_entered" from="Guinea Piggy Bank" to="Guinea Piggy Bank" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Guinea Piggy Bank" to="Guinea Piggy Bank" method="_on_mouse_exited"]

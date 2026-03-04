@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://bav4dn7vhk2u0"]
+
+[ext_resource type="Script" uid="uid://b2y5f35qcnaxd" path="res://Scripts/butterscotch_purchase.gd" id="1_i3xd3"]
+[ext_resource type="Texture2D" uid="uid://ivcpfgyt8ta0" path="res://Sprites/Currently Used/Butterscotch-Left-Sheet.png" id="2_msyct"]
+[ext_resource type="Texture2D" uid="uid://c5du35lcbfdx7" path="res://Sprites/Currently Used/Purchase-Button.png" id="3_pfwve"]
+[ext_resource type="Texture2D" uid="uid://d0t5pyqj43o62" path="res://Sprites/Currently Used/Purchase-Pressed.png" id="4_5npna"]
+[ext_resource type="Texture2D" uid="uid://ci857tfpxitjg" path="res://Sprites/Currently Used/Purchase-Hover.png" id="5_ae05q"]
+[ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="6_kdkm4"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2xy8c"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yejil"]
+light_mode = 1
+
+[node name="Butterscotch_Purchase" type="Node2D"]
+script = ExtResource("1_i3xd3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_2xy8c")
+position = Vector2(-2.84217e-14, -80)
+scale = Vector2(5, 5)
+texture = ExtResource("2_msyct")
+hframes = 2
+
+[node name="Button" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_yejil")
+offset_left = -128.0
+offset_right = -64.0
+offset_bottom = 24.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("3_pfwve")
+texture_pressed = ExtResource("4_5npna")
+texture_hover = ExtResource("5_ae05q")
+
+[node name="Butterscotch_Label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_yejil")
+offset_left = -144.0
+offset_right = 146.0
+offset_bottom = 80.0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("6_kdkm4")
+theme_override_font_sizes/font_size = 36
+text = "Buy Butterscotch
+1 Diamond Poop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

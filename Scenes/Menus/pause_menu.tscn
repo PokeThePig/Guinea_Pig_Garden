@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://3y4wlgqjokug"]
+[gd_scene format=3 uid="uid://3y4wlgqjokug"]
 
 [ext_resource type="Script" uid="uid://cbxmecc3yil20" path="res://Scripts/pause_menu.gd" id="1_vx85b"]
 [ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="2_pdytf"]
@@ -19,7 +19,7 @@ keycode = 4194305
 [sub_resource type="Shortcut" id="Shortcut_ke64k"]
 events = [SubResource("InputEventKey_13elr")]
 
-[node name="Pause_menu" type="Control"]
+[node name="Pause_menu" type="Control" unique_id=1992994596]
 process_mode = 2
 z_index = 3
 layout_mode = 3
@@ -32,7 +32,7 @@ grow_vertical = 2
 scale = Vector2(10, 10)
 script = ExtResource("1_vx85b")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1040374140]
 material = SubResource("CanvasItemMaterial_pdytf")
 layout_mode = 0
 offset_left = -868.0
@@ -41,7 +41,7 @@ offset_right = 880.0
 offset_bottom = 483.0
 color = Color(0.174278, 0.301085, 0.250925, 1)
 
-[node name="Paused_text" type="Label" parent="."]
+[node name="Paused_text" type="Label" parent="." unique_id=1730673490]
 material = SubResource("CanvasItemMaterial_pdytf")
 layout_mode = 0
 offset_left = -320.0
@@ -55,7 +55,7 @@ text = "- Paused -"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Unpause_button" type="TextureButton" parent="."]
+[node name="Unpause_button" type="TextureButton" parent="." unique_id=1664317440]
 material = SubResource("CanvasItemMaterial_pw12o")
 layout_mode = 0
 offset_left = -144.0
@@ -68,7 +68,7 @@ texture_normal = ExtResource("3_pw12o")
 texture_pressed = ExtResource("4_7smr3")
 texture_hover = ExtResource("5_nwnlq")
 
-[node name="Unpause_Label" type="Label" parent="."]
+[node name="Unpause_Label" type="Label" parent="." unique_id=1557260766]
 material = SubResource("CanvasItemMaterial_pw12o")
 layout_mode = 0
 offset_left = -143.2
@@ -81,7 +81,7 @@ text = "Resume"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Settings_Button" type="TextureButton" parent="."]
+[node name="Settings_Button" type="TextureButton" parent="." unique_id=1533694361]
 material = SubResource("CanvasItemMaterial_pw12o")
 layout_mode = 0
 offset_left = -144.0
@@ -89,12 +89,11 @@ offset_top = -35.0
 offset_right = -96.0
 offset_bottom = -17.0
 scale = Vector2(6, 6)
-shortcut = SubResource("Shortcut_ke64k")
 texture_normal = ExtResource("3_pw12o")
 texture_pressed = ExtResource("4_7smr3")
 texture_hover = ExtResource("5_nwnlq")
 
-[node name="Settings_Label" type="Label" parent="."]
+[node name="Settings_Label" type="Label" parent="." unique_id=448030621]
 material = SubResource("CanvasItemMaterial_pw12o")
 layout_mode = 0
 offset_left = -144.0
@@ -107,7 +106,7 @@ text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Main_Menu_Button" type="TextureButton" parent="."]
+[node name="Main_Menu_Button" type="TextureButton" parent="." unique_id=1661060238]
 material = SubResource("CanvasItemMaterial_pw12o")
 layout_mode = 0
 offset_left = -144.0
@@ -115,12 +114,11 @@ offset_top = 105.0
 offset_right = -96.0
 offset_bottom = 123.0
 scale = Vector2(6, 6)
-shortcut = SubResource("Shortcut_ke64k")
 texture_normal = ExtResource("3_pw12o")
 texture_pressed = ExtResource("4_7smr3")
 texture_hover = ExtResource("5_nwnlq")
 
-[node name="Main_Menu_Label" type="Label" parent="."]
+[node name="Main_Menu_Label" type="Label" parent="." unique_id=1980640301]
 material = SubResource("CanvasItemMaterial_pw12o")
 layout_mode = 0
 offset_left = -144.0
@@ -133,7 +131,7 @@ text = "Main Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Quit_Button" type="TextureButton" parent="."]
+[node name="Quit_Button" type="TextureButton" parent="." unique_id=184896615]
 material = SubResource("CanvasItemMaterial_pw12o")
 layout_mode = 0
 offset_left = -144.0
@@ -141,12 +139,11 @@ offset_top = 245.0
 offset_right = -96.0
 offset_bottom = 263.0
 scale = Vector2(6, 6)
-shortcut = SubResource("Shortcut_ke64k")
 texture_normal = ExtResource("3_pw12o")
 texture_pressed = ExtResource("4_7smr3")
 texture_hover = ExtResource("5_nwnlq")
 
-[node name="Quit_Label" type="Label" parent="."]
+[node name="Quit_Label" type="Label" parent="." unique_id=1560680320]
 material = SubResource("CanvasItemMaterial_pw12o")
 layout_mode = 0
 offset_left = -144.0

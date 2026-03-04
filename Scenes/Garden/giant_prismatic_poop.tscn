@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://cdl2mibmu1617"]
 
-[ext_resource type="Script" path="res://Scripts/Giant_prismatic_poop.gd" id="1_e6yfg"]
+[ext_resource type="Script" uid="uid://b57pnwvfe4m0x" path="res://Scripts/Giant_prismatic_poop.gd" id="1_e6yfg"]
 [ext_resource type="Texture2D" uid="uid://bwe1uq2bjbxfd" path="res://Sprites/Currently Used/Prismatic_Poop_Upscaled-Sheet.png" id="2_bmkqm"]
 [ext_resource type="AudioStream" uid="uid://cy3xguatueg1x" path="res://Sounds/Sounds Effects/Giant Prismatic click - Made with Clipchamp.wav" id="3_hsgmt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kx4wg"]
-radius = 209.637
-height = 927.43
+radius = 7.669586
+height = 32.5968
 
 [sub_resource type="Animation" id="Animation_nyfw5"]
 length = 0.001
@@ -41,8 +41,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4yh2y"]
 _data = {
-"RESET": SubResource("Animation_nyfw5"),
-"giant_prismatic_animation": SubResource("Animation_nvoqh")
+&"RESET": SubResource("Animation_nyfw5"),
+&"giant_prismatic_animation": SubResource("Animation_nvoqh")
 }
 
 [node name="giant_prismatic_poop" type="Node2D"]
@@ -55,13 +55,13 @@ input_pickable = true
 script = ExtResource("1_e6yfg")
 
 [node name="giant_prismatic_poop_sprite" type="Sprite2D" parent="Giant_prismatic_poop"]
-position = Vector2(-904.561, 631.973)
+position = Vector2(1.1920929e-07, 2.9802322e-08)
 scale = Vector2(3, 2.836)
 texture = ExtResource("2_bmkqm")
 hframes = 7
 
 [node name="giant_poop_collision" type="CollisionShape2D" parent="Giant_prismatic_poop"]
-position = Vector2(-902.194, 630.441)
+position = Vector2(0, 3.637979e-12)
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 shape = SubResource("CapsuleShape2D_kx4wg")
@@ -78,7 +78,7 @@ autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Giant_prismatic_poop"]
 libraries = {
-"": SubResource("AnimationLibrary_4yh2y")
+&"": SubResource("AnimationLibrary_4yh2y")
 }
 
 [connection signal="input_event" from="Giant_prismatic_poop" to="Giant_prismatic_poop" method="_on_input_event"]

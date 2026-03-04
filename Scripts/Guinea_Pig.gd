@@ -33,8 +33,8 @@ var double_poop_chance = 10
 
 #Giant poop variables
 var giant_poop_purchased = false
-var giant_poop_minimum = 1
-var giant_poop_maximum = 1.5
+var giant_poop_minimum = 3
+var giant_poop_maximum = 4
 
 #Squeek frenzy upgrade variables
 @onready var squeek_frenzy_effect = load("res://Scenes/Garden/squeek_frenzy_effect.tscn")
@@ -44,6 +44,10 @@ var squeek_frenzy_multiplier = 1
 var effect_multiplier = 5
 
 var hibernation_ready = false
+
+var guinea_chain = 0
+var last_guinea = null
+var squeek_chain_ready = true
 
 var pig_position = null
 var mouse_in_area = false
@@ -73,22 +77,24 @@ func _physics_process(_delta):
 		velocity.x = 0
 		velocity.y = 0
 	elif state == 1:
-		velocity.x = 100 * movespeed
+		velocity.x = 30 * movespeed
 		pig_sprite.flip_h = true
 		shadow_sprite.flip_h = true
 		main_pig_animation.play("walk_animation")
 		face_left = false
+		sprite_change()
 	elif state == 2:
-		velocity.x = -100 * movespeed
+		velocity.x = -30 * movespeed
 		pig_sprite.flip_h = false
 		shadow_sprite.flip_h = false
 		main_pig_animation.play("walk_animation")
 		face_left = true
+		sprite_change()
 	elif state == 3:
-		velocity.y = 100 * movespeed
+		velocity.y = 30 * movespeed
 		main_pig_animation.play("walk_animation")
 	elif state == 4:
-		velocity.y = -100 * movespeed
+		velocity.y = -30 * movespeed
 		main_pig_animation.play("walk_animation")
 	
 	move_and_slide()
@@ -100,7 +106,7 @@ func _physics_process(_delta):
 func _on_wander_timer_timeout():
 	if ((Globals.golden_poop_active == true) and (self == Globals.gold_poop_pig)) || (Globals.squeek_frenzy_effect_active == true):
 		state = randi_range(1,5)
-		movespeed = randf_range(8,10)
+		movespeed = randf_range(7,9)
 		movement_change.wait_time = 0.25
 	else:
 		state = randi_range(0,5)
@@ -110,6 +116,17 @@ func _on_wander_timer_timeout():
 		state = 0
 		movespeed = 0
 		movement_change.wait_time = 3.5
+
+
+'''Left/Right Sprite Change'''
+func sprite_change():
+	if Globals.butterscotch_purchased:
+		if self == instance_from_id(Globals.guinea_dictionary["Butterscotch"]) and (face_left == true):
+			$Pig_Sprite.texture = load("res://Sprites/Currently Used/Butterscotch-Left-Sheet.png")
+		elif self == instance_from_id(Globals.guinea_dictionary["Butterscotch"]) and (face_left == false):
+			$Pig_Sprite.texture = load("res://Sprites/Currently Used/Butterscotch-Right-Sheet.png")
+
+
 
 
 '''Spawning poop'''
@@ -201,21 +218,21 @@ func _on_poop_spawner_timeout():
 		
 	#Setting poop spawn point
 	if (face_left == true) and (current_dropped_poop != null):
-		current_dropped_poop.global_position.x = randf_range(pig_position.x + 400, pig_position.x + 450)
-		current_dropped_poop.global_position.y = randf_range(pig_position.y + 200, pig_position.y + 250)
+		current_dropped_poop.global_position.x = randf_range(pig_position.x + 45, pig_position.x + 55)
+		current_dropped_poop.global_position.y = randf_range(pig_position.y + 100, pig_position.y + 110)
 	elif (current_dropped_poop != null):
-		current_dropped_poop.global_position.x = randf_range(pig_position.x - 450, pig_position.x - 550)
-		current_dropped_poop.global_position.y = randf_range(pig_position.y + 250, pig_position.y + 350)
+		current_dropped_poop.global_position.x = randf_range(pig_position.x - 80, pig_position.x - 90)
+		current_dropped_poop.global_position.y = randf_range(pig_position.y + 105, pig_position.y + 115)
 	pass
 
 
 func giant_poops_location_setting(poop):
 	if face_left == true:
-		poop.global_position.x = randf_range(pig_position.x + 2000, pig_position.x + 2000)
-		poop.global_position.y = randf_range(pig_position.y - 500, pig_position.y - 500)
+		poop.global_position.x = randf_range(pig_position.x + 65, pig_position.x + 75)
+		poop.global_position.y = randf_range(pig_position.y + 100, pig_position.y + 110)
 	else:
-		poop.global_position.x = randf_range(pig_position.x, pig_position.x)
-		poop.global_position.y = randf_range(pig_position.y - 500, pig_position.y - 500)
+		poop.global_position.x = randf_range(pig_position.x - 100, pig_position.x - 110)
+		poop.global_position.y = randf_range(pig_position.y + 105, pig_position.y + 115)
 			
 		current_dropped_poop = null
 
@@ -468,6 +485,8 @@ func _input(event):
 						pig._start_squeek_frenzy_effect()
 					get_parent().add_child(squeek_frenzy_effect.instantiate())
 				
+				
+				#Hibernation
 				elif (Globals.hibernation_purchased == true) and (hibernation_ready == true) and (self == instance_from_id(Globals.guinea_dictionary["Gizmo"])):
 					Globals.hiberation_sleep_active = true
 					add_child(hibernation_ability.instantiate())
@@ -475,6 +494,24 @@ func _input(event):
 					mouse_in_box.connect(get_node("hibernation_ability")._sleep_box_entered.bind())
 					mouse_out_box.connect(get_node("hibernation_ability")._sleep_box_exited.bind())
 					hibernation_ready = false
+				
+				
+				#Squeek Chain
+				elif ((Globals.squeek_chain_purchased == true) and (squeek_chain_ready == true) and (self == instance_from_id(Globals.guinea_dictionary["Butterscotch"]))):
+					squeek_chain_ready = false
+					$squeek_chain_delay.start()
+					squeek_randomizer().play()
+					for i in range(1, Globals.squeek_chain_value + 1):
+						await get_tree().create_timer(.25).timeout
+						guinea_chain = randi_range(0, Globals.guinea_pigs_purchased)
+						while (guinea_chain == last_guinea):
+							guinea_chain = randi_range(0, Globals.guinea_pigs_purchased)
+						last_guinea = guinea_chain
+						print("Num: ", i, " Guinea: ", guinea_chain)
+						squeek_randomizer().play()
+						get_tree().get_nodes_in_group("Pig")[guinea_chain]._on_poop_spawner_timeout()
+					last_guinea = null
+					
 					
 				else:
 					squeek_randomizer().play()
@@ -485,3 +522,9 @@ func _input(event):
 				if (Globals.pet_count >= 1000) and (Globals.petting_professional_achievement_completed == false):
 					thousand_pets_achievement_unlocked.emit()
 					Globals.petting_professional_achievement_completed = true
+				
+
+
+func _on_squeek_chain_delay_timeout() -> void:
+	print("DONE")
+	squeek_chain_ready = true

@@ -11,6 +11,8 @@ func _on_guinea_shop_to_shop_pressed():
 func _update_buttons():
 	if Globals.guinea_two_purchased:
 		get_node("Guinea_Pig_Two_Purchase").get_node("Gizmo_Label").text = "SOLD OUT"
+	if Globals.butterscotch_purchased:
+		get_node("Butterscotch_Purchase").get_node("Butterscotch_Label").text = "SOLD OUT"
 	if Globals.rich_guinea_purchased:
 		get_node("Rich_Guinea_Pig_Purchase").get_node("Pennybags_Label").text = "SOLD OUT"
 	if Globals.rainbow_guinea_purchased:

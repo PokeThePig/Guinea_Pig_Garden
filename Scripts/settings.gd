@@ -80,6 +80,9 @@ func _reset_all_values():
 	Globals.hiberation_effect_active = false
 	Globals.hibernation_sleep_time = 0
 	Globals.hibernation_effect_time = 0
+	
+	Globals.squeek_chain_purchased = false
+	Globals.squeek_chain_value = 1
 
 	Globals.rain_or_shine_purchased = false
 	Globals.giant_prismatic_purchased = false
@@ -143,7 +146,20 @@ func _reset_all_values():
 	Globals.master_volume = 0.75
 	Globals.music_volume = 0.75
 	Globals.sound_effects_volume = 0.75
+	Globals.night_cycle = true
+	Globals.rain_visible = true
 	Globals.auto_save = true
 
 func _on_check_box_toggled(toggled_on: bool) -> void:
 	Globals.auto_save = toggled_on
+	
+
+
+func _on_night_toggle_toggled(toggled_on: bool) -> void:
+	Globals.night_cycle = toggled_on
+	get_parent().get_node("Garden").get_node("Day_Night_Cycle").visible = toggled_on
+
+
+func _on_rain_toggle_toggled(toggled_on: bool) -> void:
+	Globals.rain_visible = toggled_on
+	get_parent().get_node("Garden").get_node("rain_effect").visible = toggled_on

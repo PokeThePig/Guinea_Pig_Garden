@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://h8xc8stjllc5"]
+[gd_scene load_steps=18 format=3 uid="uid://h8xc8stjllc5"]
 
 [ext_resource type="Script" uid="uid://difi1yftygpqu" path="res://Scripts/guinea_pigs_shop.gd" id="1_gptvp"]
 [ext_resource type="Script" uid="uid://bx255y3bi3iib" path="res://Scripts/guinea_pigs_shop_cam.gd" id="1_mvolx"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://clthccpvplkij" path="res://Scripts/Shop_diamond_poop_count.gd" id="4_utrhr"]
 [ext_resource type="PackedScene" uid="uid://diwrvhytcahww" path="res://Scenes/Shop/guinea_pig_two_purchase.tscn" id="4_uxxcf"]
 [ext_resource type="PackedScene" uid="uid://sa7obbeljsei" path="res://Scenes/Shop/rich_guinea_pig_purchase.tscn" id="5_fd150"]
+[ext_resource type="PackedScene" uid="uid://bav4dn7vhk2u0" path="res://Scenes/Shop/butterscotch_guinea_purchase.tscn" id="5_w5c5q"]
 [ext_resource type="PackedScene" uid="uid://b1d14mqmcujmf" path="res://Scenes/Shop/rainbow_guinea_pig_purchase.tscn" id="8_kp4jm"]
 [ext_resource type="PackedScene" uid="uid://b8ys2c1rd83bh" path="res://Scenes/Shop/king_calix_purchase.tscn" id="9_f37tp"]
 [ext_resource type="Texture2D" uid="uid://dr6d35t605qdo" path="res://Sprites/Currently Used/Gray-Button.png" id="11_cjnij"]
@@ -54,19 +55,22 @@ vertical_alignment = 1
 
 [node name="Guinea_Pig_Two_Purchase" parent="." instance=ExtResource("4_uxxcf")]
 material = SubResource("CanvasItemMaterial_lc4er")
-position = Vector2(320, 488)
+position = Vector2(160, 492)
+
+[node name="Butterscotch_Purchase" parent="." instance=ExtResource("5_w5c5q")]
+position = Vector2(480, 492)
 
 [node name="Rainbow_Guinea_Pig_Purchase" parent="." instance=ExtResource("8_kp4jm")]
 material = SubResource("CanvasItemMaterial_lc4er")
-position = Vector2(960, 490)
+position = Vector2(1120, 492)
 
 [node name="Rich_Guinea_Pig_Purchase" parent="." instance=ExtResource("5_fd150")]
 material = SubResource("CanvasItemMaterial_lc4er")
-position = Vector2(640, 488)
+position = Vector2(800, 492)
 
 [node name="king_calix_purchase" parent="." instance=ExtResource("9_f37tp")]
 material = SubResource("CanvasItemMaterial_lc4er")
-position = Vector2(1296, 490)
+position = Vector2(1440, 492)
 
 [node name="Shop_poop_count" type="Label" parent="."]
 material = SubResource("CanvasItemMaterial_lc4er")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c26okl4auedr0"]
+[gd_scene format=3 uid="uid://c26okl4auedr0"]
 
 [ext_resource type="Script" uid="uid://do6drwufnbakp" path="res://Scripts/hibernation_purchase.gd" id="1_mh23q"]
 [ext_resource type="Texture2D" uid="uid://dfbxl1c3vtj7i" path="res://Sprites/Currently Used/HibernationGizmo-Sheet.png" id="2_156my"]
@@ -21,11 +21,11 @@ Label/styles/normal = SubResource("StyleBoxFlat_tvpmp")
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fde0l"]
 light_mode = 1
 
-[node name="Hibernation_purchase" type="Node2D"]
+[node name="Hibernation_purchase" type="Node2D" unique_id=1023079926]
 position = Vector2(0, -19)
 script = ExtResource("1_mh23q")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1466075851]
 material = SubResource("CanvasItemMaterial_xoy1l")
 position = Vector2(0, -109)
 scale = Vector2(5, 5)
@@ -33,7 +33,7 @@ texture = ExtResource("2_156my")
 hframes = 12
 frame = 5
 
-[node name="hibernation_count" type="Label" parent="."]
+[node name="hibernation_count" type="Label" parent="." unique_id=1898948679]
 material = SubResource("CanvasItemMaterial_xoy1l")
 offset_left = -24.0
 offset_top = 118.0
@@ -45,7 +45,7 @@ theme_override_font_sizes/font_size = 32
 text = "0/5"
 horizontal_alignment = 1
 
-[node name="hibernation_description" type="Label" parent="."]
+[node name="hibernation_description" type="Label" parent="." unique_id=1571689050]
 visible = false
 material = SubResource("CanvasItemMaterial_xoy1l")
 offset_left = -176.0
@@ -63,7 +63,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="upgrade_button" type="TextureButton" parent="."]
+[node name="upgrade_button" type="TextureButton" parent="." unique_id=1741483522]
 material = SubResource("CanvasItemMaterial_fde0l")
 offset_left = -128.0
 offset_top = -29.0
@@ -74,7 +74,7 @@ texture_normal = ExtResource("4_i4y7w")
 texture_pressed = ExtResource("5_qyy8w")
 texture_hover = ExtResource("6_5isid")
 
-[node name="Hibernation_Label" type="Label" parent="."]
+[node name="Hibernation_Label" type="Label" parent="." unique_id=16473371]
 unique_name_in_owner = true
 material = SubResource("CanvasItemMaterial_fde0l")
 offset_left = -144.0

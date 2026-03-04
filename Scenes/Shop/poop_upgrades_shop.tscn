@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ny6ry4ow8hh6"]
+[gd_scene format=3 uid="uid://ny6ry4ow8hh6"]
 
 [ext_resource type="Script" uid="uid://cd8x0mhdf1ce7" path="res://Scripts/poop_upgrades_shop.gd" id="1_cqc40"]
 [ext_resource type="Script" uid="uid://bkpfhetorjjyy" path="res://Scripts/poop_upgrades_camera.gd" id="2_0tpnx"]
@@ -105,15 +105,15 @@ VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_7pu1y")
 VScrollBar/styles/scroll = SubResource("StyleBoxFlat_pfws0")
 VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_y4da1")
 
-[node name="Poop_Upgrades_Shop" type="Node2D"]
+[node name="Poop_Upgrades_Shop" type="Node2D" unique_id=322062918]
 script = ExtResource("1_cqc40")
 
-[node name="poop_upgrades_camera" type="Camera2D" parent="."]
+[node name="poop_upgrades_camera" type="Camera2D" parent="." unique_id=970588833]
 material = SubResource("CanvasItemMaterial_x068d")
 position = Vector2(800, 448)
 script = ExtResource("2_0tpnx")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1991173036]
 z_index = -1
 material = SubResource("CanvasItemMaterial_i3hkm")
 offset_right = 1602.0
@@ -121,7 +121,7 @@ offset_bottom = 904.0
 mouse_filter = 2
 color = Color(0.723013, 0.872939, 0.790702, 1)
 
-[node name="Poop_Up_title" type="Label" parent="."]
+[node name="Poop_Up_title" type="Label" parent="." unique_id=832751126]
 material = SubResource("CanvasItemMaterial_x068d")
 offset_left = -8.0
 offset_top = -48.0
@@ -137,7 +137,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Poop_Up_to_shop" type="TextureButton" parent="."]
+[node name="Poop_Up_to_shop" type="TextureButton" parent="." unique_id=1769814012]
 material = SubResource("CanvasItemMaterial_dw5ih")
 offset_left = 63.0
 offset_top = 762.0
@@ -148,7 +148,7 @@ texture_normal = ExtResource("4_dw5ih")
 texture_pressed = ExtResource("5_wtrjy")
 texture_hover = ExtResource("6_m111p")
 
-[node name="Back_Label" type="Label" parent="."]
+[node name="Back_Label" type="Label" parent="." unique_id=1739975439]
 material = SubResource("CanvasItemMaterial_kv5g2")
 offset_left = 63.0
 offset_top = 762.0
@@ -160,7 +160,7 @@ text = "Back"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." groups=["Scroll"]]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1188109079 groups=["Scroll"]]
 material = SubResource("CanvasItemMaterial_x068d")
 offset_left = 15.0
 offset_top = 197.0
@@ -171,7 +171,7 @@ size_flags_vertical = 3
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1950898255]
 material = SubResource("CanvasItemMaterial_x068d")
 clip_contents = true
 custom_minimum_size = Vector2(0, 600)
@@ -180,7 +180,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource("Theme_bfdaw")
 
-[node name="ScrollContainer" parent="ScrollContainer/VBoxContainer" instance=ExtResource("6_a3iqr")]
+[node name="ScrollContainer" parent="ScrollContainer/VBoxContainer" unique_id=1470178125 instance=ExtResource("6_a3iqr")]
 material = SubResource("CanvasItemMaterial_x068d")
 layout_mode = 2
 

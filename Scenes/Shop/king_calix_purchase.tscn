@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8ys2c1rd83bh"]
+[gd_scene format=3 uid="uid://b8ys2c1rd83bh"]
 
 [ext_resource type="Script" uid="uid://dnoaupffphrvj" path="res://Scripts/king_calix_purchase.gd" id="1_w7ycg"]
 [ext_resource type="Texture2D" uid="uid://y1b7rokrfxd3" path="res://Sprites/Currently Used/KingCalix2.0-Sheet.png" id="2_5vq0v"]
@@ -13,10 +13,10 @@ light_mode = 1
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ixfr6"]
 light_mode = 1
 
-[node name="king_calix_purchase" type="Node2D"]
+[node name="king_calix_purchase" type="Node2D" unique_id=1757090193]
 script = ExtResource("1_w7ycg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=555468966]
 material = SubResource("CanvasItemMaterial_y7qyv")
 position = Vector2(0, -80)
 scale = Vector2(5, 5)
@@ -24,7 +24,7 @@ texture = ExtResource("2_5vq0v")
 hframes = 2
 frame = 1
 
-[node name="Button" type="TextureButton" parent="."]
+[node name="Button" type="TextureButton" parent="." unique_id=67316148]
 material = SubResource("CanvasItemMaterial_ixfr6")
 offset_left = -128.0
 offset_right = -64.0
@@ -34,7 +34,7 @@ texture_normal = ExtResource("3_ixfr6")
 texture_pressed = ExtResource("4_yn1y2")
 texture_hover = ExtResource("5_uol4e")
 
-[node name="Calix_Label" type="Label" parent="."]
+[node name="Calix_Label" type="Label" parent="." unique_id=215396648]
 material = SubResource("CanvasItemMaterial_ixfr6")
 offset_left = -160.0
 offset_right = 160.0

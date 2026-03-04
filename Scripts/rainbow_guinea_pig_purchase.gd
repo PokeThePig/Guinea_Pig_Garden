@@ -17,7 +17,7 @@ func _on_button_pressed():
 
 		var new_pig = guinea_pig_assets.instantiate()
 		get_parent().get_parent().get_node("Garden").add_child(new_pig)
-		new_pig.global_position = Vector2(randf_range(-4300, 3700), randf_range(-2000, 2000))
+		new_pig.global_position = Vector2(randf_range(-500, 500), randf_range(-200, 200))
 		
 		var current_pig = get_tree().get_nodes_in_group("Pig")[-1]
 		Globals.guinea_dictionary["Chroma"] = current_pig.get_instance_id()
@@ -25,9 +25,6 @@ func _on_button_pressed():
 		
 		var new_pig_sprite = new_pig.get_node("Guinea_Pig").get_node("Pig_Sprite")
 		new_pig_sprite.texture = load("res://Sprites/Currently Used/Chroma2.0-Sheet.png")
-		
-		var new_pig_assets = new_pig.get_node("Guinea_Pig")
-		new_pig_assets.set_scale(Vector2(1, 1))
 		
 		$Chroma_Label.text = "SOLD OUT"
 		pig_purchased.emit()

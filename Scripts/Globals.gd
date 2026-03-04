@@ -24,6 +24,9 @@ var hiberation_effect_active = false
 var hibernation_sleep_time = 0
 var hibernation_effect_time = 0
 
+var squeek_chain_purchased = false
+var squeek_chain_value = 0
+
 var rain_or_shine_purchased = false
 var giant_prismatic_purchased = false
 var chroma_prismatic_odds = 1
@@ -36,9 +39,9 @@ var king_poop_dropped = false
 var kings_coronation_active = false
 
 #Poop counts
-var poop_amount = 0
-var diamond_poop_amount = 0
-var prismatic_poop_amount = 0
+var poop_amount = 100000000
+var diamond_poop_amount = 10000000
+var prismatic_poop_amount = 100000000
 
 var currently_raining = false
 var past_scene = null
@@ -46,6 +49,7 @@ var game_loaded = false
 
 #Shop purchases
 var guinea_two_purchased = false
+var butterscotch_purchased = false
 var rich_guinea_purchased = false
 var rainbow_guinea_purchased = false
 var king_calix_purchased = false
@@ -80,11 +84,13 @@ var gold_poop_pig = null
 var golden_poop_dropped = false
 var poop_speed_multiplier = 1
 var max_speed_upgrade = false
-var giant_poop_min = 1
-var giant_poop_max = 1.5
+var giant_poop_min = 3
+var giant_poop_max = 4
 
 #settings
 var master_volume = 0.75
 var music_volume = 0.75
 var sound_effects_volume = 0.75
+var night_cycle = true
+var rain_visible = true
 var auto_save = true

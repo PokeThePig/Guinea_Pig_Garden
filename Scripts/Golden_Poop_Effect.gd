@@ -9,7 +9,7 @@ func _ready():
 	effect_end.connect(get_parent().get_node("Guinea_Pig")._end_golden_poop_effect.bind());
 	music_start.connect(get_parent().get_parent().get_node("Music")._start_gold_song.bind())
 	max_speed_achievement_unlocked.connect(get_parent().get_parent().get_parent().get_node("Achievements_Screen")._max_speed_achievement_unlocked.bind())
-	get_parent().get_node("Guinea_Pig").movespeed = randf_range(5,10)
+	get_parent().get_node("Guinea_Pig").movespeed = randf_range(5,9)
 	music_start.emit()
 	if (Globals.kings_coronation_active == true) and (Globals.gold_poop_pig == instance_from_id(Globals.guinea_dictionary["Calix"])) and (Globals.squeek_frenzy_effect_active == true) and (Globals.poop_frenzy_achievement_completed == false):
 		max_speed_achievement_unlocked.emit()

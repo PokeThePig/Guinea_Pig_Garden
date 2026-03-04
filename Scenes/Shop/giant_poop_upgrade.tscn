@@ -30,7 +30,7 @@ script = ExtResource("1_pajqe")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_3i4vc")
 position = Vector2(2.01948e-28, -112)
-scale = Vector2(0.5, 0.48)
+scale = Vector2(15, 15)
 texture = ExtResource("1_hmpd7")
 
 [node name="giant_poop_upgrade_count" type="Label" parent="."]
@@ -56,8 +56,8 @@ theme = SubResource("Theme_tnwvr")
 theme_override_fonts/font = ExtResource("2_3i4vc")
 theme_override_font_sizes/font_size = 25
 text = "Increases minimum and maximum value of giant poop drops.
-Minimum: [100 > 155]
-Maximum: [225 > 400]"
+Minimum: [300 > 400]
+Maximum: [400 > 600]"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
