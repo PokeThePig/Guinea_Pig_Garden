@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2kke74h1byao"]
+[gd_scene format=3 uid="uid://d2kke74h1byao"]
 
 [ext_resource type="Texture2D" uid="uid://vjm4igbsy0h7" path="res://Sprites/Currently Used/Poop upscale.png" id="1_0rpxe"]
 [ext_resource type="Script" uid="uid://cg3whb2itofun" path="res://Scripts/Giant_poop.gd" id="1_gvwrw"]
@@ -9,37 +9,38 @@
 radius = 8.93752
 height = 33.6483
 
-[node name="giant_poop_drop" type="Node2D" groups=["Giant"]]
+[node name="giant_poop_drop" type="Node2D" unique_id=1484002488 groups=["Giant"]]
 position = Vector2(1153, -822)
 
-[node name="Giant_poop" type="CharacterBody2D" parent="."]
+[node name="Giant_poop" type="CharacterBody2D" parent="." unique_id=746589789]
 z_index = 1
 scale = Vector2(1.26802, 1.30385)
-collision_layer = 8
+collision_layer = 2
+collision_mask = 2
 input_pickable = true
 script = ExtResource("1_gvwrw")
 
-[node name="giant_poop_sprite" type="Sprite2D" parent="Giant_poop"]
+[node name="giant_poop_sprite" type="Sprite2D" parent="Giant_poop" unique_id=118832056]
 scale = Vector2(3, 3)
 texture = ExtResource("1_0rpxe")
 
-[node name="giant_poop_collision" type="CollisionShape2D" parent="Giant_poop"]
+[node name="giant_poop_collision" type="CollisionShape2D" parent="Giant_poop" unique_id=1791015950]
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 shape = SubResource("CapsuleShape2D_jrp5e")
 
-[node name="crush_1" type="AudioStreamPlayer" parent="Giant_poop"]
+[node name="crush_1" type="AudioStreamPlayer" parent="Giant_poop" unique_id=1832069046]
 stream = ExtResource("3_qjqbc")
 volume_db = -15.0
 pitch_scale = 1.5
 bus = &"sfx"
 
-[node name="crush_2" type="AudioStreamPlayer" parent="Giant_poop"]
+[node name="crush_2" type="AudioStreamPlayer" parent="Giant_poop" unique_id=1893751327]
 stream = ExtResource("4_5kbv7")
 volume_db = -5.0
 bus = &"sfx"
 
-[node name="decay_timer" type="Timer" parent="Giant_poop"]
+[node name="decay_timer" type="Timer" parent="Giant_poop" unique_id=1524497989]
 wait_time = 1800.0
 autostart = true
 

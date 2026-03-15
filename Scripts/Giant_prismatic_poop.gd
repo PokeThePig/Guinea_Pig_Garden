@@ -50,7 +50,7 @@ func _input(event):
 				else:
 					print("Prismatic giant popped")
 					giant_poop_crushed.emit()
-					var giant_poop_amount = round(giant_poop_size.x * 25)
+					var giant_poop_amount = int(giant_poop_size.x * 25)
 					Globals.prismatic_poop_amount += giant_poop_amount
 					queue_free()
 

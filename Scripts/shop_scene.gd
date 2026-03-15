@@ -6,6 +6,7 @@ signal garden_cam
 signal poop_up_cam
 signal poop_types_cam
 signal guinea_pigs_cam
+signal cleanup_cam
 signal all_guinea_pigs_purchased
 
 func _ready():
@@ -13,6 +14,7 @@ func _ready():
 	garden_cam.connect(get_parent().get_node("Garden").get_node("garden_camera")._switch_to_garden_cam.bind())
 	poop_types_cam.connect(get_parent().get_node("Poop_Types_Shop").get_node("poop_types_camera")._switch_to_poop_types_cam.bind())
 	guinea_pigs_cam.connect(get_parent().get_node("guinea_pigs_shop").get_node("guinea_pigs_shop_cam")._switch_to_guinea_shop_cam.bind())
+	cleanup_cam.connect(get_parent().get_node("cleanup_upgrades_shop").get_node("cleanup_camera")._switch_to_cleanup_cam.bind())
 	all_guinea_pigs_purchased.connect(get_parent().get_node("Achievements_Screen")._all_pigs_achievement_unlocked.bind())
 
 func _on_back_to_garden_pressed():
@@ -26,6 +28,10 @@ func _on_go_poop_types_pressed():
 
 func _on_go_guinea_shop_pressed():
 	guinea_pigs_cam.emit()
+
+func _on_go_cleanup_upgrades_pressed() -> void:
+	cleanup_cam.emit()
+	
 
 func _item_purchased():
 	$Purchase_sound_effect.play()
@@ -43,21 +49,29 @@ func _on_back_to_garden_button_up() -> void:
 
 
 func _on_go_poop_upgrades_button_down() -> void:
-	$Poop_Upgrades_Label.position = Vector2(264, 472)
+	$Poop_Upgrades_Label.position = Vector2(864, 472)
 
 func _on_go_poop_upgrades_button_up() -> void:
-	$Poop_Upgrades_Label.position = Vector2(264, 464)
+	$Poop_Upgrades_Label.position = Vector2(864, 464)
 
 
 func _on_go_poop_types_button_down() -> void:
-	$Poop_Types_Label.position = Vector2(680, 472)
+	$Poop_Types_Label.position = Vector2(496, 472)
 
 func _on_go_poop_types_button_up() -> void:
-	$Poop_Types_Label.position = Vector2(680, 464)
+	$Poop_Types_Label.position = Vector2(496, 464)
 
 
 func _on_go_guinea_shop_button_down() -> void:
-	$Guinea_Pigs_Label.position = Vector2(1096, 472)
+	$Guinea_Pigs_Label.position = Vector2(128, 472)
 
 func _on_go_guinea_shop_button_up() -> void:
-	$Guinea_Pigs_Label.position = Vector2(1096, 464)
+	$Guinea_Pigs_Label.position = Vector2(128, 464)
+
+
+func _on_go_cleanup_upgrades_button_down() -> void:
+	$Cleanup_Upgrade_Label.position = Vector2(1232, 472)
+
+
+func _on_go_cleanup_upgrades_button_up() -> void:
+	$Cleanup_Upgrade_Label.position = Vector2(1232, 464)

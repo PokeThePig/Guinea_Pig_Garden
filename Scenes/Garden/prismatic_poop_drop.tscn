@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cekp2pep3wjd3"]
+[gd_scene format=3 uid="uid://cekp2pep3wjd3"]
 
 [ext_resource type="Texture2D" uid="uid://bwe1uq2bjbxfd" path="res://Sprites/Currently Used/Prismatic_Poop_Upscaled-Sheet.png" id="1_3squp"]
 [ext_resource type="Script" uid="uid://cdvpc3flexru" path="res://Scripts/Prismatic_Poop_Drop.gd" id="1_4ro8u"]
@@ -56,29 +56,28 @@ _data = {
 &"prismatic_poop_animation": SubResource("Animation_7s4mq")
 }
 
-[node name="prismatic_poop_drop" type="Node2D"]
+[node name="prismatic_poop_drop" type="Node2D" unique_id=2140760676]
 
-[node name="Prismatic_Poop" type="CharacterBody2D" parent="."]
+[node name="Prismatic_Poop" type="CharacterBody2D" parent="." unique_id=216054563]
 z_index = 1
-collision_layer = 9
+collision_layer = 2
+collision_mask = 2
 input_pickable = true
 script = ExtResource("1_4ro8u")
 
-[node name="Sprite2D" type="Sprite2D" parent="Prismatic_Poop"]
+[node name="Sprite2D" type="Sprite2D" parent="Prismatic_Poop" unique_id=1751729341]
 texture = ExtResource("1_3squp")
 hframes = 7
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Prismatic_Poop"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Prismatic_Poop" unique_id=1402083344]
 light_mask = 8
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_xdrek")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Prismatic_Poop"]
-libraries = {
-&"": SubResource("AnimationLibrary_yiuoj")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Prismatic_Poop" unique_id=701668030]
+libraries/ = SubResource("AnimationLibrary_yiuoj")
 
-[node name="decay_timer" type="Timer" parent="Prismatic_Poop"]
+[node name="decay_timer" type="Timer" parent="Prismatic_Poop" unique_id=248323226]
 wait_time = 900.0
 autostart = true
 

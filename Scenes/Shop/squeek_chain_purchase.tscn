@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b83w21nqout1q"]
 
-[ext_resource type="Script" uid="uid://bhherldx8u7yy" path="res://squeek_chain_purchase.gd" id="1_gj2yy"]
-[ext_resource type="Texture2D" uid="uid://nr4e6xpehc83" path="res://Sprites/Currently Used/Butterscotch-Right-Sheet.png" id="2_gj2yy"]
+[ext_resource type="Script" uid="uid://bhherldx8u7yy" path="res://Scripts/squeek_chain_purchase.gd" id="1_gj2yy"]
+[ext_resource type="Texture2D" uid="uid://d0g0ahf1q2q8m" path="res://Sprites/Currently Used/Squeek Chain.png" id="2_gj2yy"]
 [ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="3_li3gb"]
 [ext_resource type="Texture2D" uid="uid://2d5q3hryfya8" path="res://Sprites/Currently Used/Big-Purchase-Button.png" id="4_lisyk"]
 [ext_resource type="Texture2D" uid="uid://88vc0343ovqn" path="res://Sprites/Currently Used/Big-Purchase-Pressed.png" id="5_5xmxt"]
@@ -27,10 +27,9 @@ script = ExtResource("1_gj2yy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=990480006]
 material = SubResource("CanvasItemMaterial_xoy1l")
-position = Vector2(0, -109)
+position = Vector2(0, -125.00001)
 scale = Vector2(5, 5)
 texture = ExtResource("2_gj2yy")
-hframes = 2
 
 [node name="squeek_chain_count" type="Label" parent="." unique_id=1397789225]
 material = SubResource("CanvasItemMaterial_xoy1l")
@@ -47,10 +46,10 @@ horizontal_alignment = 1
 [node name="squeek_chain_description" type="Label" parent="." unique_id=980957688]
 visible = false
 material = SubResource("CanvasItemMaterial_xoy1l")
-offset_left = -152.0
-offset_top = -181.0
-offset_right = 152.0
-offset_bottom = -43.0
+offset_left = -144.0
+offset_top = -205.0
+offset_right = 144.0
+offset_bottom = -45.0
 theme = SubResource("Theme_y027w")
 theme_override_fonts/font = ExtResource("3_li3gb")
 theme_override_font_sizes/font_size = 26

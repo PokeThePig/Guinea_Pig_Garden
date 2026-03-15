@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdl2mibmu1617"]
+[gd_scene format=3 uid="uid://cdl2mibmu1617"]
 
 [ext_resource type="Script" uid="uid://b57pnwvfe4m0x" path="res://Scripts/Giant_prismatic_poop.gd" id="1_e6yfg"]
 [ext_resource type="Texture2D" uid="uid://bwe1uq2bjbxfd" path="res://Sprites/Currently Used/Prismatic_Poop_Upscaled-Sheet.png" id="2_bmkqm"]
@@ -45,41 +45,40 @@ _data = {
 &"giant_prismatic_animation": SubResource("Animation_nvoqh")
 }
 
-[node name="giant_prismatic_poop" type="Node2D"]
+[node name="giant_prismatic_poop" type="Node2D" unique_id=1811576032]
 
-[node name="Giant_prismatic_poop" type="CharacterBody2D" parent="."]
+[node name="Giant_prismatic_poop" type="CharacterBody2D" parent="." unique_id=366090366]
 z_index = 1
 scale = Vector2(1.26802, 1.30385)
-collision_layer = 8
+collision_layer = 2
+collision_mask = 2
 input_pickable = true
 script = ExtResource("1_e6yfg")
 
-[node name="giant_prismatic_poop_sprite" type="Sprite2D" parent="Giant_prismatic_poop"]
+[node name="giant_prismatic_poop_sprite" type="Sprite2D" parent="Giant_prismatic_poop" unique_id=1887866613]
 position = Vector2(1.1920929e-07, 2.9802322e-08)
 scale = Vector2(3, 2.836)
 texture = ExtResource("2_bmkqm")
 hframes = 7
 
-[node name="giant_poop_collision" type="CollisionShape2D" parent="Giant_prismatic_poop"]
+[node name="giant_poop_collision" type="CollisionShape2D" parent="Giant_prismatic_poop" unique_id=1439511892]
 position = Vector2(0, 3.637979e-12)
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 shape = SubResource("CapsuleShape2D_kx4wg")
 
-[node name="crush_1" type="AudioStreamPlayer" parent="Giant_prismatic_poop"]
+[node name="crush_1" type="AudioStreamPlayer" parent="Giant_prismatic_poop" unique_id=1608528222]
 stream = ExtResource("3_hsgmt")
 volume_db = -5.0
 pitch_scale = 1.5
 bus = &"sfx"
 
-[node name="decay_timer" type="Timer" parent="Giant_prismatic_poop"]
+[node name="decay_timer" type="Timer" parent="Giant_prismatic_poop" unique_id=1841609113]
 wait_time = 1800.0
 autostart = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Giant_prismatic_poop"]
-libraries = {
-&"": SubResource("AnimationLibrary_4yh2y")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Giant_prismatic_poop" unique_id=696358864]
+libraries/ = SubResource("AnimationLibrary_4yh2y")
 
 [connection signal="input_event" from="Giant_prismatic_poop" to="Giant_prismatic_poop" method="_on_input_event"]
 [connection signal="mouse_entered" from="Giant_prismatic_poop" to="Giant_prismatic_poop" method="_on_mouse_entered"]

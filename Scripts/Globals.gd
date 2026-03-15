@@ -13,6 +13,8 @@ var giant_poop_upgrade_maximum = 0
 
 var upgrade_dictionary = {"Bella": []}
 
+var cleanup_upgrades = [3, 5, 5, 3]
+
 #Unique upgrades
 var squeek_frenzy_purchased = false
 var squeek_frenzy_effect_active = false
@@ -37,6 +39,13 @@ var copper_poop_value = 1
 var kings_coronation_purchased = false
 var king_poop_dropped = false
 var kings_coronation_active = false
+
+
+#Collection upgrades
+var magnetic_cursor_unlocked = false
+var magnetic_cursor_size = 50.0
+var magnetic_cursor_speed = 100
+
 
 #Poop counts
 var poop_amount = 100000000

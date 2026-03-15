@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://dr7sjexxm720m"]
+
+[ext_resource type="Script" uid="uid://bq1l4ueel8qon" path="res://Scripts/magnetic_mouse_purchase.gd" id="1_8yj27"]
+[ext_resource type="Texture2D" uid="uid://cpg4w5qbslpgn" path="res://Sprites/Currently Used/Magnetic Cursor.png" id="2_8yj27"]
+[ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="3_7w6sd"]
+[ext_resource type="Texture2D" uid="uid://c5du35lcbfdx7" path="res://Sprites/Currently Used/Purchase-Button.png" id="4_xqw7k"]
+[ext_resource type="Texture2D" uid="uid://d0t5pyqj43o62" path="res://Sprites/Currently Used/Purchase-Pressed.png" id="5_cwlnl"]
+[ext_resource type="Texture2D" uid="uid://ci857tfpxitjg" path="res://Sprites/Currently Used/Purchase-Hover.png" id="6_ubrjk"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_b8p3o"]
+light_mode = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7y47a"]
+bg_color = Color(0.882353, 0.882353, 0.882353, 0.854902)
+
+[sub_resource type="Theme" id="Theme_wdctd"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/fonts/font = null
+Label/styles/normal = SubResource("StyleBoxFlat_7y47a")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xbmw2"]
+light_mode = 1
+
+[node name="Magnetic_Cursor_Purchase" type="Node2D" unique_id=882854328]
+script = ExtResource("1_8yj27")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=364153833]
+material = SubResource("CanvasItemMaterial_b8p3o")
+position = Vector2(0, -96)
+scale = Vector2(6, 6)
+texture = ExtResource("2_8yj27")
+
+[node name="magnetic_count" type="Label" parent="." unique_id=673654707]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_b8p3o")
+offset_left = -24.0
+offset_top = 112.0
+offset_right = 24.0
+offset_bottom = 138.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_7w6sd")
+theme_override_font_sizes/font_size = 32
+text = "0/3"
+horizontal_alignment = 1
+
+[node name="magnetic_description" type="Label" parent="." unique_id=1761456568]
+visible = false
+material = SubResource("CanvasItemMaterial_b8p3o")
+offset_left = -136.0
+offset_top = -160.0
+offset_right = 136.0
+offset_bottom = -32.0
+theme = SubResource("Theme_wdctd")
+theme_override_fonts/font = ExtResource("3_7w6sd")
+theme_override_font_sizes/font_size = 22
+text = "Cursor is able to pull in poop from a distance
+(Excludes gold and king poops)
+[50px]
+[100px/s]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="upgrade_button" type="TextureButton" parent="." unique_id=1986659944]
+material = SubResource("CanvasItemMaterial_xbmw2")
+offset_left = -128.0
+offset_right = -64.0
+offset_bottom = 24.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("4_xqw7k")
+texture_pressed = ExtResource("5_cwlnl")
+texture_hover = ExtResource("6_ubrjk")
+
+[node name="magnetic_label" type="Label" parent="." unique_id=491805231]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_xbmw2")
+offset_left = -128.0
+offset_right = 128.0
+offset_bottom = 80.0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_7w6sd")
+theme_override_font_sizes/font_size = 32
+text = "Magnetic Cursor
+1000 Poop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="upgrade_button" to="." method="_on_upgrade_button_button_down"]
+[connection signal="button_up" from="upgrade_button" to="." method="_on_upgrade_button_button_up"]
+[connection signal="mouse_entered" from="upgrade_button" to="." method="_on_upgrade_button_mouse_entered"]
+[connection signal="mouse_exited" from="upgrade_button" to="." method="_on_upgrade_button_mouse_exited"]
+[connection signal="pressed" from="upgrade_button" to="." method="_on_upgrade_button_pressed"]

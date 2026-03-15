@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://iol5k0135gw3"]
+
+[ext_resource type="Script" uid="uid://bfp7b6lxq8ref" path="res://Scripts/cleanup_upgrades_shop.gd" id="1_fu107"]
+[ext_resource type="Script" uid="uid://dospoq74pjo08" path="res://Scripts/cleanup_camera.gd" id="2_2vt4d"]
+[ext_resource type="PackedScene" uid="uid://dr7sjexxm720m" path="res://Scenes/Shop/magnetic_mouse_purchase.tscn" id="2_8nbor"]
+[ext_resource type="Texture2D" uid="uid://dr6d35t605qdo" path="res://Sprites/Currently Used/Gray-Button.png" id="3_x3boo"]
+[ext_resource type="Texture2D" uid="uid://byq4lad2t8hyh" path="res://Sprites/Currently Used/Gray-Pressed.png" id="4_b6ayk"]
+[ext_resource type="Script" uid="uid://ctao8wcybfj67" path="res://Scripts/Shop_poop_count.gd" id="4_fq3lx"]
+[ext_resource type="Script" uid="uid://clthccpvplkij" path="res://Scripts/Shop_diamond_poop_count.gd" id="5_01xd1"]
+[ext_resource type="Texture2D" uid="uid://cgts2eu7b1vvi" path="res://Sprites/Currently Used/Gray-Hover.png" id="5_8nbor"]
+[ext_resource type="FontFile" uid="uid://tcbfhi2f14ax" path="res://m5x7.ttf" id="6_fq3lx"]
+[ext_resource type="Script" uid="uid://bissaklxbm2fl" path="res://Scripts/Shop_prismatic_poop_count.gd" id="6_m3p8e"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mb3fj"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7tuiw"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_01xd1"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_m3p8e"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4v4f7"]
+light_mode = 1
+
+[node name="cleanup_upgrades_shop" type="Node2D" unique_id=124145698]
+script = ExtResource("1_fu107")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1564462535]
+z_index = -1
+material = SubResource("CanvasItemMaterial_mb3fj")
+offset_right = 1602.0
+offset_bottom = 904.0
+mouse_filter = 2
+color = Color(0.78997266, 0.99999994, 0.99497145, 1)
+
+[node name="Magnetic_Cursor_Purchase" parent="." unique_id=882854328 instance=ExtResource("2_8nbor")]
+position = Vector2(296, 488)
+
+[node name="Cleanup_Title" type="Label" parent="." unique_id=1261446262]
+material = SubResource("CanvasItemMaterial_7tuiw")
+offset_top = 24.0
+offset_right = 1602.0
+offset_bottom = 282.0
+theme_override_colors/font_color = Color(0.5127162, 0.97270924, 0.86460215, 1)
+theme_override_colors/font_outline_color = Color(0.2583257, 0.6094757, 0.56220895, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("6_fq3lx")
+theme_override_font_sizes/font_size = 200
+text = "Cleanup Upgrades"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Poop_Type_Count" type="Label" parent="." unique_id=1208698040]
+material = SubResource("CanvasItemMaterial_7tuiw")
+offset_left = 640.0
+offset_top = 616.0
+offset_right = 960.0
+offset_bottom = 787.0
+theme_override_colors/font_color = Color(0.898039, 0.662745, 0.47451, 1)
+theme_override_colors/font_outline_color = Color(0.458824, 0.290196, 0.145098, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_fq3lx")
+theme_override_font_sizes/font_size = 80
+text = "Poop Count:"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_fq3lx")
+
+[node name="Poop_Type_Diamond" type="Label" parent="." unique_id=692715304]
+material = SubResource("CanvasItemMaterial_7tuiw")
+offset_left = 536.0
+offset_top = 696.0
+offset_right = 1066.0
+offset_bottom = 867.0
+theme_override_colors/font_color = Color(0.439216, 0.615686, 1, 1)
+theme_override_colors/font_outline_color = Color(0.00392157, 0, 0.541176, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_fq3lx")
+theme_override_font_sizes/font_size = 80
+text = "Diamond Poop Count:"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_01xd1")
+
+[node name="Poop_Type_Prismatic" type="Label" parent="." unique_id=363748012]
+material = SubResource("CanvasItemMaterial_7tuiw")
+offset_left = 520.0
+offset_top = 776.0
+offset_right = 1080.0
+offset_bottom = 947.0
+theme_override_colors/font_color = Color(0.941176, 0.411765, 0.698039, 1)
+theme_override_colors/font_outline_color = Color(0.666667, 0.113725, 0.454902, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_fq3lx")
+theme_override_font_sizes/font_size = 80
+text = "Prismatic Poop Count:"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_m3p8e")
+
+[node name="cleanup_camera" type="Camera2D" parent="." unique_id=1851427840]
+material = SubResource("CanvasItemMaterial_01xd1")
+position = Vector2(801, 454)
+script = ExtResource("2_2vt4d")
+
+[node name="Cleanup_to_shop" type="TextureButton" parent="." unique_id=1639791026]
+material = SubResource("CanvasItemMaterial_m3p8e")
+offset_left = 64.0
+offset_top = 768.0
+offset_right = 128.0
+offset_bottom = 792.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("3_x3boo")
+texture_pressed = ExtResource("4_b6ayk")
+texture_hover = ExtResource("5_8nbor")
+
+[node name="Back_Label" type="Label" parent="." unique_id=805304592]
+material = SubResource("CanvasItemMaterial_4v4f7")
+offset_left = 64.0
+offset_top = 768.0
+offset_right = 256.0
+offset_bottom = 824.0
+theme_override_fonts/font = ExtResource("6_fq3lx")
+theme_override_font_sizes/font_size = 48
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="Cleanup_to_shop" to="." method="_on_cleanup_to_shop_button_down"]
+[connection signal="button_up" from="Cleanup_to_shop" to="." method="_on_cleanup_to_shop_button_up"]
+[connection signal="pressed" from="Cleanup_to_shop" to="." method="_on_cleanup_to_shop_pressed"]

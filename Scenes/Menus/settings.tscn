@@ -32,7 +32,7 @@ script = ExtResource("1_nkmh8")
 material = SubResource("CanvasItemMaterial_0hoxr")
 offset_top = -64.0
 offset_right = 1608.0
-offset_bottom = 836.0
+offset_bottom = 904.0
 color = Color(0.223103, 0.223103, 0.223103, 1)
 
 [node name="Paused_text" type="Label" parent="." unique_id=1063140178]

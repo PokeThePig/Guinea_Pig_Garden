@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://phawwa3id263"]
+[gd_scene format=3 uid="uid://phawwa3id263"]
 
 [ext_resource type="Script" uid="uid://b0x2advmaq0ct" path="res://Scripts/golden_poop_drop.gd" id="1_gcg5x"]
 [ext_resource type="Texture2D" uid="uid://vis65ubgcjss" path="res://Sprites/Currently Used/Gold Poop-Sheet.png" id="2_70oac"]
@@ -48,31 +48,30 @@ _data = {
 &"poop_sparkle": SubResource("Animation_ph82p")
 }
 
-[node name="GoldenPoopDrop" type="CharacterBody2D" groups=["Persist"]]
+[node name="GoldenPoopDrop" type="CharacterBody2D" unique_id=1456265339 groups=["Persist"]]
 z_index = 1
-collision_layer = 8
+collision_layer = 2
+collision_mask = 2
 input_pickable = true
 script = ExtResource("1_gcg5x")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2113788004]
 texture = ExtResource("2_70oac")
 hframes = 7
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1809864378]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_jvfju")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_kcuwr")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=738670287]
+libraries/ = SubResource("AnimationLibrary_kcuwr")
 
-[node name="effect_duration" type="Timer" parent="."]
+[node name="effect_duration" type="Timer" parent="." unique_id=1289719072]
 wait_time = 10.0
 one_shot = true
 autostart = true
 
-[node name="decay_timer" type="Timer" parent="."]
+[node name="decay_timer" type="Timer" parent="." unique_id=1539284064]
 wait_time = 900.0
 autostart = true
 
